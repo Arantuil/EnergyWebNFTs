@@ -1,4 +1,4 @@
-![logo](https://user-images.githubusercontent.com/67122764/177218239-358bfe2a-ce08-43c9-b63a-99ae4a54a11e.png)
+![gewggh](https://user-images.githubusercontent.com/67122764/177218297-703745a2-5090-4904-968c-89b252508ccc.png)
 # Energy Web NFTs
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
