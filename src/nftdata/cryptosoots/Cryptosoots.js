@@ -1,5 +1,5 @@
 import { useQuery, gql } from "@apollo/client";
-import { susuprice } from '../../components/Header';
+import { ewtprice } from '../../components/Header';
 
 const PRICESUSUEWT = gql`
 query cryptosoots {
@@ -45,7 +45,7 @@ function Cryptosoots() {
     if (loading) return;
     if (error) return <pre>{error.message}</pre>
     
-    console.log(susuprice)
+    console.log(ewtprice)
     
     var sellorders = data["sellOrders"]
     for(const key of Object.keys(sellorders)) {

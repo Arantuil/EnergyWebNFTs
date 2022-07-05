@@ -1,6 +1,8 @@
 import Header from './components/Header';
 import Home from './components/Home';
 import Exchanges from './components/Exchanges';
+import PageNotFound from './components/PageNotFound';
+import NftPage from './components/NftPage';
 import React from "react";
 import {
     BrowserRouter as Router,
@@ -26,6 +28,8 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/exchanges" element={<Exchanges />} />
+                <Route exact path="/404" element={<PageNotFound />} />
+                <Route path='/nft/:id' element={<NftPage />}></Route>
             </Routes>
         </Router>
     );
