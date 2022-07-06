@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+//import React, { useState, useEffect } from 'react';
 import NFTdata from './NFTdata.json';
 
 const NftPage = () => {

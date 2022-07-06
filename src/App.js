@@ -5,6 +5,7 @@ import PageNotFound from './components/PageNotFound';
 import NftPage from './components/NftPage';
 import React from "react";
 import {
+    Navigate,
     BrowserRouter as Router,
     Routes,
     Route
@@ -28,8 +29,8 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/exchanges" element={<Exchanges />} />
-                <Route exact path="/404" element={<PageNotFound />} />
-                <Route path='/nft/:id' element={<NftPage />}></Route>
+                <Route path='/nft/:id' element={<NftPage />} />
+                <Route path='*' element={<PageNotFound/>} />
             </Routes>
         </Router>
     );

@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import NFTdata from './NFTdata.json'
 import { Link } from 'react-router-dom';
+var slugify = require('slugify')
+//import GetNFTdata from './GetNFTdata;'
 
 //import Cryptosoots from '../nftdata/cryptosoots/Cryptosoots';
 //import { AiOutlineCaretDown, AiOutlineCaretUp } from 'react-icons/ai';
 
 
 function Table() {
-    console.log(NFTdata)
-
     NFTdata = NFTdata.sort((a,b) => b.marketcap - a.marketcap);
     for (var i in NFTdata){
         NFTdata[i]["rank"] = i+++1
@@ -76,26 +76,24 @@ function Table() {
             }
         }
     }
-        
-    //var sorticon = document.getElementById('sorticon')
 
     return (
         <table className="table-auto w-full text-textprimary dark:text-darktextprimary transition-all">
             <thead>
                 <tr>
-                    <th className='text-left'><div className='flex flex-row'><p>Rank</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={()=>sorting("rank")} className='rankbutton1 button brightness-[50%] relative bottom-1 h-[5px] w-[10px]'>▲</button><button onClick={()=>sorting("rank")} className='rankbutton2 button brightness-[50%] h-[5px] w-[10px]'>▼</button></div></div></th>
-                    <th className='text-left'><div className='flex flex-row'><p>NFT Name</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={()=>sorting("name")} className='namebutton1 button brightness-[50%] relative bottom-1 h-[5px] w-[10px]'>▲</button><button onClick={()=>sorting("name")} className='namebutton2 button brightness-[50%] h-[5px] w-[10px]'>▼</button></div></div></th>
-                    <th className='text-left'><div className='flex flex-row'><p>Floorprice</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={()=>sorting("price")} className='pricebutton1 button brightness-[50%] relative bottom-1 h-[5px] w-[10px]'>▲</button><button onClick={()=>sorting("price")} className='pricebutton2 button brightness-[50%] h-[5px] w-[10px]'>▼</button></div></div></th>
-                    <th className='text-left'><div className='flex flex-row'><p>Marketcap</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={()=>sorting("marketcap")} className='marketcapbutton1 button brightness-[50%] relative bottom-1 h-[5px] w-[10px]'>▲</button><button onClick={()=>sorting("marketcap")} className='marketcapbutton2 button brightness-[50%] h-[5px] w-[10px]'>▼</button></div></div></th>
+                    <th className='text-left'><div className='flex flex-row'><p>Rank</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={()=>sorting("rank")} className='rankbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={()=>sorting("rank")} className='rankbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
+                    <th className='text-left'><div className='flex flex-row'><p>NFT Name</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={()=>sorting("name")} className='namebutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={()=>sorting("name")} className='namebutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
+                    <th className='text-left'><div className='flex flex-row'><p>Floorprice</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={()=>sorting("price")} className='pricebutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={()=>sorting("price")} className='pricebutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
+                    <th className='text-left'><div className='flex flex-row'><p>Marketcap</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={()=>sorting("marketcap")} className='marketcapbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={()=>sorting("marketcap")} className='marketcapbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                 </tr>
             </thead>
             <tbody>
-                { data.map((d)=>(
-                    <tr key={d.id}>
-                        <td>{d.rank}</td>
-                        <td><Link to={`/nft/${d.name}`}>{d.name}</Link></td>
-                        <td>{d.price}</td>
-                        <td>{d.marketcap}</td>
+                { data.map((index)=>(
+                    <tr key={index.id}>
+                        <td>{index.rank}</td>
+                        <td><Link to={`/nft/${(slugify(index.name, '_'))}`}>{index.name}</Link></td>
+                        <td>{index.price}</td>
+                        <td>{index.marketcap}</td>
                     </tr>
                 ))}
             </tbody>
