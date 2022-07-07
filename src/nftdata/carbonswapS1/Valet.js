@@ -1,8 +1,8 @@
 import { useQuery, gql } from "@apollo/client";
-import { ewtprice } from '../../components/Header';
+//import { ewtprice } from '../../components/Header';
 
-const PRICESUSUEWT = gql`
-query cryptosoots {
+var querynftdata = gql`
+query {
 _meta {
     block {
         number
@@ -39,24 +39,21 @@ sellOrders: orders(where: {active: true, sellAsset_starts_with: "0x79bd1e42ca16e
 }
 `
 
-function Cryptosoots() {
-    const { data, loading, error } = useQuery(PRICESUSUEWT);
+function Valet() {
+    const { data, loading, error } = useQuery(querynftdata);
 
     if (loading) return;
     if (error) return <pre>{error.message}</pre>
-    
-    console.log(ewtprice)
     
     var sellorders = data["sellOrders"]
     for(const key of Object.keys(sellorders)) {
         console.log(sellorders[`${key}`]["strategy"]["askPerUnitNominator"])
         console.log(sellorders[`${key}`]["buyAsset"]["assetAddress"])
     }
-    //console.log(Object.values(pricelist))
 
     return (
         null
     );
 }
 
-export default Cryptosoots;
+export default Valet;

@@ -1,7 +1,21 @@
 import { useQuery, gql } from "@apollo/client";
+import Valet from '../nftdata/carbonswapS1/Valet';
 
-const PRICESUSUEWT = gql`
-query cryptosoots {
+const listofnfts = [
+"0xf88735fe03b6d3a8f3ca7eda166d2e71dd54452a-1",
+"0xf88735fe03b6d3a8f3ca7eda166d2e71dd54452a-2",
+"0xf88735fe03b6d3a8f3ca7eda166d2e71dd54452a-3",
+"0xf88735fe03b6d3a8f3ca7eda166d2e71dd54452a-4",
+"0xf88735fe03b6d3a8f3ca7eda166d2e71dd54452a-5",
+"0xf88735fe03b6d3a8f3ca7eda166d2e71dd54452a-6",
+"0xf88735fe03b6d3a8f3ca7eda166d2e71dd54452a-7",
+"0xf88735fe03b6d3a8f3ca7eda166d2e71dd54452a-8",
+"0xf88735fe03b6d3a8f3ca7eda166d2e71dd54452a-9",
+"0xf88735fe03b6d3a8f3ca7eda166d2e71dd54452a-10"
+]
+
+var querynftdata = gql`
+query {
 _meta {
     block {
         number
@@ -39,14 +53,16 @@ sellOrders: orders(where: {active: true, sellAsset_starts_with: "0x79bd1e42ca16e
 `
 
 const GetNFTdata = () => {
-    const { data, loading, error } = useQuery(PRICESUSUEWT);
+    const { data, loading, error } = useQuery(querynftdata);
 
     if (loading) return;
     if (error) return <pre>{error.message}</pre>
     console.log(data)
 
+    console.log(Valet["data"])
+
     return ( 
-        null
+        <Valet.data/>
     );
 }
 

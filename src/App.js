@@ -1,11 +1,11 @@
 import Header from './components/Header';
 import Home from './components/Home';
-import Exchanges from './components/Exchanges';
+import Markets from './components/Markets';
 import PageNotFound from './components/PageNotFound';
 import NftPage from './components/NftPage';
+import Footer from './components/Footer';
 import React from "react";
 import {
-    Navigate,
     BrowserRouter as Router,
     Routes,
     Route
@@ -28,10 +28,11 @@ export default function App() {
             </ApolloProvider>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/exchanges" element={<Exchanges />} />
+                <Route path="/markets" element={<Markets />} />
                 <Route path='/nft/:id' element={<NftPage />} />
-                <Route path='*' element={<PageNotFound/>} />
+                <Route path='*' element={<PageNotFound />} />
             </Routes>
+                <Footer/>
         </Router>
     );
 }

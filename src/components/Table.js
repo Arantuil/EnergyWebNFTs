@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import NFTdata from './NFTdata.json'
 import { Link } from 'react-router-dom';
+//import GetNFTdata from './GetNFTdata';
+import Valet from '../nftdata/carbonswapS1/Valet';
+import NumberFormat from 'react-number-format';
 var slugify = require('slugify')
+
 //import GetNFTdata from './GetNFTdata;'
 
 //import Cryptosoots from '../nftdata/cryptosoots/Cryptosoots';
@@ -9,6 +13,8 @@ var slugify = require('slugify')
 
 
 function Table() {
+    console.log(Valet.data)
+
     NFTdata = NFTdata.sort((a,b) => b.marketcap - a.marketcap);
     for (var i in NFTdata){
         NFTdata[i]["rank"] = i+++1
@@ -47,7 +53,7 @@ function Table() {
                 sorticon2[0].style.filter = 'brightness(100%)';
             }
         }
-        else {
+        else if (col === "name") {
             if (order === "ASC"){
                 const sorted = [...data].sort((a,b)=>
                     a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1
@@ -82,18 +88,24 @@ function Table() {
             <thead>
                 <tr>
                     <th className='text-left'><div className='flex flex-row'><p>Rank</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={()=>sorting("rank")} className='rankbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={()=>sorting("rank")} className='rankbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
+                    <th className='text-left'><div className='flex flex-row'><p>NFT</p></div></th>
                     <th className='text-left'><div className='flex flex-row'><p>NFT Name</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={()=>sorting("name")} className='namebutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={()=>sorting("name")} className='namebutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                     <th className='text-left'><div className='flex flex-row'><p>Floorprice</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={()=>sorting("price")} className='pricebutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={()=>sorting("price")} className='pricebutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
-                    <th className='text-left'><div className='flex flex-row'><p>Marketcap</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={()=>sorting("marketcap")} className='marketcapbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={()=>sorting("marketcap")} className='marketcapbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
+                    <th className='text-left'><div className='flex flex-row'><p>7d %</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={()=>sorting("price7dago")} className='price7dagobutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={()=>sorting("price7dago")} className='price7dagobutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
+                    <th className='text-left'><div className='flex flex-row'><p>Market cap</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={()=>sorting("marketcap")} className='marketcapbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={()=>sorting("marketcap")} className='marketcapbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
+                    <th className='text-left'><div className='flex flex-row'><p>Volume (24h)</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={()=>sorting("volume24h")} className='volume24hbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={()=>sorting("volume24h")} className='volume24button2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                 </tr>
             </thead>
             <tbody>
                 { data.map((index)=>(
                     <tr key={index.id}>
                         <td>{index.rank}</td>
+                        <td><img className='w-[35px] h-[35px]' src={index.image} alt="" /></td>
                         <td><Link to={`/nft/${(slugify(index.name, '_'))}`}>{index.name}</Link></td>
-                        <td>{index.price}</td>
-                        <td>{index.marketcap}</td>
+                        <td><NumberFormat value={index.price} displayType={'text'} thousandSeparator={' '} prefix={'$'} /></td>
+                        <td><NumberFormat value={index.price} displayType={'text'} thousandSeparator={' '} prefix={'$'} /></td>
+                        <td><NumberFormat value={index.marketcap} displayType={'text'} thousandSeparator={' '} prefix={'$'} /></td>
+                        <td><NumberFormat className='volume_element' value={index.marketcap} displayType={'text'} thousandSeparator={' '} prefix={'$'} /></td>
                     </tr>
                 ))}
             </tbody>
