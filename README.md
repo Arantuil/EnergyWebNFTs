@@ -1,30 +1,20 @@
 ![gewggh](https://user-images.githubusercontent.com/67122764/177218297-703745a2-5090-4904-968c-89b252508ccc.png)
 # Energy Web NFTs
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![previewsmall](https://user-images.githubusercontent.com/67122764/177663272-2482ac2b-6f73-439c-8afb-27687617289d.png)
+> Preview image of the home page of the website (data is not dynamic)
 
-## How to use
-
+## 🛠️How to use
 In the project directory, you can run:
 
 ### `npm install`
 ### `npm start`
 
-Runs the app in the development mode.\
+This will run the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### ✨To-do:
+- [ ] Make server that does the graphql queries and gathers data from the other 2 exchanges and combines all that data into a json file, then store that json file on firebase
+- [ ] Dynamic table data based on json data gathered from firebase
+- [ ] Find a fix for the workaround converting between the different currencies
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
