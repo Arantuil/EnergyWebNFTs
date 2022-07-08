@@ -2,7 +2,10 @@ import Table from './Table';
 import FooterHome from '../components/FooterHome';
 import NFTdata from './NFTdata.json';
 import NumberFormat from 'react-number-format';
-//import { useQuery, gql } from "@apollo/client";
+import { db } from '../firebase';
+import { onValue, set, ref } from 'firebase/database';
+import { useEffect, useState } from 'react';
+import useColorChange from "use-color-change"
 
 function Home() {
     const axios = require("axios")
@@ -35,6 +38,7 @@ function Home() {
         susuprice = Number(susuprice) * ewtprice
     })
 
+    /*
     var totalmarketcap = 0
 
     for (let i = 0; i < NFTdata.length; i++) {
@@ -42,6 +46,32 @@ function Home() {
         el = Number(el)
         totalmarketcap += el
     }
+    */
+
+    //const [marketcaptotal, setMarketcaptotal] = useState([])
+
+    const [marketcaptotal, setMarketcaptotal] = useState(0)
+    const colorStyle = useColorChange(marketcaptotal, {
+        higher: 'limegreen',
+        lower: 'crimson',
+        duration: 1800
+    });
+
+    useEffect(() => {
+        onValue(ref(db), snapshot => {
+            const data = snapshot.val();
+
+            if (data !== null) {
+                data.sort((a,b) => b.marketcap - a.marketcap);
+                var total = 0
+                Object.values(data).map((nft) => {
+                    total += Number(nft["marketcap"])
+                    setMarketcaptotal(total)
+                });
+                console.log(total)
+            }
+        });
+    }, []);
 
     window.addEventListener('load', function () {
         document.getElementsByClassName("currencybutton1")[0].disabled = true;
@@ -84,6 +114,9 @@ function Home() {
                 allvolumes3[i].textContent = (allvolumes3[i].textContent).replace(/\D/g,'')
                 allvolumes3[i].textContent = '$'+(numberWithSpaces((Math.round(Number(allvolumes3[i].textContent)/(1/susuprice)))))
             }
+            var marketcap = document.getElementsByClassName('marketcaptotal')
+            marketcap[0].textContent = (marketcap[0].textContent).replace(/\D/g,'')
+            marketcap[0].textContent = '$'+(numberWithSpaces((Math.round(Number(marketcap[0].textContent)/(1/susuprice)))))
         }
         else if (currencystate === 'ewt') {
             var allvolumes4 = document.getElementsByClassName('floorprice_element')
@@ -101,6 +134,9 @@ function Home() {
                 allvolumes6[i].textContent = (allvolumes6[i].textContent).replace(/\D/g,'')
                 allvolumes6[i].textContent = '$'+(numberWithSpaces((Math.round(Number(allvolumes6[i].textContent)*ewtprice))))
             }
+            var marketcap2 = document.getElementsByClassName('marketcaptotal')
+            marketcap2[0].textContent = (marketcap2[0].textContent).replace(/\D/g,'')
+            marketcap2[0].textContent = '$'+(numberWithSpaces((Math.round(Number(marketcap2[0].textContent)*ewtprice))))
         }
         currencystate = 'dollar'
     }
@@ -129,6 +165,9 @@ function Home() {
                 allvolumes9[i].textContent = (allvolumes9[i].textContent).replace(/\D/g,'')
                 allvolumes9[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes9[i].textContent)*(1/susuprice)))))+' SUSU'
             }
+            var marketcap3 = document.getElementsByClassName('marketcaptotal')
+            marketcap3[0].textContent = (marketcap3[0].textContent).replace(/\D/g,'')
+            marketcap3[0].textContent = (numberWithSpaces((Math.round(Number(marketcap3[0].textContent)*(1/susuprice)))))+' SUSU'
         }
         else if (currencystate === 'ewt') {
             var allvolumes10 = document.getElementsByClassName('floorprice_element')
@@ -146,10 +185,9 @@ function Home() {
                 allvolumes12[i].textContent = (allvolumes12[i].textContent).replace(/\D/g,'')
                 allvolumes12[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes12[i].textContent)*(ewtprice/susuprice)))))+' SUSU'
             }
-            var marketcap = document.getElementsByClassName('marketcaptotal')
-            console.log(marketcap)
-            marketcap[0].textContent = (marketcap[0].textContent).replace(/\D/g,'')
-            marketcap[0].textContent = (numberWithSpaces((Math.round(Number(marketcap[0].textContent)*(ewtprice/susuprice)))))+' SUSU'
+            var marketcap4 = document.getElementsByClassName('marketcaptotal')
+            marketcap4[0].textContent = (marketcap4[0].textContent).replace(/\D/g,'')
+            marketcap4[0].textContent = (numberWithSpaces((Math.round(Number(marketcap4[0].textContent)*(ewtprice/susuprice)))))+' SUSU'
         }
         currencystate = 'susu'
     }
@@ -178,6 +216,9 @@ function Home() {
                 allvolumes15[i].textContent = (allvolumes15[i].textContent).replace(/\D/g,'')
                 allvolumes15[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes15[i].textContent)/ewtprice))))+' EWT'
             }
+            var marketcap5 = document.getElementsByClassName('marketcaptotal')
+            marketcap5[0].textContent = (marketcap5[0].textContent).replace(/\D/g,'')
+            marketcap5[0].textContent = (numberWithSpaces((Math.round(Number(marketcap5[0].textContent)/ewtprice))))+' EWT'
         }
         else if (currencystate === 'susu') {
             var allvolumes16 = document.getElementsByClassName('floorprice_element')
@@ -195,6 +236,9 @@ function Home() {
                 allvolumes18[i].textContent = (allvolumes18[i].textContent).replace(/\D/g,'')
                 allvolumes18[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes18[i].textContent)/(ewtprice/susuprice)))))+' EWT'
             }
+            var marketcap6 = document.getElementsByClassName('marketcaptotal')
+            marketcap6[0].textContent = (marketcap6[0].textContent).replace(/\D/g,'')
+            marketcap6[0].textContent = (numberWithSpaces((Math.round(Number(marketcap6[0].textContent)/(ewtprice/susuprice)))))+' EWT'
         }
         currencystate = 'ewt'
     }
@@ -211,7 +255,7 @@ function Home() {
                                         All the price data you need of all the NFTs on the Energy Web Chain these can include art, 
                                         trading cards, profile characters, representations of IRL items, game items, 
                                         RECs, land tiles, and more.</p>
-                                <p className='text-lg my-2'>The combined market cap of all NFTs on the Energy Web chain is: <NumberFormat className='marketcaptotal' value={totalmarketcap} displayType={'text'} thousandSeparator={' '} prefix={'$'} /></p>
+                                <p className='text-lg my-2'>The combined market cap of all NFTs on the Energy Web chain is: <NumberFormat style={colorStyle} className='marketcaptotal' id='totalmarketcapp' value={marketcaptotal} displayType={'text'} thousandSeparator={' '} prefix={'$'} /></p>
                                 <h2 className='text-l'>(If any prices are 0 then that means there are no active sell orders on Greensea for that particular NFT)</h2>
                             </div>
                         </div>

@@ -6,7 +6,7 @@ import NumberFormat from 'react-number-format';
 import { db } from '../firebase';
 import { uid } from 'uid';
 import { onValue, set, ref } from 'firebase/database';
-var slugify = require('slugify')
+import slugify from 'slugify'
 
 function Table() {
     const [nftlist, setNftList] = useState([])
@@ -25,7 +25,8 @@ function Table() {
                 });
             }
         });
-    }, []);
+    }, []);  
+
 
     const [order, setOrder] = useState("ASC")
     const sorting =(col)=> {

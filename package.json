@@ -18,6 +18,8 @@
     "react-scripts": "5.0.1",
     "slugify": "^1.6.5",
     "uid": "^2.0.0",
+    "urql": "^2.2.2",
+    "use-color-change": "^1.0.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
