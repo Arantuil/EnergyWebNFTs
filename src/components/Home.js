@@ -38,18 +38,6 @@ function Home() {
         susuprice = Number(susuprice) * ewtprice
     })
 
-    /*
-    var totalmarketcap = 0
-
-    for (let i = 0; i < NFTdata.length; i++) {
-        var el = NFTdata[i]["marketcap"];
-        el = Number(el)
-        totalmarketcap += el
-    }
-    */
-
-    //const [marketcaptotal, setMarketcaptotal] = useState([])
-
     const [marketcaptotal, setMarketcaptotal] = useState(0)
     const colorStyle = useColorChange(marketcaptotal, {
         higher: 'limegreen',

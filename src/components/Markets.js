@@ -26,7 +26,7 @@ function Markets() {
                                         <p className='text-center flex flex-col text-textprimary dark:text-darktextprimary transition-all'>
                                             <h1><span className='font-bold text-xl'>Name:</span> <span className='text-xl'>Greensea</span></h1>
                                             <h1><span className='font-bold text-xl'>Non-custodial:</span> <span className='text-red-600 text-xl'>No</span></h1>
-                                            <h1><span className='font-bold text-xl'>Fee:</span> <span className='text-xl'>0%</span></h1>
+                                            <h1><span className='font-bold text-xl'>Fee:</span> <span className='text-xl'>1%</span></h1>
                                         </p>
                                     </div>
                                 </div>
@@ -42,7 +42,7 @@ function Markets() {
                                         <p className='text-center flex flex-col text-textprimary dark:text-darktextprimary transition-all'>
                                             <h1><span className='font-bold text-xl'>Name:</span> <span className='text-xl'>Raregems</span></h1>
                                             <h1><span className='font-bold text-xl'>Non-custodial:</span> <span className='text-green-600 text-xl'>Yes</span></h1>
-                                            <h1><span className='font-bold text-xl'>Fee:</span> <span className='text-xl'>0%</span></h1>
+                                            <h1><span className='font-bold text-xl'>Fee:</span> <span className='text-xl'>1%</span></h1>
                                         </p>
                                     </div>
                                 </div>
@@ -58,7 +58,7 @@ function Markets() {
                                         <p className='text-center flex flex-col text-textprimary dark:text-darktextprimary transition-all'>
                                             <h1><span className='font-bold text-xl'>Name:</span> <span className='text-xl'>Carbonjackers</span></h1>
                                             <h1><span className='font-bold text-xl'>Non-custodial:</span> <span className='text-red-600 text-xl'>No</span></h1>
-                                            <h1><span className='font-bold text-xl'>Fee:</span> <span className='text-xl'>0%</span></h1>
+                                            <h1><span className='font-bold text-xl'>Fee:</span> <span className='text-xl'>2.5%</span></h1>
                                         </p>
                                     </div>
                                 </div>

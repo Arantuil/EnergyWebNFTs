@@ -27,7 +27,6 @@ function Table() {
         });
     }, []);  
 
-
     const [order, setOrder] = useState("ASC")
     const sorting =(col)=> {
         if (col === "rank" || col === "price" || col === "marketcap") {

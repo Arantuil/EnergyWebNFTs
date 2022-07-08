@@ -46,7 +46,6 @@ function Footer() {
                         <div className='text-lg font-bold text-textprimary dark:text-darktextprimary transition-all'>
                             {currentblocknumber}
                         </div>
-                        <div className='animate-pulse w-3 h-3 bg-green-500 rounded-full'></div>
                     </div>
                 </div>
             </div>
@@ -55,3 +54,5 @@ function Footer() {
 }
 
 export default Footer;
+
+//<div className='animate-pulse w-3 h-3 bg-green-500 rounded-full'></div>

@@ -46,15 +46,14 @@ function Header() {
                 </div>
                 <div className='w-[70%] sm:w-[48%] h-full mr-2 md:mr-10 flex flex-row-reverse items-center'>
                     <Toggle/>
-                    <div className="m-1 md:m-3 flex flex-row">
+                    <div className="m-1 md:m-2 flex flex-row">
                         <img className="flex my-auto w-6 h-6 mr-2 filter brightness-[90%] dark:brightness-[100%]" src={ewtlogo} alt="" />
                         <p className="flex my-auto text-lg font-bold text-textprimary dark:text-darktextprimary transition-all">${ewtprice}</p>
-                        <div className='animate-pulse w-3 h-3 bg-green-500 rounded-full'></div>
+                        <div id='blinkingicon' className='ml-1 w-4 h-4 rounded-full'></div>
                     </div>
-                    <div className="m-1 md:m-3 flex flex-row">
+                    <div className="m-1 md:m-2 flex flex-row">
                         <img className="flex my-auto w-6 h-6 mr-2 filter brightness-[90%] dark:brightness-[100%]" src={susulogo} alt="" />
                         <p className="flex my-auto text-lg font-bold text-textprimary dark:text-darktextprimary transition-all">${susuprice}</p>
-                        <div className='animate-pulse w-3 h-3 bg-green-500 rounded-full'></div>
                     </div>
                 </div>
             </div>
@@ -63,3 +62,5 @@ function Header() {
 }
 
 export default Header;
+
+// <div className='animate-pulse w-3 h-3 bg-green-500 rounded-full'></div>
