@@ -16,5 +16,5 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 ### ✨To-do:
 - [ ] Make server that does the graphql queries and gathers data from the other 2 exchanges and combines all that data into a json file, then store that json file on firebase
 - [ ] Dynamic table data based on json data gathered from firebase
-- [ ] Find a fix for the workaround converting between the different currencies
+- [x] Find a fix for the workaround converting between the different currencies
 
