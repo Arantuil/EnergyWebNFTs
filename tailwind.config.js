@@ -3,6 +3,11 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {
+      screens: {
+        'np1': '400px',
+        'np2': '500px',
+        'np3': '600px',
+      },
       animation: {
         'pingslow': 'ping 4s cubic-bezier(0, 0, 0.2, 1) infinite'
       },

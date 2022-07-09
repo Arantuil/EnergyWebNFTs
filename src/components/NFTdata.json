@@ -153,7 +153,7 @@
         "id": 10,
         "rank": "unset",
         "image": "/images/CN_1.png",
-        "imageanimated": "/animatedimages/CS1_1.webp",
+        "imageanimated": "/animatedimages/CN_1.webp",
         "name": "Incoming delivery",
         "floorprice": "120",
         "floorpricesevenday": "160",

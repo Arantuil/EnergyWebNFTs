@@ -113,7 +113,7 @@ function Table() {
                         <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><img className='w-[35px] h-[35px]' src={index.image} alt="" /></td>
                         <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><Link to={`/nft/${(slugify(index.name, '_'))}`}>{index.name}</Link></td>
                         <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat className='floorprice_element' value={index.floorprice} displayType={'text'} thousandSeparator={' '} prefix={'$'} /></td>
-                        <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat style={colorStyle} className='sevendaypercentage_element' value={index.floorpricesevenday} displayType={'text'} thousandSeparator={' '} prefix={'$'} /></td>
+                        <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat className='sevendaypercentage_element' value={index.floorpricesevenday} displayType={'text'} thousandSeparator={' '} prefix={'$'} /></td>
                         <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat className='marketcap_element' value={index.marketcap} displayType={'text'} thousandSeparator={' '} prefix={'$'} /></td>
                         <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat className='volumetwentyfourhour_element' value={index.volumetwentyfourhour} displayType={'text'} thousandSeparator={' '} prefix={'$'} /></td>
                     </tr>

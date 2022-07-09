@@ -33,14 +33,14 @@ const FooterHome = () => {
                     The NFT market cap is calculated by multiplying the total number 
                     of NFT's in circulation by its current price.
                 </p>
-                <h1 className='mt-3 font-bold text-2xl text-textprimary dark:text-darktextprimary transition-all'>
+                <h1 className='mt-4 font-bold text-xl text-textprimary dark:text-darktextprimary transition-all'>
                     🔢How does EnergyWebNFTs calculate the NFT prices?</h1>
                 <p className='text-textprimary dark:text-darktextprimary transition-all'>
                     The price is gathered from the public subgraph of Greensea, provided
                     by the Greensea/Carbonswap team.
                 </p>
-                <h2 className='mt-3 font-bold text-xl text-textprimary dark:text-darktextprimary transition-all'>
-                    📄What is 24h volume in the table above?</h2>
+                <h1 className='mt-4 font-bold text-xl text-textprimary dark:text-darktextprimary transition-all'>
+                    📄What is 24h volume in the table above?</h1>
                 <p className='text-textprimary dark:text-darktextprimary transition-all'>
                     The 24h trading volume refers to the amount a NFT has 
                     been bought and sold on Greensea within the last 24 hours. 
@@ -48,12 +48,33 @@ const FooterHome = () => {
                     and let's say there have been traded 10 Cryptosoots in the last 24 hours,
                     then the average price each Cryptosoot that day has Changed hands for is $200.
                 </p>
-                <h1 className='mt-3 font-bold text-xl text-textprimary dark:text-darktextprimary transition-all'>
+                <h1 className='mt-4 font-bold text-xl text-textprimary dark:text-darktextprimary transition-all'>
+                    🟢What is the blinking dot in the top right corner?</h1> 
+                <p className='text-textprimary dark:text-darktextprimary transition-all'>
+                    The blinking colored icon indicates how up-to-date the data in 
+                    the table on the homepage is. 
+                    (However the data on the individual NFT pages do actively change)
+                    <ul>
+                        <li>
+                            • If the blinking dot is green then the data is less then 2 minutes old.
+                        </li>
+                        <li>
+                            • If the blinking dot is yellow then the data is between 2 and 5 minutes old.
+                        </li>
+                        <li>
+                            • If the blinking dot is orange then the data is between 5 and 10 minutes old.
+                        </li>
+                        <li>
+                            • If the blinking dot is red then the data is more then 10 minutes old.
+                        </li>
+                    </ul>
+                </p>
+                <h1 className='mt-4 font-bold text-xl text-textprimary dark:text-darktextprimary transition-all'>
                     👤How can I contact you?</h1> 
                 <p className='text-textprimary dark:text-darktextprimary transition-all'>
                     You can contact me by sending a DM on Telegram: @arantuil or on Twitter: @arantuil
                 </p>
-                <h1 className='mt-3 font-bold text-xl text-textprimary dark:text-darktextprimary transition-all'>
+                <h1 className='mt-4 font-bold text-xl text-textprimary dark:text-darktextprimary transition-all'>
                     👍I like this website, how can I thank you?</h1>
                 <p className='text-textprimary dark:text-darktextprimary transition-all'>
                     If you found this website useful and want to thank me by sending EWT or SUSU or maybe even an NFT😮, you can do
