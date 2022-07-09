@@ -58,7 +58,7 @@ function Home() {
     const colorStyle = useColorChange(marketcaptotal, {
         higher: 'rgba(35, 136, 35, 0.4)',
         lower: 'rgba(210, 34, 45, 0.4)',
-        duration: 1000
+        duration: 1500
     });
 
     useEffect(() => {

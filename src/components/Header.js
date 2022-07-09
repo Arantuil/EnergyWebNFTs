@@ -28,7 +28,7 @@ function Header() {
     var susuprice = data["token"]["derivedETH"]
     susuprice = (Number(susuprice) * ewtprice).toFixed(6)
     return (
-        <header className='shadow-[0_0px_10px_3px_rgba(0,0,0,0.35)] dark:shadow-[0_0px_10px_3px_rgba(245,245,230,0.35)] z-5 relative w-full h-[64px] bg-bgprimary dark:bg-darkbgprimary transition-all'>
+        <header className='shadow-[0_0px_7px_2px_rgba(0,0,0,0.30)] dark:shadow-[0_0px_7px_2px_rgba(245,245,230,0.30)] z-5 relative w-full h-[64px] bg-bgprimary dark:bg-darkbgprimary transition-all'>
             <div className='w-full h-full
             bg-gradient-to-r from-[#9AEFA2] via-[#8DD7E4] to-[#C8A1FB] 
             dark:bg-gradient-to-r dark:from-[#368B3E] dark:via-[#297380] dark:to-[#643D97]

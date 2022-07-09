@@ -11,9 +11,9 @@ function Markets() {
                     <p className='px-4 text-textprimary dark:text-darktextprimary transition-all'>
                         Below are all the markets on the Energy Web chain displayed where you
                         are currently able to trade NFTs on. Information about the way NFTs are
-                        traded on the exchange (custodial or non-custodial) are also shown, 
+                        traded on the exchange (custodial or non-custodial) are also shown,
                         and the percentage fees per traded NFT on the platform.</p>
-                <div className="mt-4 sm:mt-10 w-full h-full rounded-3xl bg-bgprimary dark:bg-darkbgprimary transition-all items-center">
+                    <div className="mt-4 sm:mt-10 w-full h-full rounded-3xl bg-bgprimary dark:bg-darkbgprimary transition-all items-center">
                         <ul className="w-full h-full flex justify-center flex-wrap content-around">
                             <li className="rounded-3xl h-[400px] w-[300px] m-8 bg-bgsecondary dark:bg-darkbgsecondary transition-all shadow-lg">
                                 <div className='w-full h-[50%]'>
@@ -65,7 +65,7 @@ function Markets() {
                             </li>
                         </ul>
                     </div>
-                    </div>
+                </div>
             </div>
         </div>
     );
