@@ -20,7 +20,7 @@ const FooterHome = () => {
 
     return (
         <footer className='w-full h-auto bg-bgprimary dark:bg-darkbgprimary transition-all'>
-            <div className='w-[90%] sm:w-2/3 flex mx-auto flex-col px-4 py-8'>
+            <div className='w-[95%] sm:w-2/3 flex mx-auto flex-col px-4 py-8'>
                 <h1 className='font-bold text-2xl text-textprimary dark:text-darktextprimary transition-all'>
                     ✨What is NFT market cap?
                 </h1>
@@ -54,7 +54,7 @@ const FooterHome = () => {
                     You can contact me by sending a DM on Telegram: @arantuil or on Twitter: @arantuil
                 </p>
                 <h1 className='mt-3 font-bold text-xl text-textprimary dark:text-darktextprimary transition-all'>
-                    🙏🏻I like this website, how can I thank you?</h1>
+                    👍I like this website, how can I thank you?</h1>
                 <p className='text-textprimary dark:text-darktextprimary transition-all'>
                     If you found this website useful and want to thank me by sending EWT or SUSU or maybe even an NFT😮, you can do
                     so by sending it to this address: 

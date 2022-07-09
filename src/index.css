@@ -134,7 +134,7 @@
   background:rgba(255, 66, 66, 0.9);
   border: 1px solid rgba(0,0,0,0.25);
   transform: scale(1);
-	animation: colorchange 1800s, pulse 2s infinite;
+	animation: colorchange 600s, pulse 2s infinite;
 }
 @keyframes pulse {
 	0% {
@@ -154,12 +154,12 @@
 }
 @keyframes colorchange {
   0.00% {
-      background: rgba(0, 125, 0, 0.9); 
-      box-shadow: 0 0 0.5em 0.15em rgba(0, 125, 0, 0.9);
+      background: rgba(21, 155, 21, 0.9); 
+      box-shadow: 0 0 0.5em 0.15em rgba(21, 155, 21, 0.9);
   }
   8.32% {
-      background: rgba(0, 125, 0, 0.9); 
-      box-shadow: 0 0 0.5em 0.15em rgba(0, 125, 0, 0.9);
+      background: rgba(21, 155, 21, 0.9); 
+      box-shadow: 0 0 0.5em 0.15em rgba(21, 155, 21, 0.9);
   }
   8.33% {
       background: rgba(255, 255, 30, 0.9);
