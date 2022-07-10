@@ -30,10 +30,9 @@ module.exports = {
       },
       backgroundImage: {
         'backgroundimagepage': 'url("./images/backgroundoverlaycolors.png")',
-        'radialgs': 'radial-gradient(circle, rgba(78,156,71,1) 0%, rgba(78,156,71,1) 35%, rgba(90,229,103,0) 95%);',
-        'radialrg': 'radial-gradient(circle, rgba(179,113,222,1) 0%, rgba(179,113,222,1) 35%, rgba(179,113,222,0) 95%);',
-        'radialcs': 'radial-gradient(circle, rgba(62,40,144,1) 0%, rgba(62,40,144,1) 35%, rgba(62,40,144,0) 95%);',
-        'radialcj': 'radial-gradient(circle, rgba(65,64,66,1) 0%, rgba(65,64,66,1) 35%, rgba(65,64,66,0) 95%);',
+        'lineargs': 'linear-gradient(120deg, rgba(92,178,83,0.6) 0%, rgba(92,178,83,1) 20%, rgba(92,178,83,1) 80%, rgba(92,178,83,0.6) 100%);',
+        'linearrg': 'linear-gradient(120deg, rgba(179,113,222,0.6) 0%, rgba(179,113,222,1) 20%, rgba(179,113,222,1) 80%, rgba(179,113,222,0.6) 100%);',
+        'linearcj': 'linear-gradient(120deg, rgba(65,64,66,0.6) 0%, rgba(65,64,66,1) 20%, rgba(65,64,66,1) 80%, rgba(65,64,66,0.6) 100%);',
       }
     }
   },

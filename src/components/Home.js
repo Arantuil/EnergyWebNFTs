@@ -6,6 +6,7 @@ import { db } from '../firebase';
 import { onValue, ref } from 'firebase/database';
 import { useEffect, useState } from 'react';
 import useColorChange from 'use-color-change';
+import Searchbar from './Searchbar';
 
 function Home() {
     const axios = require("axios")
@@ -61,6 +62,7 @@ function Home() {
         duration: 1500
     });
 
+    const [allnftdata, setAllnftdata] = useState([])
     useEffect(() => {
         onValue(ref(db), snapshot => {
             const data = snapshot.val();
@@ -74,6 +76,7 @@ function Home() {
                 });
                 console.log(total)
             }
+            setAllnftdata(data)
         });
     }, []);
 
@@ -279,7 +282,8 @@ function Home() {
     return (
         <div className="w-full min-h-[calc(100vh-64px)] flex justify-center align-start flex-col flex-nowrap bg-bgprimary dark:bg-darkbgprimary transition-all">
             <div className="w-full h-full bg-backgroundimagepage bg-no-repeat bg-cover">
-                <div className='bg-bgsecondary dark:bg-darkbgsecondary w-[95%] md:w-[90%] lg:w-4/5 xl:w-3/4 2xl:w-2/3 h-auto mx-auto my-4 sm:my-10 rounded-3xl shadow-2xl'>
+                <div className='bg-bgsecondary dark:bg-darkbgsecondary w-[95%] md:w-[90%] lg:w-4/5 xl:w-3/4 2xl:w-2/3 h-auto mx-auto my-4 sm:my-10 rounded-3xl
+                shadow-[0_0px_10px_2px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_10px_2px_rgba(245,245,230,0.25)]'>
                     <div className="w-full h-full pt-4 flex flex-col mx-auto">
                         <div>
                             <div className='text-textprimary dark:text-darktextprimary transition-all p-4'>
@@ -292,11 +296,16 @@ function Home() {
                                 <h2 className='text-l'>(If any prices are 0 then that means there are no active sell orders on Greensea for that particular NFT)</h2>
                             </div>
                         </div>
-                        <div className="overflow-x-auto bg-bgprimary dark:bg-darkbgprimary rounded-3xl p-4">
-                            <div className='flex justify-end mb-1'>
-                                <button onClick={()=>changetodollar()} className='currencybutton currencybutton1 text-sm w-11 h-5 rounded-lg mx-2 bg-accent1 opacity-[0.8] dark:bg-darkaccent1 dark:opacity-[1] dark:brightness-[120%] text-textprimary dark:text-darktextprimary transition-all'>$</button>
-                                <button onClick={()=>changetosusu()} className='currencybutton currencybutton2 text-sm w-11 h-5 rounded-lg mx-2 bg-accent2 opacity-[0.8] dark:bg-darkaccent2 dark:opacity-[1] dark:brightness-[120%] text-textprimary dark:text-darktextprimary transition-all'>SUSU</button>
-                                <button onClick={()=>changetoewt()} className='currencybutton currencybutton3 text-sm w-11 h-5 rounded-lg mx-2 bg-accent3 opacity-[0.8] dark:bg-darkaccent3 dark:opacity-[1] dark:brightness-[120%] text-textprimary dark:text-darktextprimary transition-all'>EWT</button>
+                        <div className="flex flex-col overflow-x-auto bg-bgprimary dark:bg-darkbgprimary rounded-3xl p-4">
+                            <div className='flex flex-row space-between'>
+                                <div className='w-1/3 sm:w-1/2'>
+                                    <Searchbar placeholder="Search..." data={allnftdata} />
+                                </div>
+                                <div className='mt-[6px] w-2/3 sm:w-1/2 flex justify-end'>
+                                    <button onClick={()=>changetodollar()} className='currencybutton currencybutton1 text-sm w-11 h-5 rounded-lg mx-2 bg-accent1 opacity-[0.8] dark:bg-darkaccent1 dark:opacity-[1] dark:brightness-[120%] text-textprimary dark:text-darktextprimary transition-all'>$</button>
+                                    <button onClick={()=>changetosusu()} className='currencybutton currencybutton2 text-sm w-11 h-5 rounded-lg mx-2 bg-accent2 opacity-[0.8] dark:bg-darkaccent2 dark:opacity-[1] dark:brightness-[120%] text-textprimary dark:text-darktextprimary transition-all'>SUSU</button>
+                                    <button onClick={()=>changetoewt()} className='currencybutton currencybutton3 text-sm w-11 h-5 rounded-lg mx-2 bg-accent3 opacity-[0.8] dark:bg-darkaccent3 dark:opacity-[1] dark:brightness-[120%] text-textprimary dark:text-darktextprimary transition-all'>EWT</button>
+                                </div>
                             </div>
                             <Table />
                         </div>
