@@ -35,7 +35,7 @@ function Header() {
             transition-all flex flex-row'>
                 <div className='w-[30%] sm:w-[52%] h-full ml-2 xs:ml-1 md:ml-10 flex items-center'>
                     <Link to='/' className='flex flex-row'>
-                        <img className='2xs:w-[28px!important] 2xs:h-[28px!important] h-12 filter brightness-[90%] dark:brightness-[110%]' src={ewcnftslogo} alt="" />
+                        <img className='2xs:w-[28px!important] 2xs:h-[28px!important] h-12 filter brightness-[90%] dark:brightness-[110%]' src={ewcnftslogo} alt="EnergyWebNFTs Logo" />
                         <h1 className='hidden md:block my-auto font-bold text-2xl ml-1 mr-2 text-textprimary dark:text-darktextprimary transition-all'>
                             EnergyWebNFTs
                         </h1>
@@ -47,12 +47,12 @@ function Header() {
                 <div className='w-[70%] sm:w-[48%] h-full mr-2 xs:mr-1 md:mr-10 flex flex-row-reverse items-center'>
                     <Toggle/>
                     <div className="m-1 md:m-2 flex flex-row">
-                        <img className="my-auto md:mt-[2px] flex w-6 h-6 mr-[6px] filter brightness-[90%] dark:brightness-[100%]" src={ewtlogo} alt="" />
+                        <img className="my-auto md:mt-[2px] flex w-6 h-6 mr-[6px] filter brightness-[90%] dark:brightness-[100%]" src={ewtlogo} alt="Energy Web Logo" />
                         <p className="flex my-auto text-lg font-bold text-textprimary dark:text-darktextprimary transition-all">${ewtprice}</p>
                         <div id='blinkingicon' className='ml-1 w-4 h-4 xs:w-3 xs:h-3 rounded-full'></div>
                     </div>
                     <div className="m-1 md:m-2 flex flex-row">
-                        <img className="my-auto md:mt-[2px] flex w-6 h-6 mr-[6px] filter brightness-[90%] dark:brightness-[100%]" src={susulogo} alt="" />
+                        <img className="my-auto md:mt-[2px] flex w-6 h-6 mr-[6px] filter brightness-[90%] dark:brightness-[100%]" src={susulogo} alt="Susu Logo" />
                         <p className="flex my-auto text-lg font-bold text-textprimary dark:text-darktextprimary transition-all">${susuprice}</p>
                     </div>
                 </div>

@@ -30,7 +30,7 @@ function Footer() {
                 <div className='w-[15%] md:w-[40%] h-full ml-2 xs:ml-1 md:ml-10 flex items-center'>
                     <div className='flex flex-row'>
                         <Link className='flex flex-row' to='/'>
-                            <img className='h-12 filter brightness-[90%] dark:brightness-[110%]' src={ewcnftslogo} alt="" />
+                            <img className='h-12 filter brightness-[90%] dark:brightness-[110%]' src={ewcnftslogo} alt="EnergyWebNFTs Logo" />
                             <h1 className='hidden md:block my-auto font-bold text-2xl mr-2 text-textprimary dark:text-darktextprimary transition-all'>
                                 EnergyWebNFTs
                             </h1>

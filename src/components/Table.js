@@ -4,7 +4,6 @@ import NumberFormat from 'react-number-format';
 import { db } from '../firebase';
 import { onValue, ref } from 'firebase/database';
 import slugify from 'slugify';
-import useColorChange from 'use-color-change';
 
 function Table() {
     const [nftlist, setNftList] = useState([])
@@ -19,7 +18,7 @@ function Table() {
                 Object.values(data).map((nft) => {
                     nft["rank"] = String(i)
                     i += 1
-                    setNftList(oldArray => [...oldArray, nft])
+                    return(setNftList(oldArray => [...oldArray, nft]))
                 });
             }
         });
@@ -87,12 +86,6 @@ function Table() {
         }
     }
 
-    const colorStyle = useColorChange(nftlist, {
-        higher: 'rgba(35, 136, 35, 0.4)',
-        lower: 'rgba(210, 34, 45, 0.4)',
-        duration: 1500
-    });
-
     return (
             <table className="table-auto w-[220vw] sm:w-[160vw] md:w-[130vw] lg:w-full text-textprimary dark:text-darktextprimary transition-all">
                 <thead>
@@ -110,7 +103,7 @@ function Table() {
                     {nftlist.map((index) => (
                         <tr key={index.id}>
                             <td className='w-[70px] border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.rank}</td>
-                            <td className='w-[50px] border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><img className='w-[35px] h-[35px]' src={index.image} alt="" /></td>
+                            <td className='w-[50px] border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><img className='w-[35px] h-[35px]' src={index.image} alt="NFT icon" /></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><Link to={`/nft/${(slugify(index.name, '_'))}`}>{index.name}</Link></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat className='floorprice_element' value={index.floorprice} displayType={'text'} thousandSeparator={' '} prefix={'$'} /></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat className='sevendaypercentage_element' value={index.floorpricesevenday} displayType={'text'} thousandSeparator={' '} prefix={'$'} /></td>

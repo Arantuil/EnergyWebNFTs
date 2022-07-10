@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import NFTdata from './NFTdata.json';
 import { useParams } from 'react-router-dom';
 import { db } from '../firebase';
 import { onValue, ref } from 'firebase/database';
@@ -26,7 +25,7 @@ const NftPage = () => {
                 });
             }
         });
-    }, []);
+    }, );
 
     const colorStyle = useColorChange(currentnft, {
         higher: 'rgba(35, 136, 35, 0.4)',
@@ -34,16 +33,12 @@ const NftPage = () => {
         duration: 1500
     });
 
-    //console.log(currentnft)
-    //console.log(params.id)
-
-
     return (
         <div className="w-full min-h-[calc(100vh-64px)] flex justify-center align-start flex-col flex-nowrap bg-bgprimary dark:bg-darkbgprimary transition-all">
             <div className="w-full min-h-[calc(100vh-64px)] bg-backgroundimagepage bg-no-repeat bg-cover">
                 <div className='bg-bgsecondary dark:bg-darkbgsecondary w-[95%] md:w-3/4 lg:w-2/3 h-[calc(100%-2rem)] sm:h-[calc(100%-5rem)] mx-auto my-4 sm:my-10 rounded-3xl shadow-2xl'>
                     <div className='p-4 flex flex-col w-full h-full xl:flex-row'>
-                        <img className='h-2/4 lg:h-3/4 xl:w-[50vh] 2xl:w-[60vh] flex mx-auto xl:mr-0 rounded-2xl bg-black border-gradient' src={currentnft.imageanimated} alt="current NFT image" />
+                        <img className='h-2/4 lg:h-3/4 xl:w-[50vh] 2xl:w-[60vh] flex mx-auto xl:mr-0 rounded-2xl bg-black border-gradient' src={currentnft.imageanimated} alt="current NFT" />
 
                         <div className='xl:mr-auto xl:ml-4'>
 

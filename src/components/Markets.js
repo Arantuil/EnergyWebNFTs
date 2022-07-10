@@ -21,7 +21,7 @@ function Markets() {
                             shadow-[0_0px_10px_2px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_10px_2px_rgba(245,245,230,0.25)]">
                                 <div className='w-full h-[50%]'>
                                     <a href="https://greensea.carbonswap.finance/">
-                                        <img className='w-full h-auto flex mx-auto bg-lineargs' src={LogoGS} alt="" />
+                                        <img className='w-full h-auto flex mx-auto bg-lineargs' src={LogoGS} alt="Logo exchange 1" />
                                     </a>
                                 </div>
                                 <div className='w-full h-[50%] flex flex-row'>
@@ -38,7 +38,7 @@ function Markets() {
                             shadow-[0_0px_10px_2px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_10px_2px_rgba(245,245,230,0.25)]">
                                 <div className='w-full h-[50%]'>
                                     <a href="https://raregems.io/">
-                                        <img className='w-full h-auto flex mx-auto bg-linearrg' src={LogoRG} alt="" />
+                                        <img className='w-full h-auto flex mx-auto bg-linearrg' src={LogoRG} alt="Logo exchange 2" />
                                     </a>
                                 </div>
                                 <div className='w-full h-[50%] flex flex-row'>
@@ -55,7 +55,7 @@ function Markets() {
                             shadow-[0_0px_10px_2px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_10px_2px_rgba(245,245,230,0.25)]">
                                 <div className='w-full h-[50%]'>
                                     <a href="https://carbonjack.io/nft-broker/index.html">
-                                        <img className='w-full h-auto flex mx-auto bg-linearcj' src={LogoCJ} alt="" />
+                                        <img className='w-full h-auto flex mx-auto bg-linearcj' src={LogoCJ} alt="Logo exchange 3" />
                                     </a>
                                 </div>
                                 <div className='w-full h-[50%] flex flex-row'>

@@ -47,7 +47,7 @@ function Searchbar({ placeholder, data }) {
                             '>
                             <a href={`/nft/${slugify(value.name, '_')}`}>
                                 <div className='h-[34px] w-full flex flex-row bg-bgprimary dark:bg-darkbgprimary rounded-md'>
-                                    <img className='h-[80%] my-auto pl-2 flex flex-center align-middle' src={value.image} alt="" />
+                                    <img className='h-[80%] my-auto pl-2 flex flex-center align-middle' src={value.image} alt="NFT icon" />
                                     <a className='px-[8px] pt-[4px] flex
                                     z-50 text-textprimary dark:text-darktextprimary transition-all' href={`/nft/${slugify(value.name, '_')}`}>{value.name}
                                     </a>
