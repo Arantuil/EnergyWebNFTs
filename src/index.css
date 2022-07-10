@@ -154,28 +154,28 @@
 }
 @keyframes colorchange {
   0.00% {
-      background: rgba(21, 155, 21, 0.9); 
-      box-shadow: 0 0 0.5em 0.15em rgba(21, 155, 21, 0.9);
+      background: rgba(29, 167, 29, 0.9); 
+      box-shadow: 0 0 0.5em 0.15em rgba(29, 167, 29, 0.9); 
   }
   20.00% {
-      background: rgba(21, 155, 21, 0.9); 
-      box-shadow: 0 0 0.5em 0.15em rgba(21, 155, 21, 0.9);
+      background: rgba(29, 167, 29, 0.9); 
+      box-shadow: 0 0 0.5em 0.15em rgba(29, 167, 29, 0.9); 
   }
   20.01% {
-      background: rgba(255, 255, 30, 0.9);
-      box-shadow: 0 0 0.5em 0.15em rgba(255, 255, 30, 0.9);
+      background: rgba(255, 255, 20, 0.9);
+      box-shadow: 0 0 0.5em 0.15em rgba(255, 255, 20, 0.9);
   }
   50.00% {
-      background:rgba(255, 255, 30, 0.9);
-      box-shadow: 0 0 0.5em 0.15em rgba(255, 255, 30, 0.9);
+      background:rgba(255, 255, 20, 0.9);
+      box-shadow: 0 0 0.5em 0.15em rgba(255, 255, 20, 0.9);
   }
   50.01% {
-      background:rgba(255, 180, 41, 0.9);
-      box-shadow: 0 0 0.5em 0.15em rgba(255, 180, 41, 0.9);
+      background:rgba(255, 177, 31, 0.9);
+      box-shadow: 0 0 0.5em 0.15em rgba(255, 177, 31, 0.9);
   }
   99.99% {
-      background:rgba(255, 180, 41, 0.9);
-      box-shadow: 0 0 0.5em 0.15em rgba(255, 180, 41, 0.9);
+      background:rgba(255, 177, 31, 0.9);
+      box-shadow: 0 0 0.5em 0.15em rgba(255, 177, 31, 0.9);
   }
   100.00% {
       background:rgba(255, 66, 66, 0.9);

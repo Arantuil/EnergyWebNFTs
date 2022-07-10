@@ -8,7 +8,7 @@ function Markets() {
             <div className='bg-backgroundimagepage bg-no-repeat bg-cover w-full h-full min-h-[calc(100vh-64px)]'>
                 <div className='pt-4 my-4 sm:my-10 bg-bgsecondary dark:bg-darkbgsecondary 
                 shadow-[0_0px_10px_2px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_10px_2px_rgba(245,245,230,0.25)]
-                transition-all w-full md:w-2/3 flex flex-col justify-center mx-auto rounded-3xl'>
+                transition-all w-[95%] md:w-2/3 flex flex-col justify-center mx-auto rounded-3xl'>
                     <h1 className='p-4 text-textprimary dark:text-darktextprimary transition-all font-bold text-2xl'>All the markets on the Energy Web chain where you can trade NFTs</h1>
                     <p className='px-4 text-textprimary dark:text-darktextprimary transition-all'>
                         Below are all the markets on the Energy Web chain displayed where you
@@ -27,9 +27,9 @@ function Markets() {
                                 <div className='w-full h-[50%] flex flex-row'>
                                     <div className='w-full h-full my-4'>
                                         <p className='text-center flex flex-col text-textprimary dark:text-darktextprimary transition-all'>
-                                            <h1><span className='font-bold text-xl'>Name:</span> <span className='text-xl'>Greensea</span></h1>
-                                            <h1><span className='font-bold text-xl'>Non-custodial:</span> <span className='text-red-600 text-xl'>No</span></h1>
-                                            <h1><span className='font-bold text-xl'>Fee:</span> <span className='text-xl'>1%</span></h1>
+                                            <h1 className='w-[75%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-xl'>Name:</span> <span className='text-xl'>Greensea</span></h1>
+                                            <h1 className='w-[75%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-xl'>Non-custodial:</span> <span className='text-red-600 text-xl'>No</span></h1>
+                                            <h1 className='w-[75%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-xl'>Fee:</span> <span className='text-xl'>1%</span></h1>
                                         </p>
                                     </div>
                                 </div>
@@ -44,9 +44,9 @@ function Markets() {
                                 <div className='w-full h-[50%] flex flex-row'>
                                     <div className='w-full h-full my-4'>
                                         <p className='text-center flex flex-col text-textprimary dark:text-darktextprimary transition-all'>
-                                            <h1><span className='font-bold text-xl'>Name:</span> <span className='text-xl'>Raregems</span></h1>
-                                            <h1><span className='font-bold text-xl'>Non-custodial:</span> <span className='text-green-600 text-xl'>Yes</span></h1>
-                                            <h1><span className='font-bold text-xl'>Fee:</span> <span className='text-xl'>1%</span></h1>
+                                            <h1 className='w-[75%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-xl'>Name:</span> <span className='text-xl'>Raregems</span></h1>
+                                            <h1 className='w-[75%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-xl'>Non-custodial:</span> <span className='text-green-600 text-xl'>Yes</span></h1>
+                                            <h1 className='w-[75%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-xl'>Fee:</span> <span className='text-xl'>1%</span></h1>
                                         </p>
                                     </div>
                                 </div>
@@ -61,9 +61,9 @@ function Markets() {
                                 <div className='w-full h-[50%] flex flex-row'>
                                     <div className='w-full h-full my-4'>
                                         <p className='text-center flex flex-col text-textprimary dark:text-darktextprimary transition-all'>
-                                            <h1><span className='font-bold text-xl'>Name:</span> <span className='text-xl'>Carbonjackers</span></h1>
-                                            <h1><span className='font-bold text-xl'>Non-custodial:</span> <span className='text-red-600 text-xl'>No</span></h1>
-                                            <h1><span className='font-bold text-xl'>Fee:</span> <span className='text-xl'>2.5%</span></h1>
+                                            <h1 className='w-[75%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-xl'>Name:</span> <span className='text-xl'>Carbonjackers</span></h1>
+                                            <h1 className='w-[75%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-xl'>Non-custodial:</span> <span className='text-red-600 text-xl'>No</span></h1>
+                                            <h1 className='w-[75%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-xl'>Fee:</span> <span className='text-xl'>2.5%</span></h1>
                                         </p>
                                     </div>
                                 </div>

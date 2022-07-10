@@ -26,16 +26,16 @@ function Header() {
     ewtprice = Number(ewtprice).toFixed(3)
 
     var susuprice = data["token"]["derivedETH"]
-    susuprice = (Number(susuprice) * ewtprice).toFixed(6)
+    susuprice = (Number(susuprice) * ewtprice).toFixed(5)
     return (
         <header className='shadow-[0_0px_7px_2px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_7px_2px_rgba(245,245,230,0.30)] z-5 relative w-full h-[64px] bg-bgprimary dark:bg-darkbgprimary transition-all'>
             <div className='w-full h-full
             bg-gradient-to-r from-[#9AEFA2] via-[#8DD7E4] to-[#C8A1FB] 
             dark:bg-gradient-to-r dark:from-[#368B3E] dark:via-[#297380] dark:to-[#643D97]
             transition-all flex flex-row'>
-                <div className='w-[30%] sm:w-[52%] h-full ml-2 md:ml-10 flex items-center'>
+                <div className='w-[30%] sm:w-[52%] h-full ml-2 xs:ml-1 md:ml-10 flex items-center'>
                     <Link to='/' className='flex flex-row'>
-                        <img className='h-12 filter brightness-[90%] dark:brightness-[110%]' src={ewcnftslogo} alt="" />
+                        <img className='2xs:w-[28px!important] 2xs:h-[28px!important] h-12 filter brightness-[90%] dark:brightness-[110%]' src={ewcnftslogo} alt="" />
                         <h1 className='hidden md:block my-auto font-bold text-2xl ml-1 mr-2 text-textprimary dark:text-darktextprimary transition-all'>
                             EnergyWebNFTs
                         </h1>
@@ -44,15 +44,15 @@ function Header() {
                         Markets
                     </Link>
                 </div>
-                <div className='w-[70%] sm:w-[48%] h-full mr-2 md:mr-10 flex flex-row-reverse items-center'>
+                <div className='w-[70%] sm:w-[48%] h-full mr-2 xs:mr-1 md:mr-10 flex flex-row-reverse items-center'>
                     <Toggle/>
                     <div className="m-1 md:m-2 flex flex-row">
-                        <img className="flex my-auto w-6 h-6 mr-2 filter brightness-[90%] dark:brightness-[100%]" src={ewtlogo} alt="" />
+                        <img className="my-auto md:mt-[2px] flex w-6 h-6 mr-[6px] filter brightness-[90%] dark:brightness-[100%]" src={ewtlogo} alt="" />
                         <p className="flex my-auto text-lg font-bold text-textprimary dark:text-darktextprimary transition-all">${ewtprice}</p>
-                        <div id='blinkingicon' className='ml-1 w-4 h-4 rounded-full'></div>
+                        <div id='blinkingicon' className='ml-1 w-4 h-4 xs:w-3 xs:h-3 rounded-full'></div>
                     </div>
                     <div className="m-1 md:m-2 flex flex-row">
-                        <img className="flex my-auto w-6 h-6 mr-2 filter brightness-[90%] dark:brightness-[100%]" src={susulogo} alt="" />
+                        <img className="my-auto md:mt-[2px] flex w-6 h-6 mr-[6px] filter brightness-[90%] dark:brightness-[100%]" src={susulogo} alt="" />
                         <p className="flex my-auto text-lg font-bold text-textprimary dark:text-darktextprimary transition-all">${susuprice}</p>
                     </div>
                 </div>
