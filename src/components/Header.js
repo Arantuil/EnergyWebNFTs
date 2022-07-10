@@ -26,7 +26,7 @@ function Header() {
     ewtprice = Number(ewtprice).toFixed(3)
 
     var susuprice = data["token"]["derivedETH"]
-    susuprice = (Number(susuprice) * ewtprice).toFixed(5)
+    susuprice = (Number(susuprice) * ewtprice).toFixed(6)
     return (
         <header className='shadow-[0_0px_10px_3px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_10px_3px_rgba(245,245,230,0.2)] z-5 relative w-full h-[64px] bg-bgprimary dark:bg-darkbgprimary transition-all'>
             <div className='w-full h-full

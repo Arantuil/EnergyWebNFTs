@@ -72,7 +72,7 @@ function Home() {
                 var total = 0
                 Object.values(data).map((nft) => {
                     total += Number(nft["marketcap"])
-                    setMarketcaptotal(total)
+                    return(setMarketcaptotal(total))
                 });
                 console.log(total)
             }

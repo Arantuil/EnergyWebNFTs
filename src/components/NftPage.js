@@ -22,6 +22,7 @@ const NftPage = () => {
                     if (slugifiedname === params.id) {
                         setCurrentnft(nft)
                     }
+                    return null
                 });
             }
         });
