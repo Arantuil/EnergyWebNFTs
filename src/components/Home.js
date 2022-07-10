@@ -283,7 +283,7 @@ function Home() {
         <div className="w-full min-h-[calc(100vh-64px)] flex justify-center align-start flex-col flex-nowrap bg-bgprimary dark:bg-darkbgprimary transition-all">
             <div className="w-full h-full bg-backgroundimagepage bg-no-repeat bg-cover">
                 <div className='bg-bgsecondary dark:bg-darkbgsecondary w-[95%] md:w-[90%] lg:w-4/5 xl:w-3/4 2xl:w-2/3 h-auto mx-auto my-4 sm:my-10 rounded-3xl
-                shadow-[0_0px_10px_2px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_10px_2px_rgba(245,245,230,0.25)]'>
+                shadow-[0_0px_10px_2px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_10px_2px_rgba(245,245,230,0.2)]'>
                     <div className="w-full h-full pt-4 flex flex-col mx-auto">
                         <div>
                             <div className='text-textprimary dark:text-darktextprimary transition-all p-4'>
