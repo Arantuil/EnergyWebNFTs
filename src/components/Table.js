@@ -94,7 +94,7 @@ function Table() {
     });
 
     return (
-        <table className="table-auto w-[220vw] sm:w-[170vw] md:w-[130vw] lg:w-full text-textprimary dark:text-darktextprimary transition-all">
+        <table className="table-auto w-[220vw] sm:w-[160vw] md:w-[130vw] lg:w-full text-textprimary dark:text-darktextprimary transition-all">
             <thead>
                 <tr>
                     <th className='text-left'><div className='flex flex-row'><p>Rank</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={()=>sorting("rank")} className='rankbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={()=>sorting("rank")} className='rankbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>

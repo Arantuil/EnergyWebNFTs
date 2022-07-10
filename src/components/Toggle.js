@@ -9,13 +9,13 @@ const Toggle = () => {
             {theme === 'dark' ? (
                 <button
                     onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                    className="text-gray-500 dark:text-gray-400 bg-white shadow-none p-2 focus:outline-none text-lg rounded-full outline-none ring-transparent cursor-pointer"
+                    className="dark:text-darktextprimary bg-darkbgprimary shadow-none p-2 focus:outline-none text-lg rounded-full outline-none ring-transparent cursor-pointer"
                 >
                     <svg
-                        className="w-6 h-6"
+                        className="w-5 h-5 sm:w-6 sm:h-6"
                         fill="none"
                         stroke="currentColor"
-                        viewBox="0 0 24 24"
+                        viewBox="2 2 20 20"
                         xmlns="http://www.w3.org/2000/svg"
                     >
                         <path
@@ -29,13 +29,13 @@ const Toggle = () => {
             ) : (
                 <button
                     onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                    className="text-gray-500 dark:text-gray-400 bg-white focus:outline-none shadow-none p-2 text-lg rounded-full outline-none ring-transparent cursor-pointer"
+                    className="text-textprimary bg-bgprimary focus:outline-none shadow-none p-2 text-lg rounded-full outline-none ring-transparent cursor-pointer"
                 >
                     <svg
-                        className="w-6 h-6"
+                        className="w-5 h-5 sm:w-6 sm:h-6"
                         fill="none"
                         stroke="currentColor"
-                        viewBox="0 0 24 24"
+                        viewBox="2 2 20 20"
                         xmlns="http://www.w3.org/2000/svg"
                     >
                         <path

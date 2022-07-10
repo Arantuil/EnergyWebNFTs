@@ -40,7 +40,7 @@ function Header() {
                             EnergyWebNFTs
                         </h1>
                     </Link>
-                    <Link to='/markets' className='mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
+                    <Link to='/markets' className='mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
                         Markets
                     </Link>
                 </div>
