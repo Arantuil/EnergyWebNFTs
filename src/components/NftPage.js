@@ -37,11 +37,16 @@ const NftPage = () => {
     return (
         <div className="w-full min-h-[calc(100vh-64px)] flex justify-center align-start flex-col flex-nowrap bg-bgprimary dark:bg-darkbgprimary transition-all">
             <div className="w-full min-h-[calc(100vh-64px)] bg-backgroundimagepage bg-no-repeat bg-cover">
-                <div className='bg-bgsecondary dark:bg-darkbgsecondary w-[95%] md:w-3/4 lg:w-2/3 h-[calc(100%-2rem)] sm:h-[calc(100%-5rem)] mx-auto my-4 sm:my-10 rounded-3xl shadow-2xl'>
+                <div className='bg-bgsecondary dark:bg-darkbgsecondary w-[95%] md:w-3/4 lg:w-2/3 h-[calc(100%-2rem)] sm:h-[calc(100%-5rem)] mx-auto my-4 sm:my-10 rounded-3xl
+                    shadow-[0_0px_10px_2px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_10px_2px_rgba(245,245,230,0.2)]'>
                     <div className='p-4 flex flex-col w-full h-full xl:flex-row'>
-                        <img className='h-2/4 lg:h-3/4 xl:w-[50vh] 2xl:w-[60vh] flex mx-auto xl:mr-0 rounded-2xl bg-black border-gradient' src={currentnft.imageanimated} alt="current NFT" />
+                        <div className='rounded-xl h-2/4 lg:h-3/4 xl:w-[50vh] 2xl:w-[60vh] flex mx-auto xl:mr-0
+                            shadow-[0_0px_10px_2px_rgba(15,23,35,0.8)] dark:shadow-[0_0px_10px_2px_rgba(245,245,230,0.2)]'>
+                            <img className='h-full w-full rounded-xl bg-black border-gradient' 
+                            src={currentnft.imageanimated} alt="current NFT" />
+                        </div>
 
-                        <div className='xl:mr-auto xl:ml-4'>
+                        <div className='xl:mr-auto xl:ml-4 2xl:ml-8'>
 
                             <div className='flex flex-row justify-center xl:justify-start'>
                                 <div className='p-2'>
