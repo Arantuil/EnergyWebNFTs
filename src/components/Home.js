@@ -85,10 +85,6 @@ function Home() {
         document.getElementsByClassName("currencybutton3")[0].style.filter = "grayscale(0)";
     })
 
-    function numberWithSpaces(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    }
-
     var ewtprice = ewtcoinprice
     var susuprice = susucoinprice
     var currencystate = 'dollar'
@@ -103,52 +99,42 @@ function Home() {
         if (currencystate === 'susu') {
             var allvolumes = document.getElementsByClassName('floorprice_element')
             for (let i = 0; i < allnftdata.length; i++) {
-                allvolumes[i].textContent = (allvolumes[i].textContent).replace(/\D/g,'')
-                allvolumes[i].textContent = '$'+(numberWithSpaces((Math.round(Number(allvolumes[i].textContent)/(1/susuprice)))))
-            }
-            var allvolumes2 = document.getElementsByClassName('sevendaypercentage_element')
-            for (let i = 0; i < allnftdata.length; i++) {
-                allvolumes2[i].textContent = (allvolumes2[i].textContent).replace(/\D/g,'')
-                allvolumes2[i].textContent = '$'+(numberWithSpaces((Math.round(Number(allvolumes2[i].textContent)/(1/susuprice)))))
+                allvolumes[i].textContent = allvolumes[i].textContent.slice(0, -5)
+                allvolumes[i].textContent = '$'+((Number(allvolumes[i].textContent.substring(-3).replace(/,/g, ''))/(1/susuprice)).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
             }
             var allvolumes24 = document.getElementsByClassName('marketcap_element')
             for (let i = 0; i < allnftdata.length; i++) {
-                allvolumes24[i].textContent = (allvolumes24[i].textContent).replace(/\D/g,'')
-                allvolumes24[i].textContent = '$'+(numberWithSpaces((Math.round(Number(allvolumes24[i].textContent)/(1/susuprice)))))
+                allvolumes24[i].textContent = allvolumes24[i].textContent.slice(0, -5)
+                allvolumes24[i].textContent = '$'+((Number(allvolumes24[i].textContent.substring(-3).replace(/,/g, ''))/(1/susuprice)).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
             }
             var allvolumes3 = document.getElementsByClassName('volumetwentyfourhour_element')
             for (let i = 0; i < allnftdata.length; i++) {
-                allvolumes3[i].textContent = (allvolumes3[i].textContent).replace(/\D/g,'')
-                allvolumes3[i].textContent = '$'+(numberWithSpaces((Math.round(Number(allvolumes3[i].textContent)/(1/susuprice)))))
+                allvolumes3[i].textContent = allvolumes3[i].textContent.slice(0, -5)
+                allvolumes3[i].textContent = '$'+((Number(allvolumes3[i].textContent.substring(-3).replace(/,/g, ''))/(1/susuprice)).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
             }
             var marketcap = document.getElementsByClassName('marketcaptotal')
-            marketcap[0].textContent = (marketcap[0].textContent).replace(/\D/g,'')
-            marketcap[0].textContent = '$'+(numberWithSpaces((Math.round(Number(marketcap[0].textContent)/(1/susuprice)))))
+            marketcap[0].textContent = marketcap[0].textContent.slice(0, -5)
+            marketcap[0].textContent = '$'+((Number(marketcap[0].textContent.substring(-3).replace(/,/g, ''))/(1/susuprice)).toFixed(0)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
         }
         else if (currencystate === 'ewt') {
             var allvolumes4 = document.getElementsByClassName('floorprice_element')
             for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes4[i].textContent = allvolumes4[i].textContent.slice(0, -4)
-                allvolumes4[i].textContent = '$'+Math.round(Number(allvolumes4[i].textContent.substring(-3).replace(/,/g, ''))*ewtprice)
-            }
-            var allvolumes23 = document.getElementsByClassName('sevendaypercentage_element')
-            for (let i = 0; i < allnftdata.length; i++) {
-                allvolumes23[i].textContent = (allvolumes23[i].textContent).replace(/\D/g,'')
-                allvolumes23[i].textContent = '$'+(numberWithSpaces((Math.round(Number(allvolumes23[i].textContent)*ewtprice))))
+                allvolumes4[i].textContent = '$'+((Number(allvolumes4[i].textContent.substring(-3).replace(/,/g, ''))*ewtprice).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
             }
             var allvolumes5 = document.getElementsByClassName('marketcap_element')
             for (let i = 0; i < allnftdata.length; i++) {
-                allvolumes5[i].textContent = (allvolumes5[i].textContent).replace(/\D/g,'')
-                allvolumes5[i].textContent = '$'+(numberWithSpaces((Math.round(Number(allvolumes5[i].textContent)*ewtprice))))
+                allvolumes5[i].textContent = allvolumes5[i].textContent.slice(0, -4)
+                allvolumes5[i].textContent = '$'+((Number(allvolumes5[i].textContent.substring(-3).replace(/,/g, ''))*ewtprice).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
             }
             var allvolumes6 = document.getElementsByClassName('volumetwentyfourhour_element')
             for (let i = 0; i < allnftdata.length; i++) {
-                allvolumes6[i].textContent = (allvolumes6[i].textContent).replace(/\D/g,'')
-                allvolumes6[i].textContent = '$'+(numberWithSpaces((Math.round(Number(allvolumes6[i].textContent)*ewtprice))))
+                allvolumes6[i].textContent = allvolumes6[i].textContent.slice(0, -4)
+                allvolumes6[i].textContent = '$'+((Number(allvolumes6[i].textContent.substring(-3).replace(/,/g, ''))*ewtprice).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
             }
             var marketcap2 = document.getElementsByClassName('marketcaptotal')
-            marketcap2[0].textContent = (marketcap2[0].textContent).replace(/\D/g,'')
-            marketcap2[0].textContent = '$'+(numberWithSpaces((Math.round(Number(marketcap2[0].textContent)*ewtprice))))
+            marketcap2[0].textContent = marketcap2[0].textContent.slice(0, -4)
+            marketcap2[0].textContent = '$'+((Number(marketcap2[0].textContent.substring(-3).replace(/,/g, ''))*ewtprice).toFixed(0)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
         }
         currencystate = 'dollar'
     }
@@ -164,52 +150,42 @@ function Home() {
         if (currencystate === 'dollar') {
             var allvolumes7 = document.getElementsByClassName('floorprice_element')
             for (let i = 0; i < allnftdata.length; i++) {
-                allvolumes7[i].textContent = (allvolumes7[i].textContent).replace(/\D/g,'')
-                allvolumes7[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes7[i].textContent)*(1/susuprice)))))+' SUSU'
-            }
-            var allvolumes22 = document.getElementsByClassName('sevendaypercentage_element')
-            for (let i = 0; i < allnftdata.length; i++) {
-                allvolumes22[i].textContent = (allvolumes22[i].textContent).replace(/\D/g,'')
-                allvolumes22[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes22[i].textContent)*(1/susuprice)))))+' SUSU'
+                allvolumes7[i].textContent = allvolumes7[i].textContent.substring(1)
+                allvolumes7[i].textContent = ((Number(allvolumes7[i].textContent.substring(-3).replace(/,/g, ''))*(1/susuprice)).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' SUSU'
             }
             var allvolumes8 = document.getElementsByClassName('marketcap_element')
             for (let i = 0; i < allnftdata.length; i++) {
-                allvolumes8[i].textContent = (allvolumes8[i].textContent).replace(/\D/g,'')
-                allvolumes8[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes8[i].textContent)*(1/susuprice)))))+' SUSU'
+                allvolumes8[i].textContent = allvolumes8[i].textContent.substring(1)
+                allvolumes8[i].textContent = ((Number(allvolumes8[i].textContent.substring(-3).replace(/,/g, ''))*(1/susuprice)).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' SUSU'
             }
             var allvolumes9 = document.getElementsByClassName('volumetwentyfourhour_element')
             for (let i = 0; i < allnftdata.length; i++) {
-                allvolumes9[i].textContent = (allvolumes9[i].textContent).replace(/\D/g,'')
-                allvolumes9[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes9[i].textContent)*(1/susuprice)))))+' SUSU'
+                allvolumes9[i].textContent = allvolumes9[i].textContent.substring(1)
+                allvolumes9[i].textContent = ((Number(allvolumes9[i].textContent.substring(-3).replace(/,/g, ''))*(1/susuprice)).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' SUSU'
             }
             var marketcap3 = document.getElementsByClassName('marketcaptotal')
-            marketcap3[0].textContent = (marketcap3[0].textContent).replace(/\D/g,'')
-            marketcap3[0].textContent = (numberWithSpaces((Math.round(Number(marketcap3[0].textContent)*(1/susuprice)))))+' SUSU'
+            marketcap3[0].textContent = marketcap3[0].textContent.substring(1)
+            marketcap3[0].textContent = ((Number(marketcap3[0].textContent.substring(-3).replace(/,/g, ''))*(1/susuprice)).toFixed(0)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' SUSU'
         }
         else if (currencystate === 'ewt') {
             var allvolumes10 = document.getElementsByClassName('floorprice_element')
             for (let i = 0; i < allnftdata.length; i++) {
-                allvolumes10[i].textContent = (allvolumes10[i].textContent).replace(/\D/g,'')
-                allvolumes10[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes10[i].textContent)*(ewtprice/susuprice)))))+' SUSU'
-            }
-            var allvolumes21 = document.getElementsByClassName('sevendaypercentage_element')
-            for (let i = 0; i < allnftdata.length; i++) {
-                allvolumes21[i].textContent = (allvolumes21[i].textContent).replace(/\D/g,'')
-                allvolumes21[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes21[i].textContent)*(ewtprice/susuprice)))))+' SUSU'
+                allvolumes10[i].textContent = allvolumes10[i].textContent.slice(0, -4)
+                allvolumes10[i].textContent = ((Number(allvolumes10[i].textContent.substring(-3).replace(/,/g, ''))*(ewtprice/susuprice)).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' SUSU'
             }
             var allvolumes11 = document.getElementsByClassName('marketcap_element')
             for (let i = 0; i < allnftdata.length; i++) {
-                allvolumes11[i].textContent = (allvolumes11[i].textContent).replace(/\D/g,'')
-                allvolumes11[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes11[i].textContent)*(ewtprice/susuprice)))))+' SUSU'
+                allvolumes11[i].textContent = allvolumes11[i].textContent.slice(0, -4)
+                allvolumes11[i].textContent = ((Number(allvolumes11[i].textContent.substring(-3).replace(/,/g, ''))*(ewtprice/susuprice)).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' SUSU'
             }
             var allvolumes12 = document.getElementsByClassName('volumetwentyfourhour_element')
             for (let i = 0; i < allnftdata.length; i++) {
-                allvolumes12[i].textContent = (allvolumes12[i].textContent).replace(/\D/g,'')
-                allvolumes12[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes12[i].textContent)*(ewtprice/susuprice)))))+' SUSU'
+                allvolumes12[i].textContent = allvolumes12[i].textContent.slice(0, -4)
+                allvolumes12[i].textContent = ((Number(allvolumes12[i].textContent.substring(-3).replace(/,/g, ''))*(ewtprice/susuprice)).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' SUSU'
             }
             var marketcap4 = document.getElementsByClassName('marketcaptotal')
-            marketcap4[0].textContent = (marketcap4[0].textContent).replace(/\D/g,'')
-            marketcap4[0].textContent = (numberWithSpaces((Math.round(Number(marketcap4[0].textContent)*(ewtprice/susuprice)))))+' SUSU'
+            marketcap4[0].textContent = marketcap4[0].textContent.slice(0, -4)
+            marketcap4[0].textContent = ((Number(marketcap4[0].textContent.substring(-3).replace(/,/g, ''))*(ewtprice/susuprice)).toFixed(0)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' SUSU'
         }
         currencystate = 'susu'
     }
@@ -225,48 +201,42 @@ function Home() {
         if (currencystate === 'dollar') {
             var allvolumes13 = document.getElementsByClassName('floorprice_element')
             for (let i = 0; i < allnftdata.length; i++) {
-                allvolumes13[i].textContent = Math.round(Number(allvolumes13[i].textContent.substring(1).replace(/,/g, ''))/ewtprice)+' EWT'
-            }
-            var allvolumes14 = document.getElementsByClassName('sevendaypercentage_element')
-            for (let i = 0; i < allnftdata.length; i++) {
-                allvolumes14[i].textContent = Math.round(Number(allvolumes14[i].textContent.substring(1).replace(/,/g, ''))/ewtprice)+' EWT'
+                allvolumes13[i].textContent = allvolumes13[i].textContent.substring(1)
+                allvolumes13[i].textContent = ((Number(allvolumes13[i].textContent.substring(-3).replace(/,/g, ''))/ewtprice).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' EWT'
             }
             var allvolumes20 = document.getElementsByClassName('marketcap_element')
             for (let i = 0; i < allnftdata.length; i++) {
-                allvolumes20[i].textContent = Math.round(Number(allvolumes20[i].textContent.substring(1).replace(/,/g, ''))/ewtprice)+' EWT'
+                allvolumes20[i].textContent = allvolumes20[i].textContent.substring(1)
+                allvolumes20[i].textContent = ((Number(allvolumes20[i].textContent.substring(-3).replace(/,/g, ''))/ewtprice).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' EWT'
             }
             var allvolumes15 = document.getElementsByClassName('volumetwentyfourhour_element')
             for (let i = 0; i < allnftdata.length; i++) {
-                allvolumes15[i].textContent = Math.round(Number(allvolumes15[i].textContent.substring(1).replace(/,/g, ''))/ewtprice)+' EWT'
+                allvolumes15[i].textContent = allvolumes15[i].textContent.substring(1)
+                allvolumes15[i].textContent = ((Number(allvolumes15[i].textContent.substring(-3).replace(/,/g, ''))/ewtprice).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' EWT'
             }
             var marketcap5 = document.getElementsByClassName('marketcaptotal')
-            marketcap5[0].textContent = Math.round(Number(marketcap5[0].textContent.substring(1).replace(/,/g, ''))/ewtprice)+' EWT'
+            marketcap5[0].textContent = marketcap5[0].textContent.substring(1)
+            marketcap5[0].textContent = ((Number(marketcap5[0].textContent.substring(-3).replace(/,/g, ''))/ewtprice).toFixed(0)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' EWT'
         }
         else if (currencystate === 'susu') {
             var allvolumes16 = document.getElementsByClassName('floorprice_element')
             for (let i = 0; i < allnftdata.length; i++) {
-                allvolumes16[i].textContent = (Number(allvolumes16[i].textContent.substring(1).replace(/,/g, '')))+' EWT'
-                allvolumes16[i].textContent = (allvolumes16[i].textContent).replace(/\D/g,'')
-                allvolumes16[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes16[i].textContent)/(ewtprice/susuprice)))))+' EWT'
-            }
-            var allvolumes17 = document.getElementsByClassName('sevendaypercentage_element')
-            for (let i = 0; i < allnftdata.length; i++) {
-                allvolumes17[i].textContent = (allvolumes17[i].textContent).replace(/\D/g,'')
-                allvolumes17[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes17[i].textContent)/(ewtprice/susuprice)))))+' EWT'
+                allvolumes16[i].textContent = allvolumes16[i].textContent.slice(0, -5)
+                allvolumes16[i].textContent = ((Number(allvolumes16[i].textContent.substring(-3).replace(/,/g, ''))/(ewtprice/susuprice)).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' EWT'
             }
             var allvolumes18 = document.getElementsByClassName('marketcap_element')
             for (let i = 0; i < allnftdata.length; i++) {
-                allvolumes18[i].textContent = (allvolumes18[i].textContent).replace(/\D/g,'')
-                allvolumes18[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes18[i].textContent)/(ewtprice/susuprice)))))+' EWT'
+                allvolumes18[i].textContent = allvolumes18[i].textContent.slice(0, -5)
+                allvolumes18[i].textContent = ((Number(allvolumes18[i].textContent.substring(-3).replace(/,/g, ''))/(ewtprice/susuprice)).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' EWT'
             }
             var allvolumes19 = document.getElementsByClassName('volumetwentyfourhour_element')
             for (let i = 0; i < allnftdata.length; i++) {
-                allvolumes19[i].textContent = (allvolumes19[i].textContent).replace(/\D/g,'')
-                allvolumes19[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes19[i].textContent)/(ewtprice/susuprice)))))+' EWT'
+                allvolumes19[i].textContent = allvolumes19[i].textContent.slice(0, -5)
+                allvolumes19[i].textContent = ((Number(allvolumes19[i].textContent.substring(-3).replace(/,/g, ''))/(ewtprice/susuprice)).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' EWT'
             }
             var marketcap6 = document.getElementsByClassName('marketcaptotal')
-            marketcap6[0].textContent = (marketcap6[0].textContent).replace(/\D/g,'')
-            marketcap6[0].textContent = (numberWithSpaces((Math.round(Number(marketcap6[0].textContent)/(ewtprice/susuprice)))))+' EWT'
+            marketcap6[0].textContent = marketcap6[0].textContent.slice(0, -5)
+            marketcap6[0].textContent = ((Number(marketcap6[0].textContent.substring(-3).replace(/,/g, ''))/(ewtprice/susuprice)).toFixed(0)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' EWT'
         }
         currencystate = 'ewt'
     }
@@ -284,7 +254,7 @@ function Home() {
                                         All the price data you need of all the NFTs on the Energy Web Chain these can include art, 
                                         trading cards, profile characters, representations of IRL items, game items, 
                                         RECs, land tiles, and more.</p>
-                                <p className='text-lg my-2'>The combined market cap of all NFTs on the Energy Web chain is: <NumberFormat style={colorStyle} className='marketcaptotal' id='totalmarketcapp' value={marketcaptotal} displayType={'text'} thousandSeparator={','} prefix={'$'} /></p>
+                                <p className='text-lg my-2'>The combined market cap of all NFTs on the Energy Web chain is: <NumberFormat style={colorStyle} className='marketcaptotal' id='totalmarketcapp' value={marketcaptotal.toFixed(2)} displayType={'text'} thousandSeparator={','} prefix={'$'} /></p>
                                 <h2 className='text-sm'>(If any prices are 0 then that means there are no active sell orders on Greensea or on Raregems for that particular NFT)</h2>
                                 <h2 className='text-sm'>(The 7day % price changes only take Greensea orders into account)</h2>
                             </div>

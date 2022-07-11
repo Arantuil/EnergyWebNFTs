@@ -36,7 +36,7 @@ function Table() {
             }
             
         });
-    }, []);
+    }, [amountoflistedNFTs]);
 
     const colorStyle = useColorChange(nftlist, {
         higher: 'rgba(35, 136, 35, 0.20)',
@@ -46,7 +46,7 @@ function Table() {
 
     const [order, setOrder] = useState("ASC")
     const sorting = (col) => {
-        if (col === "rank" || col === "floorprice" || col === "marketcap" || col === 'pricesevenday' || col === 'volumetwentyfourhour') {
+        if (col === "rank" || col === "floorprice" || col === "circulating" || col === "marketcap" || col === 'floorpricesevenday' || col === 'volumetwentyfourhour') {
             if (order === "ASC") {
                 const sorted = [...nftlist].sort((a, b) =>
                     a[col].toString().localeCompare(b[col].toString(), "en", {
@@ -76,7 +76,7 @@ function Table() {
                 sorticon2[0].style.filter = 'brightness(100%)';
             }
         }
-        else if (col === "name") {
+        else if (col === 'name' || col === 'cheapestmarket') {
             if (order === "ASC") {
                 const sorted = [...nftlist].sort((a, b) =>
                     a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1
@@ -115,7 +115,8 @@ function Table() {
                         <th className='text-left'><div className='flex flex-row'><p>NFT Name</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("name")} className='namebutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("name")} className='namebutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                         <th className='text-left'><div className='flex flex-row'><p>Floorprice</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("floorprice")} className='floorpricebutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("floorprice")} className='floorpricebutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                         <th className='text-left'><div className='flex flex-row'><p>Cheapest market</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("cheapestmarket")} className='cheapestmarketbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("cheapestmarket")} className='cheapestmarketbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
-                        <th className='text-left'><div className='flex flex-row'><p>7d %</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("pricesevenday")} className='pricesevendaybutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("pricesevenday")} className='pricesevendaybutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
+                        <th className='text-left'><div className='flex flex-row'><p>7d %</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("floorpricesevenday")} className='floorpricesevendaybutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("floorpricesevenday")} className='floorpricesevendaybutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
+                        <th className='text-left'><div className='flex flex-row'><p>Amount</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("circulating")} className='circulatingbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("circulating")} className='circulatingbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                         <th className='text-left'><div className='flex flex-row'><p>Market cap</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("marketcap")} className='marketcapbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("marketcap")} className='marketcapbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                         <th className='text-left'><div className='flex flex-row'><p>Volume (24h)</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("volumetwentyfourhour")} className='volumetwentyfourhourbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("volumetwentyfourhour")} className='volumetwentyfourhourbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                     </tr>
@@ -128,7 +129,8 @@ function Table() {
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><Link to={`/nft/${(slugify(index.name, '_'))}`}>{index.name}</Link></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat style={colorStyle} className='floorprice_element' decimalScale={2} value={index.floorprice} displayType={'text'} thousandSeparator={','} prefix={'$'} /></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.cheapestmarket}</td>
-                            <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat style={colorStyle} className='sevendaypercentage_element' decimalScale={2} value={index.floorpricesevenday} displayType={'text'} thousandSeparator={','} prefix={'$'} /></td>
+                            <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.floorpricesevenday}</td>
+                            <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.circulating}</td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat style={colorStyle} className='marketcap_element' decimalScale={2} value={index.marketcap} displayType={'text'} thousandSeparator={','} prefix={'$'} /></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat style={colorStyle} className='volumetwentyfourhour_element' decimalScale={2} value={index.volumetwentyfourhour} displayType={'text'} thousandSeparator={','} prefix={'$'} /></td>
                         </tr>
