@@ -55,7 +55,8 @@ const FooterHome = () => {
                     The blinking colored icon indicates how up-to-date the data in 
                     the table on the homepage is. 
                     (However the data on the individual NFT pages do actively change)
-                    <ul>
+                </p>
+                    <ul className='text-textprimary dark:text-darktextprimary transition-all'>
                         <li>
                             • If the blinking dot is green then the data is less then 2 minutes old.
                         </li>
@@ -69,7 +70,6 @@ const FooterHome = () => {
                             • If the blinking dot is red then the data is more then 10 minutes old.
                         </li>
                     </ul>
-                </p>
                 <h1 className='mt-4 font-bold text-xl text-textprimary dark:text-darktextprimary transition-all'>
                     👤How can I contact you?</h1> 
                 <p className='text-textprimary dark:text-darktextprimary transition-all'>

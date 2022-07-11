@@ -1,6 +1,5 @@
 import Table from './Table';
 import FooterHome from '../components/FooterHome';
-import NFTdata from './NFTdata.json';
 import NumberFormat from 'react-number-format';
 import { db } from '../firebase';
 import { onValue, ref } from 'firebase/database';
@@ -106,22 +105,22 @@ function Home() {
         document.getElementsByClassName("currencybutton3")[0].style.filter = "grayscale(0)";
         if (currencystate === 'susu') {
             var allvolumes = document.getElementsByClassName('floorprice_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes[i].textContent = (allvolumes[i].textContent).replace(/\D/g,'')
                 allvolumes[i].textContent = '$'+(numberWithSpaces((Math.round(Number(allvolumes[i].textContent)/(1/susuprice)))))
             }
             var allvolumes2 = document.getElementsByClassName('sevendaypercentage_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes2[i].textContent = (allvolumes2[i].textContent).replace(/\D/g,'')
                 allvolumes2[i].textContent = '$'+(numberWithSpaces((Math.round(Number(allvolumes2[i].textContent)/(1/susuprice)))))
             }
             var allvolumes24 = document.getElementsByClassName('marketcap_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes24[i].textContent = (allvolumes24[i].textContent).replace(/\D/g,'')
                 allvolumes24[i].textContent = '$'+(numberWithSpaces((Math.round(Number(allvolumes24[i].textContent)/(1/susuprice)))))
             }
             var allvolumes3 = document.getElementsByClassName('volumetwentyfourhour_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes3[i].textContent = (allvolumes3[i].textContent).replace(/\D/g,'')
                 allvolumes3[i].textContent = '$'+(numberWithSpaces((Math.round(Number(allvolumes3[i].textContent)/(1/susuprice)))))
             }
@@ -131,22 +130,22 @@ function Home() {
         }
         else if (currencystate === 'ewt') {
             var allvolumes4 = document.getElementsByClassName('floorprice_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes4[i].textContent = (allvolumes4[i].textContent).replace(/\D/g,'')
                 allvolumes4[i].textContent = '$'+(numberWithSpaces((Math.round(Number(allvolumes4[i].textContent)*ewtprice))))
             }
             var allvolumes23 = document.getElementsByClassName('sevendaypercentage_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes23[i].textContent = (allvolumes23[i].textContent).replace(/\D/g,'')
                 allvolumes23[i].textContent = '$'+(numberWithSpaces((Math.round(Number(allvolumes23[i].textContent)*ewtprice))))
             }
             var allvolumes5 = document.getElementsByClassName('marketcap_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes5[i].textContent = (allvolumes5[i].textContent).replace(/\D/g,'')
                 allvolumes5[i].textContent = '$'+(numberWithSpaces((Math.round(Number(allvolumes5[i].textContent)*ewtprice))))
             }
             var allvolumes6 = document.getElementsByClassName('volumetwentyfourhour_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes6[i].textContent = (allvolumes6[i].textContent).replace(/\D/g,'')
                 allvolumes6[i].textContent = '$'+(numberWithSpaces((Math.round(Number(allvolumes6[i].textContent)*ewtprice))))
             }
@@ -167,22 +166,22 @@ function Home() {
 
         if (currencystate === 'dollar') {
             var allvolumes7 = document.getElementsByClassName('floorprice_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes7[i].textContent = (allvolumes7[i].textContent).replace(/\D/g,'')
                 allvolumes7[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes7[i].textContent)*(1/susuprice)))))+' SUSU'
             }
             var allvolumes22 = document.getElementsByClassName('sevendaypercentage_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes22[i].textContent = (allvolumes22[i].textContent).replace(/\D/g,'')
                 allvolumes22[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes22[i].textContent)*(1/susuprice)))))+' SUSU'
             }
             var allvolumes8 = document.getElementsByClassName('marketcap_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes8[i].textContent = (allvolumes8[i].textContent).replace(/\D/g,'')
                 allvolumes8[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes8[i].textContent)*(1/susuprice)))))+' SUSU'
             }
             var allvolumes9 = document.getElementsByClassName('volumetwentyfourhour_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes9[i].textContent = (allvolumes9[i].textContent).replace(/\D/g,'')
                 allvolumes9[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes9[i].textContent)*(1/susuprice)))))+' SUSU'
             }
@@ -192,22 +191,22 @@ function Home() {
         }
         else if (currencystate === 'ewt') {
             var allvolumes10 = document.getElementsByClassName('floorprice_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes10[i].textContent = (allvolumes10[i].textContent).replace(/\D/g,'')
                 allvolumes10[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes10[i].textContent)*(ewtprice/susuprice)))))+' SUSU'
             }
             var allvolumes21 = document.getElementsByClassName('sevendaypercentage_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes21[i].textContent = (allvolumes21[i].textContent).replace(/\D/g,'')
                 allvolumes21[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes21[i].textContent)*(ewtprice/susuprice)))))+' SUSU'
             }
             var allvolumes11 = document.getElementsByClassName('marketcap_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes11[i].textContent = (allvolumes11[i].textContent).replace(/\D/g,'')
                 allvolumes11[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes11[i].textContent)*(ewtprice/susuprice)))))+' SUSU'
             }
             var allvolumes12 = document.getElementsByClassName('volumetwentyfourhour_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes12[i].textContent = (allvolumes12[i].textContent).replace(/\D/g,'')
                 allvolumes12[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes12[i].textContent)*(ewtprice/susuprice)))))+' SUSU'
             }
@@ -228,22 +227,22 @@ function Home() {
 
         if (currencystate === 'dollar') {
             var allvolumes13 = document.getElementsByClassName('floorprice_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes13[i].textContent = (allvolumes13[i].textContent).replace(/\D/g,'')
                 allvolumes13[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes13[i].textContent)/ewtprice))))+' EWT'
             }
             var allvolumes14 = document.getElementsByClassName('sevendaypercentage_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes14[i].textContent = (allvolumes14[i].textContent).replace(/\D/g,'')
                 allvolumes14[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes14[i].textContent)/ewtprice))))+' EWT'
             }
             var allvolumes20 = document.getElementsByClassName('marketcap_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes20[i].textContent = (allvolumes20[i].textContent).replace(/\D/g,'')
                 allvolumes20[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes20[i].textContent)/ewtprice))))+' EWT'
             }
             var allvolumes15 = document.getElementsByClassName('volumetwentyfourhour_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes15[i].textContent = (allvolumes15[i].textContent).replace(/\D/g,'')
                 allvolumes15[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes15[i].textContent)/ewtprice))))+' EWT'
             }
@@ -253,22 +252,22 @@ function Home() {
         }
         else if (currencystate === 'susu') {
             var allvolumes16 = document.getElementsByClassName('floorprice_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes16[i].textContent = (allvolumes16[i].textContent).replace(/\D/g,'')
                 allvolumes16[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes16[i].textContent)/(ewtprice/susuprice)))))+' EWT'
             }
             var allvolumes17 = document.getElementsByClassName('sevendaypercentage_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes17[i].textContent = (allvolumes17[i].textContent).replace(/\D/g,'')
                 allvolumes17[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes17[i].textContent)/(ewtprice/susuprice)))))+' EWT'
             }
             var allvolumes18 = document.getElementsByClassName('marketcap_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes18[i].textContent = (allvolumes18[i].textContent).replace(/\D/g,'')
                 allvolumes18[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes18[i].textContent)/(ewtprice/susuprice)))))+' EWT'
             }
             var allvolumes19 = document.getElementsByClassName('volumetwentyfourhour_element')
-            for (let i = 0; i < NFTdata.length; i++) {
+            for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes19[i].textContent = (allvolumes19[i].textContent).replace(/\D/g,'')
                 allvolumes19[i].textContent = (numberWithSpaces((Math.round(Number(allvolumes19[i].textContent)/(ewtprice/susuprice)))))+' EWT'
             }
