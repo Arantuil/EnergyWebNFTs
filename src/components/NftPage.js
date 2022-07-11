@@ -29,9 +29,9 @@ const NftPage = () => {
     }, );
 
     const colorStyle = useColorChange(currentnft, {
-        higher: 'rgba(35, 136, 35, 0.4)',
-        lower: 'rgba(210, 34, 45, 0.4)',
-        duration: 1500
+        higher: 'rgba(35, 136, 35, 0.2)',
+        lower: 'rgba(210, 34, 45, 0.2)',
+        duration: 750
     });
 
     return (

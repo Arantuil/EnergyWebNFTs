@@ -28,7 +28,7 @@ function Searchbar({ placeholder, data }) {
     return (
         <div className='w-full'>
             <div className='w-full'>
-                <input autocomplete="off" id='searchinput' onChange={handleFilter} placeholder={placeholder} className='mb-1 p-[2px]
+                <input autoComplete="off" id='searchinput' onChange={handleFilter} placeholder={placeholder} className='mb-1 p-[2px]
                 text-textprimary dark:text-darktextprimary transition-all border-solid border-2 rounded-md 
                 border-[rgba(20,20,20,0.4)] focus:border-[rgba(20,20,20,0.85)] dark:border-[rgba(245,245,230,0.4)] dark:focus:border-[rgba(245,245,230,0.85)]
                 focus:outline-none dark:focus:outline-none 

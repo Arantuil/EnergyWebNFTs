@@ -54,7 +54,7 @@ const FooterHome = () => {
                 <p className='text-textprimary dark:text-darktextprimary transition-all'>
                     The blinking colored icon indicates how up-to-date the data in 
                     the table on the homepage is. 
-                    (However the data on the individual NFT pages do actively change)
+                    (However the data on the individual NFT pages does actively change)
                 </p>
                     <ul className='text-textprimary dark:text-darktextprimary transition-all'>
                         <li>

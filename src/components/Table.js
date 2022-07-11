@@ -4,15 +4,28 @@ import NumberFormat from 'react-number-format';
 import { db } from '../firebase';
 import { onValue, ref } from 'firebase/database';
 import slugify from 'slugify';
+import useColorChange from 'use-color-change';
 
 function Table() {
+    let amountoflistedNFTs = 10
+
     const [nftlist, setNftList] = useState([])
 
     useEffect(() => {
         onValue(ref(db), snapshot => {
             const data = snapshot.val();
 
-            if (data !== null) {
+            if (data.length >= amountoflistedNFTs) {
+                data.sort((a, b) => b.marketcap - a.marketcap);
+                let i = 1
+                Object.values(data).map((nft) => {
+                    nft["rank"] = String(i)
+                    i += 1
+                    return(oldArray => [...oldArray, nft])
+                });
+                setNftList(data.slice(-amountoflistedNFTs))
+            }
+            if (data !== null && data.length < amountoflistedNFTs){
                 data.sort((a, b) => b.marketcap - a.marketcap);
                 let i = 1
                 Object.values(data).map((nft) => {
@@ -21,8 +34,15 @@ function Table() {
                     return(setNftList(oldArray => [...oldArray, nft]))
                 });
             }
+            
         });
     }, []);
+
+    const colorStyle = useColorChange(nftlist, {
+        higher: 'rgba(35, 136, 35, 0.20)',
+        lower: 'rgba(210, 34, 45, 0.20)',
+        duration: 750
+    });
 
     const [order, setOrder] = useState("ASC")
     const sorting = (col) => {
@@ -94,6 +114,7 @@ function Table() {
                         <th className='text-left'><div className='flex flex-row'><p>NFT</p></div></th>
                         <th className='text-left'><div className='flex flex-row'><p>NFT Name</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("name")} className='namebutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("name")} className='namebutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                         <th className='text-left'><div className='flex flex-row'><p>Floorprice</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("floorprice")} className='floorpricebutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("floorprice")} className='floorpricebutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
+                        <th className='text-left'><div className='flex flex-row'><p>Cheapest market</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("cheapestmarket")} className='cheapestmarketbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("cheapestmarket")} className='cheapestmarketbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                         <th className='text-left'><div className='flex flex-row'><p>7d %</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("pricesevenday")} className='pricesevendaybutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("pricesevenday")} className='pricesevendaybutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                         <th className='text-left'><div className='flex flex-row'><p>Market cap</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("marketcap")} className='marketcapbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("marketcap")} className='marketcapbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                         <th className='text-left'><div className='flex flex-row'><p>Volume (24h)</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("volumetwentyfourhour")} className='volumetwentyfourhourbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("volumetwentyfourhour")} className='volumetwentyfourhourbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
@@ -102,13 +123,14 @@ function Table() {
                 <tbody>
                     {nftlist.map((index) => (
                         <tr key={index.id}>
-                            <td className='w-[70px] border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.rank}</td>
+                            <td style={colorStyle} className='w-[70px] border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.rank}</td>
                             <td className='w-[50px] border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><img className='w-[35px] h-[35px]' src={index.image} alt="NFT icon" /></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><Link to={`/nft/${(slugify(index.name, '_'))}`}>{index.name}</Link></td>
-                            <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat className='floorprice_element' value={index.floorprice} displayType={'text'} thousandSeparator={' '} prefix={'$'} /></td>
-                            <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat className='sevendaypercentage_element' value={index.floorpricesevenday} displayType={'text'} thousandSeparator={' '} prefix={'$'} /></td>
-                            <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat className='marketcap_element' value={index.marketcap} displayType={'text'} thousandSeparator={' '} prefix={'$'} /></td>
-                            <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat className='volumetwentyfourhour_element' value={index.volumetwentyfourhour} displayType={'text'} thousandSeparator={' '} prefix={'$'} /></td>
+                            <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat style={colorStyle} className='floorprice_element' decimalScale={2} value={index.floorprice} displayType={'text'} thousandSeparator={','} prefix={'$'} /></td>
+                            <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.cheapestmarket}</td>
+                            <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat style={colorStyle} className='sevendaypercentage_element' decimalScale={2} value={index.floorpricesevenday} displayType={'text'} thousandSeparator={','} prefix={'$'} /></td>
+                            <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat style={colorStyle} className='marketcap_element' decimalScale={2} value={index.marketcap} displayType={'text'} thousandSeparator={','} prefix={'$'} /></td>
+                            <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat style={colorStyle} className='volumetwentyfourhour_element' decimalScale={2} value={index.volumetwentyfourhour} displayType={'text'} thousandSeparator={','} prefix={'$'} /></td>
                         </tr>
                     ))}
                 </tbody>
