@@ -22,7 +22,7 @@ const FooterHome = () => {
         <footer className='w-full h-auto bg-bgprimary dark:bg-darkbgprimary transition-all
         shadow-[0_0px_7px_2px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_7px_2px_rgba(245,245,230,0.2)]'>
             <div className='w-[95%] sm:w-2/3 flex mx-auto flex-col px-4 py-8'>
-                <h1 className='font-bold text-2xl text-textprimary dark:text-darktextprimary transition-all'>
+                <h1 className='font-bold text-xl text-textprimary dark:text-darktextprimary transition-all'>
                     ✨What is NFT market cap?
                 </h1>
                 <p className='text-textprimary dark:text-darktextprimary transition-all'>

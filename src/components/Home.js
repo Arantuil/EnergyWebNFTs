@@ -151,12 +151,12 @@ function Home() {
             var allvolumes7 = document.getElementsByClassName('floorprice_element')
             for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes7[i].textContent = allvolumes7[i].textContent.substring(1)
-                allvolumes7[i].textContent = ((Number(allvolumes7[i].textContent.substring(-3).replace(/,/g, ''))*(1/susuprice)).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' SUSU'
+                allvolumes7[i].textContent = ((Number(allvolumes7[i].textContent.substring(-3).replace(/,/g, ''))*(1/susuprice)).toFixed(0)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' SUSU'
             }
             var allvolumes8 = document.getElementsByClassName('marketcap_element')
             for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes8[i].textContent = allvolumes8[i].textContent.substring(1)
-                allvolumes8[i].textContent = ((Number(allvolumes8[i].textContent.substring(-3).replace(/,/g, ''))*(1/susuprice)).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' SUSU'
+                allvolumes8[i].textContent = ((Number(allvolumes8[i].textContent.substring(-3).replace(/,/g, ''))*(1/susuprice)).toFixed(0)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' SUSU'
             }
             var allvolumes9 = document.getElementsByClassName('volumetwentyfourhour_element')
             for (let i = 0; i < allnftdata.length; i++) {
@@ -171,12 +171,12 @@ function Home() {
             var allvolumes10 = document.getElementsByClassName('floorprice_element')
             for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes10[i].textContent = allvolumes10[i].textContent.slice(0, -4)
-                allvolumes10[i].textContent = ((Number(allvolumes10[i].textContent.substring(-3).replace(/,/g, ''))*(ewtprice/susuprice)).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' SUSU'
+                allvolumes10[i].textContent = ((Number(allvolumes10[i].textContent.substring(-3).replace(/,/g, ''))*(ewtprice/susuprice)).toFixed(0)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' SUSU'
             }
             var allvolumes11 = document.getElementsByClassName('marketcap_element')
             for (let i = 0; i < allnftdata.length; i++) {
                 allvolumes11[i].textContent = allvolumes11[i].textContent.slice(0, -4)
-                allvolumes11[i].textContent = ((Number(allvolumes11[i].textContent.substring(-3).replace(/,/g, ''))*(ewtprice/susuprice)).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' SUSU'
+                allvolumes11[i].textContent = ((Number(allvolumes11[i].textContent.substring(-3).replace(/,/g, ''))*(ewtprice/susuprice)).toFixed(0)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' SUSU'
             }
             var allvolumes12 = document.getElementsByClassName('volumetwentyfourhour_element')
             for (let i = 0; i < allnftdata.length; i++) {
@@ -254,9 +254,9 @@ function Home() {
                                         All the price data you need of all the NFTs on the Energy Web Chain these can include art, 
                                         trading cards, profile characters, representations of IRL items, game items, 
                                         RECs, land tiles, and more.</p>
-                                <p className='text-lg my-2'>The combined market cap of all NFTs on the Energy Web chain is: <NumberFormat style={colorStyle} className='marketcaptotal' id='totalmarketcapp' value={marketcaptotal.toFixed(2)} displayType={'text'} thousandSeparator={','} prefix={'$'} /></p>
+                                <p className='text-lg my-2'>The combined market cap of all NFTs on the Energy Web chain is: <NumberFormat style={colorStyle} className='marketcaptotal' id='totalmarketcapp' value={marketcaptotal.toFixed(0)} displayType={'text'} thousandSeparator={','} prefix={'$'} /></p>
                                 <h2 className='text-sm'>(If any prices are 0 then that means there are no active sell orders on Greensea or on Raregems for that particular NFT)</h2>
-                                <h2 className='text-sm'>(The 7day % price changes only take Greensea orders into account)</h2>
+                                <h2 className='text-sm'>(The 7day % price changes only take Greensea orders into account, thus should be viewed as a very rough estimate)</h2>
                             </div>
                         </div>
                         <div className="flex flex-col overflow-x-auto bg-bgprimary dark:bg-darkbgprimary rounded-3xl p-4">

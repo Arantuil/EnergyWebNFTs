@@ -26,7 +26,7 @@ const NftPage = () => {
                 });
             }
         });
-    }, );
+    });
 
     const colorStyle = useColorChange(currentnft, {
         higher: 'rgba(35, 136, 35, 0.2)',
@@ -42,19 +42,14 @@ const NftPage = () => {
                     <div className='p-4 flex flex-col w-full h-full xl:flex-row'>
                         <div className='rounded-xl h-2/4 lg:h-3/4 xl:w-[50vh] 2xl:w-[60vh] flex mx-auto xl:mr-0
                             shadow-[0_0px_10px_2px_rgba(15,23,35,0.8)] dark:shadow-[0_0px_10px_2px_rgba(245,245,230,0.2)]'>
-                            <img className='h-full w-full rounded-xl bg-black border-gradient' 
-                            src={currentnft.imageanimated} alt="current NFT" />
+                            <img className='h-full w-full rounded-xl bg-black border-gradient'
+                                src={currentnft.imageanimated} alt="current NFT" />
                         </div>
 
                         <div className='xl:mr-auto xl:ml-4 2xl:ml-8'>
 
                             <div className='flex flex-row justify-center xl:justify-start'>
                                 <div className='p-2'>
-                                    <div className='text-lg xl:text-xl'>
-                                        <h1 className='font-bold text-textprimary dark:text-darktextprimary transition-all'>
-                                            Rank:
-                                        </h1>
-                                    </div>
                                     <div className='text-lg xl:text-xl'>
                                         <h1 className='font-bold text-textprimary dark:text-darktextprimary transition-all'>
                                             Name:
@@ -84,27 +79,22 @@ const NftPage = () => {
                                 <div className='p-2'>
                                     <div className='text-lg xl:text-xl'>
                                         <h1 style={colorStyle} className='text-textprimary dark:text-darktextprimary transition-all'>
-                                            {currentnft.rank}
-                                        </h1>
-                                    </div>
-                                    <div className='text-lg xl:text-xl'>
-                                        <h1 style={colorStyle} className='text-textprimary dark:text-darktextprimary transition-all'>
                                             {currentnft.name}
                                         </h1>
                                     </div>
                                     <div className='text-lg xl:text-xl'>
                                         <h1 className='text-textprimary dark:text-darktextprimary transition-all'>
-                                            <NumberFormat style={colorStyle} className='marketcap_element' value={currentnft.floorprice} displayType={'text'} thousandSeparator={' '} prefix={'$'} />
+                                            <NumberFormat style={colorStyle} className='marketcap_element' value={currentnft.floorprice} decimalScale={2} displayType={'text'} thousandSeparator={','} prefix={'$'} />
                                         </h1>
                                     </div>
                                     <div className='text-lg xl:text-xl'>
                                         <h1 className='text-textprimary dark:text-darktextprimary transition-all'>
-                                            <NumberFormat style={colorStyle} className='marketcap_element' value={currentnft.marketcap} displayType={'text'} thousandSeparator={' '} prefix={'$'} />
+                                            <NumberFormat style={colorStyle} className='marketcap_element' value={currentnft.marketcap} decimalScale={2} displayType={'text'} thousandSeparator={','} prefix={'$'} />
                                         </h1>
                                     </div>
                                     <div className='text-lg xl:text-xl'>
                                         <h1 className='text-textprimary dark:text-darktextprimary transition-all'>
-                                            <NumberFormat style={colorStyle} className='marketcap_element' value={currentnft.volumetwentyfourhour} displayType={'text'} thousandSeparator={' '} prefix={'$'} />
+                                            <NumberFormat style={colorStyle} className='marketcap_element' value={currentnft.volumetwentyfourhour} displayType={'text'} thousandSeparator={','} prefix={'$'} />
                                         </h1>
                                     </div>
                                     <div className='text-lg xl:text-xl'>
@@ -116,28 +106,63 @@ const NftPage = () => {
                             </div>
 
                             <div className='flex flex-col justify-center'>
+                                <div className='flex flex-row justify-center xl:justify-start'>
+                                    <div className='p-2'>
+                                        <div className='text-lg xl:text-xl'>
+                                            <h1 className='font-bold text-textprimary dark:text-darktextprimary transition-all'>
+                                                Non-converted floorprice:
+                                            </h1>
+                                        </div>
+                                        <div className='text-lg xl:text-xl'>
+                                            <h1 className='font-bold text-textprimary dark:text-darktextprimary transition-all'>
+                                                Floorprice exchange:
+                                            </h1>
+                                        </div>
+                                    </div>
+                                    <div className='p-2 max-w-[30%]'>
+                                        <div className='text-lg xl:text-xl'>
+                                            <h1 className='text-textprimary dark:text-darktextprimary transition-all'>
+                                            <NumberFormat style={colorStyle} value={currentnft.cheapestprice} decimalScale={2} displayType={'text'} thousandSeparator={','} />
+                                            </h1>
+                                        </div>
+                                        <div className='text-lg xl:text-xl'>
+                                            <a style={colorStyle} className='text-textprimary dark:text-darktextprimary transition-all' 
+                                                href={currentnft.cheapestmarketlink}>
+                                                {currentnft.cheapestmarket}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className='flex flex-col justify-center'>
                                 <h1 className='px-2 pt-2 xl:mx-0 flex mx-auto text-2xl xl:text-3xl font-bold text-textprimary dark:text-darktextprimary transition-all'>Price changes</h1>
-                                <div className='flex flex-row justify-center'>
+                                <div className='flex flex-row justify-center xl:justify-start'>
                                     <div className='flex flex-col p-2'>
                                         <div className='text-sm sm:text-md xl:text-lg text-textprimary dark:text-darktextprimary transition-all'>
                                             <h1 className=''>Price change (7d)</h1>
                                             <h1 style={colorStyle} className=''>{currentnft.floorpricesevenday}</h1>
                                         </div>
                                         <div className='text-sm sm:text-md xl:text-lg text-textprimary dark:text-darktextprimary transition-all'>
-                                            <h1 className=''>Price change (14d)</h1>
-                                            <h1 style={colorStyle} className=''>{currentnft.floorpricefourteenday}</h1>
+                                            <h1 className=''>Price change (30d)</h1>
+                                            <h1 style={colorStyle} className=''>{currentnft.floorpricethirtyday}</h1>
                                         </div>
                                     </div>
                                     <div className='flex flex-col p-2'>
                                         <div className='text-sm sm:text-md xl:text-lg text-textprimary dark:text-darktextprimary transition-all'>
-                                            <h1 className=''>Price change (30d)</h1>
-                                            <h1 style={colorStyle} className=''>{currentnft.floorpricethirtyday}</h1>
+                                            <h1 className=''>Price change (14d)</h1>
+                                            <h1 style={colorStyle} className=''>{currentnft.floorpricefourteenday}</h1>
                                         </div>
                                         <div className='text-sm sm:text-md xl:text-lg text-textprimary dark:text-darktextprimary transition-all'>
                                             <h1 className=''>Price change (60d)</h1>
                                             <h1 style={colorStyle} className=''>{currentnft.floorpricesixtyday}</h1>
                                         </div>
                                     </div>
+                                    
+                                </div>
+                                <div className='px-2 text-sm flex mx-auto max-w-[400px] text-textprimary dark:text-darktextprimary transition-all'>
+                                    <h3>(Price changes are based only on Greensea data, 
+                                        because no historical price data is being stored by EnergyWebNFTs.com)</h3>
                                 </div>
                             </div>
                         </div>

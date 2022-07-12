@@ -27,9 +27,10 @@ function Markets() {
                                 <div className='w-full h-[50%] flex flex-row'>
                                     <div className='w-full h-full my-4'>
                                         <p className='text-center flex flex-col text-textprimary dark:text-darktextprimary transition-all'>
-                                            <h1 className='w-[75%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-xl'>Name:</span> <span className='text-xl'>Greensea</span></h1>
-                                            <h1 className='w-[75%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-xl'>Non-custodial:</span> <span className='text-red-600 text-xl'>No</span></h1>
-                                            <h1 className='w-[75%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-xl'>Fee:</span> <span className='text-xl'>1%</span></h1>
+                                            <h1 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-lg'>Name:</span> <span className='text-lg'>Greensea</span></h1>
+                                            <h1 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-lg'>Non-custodial:</span> <span className='text-red-600 text-lg'>No</span></h1>
+                                            <h1 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-lg'>Fee:</span> <span className='text-lg'>1%</span></h1>
+                                            <h1 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-base'>Tracked on EWCNFTs:</span> <span className='text-green-600 text-base'>Yes</span></h1>
                                         </p>
                                     </div>
                                 </div>
@@ -44,9 +45,10 @@ function Markets() {
                                 <div className='w-full h-[50%] flex flex-row'>
                                     <div className='w-full h-full my-4'>
                                         <p className='text-center flex flex-col text-textprimary dark:text-darktextprimary transition-all'>
-                                            <h1 className='w-[75%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-xl'>Name:</span> <span className='text-xl'>Raregems</span></h1>
-                                            <h1 className='w-[75%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-xl'>Non-custodial:</span> <span className='text-green-600 text-xl'>Yes</span></h1>
-                                            <h1 className='w-[75%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-xl'>Fee:</span> <span className='text-xl'>1%</span></h1>
+                                            <h1 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-lg'>Name:</span> <span className='text-lg'>Raregems</span></h1>
+                                            <h1 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-lg'>Non-custodial:</span> <span className='text-green-600 text-lg'>Yes</span></h1>
+                                            <h1 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-lg'>Fee:</span> <span className='text-lg'>1%</span></h1>
+                                            <h1 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-base'>Tracked on EWCNFTs:</span> <span className='text-green-600 text-base'>Yes</span></h1>
                                         </p>
                                     </div>
                                 </div>
@@ -61,9 +63,10 @@ function Markets() {
                                 <div className='w-full h-[50%] flex flex-row'>
                                     <div className='w-full h-full my-4'>
                                         <p className='text-center flex flex-col text-textprimary dark:text-darktextprimary transition-all'>
-                                            <h1 className='w-[75%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-xl'>Name:</span> <span className='text-xl'>Carbonjackers</span></h1>
-                                            <h1 className='w-[75%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-xl'>Non-custodial:</span> <span className='text-red-600 text-xl'>No</span></h1>
-                                            <h1 className='w-[75%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-xl'>Fee:</span> <span className='text-xl'>2.5%</span></h1>
+                                            <h1 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-lg'>Name:</span> <span className='text-lg'>Carbonjackers</span></h1>
+                                            <h1 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-lg'>Non-custodial:</span> <span className='text-red-600 text-lg'>No</span></h1>
+                                            <h1 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-lg'>Fee:</span> <span className='text-lg'>2.5%</span></h1>
+                                            <h1 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-base'>Tracked on EWCNFTs:</span> <span className='text-red-600 text-base'>Not yet</span></h1>
                                         </p>
                                     </div>
                                 </div>
