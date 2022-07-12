@@ -33,9 +33,9 @@ module.exports = {
       },
       backgroundImage: {
         'backgroundimagepage': 'url("./images/backgroundoverlaycolors.png")',
-        'lineargs': 'linear-gradient(120deg, rgba(92,178,83,0.5) 0%, rgba(92,178,83,1) 20%, rgba(92,178,83,1) 80%, rgba(92,178,83,0.5) 100%);',
-        'linearrg': 'linear-gradient(120deg, rgba(179,113,222,0.5) 0%, rgba(179,113,222,1) 20%, rgba(179,113,222,1) 80%, rgba(179,113,222,0.5) 100%);',
-        'linearcj': 'linear-gradient(120deg, rgba(65,64,66,0.5) 0%, rgba(65,64,66,1) 20%, rgba(65,64,66,1) 80%, rgba(65,64,66,0.5) 100%);',
+        'lineargs': 'linear-gradient(120deg, rgba(92,178,83,0.5) 0%, rgba(92,178,83,0.9) 20%, rgba(92,178,83,0.9) 80%, rgba(92,178,83,0.5) 100%);',
+        'linearrg': 'linear-gradient(120deg, rgba(179,113,222,0.5) 0%, rgba(179,113,222,0.9) 20%, rgba(179,113,222,0.9) 80%, rgba(179,113,222,0.5) 100%);',
+        'linearcj': 'linear-gradient(120deg, rgba(65,64,66,0.5) 0%, rgba(65,64,66,0.9) 20%, rgba(65,64,66,0.9) 80%, rgba(65,64,66,0.5) 100%);',
       }
     }
   },

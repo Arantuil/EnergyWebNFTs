@@ -67,7 +67,12 @@ const NftPage = () => {
                                     </div>
                                     <div className='text-lg xl:text-xl'>
                                         <h1 className='font-bold text-textprimary dark:text-darktextprimary transition-all'>
-                                            Volume 24h:
+                                            Holders:
+                                        </h1>
+                                    </div>
+                                    <div className='text-lg xl:text-xl'>
+                                        <h1 className='font-bold text-textprimary dark:text-darktextprimary transition-all'>
+                                            Circulating supply:
                                         </h1>
                                     </div>
                                     <div className='text-lg xl:text-xl'>
@@ -93,8 +98,13 @@ const NftPage = () => {
                                         </h1>
                                     </div>
                                     <div className='text-lg xl:text-xl'>
-                                        <h1 className='text-textprimary dark:text-darktextprimary transition-all'>
-                                            <NumberFormat style={colorStyle} className='marketcap_element' value={currentnft.volumetwentyfourhour} displayType={'text'} thousandSeparator={','} prefix={'$'} />
+                                        <h1 style={colorStyle} className='text-textprimary dark:text-darktextprimary transition-all'>
+                                            {currentnft.owners}
+                                        </h1>
+                                    </div>
+                                    <div className='text-lg xl:text-xl'>
+                                        <h1 style={colorStyle} className='text-textprimary dark:text-darktextprimary transition-all'>
+                                            {currentnft.circulating}
                                         </h1>
                                     </div>
                                     <div className='text-lg xl:text-xl'>

@@ -118,7 +118,6 @@ function Table() {
                         <th className='text-left'><div className='flex flex-row'><p>30d % ($)</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("floorpricethirtyday")} className='floorpricethirtydaybutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("floorpricethirtyday")} className='floorpricethirtydaybutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                         <th className='text-left'><div className='flex flex-row'><p>Amount</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("circulating")} className='circulatingbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("circulating")} className='circulatingbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                         <th className='text-left'><div className='flex flex-row'><p>Market cap</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("marketcap")} className='marketcapbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("marketcap")} className='marketcapbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
-                        <th className='text-left'><div className='flex flex-row'><p>Volume (24h)</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("volumetwentyfourhour")} className='volumetwentyfourhourbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("volumetwentyfourhour")} className='volumetwentyfourhourbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -132,7 +131,6 @@ function Table() {
                             <td style={colorStyle} className='percentagecolor border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.floorpricethirtyday}</td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.circulating}</td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat style={colorStyle} className='marketcap_element' decimalScale={2} value={index.marketcap} displayType={'text'} thousandSeparator={','} prefix={'$'} /></td>
-                            <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat style={colorStyle} className='volumetwentyfourhour_element' decimalScale={2} value={index.volumetwentyfourhour} displayType={'text'} thousandSeparator={','} prefix={'$'} /></td>
                         </tr>
                     ))}
                 </tbody>
