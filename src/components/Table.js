@@ -7,7 +7,7 @@ import slugify from 'slugify';
 import useColorChange from 'use-color-change';
 
 function Table() {
-    let amountoflistedNFTs = 10
+    let amountoflistedNFTs = 11
 
     const [nftlist, setNftList] = useState([])
 
@@ -46,7 +46,7 @@ function Table() {
 
     const [order, setOrder] = useState("ASC")
     const sorting = (col) => {
-        if (col === "rank" || col === "floorprice" || col === "circulating" || col === "marketcap" || col === 'floorpricethirtyday' || col === 'volumetwentyfourhour') {
+        if (col === "rank" || col === "floorprice" || col === "circulating" || col === "marketcap") {
             if (order === "ASC") {
                 const sorted = [...nftlist].sort((a, b) =>
                     a[col].toString().localeCompare(b[col].toString(), "en", {
@@ -104,6 +104,34 @@ function Table() {
                 sorticon4[0].style.filter = 'brightness(100%)';
             }
         }
+        else if (col === 'floorpricethirtyday') {
+            if (order === "ASC") {
+                const sorted = [...nftlist].sort((a, b) =>
+                    b[col].toLowerCase() > a[col].toLowerCase() ? 1 : -1
+                );
+                setNftList(sorted);
+                setOrder("DSC");
+                var secondsorticon3 = document.getElementsByClassName(`button`)
+                for (var i3 = 0; i3 < secondsorticon3.length; i3++) {
+                    secondsorticon3[i3].style.filter = 'brightness(50%)';
+                }
+                var sorticon3 = document.getElementsByClassName(`${col}button1`)
+                sorticon3[0].style.filter = 'brightness(100%)';
+            }
+            if (order === "DSC") {
+                const sorted = [...nftlist].sort((a, b) =>
+                    a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1
+                );
+                setNftList(sorted);
+                setOrder("ASC");
+                var secondsorticon4 = document.getElementsByClassName(`button`)
+                for (var i4 = 0; i4 < secondsorticon4.length; i4++) {
+                    secondsorticon4[i4].style.filter = 'brightness(50%)';
+                }
+                var sorticon4 = document.getElementsByClassName(`${col}button2`)
+                sorticon4[0].style.filter = 'brightness(100%)';
+            }
+        }
     }
 
     return (
@@ -124,13 +152,13 @@ function Table() {
                     {nftlist.map((index) => (
                         <tr key={index.id}>
                             <td style={colorStyle} className='w-[70px] border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.rank}</td>
-                            <td className='w-[50px] border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><img className='w-[35px] h-[35px]' src={index.image} alt="NFT icon" /></td>
+                            <td className='w-[50px] border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><img className='w-[35px] h-[35px] aspect-auto' src={index.image} alt="NFT icon" /></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><Link to={`/nft/${(slugify(index.name, '_'))}`}>{index.name}</Link></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat style={colorStyle} className='floorprice_element' decimalScale={2} value={index.floorprice} displayType={'text'} thousandSeparator={','} prefix={'$'} /></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.cheapestmarket}</td>
-                            <td style={colorStyle} className='percentagecolor border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.floorpricethirtyday}</td>
+                            <td style={{color: index.floorpricethirtyday[0] === '-' ? "#EF143A" : "#068706"}} className='percentagecolor border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.floorpricethirtyday}</td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.circulating}</td>
-                            <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat style={colorStyle} className='marketcap_element' decimalScale={2} value={index.marketcap} displayType={'text'} thousandSeparator={','} prefix={'$'} /></td>
+                            <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat style={Object.assign(colorStyle)} className='marketcap_element' decimalScale={2} value={index.marketcap} displayType={'text'} thousandSeparator={','} prefix={'$'} /></td>
                         </tr>
                     ))}
                 </tbody>

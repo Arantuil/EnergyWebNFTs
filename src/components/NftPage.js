@@ -5,6 +5,7 @@ import { onValue, ref } from 'firebase/database';
 import slugify from 'slugify';
 import NumberFormat from 'react-number-format';
 import useColorChange from 'use-color-change';
+import { AiOutlineLink } from "react-icons/ai"
 
 const NftPage = () => {
     const params = useParams()
@@ -26,7 +27,19 @@ const NftPage = () => {
                 });
             }
         });
-    });
+    }, [setCurrentnft]);
+    
+    let nftpagepercentages = document.getElementsByClassName("nftpagepercentages")
+    if (nftpagepercentages !== undefined) {
+        for (let i = 0; i < nftpagepercentages.length; i++) {
+            if (nftpagepercentages[i].textContent[0] === '-') {
+                nftpagepercentages[i].style.color="#EF143A"
+            }
+            else {
+                nftpagepercentages[i].style.color="#068706"
+            }
+        }
+    }
 
     const colorStyle = useColorChange(currentnft, {
         higher: 'rgba(35, 136, 35, 0.2)',
@@ -115,64 +128,66 @@ const NftPage = () => {
                                 </div>
                             </div>
 
-                            <div className='flex flex-col justify-center'>
+                            <div className='pt-6 flex flex-col justify-center'>
                                 <div className='flex flex-row justify-center xl:justify-start'>
                                     <div className='p-2'>
-                                        <div className='text-lg xl:text-xl'>
+                                        <div className='text-sm sm:text-base xl:text-xl'>
                                             <h1 className='font-bold text-textprimary dark:text-darktextprimary transition-all'>
                                                 Non-converted floorprice:
                                             </h1>
                                         </div>
-                                        <div className='text-lg xl:text-xl'>
+                                        <div className='text-base xl:text-xl'>
                                             <h1 className='font-bold text-textprimary dark:text-darktextprimary transition-all'>
                                                 Floorprice exchange:
                                             </h1>
                                         </div>
                                     </div>
                                     <div className='p-2 max-w-[30%]'>
-                                        <div className='text-lg xl:text-xl'>
+                                        <div className='text-sm sm:text-base xl:text-xl'>
                                             <h1 className='text-textprimary dark:text-darktextprimary transition-all'>
-                                            <NumberFormat style={colorStyle} value={currentnft.cheapestprice} decimalScale={2} displayType={'text'} thousandSeparator={','} />
+                                                {currentnft.floorpriceoriginal} 
                                             </h1>
                                         </div>
-                                        <div className='text-lg xl:text-xl'>
-                                            <a style={colorStyle} className='text-textprimary dark:text-darktextprimary transition-all' 
+                                        <div className='text-base xl:text-xl'>
+                                            <a style={colorStyle} className='flex flex-row text-textprimary dark:text-darktextprimary transition-all' 
                                                 href={currentnft.cheapestmarketlink}>
-                                                {currentnft.cheapestmarket}
+                                                {currentnft.cheapestmarket}<AiOutlineLink/>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className='flex flex-col justify-center'>
+                            <div className='pt-6 flex flex-col justify-center'>
                                 <h1 className='px-2 pt-2 xl:mx-0 flex mx-auto text-2xl xl:text-3xl font-bold text-textprimary dark:text-darktextprimary transition-all'>Price changes</h1>
                                 <div className='flex flex-row justify-center xl:justify-start'>
                                     <div className='flex flex-col p-2'>
                                         <div className='text-sm sm:text-md xl:text-lg text-textprimary dark:text-darktextprimary transition-all'>
                                             <h1 className=''>Price change (7d)</h1>
-                                            <h1 style={colorStyle} className=''>{currentnft.floorpricesevenday}</h1>
+                                            <h1 style={colorStyle} className='nftpagepercentages'>{currentnft.floorpricesevenday}</h1>
                                         </div>
                                         <div className='text-sm sm:text-md xl:text-lg text-textprimary dark:text-darktextprimary transition-all'>
                                             <h1 className=''>Price change (30d)</h1>
-                                            <h1 style={colorStyle} className=''>{currentnft.floorpricethirtyday}</h1>
+                                            <h1 style={colorStyle} className='nftpagepercentages'>{currentnft.floorpricethirtyday}</h1>
                                         </div>
                                     </div>
                                     <div className='flex flex-col p-2'>
                                         <div className='text-sm sm:text-md xl:text-lg text-textprimary dark:text-darktextprimary transition-all'>
                                             <h1 className=''>Price change (14d)</h1>
-                                            <h1 style={colorStyle} className=''>{currentnft.floorpricefourteenday}</h1>
+                                            <h1 style={colorStyle} className='nftpagepercentages'>{currentnft.floorpricefourteenday}</h1>
                                         </div>
                                         <div className='text-sm sm:text-md xl:text-lg text-textprimary dark:text-darktextprimary transition-all'>
                                             <h1 className=''>Price change (60d)</h1>
-                                            <h1 style={colorStyle} className=''>{currentnft.floorpricesixtyday}</h1>
+                                            <h1 style={colorStyle} className='nftpagepercentages'>{currentnft.floorpricesixtyday}</h1>
                                         </div>
                                     </div>
                                     
                                 </div>
-                                <div className='px-2 text-sm flex mx-auto max-w-[400px] text-textprimary dark:text-darktextprimary transition-all'>
+                                <div className='px-2 text-sm flex mx-auto xl:ml-0 max-w-[400px] text-textprimary dark:text-darktextprimary transition-all'>
                                     <h3>(Price changes are based only on Greensea data, 
-                                        because no historical price data is being stored by EnergyWebNFTs.com)</h3>
+                                        because no historical price data is being stored by EnergyWebNFTs.com)<br/>
+                                        If any percentages are 0, then that means there are currently no sellorders, or N amount of days ago there were no sellorders.
+                                    </h3>
                                 </div>
                             </div>
                         </div>
