@@ -7,7 +7,7 @@ import slugify from 'slugify';
 import useColorChange from 'use-color-change';
 
 function Table() {
-    let amountoflistedNFTs = 11
+    let amountoflistedNFTs = 18
 
     const [nftlist, setNftList] = useState([])
 
@@ -104,10 +104,10 @@ function Table() {
                 sorticon4[0].style.filter = 'brightness(100%)';
             }
         }
-        else if (col === 'floorpricethirtyday') {
+        else if (col === 'floorpricesevenday') {
             if (order === "ASC") {
                 const sorted = [...nftlist].sort((a, b) =>
-                    b[col].toLowerCase() > a[col].toLowerCase() ? 1 : -1
+                    b[col].toLowerCase() < a[col].toLowerCase() ? 1 : -1
                 );
                 setNftList(sorted);
                 setOrder("DSC");
@@ -120,7 +120,7 @@ function Table() {
             }
             if (order === "DSC") {
                 const sorted = [...nftlist].sort((a, b) =>
-                    a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1
+                    a[col].toLowerCase() < b[col].toLowerCase() ? 1 : -1
                 );
                 setNftList(sorted);
                 setOrder("ASC");
@@ -143,7 +143,7 @@ function Table() {
                         <th className='text-left'><div className='flex flex-row'><p>NFT Name</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("name")} className='namebutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("name")} className='namebutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                         <th className='text-left'><div className='flex flex-row'><p>Floorprice</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("floorprice")} className='floorpricebutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("floorprice")} className='floorpricebutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                         <th className='text-left'><div className='flex flex-row'><p>Cheapest on:</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("cheapestmarket")} className='cheapestmarketbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("cheapestmarket")} className='cheapestmarketbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
-                        <th className='text-left'><div className='flex flex-row'><p>30d % ($)</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("floorpricethirtyday")} className='floorpricethirtydaybutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("floorpricethirtyday")} className='floorpricethirtydaybutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
+                        <th className='text-left'><div className='flex flex-row'><p>7d % ($)</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("floorpricesevenday")} className='floorpricesevendaybutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("floorpricesevenday")} className='floorpricesevendaybutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                         <th className='text-left'><div className='flex flex-row'><p>Amount</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("circulating")} className='circulatingbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("circulating")} className='circulatingbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                         <th className='text-left'><div className='flex flex-row'><p>Market cap</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("marketcap")} className='marketcapbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("marketcap")} className='marketcapbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                     </tr>
@@ -156,7 +156,7 @@ function Table() {
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><Link to={`/nft/${(slugify(index.name, '_'))}`}>{index.name}</Link></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat style={colorStyle} className='floorprice_element' decimalScale={2} value={index.floorprice} displayType={'text'} thousandSeparator={','} prefix={'$'} /></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.cheapestmarket}</td>
-                            <td style={{color: index.floorpricethirtyday[0] === '-' ? "#EF143A" : "#068706"}} className='percentagecolor border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.floorpricethirtyday}</td>
+                            <td style={{color: index.floorpricesevenday[0] === '-' ? "#F2294E" : "#4EC44E"}} className='percentagecolor border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.floorpricesevenday}</td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.circulating}</td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat style={Object.assign(colorStyle)} className='marketcap_element' decimalScale={2} value={index.marketcap} displayType={'text'} thousandSeparator={','} prefix={'$'} /></td>
                         </tr>

@@ -33,10 +33,10 @@ const NftPage = () => {
     if (nftpagepercentages !== undefined) {
         for (let i = 0; i < nftpagepercentages.length; i++) {
             if (nftpagepercentages[i].textContent[0] === '-') {
-                nftpagepercentages[i].style.color="#EF143A"
+                nftpagepercentages[i].style.color="#F2294E"
             }
             else {
-                nftpagepercentages[i].style.color="#068706"
+                nftpagepercentages[i].style.color="#4EC44E"
             }
         }
     }
