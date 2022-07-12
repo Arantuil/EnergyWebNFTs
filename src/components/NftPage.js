@@ -131,24 +131,24 @@ const NftPage = () => {
                             <div className='pt-6 flex flex-col justify-center'>
                                 <div className='flex flex-row justify-center xl:justify-start'>
                                     <div className='p-2'>
-                                        <div className='text-sm sm:text-base xl:text-xl'>
+                                        <div className='text-sm sm:text-base xl:text-lg 2xl:text-xl'>
                                             <h1 className='font-bold text-textprimary dark:text-darktextprimary transition-all'>
                                                 Non-converted floorprice:
                                             </h1>
                                         </div>
-                                        <div className='text-base xl:text-xl'>
+                                        <div className='text-base xl:text-lg 2xl:text-xl'>
                                             <h1 className='font-bold text-textprimary dark:text-darktextprimary transition-all'>
                                                 Floorprice exchange:
                                             </h1>
                                         </div>
                                     </div>
                                     <div className='p-2 max-w-[30%]'>
-                                        <div className='text-sm sm:text-base xl:text-xl'>
+                                        <div className='text-sm sm:text-base xl:text-lg 2xl:text-xl'>
                                             <h1 className='text-textprimary dark:text-darktextprimary transition-all'>
                                                 {currentnft.floorpriceoriginal} 
                                             </h1>
                                         </div>
-                                        <div className='text-base xl:text-xl'>
+                                        <div className='text-base xl:text-lg 2xl:text-xl'>
                                             <a style={colorStyle} className='flex flex-row text-textprimary dark:text-darktextprimary transition-all' 
                                                 href={currentnft.cheapestmarketlink}>
                                                 {currentnft.cheapestmarket}<AiOutlineLink/>
