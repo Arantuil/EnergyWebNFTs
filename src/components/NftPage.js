@@ -27,7 +27,7 @@ const NftPage = () => {
                 });
             }
         });
-    }, [setCurrentnft]);
+    }, [setCurrentnft, params.id]);
     
     let nftpagepercentages = document.getElementsByClassName("nftpagepercentages")
     if (nftpagepercentages !== undefined) {
@@ -131,7 +131,7 @@ const NftPage = () => {
                             <div className='pt-6 flex flex-col justify-center'>
                                 <div className='flex flex-row justify-center xl:justify-start'>
                                     <div className='p-2'>
-                                        <div className='text-sm sm:text-base xl:text-lg 2xl:text-xl'>
+                                        <div className='text-sm sm:text-base 2xl:text-lg'>
                                             <h1 className='font-bold text-textprimary dark:text-darktextprimary transition-all'>
                                                 Non-converted floorprice:
                                             </h1>
@@ -143,7 +143,7 @@ const NftPage = () => {
                                         </div>
                                     </div>
                                     <div className='p-2 max-w-[30%]'>
-                                        <div className='text-sm sm:text-base xl:text-lg 2xl:text-xl'>
+                                        <div className='text-sm sm:text-base 2xl:text-lg'>
                                             <h1 className='text-textprimary dark:text-darktextprimary transition-all'>
                                                 {currentnft.floorpriceoriginal} 
                                             </h1>

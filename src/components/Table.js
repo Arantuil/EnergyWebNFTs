@@ -7,7 +7,7 @@ import slugify from 'slugify';
 import useColorChange from 'use-color-change';
 
 function Table() {
-    let amountoflistedNFTs = 18
+    let amountoflistedNFTs = 21
 
     const [nftlist, setNftList] = useState([])
 
@@ -111,12 +111,12 @@ function Table() {
                 );
                 setNftList(sorted);
                 setOrder("DSC");
-                var secondsorticon3 = document.getElementsByClassName(`button`)
-                for (var i3 = 0; i3 < secondsorticon3.length; i3++) {
-                    secondsorticon3[i3].style.filter = 'brightness(50%)';
+                var secondsorticon5 = document.getElementsByClassName(`button`)
+                for (var i5 = 0; i5 < secondsorticon5.length; i5++) {
+                    secondsorticon5[i5].style.filter = 'brightness(50%)';
                 }
-                var sorticon3 = document.getElementsByClassName(`${col}button1`)
-                sorticon3[0].style.filter = 'brightness(100%)';
+                var sorticon5 = document.getElementsByClassName(`${col}button1`)
+                sorticon5[0].style.filter = 'brightness(100%)';
             }
             if (order === "DSC") {
                 const sorted = [...nftlist].sort((a, b) =>
@@ -124,25 +124,25 @@ function Table() {
                 );
                 setNftList(sorted);
                 setOrder("ASC");
-                var secondsorticon4 = document.getElementsByClassName(`button`)
-                for (var i4 = 0; i4 < secondsorticon4.length; i4++) {
-                    secondsorticon4[i4].style.filter = 'brightness(50%)';
+                var secondsorticon6 = document.getElementsByClassName(`button`)
+                for (var i6 = 0; i6 < secondsorticon6.length; i6++) {
+                    secondsorticon6[i6].style.filter = 'brightness(50%)';
                 }
-                var sorticon4 = document.getElementsByClassName(`${col}button2`)
-                sorticon4[0].style.filter = 'brightness(100%)';
+                var sorticon6 = document.getElementsByClassName(`${col}button2`)
+                sorticon6[0].style.filter = 'brightness(100%)';
             }
         }
     }
 
     return (
-            <table className="table-auto w-[280vw] sm:w-[170vw] md:w-[130vw] lg:w-full text-textprimary dark:text-darktextprimary transition-all">
+            <table className="table-auto w-[250vw] sm:w-[170vw] md:w-[130vw] lg:w-full text-textprimary dark:text-darktextprimary transition-all">
                 <thead>
                     <tr>
                         <th className='text-left'><div className='flex flex-row'><p>Rank</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("rank")} className='rankbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("rank")} className='rankbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                         <th className='text-left'><div className='flex flex-row'><p>NFT</p></div></th>
                         <th className='text-left'><div className='flex flex-row'><p>NFT Name</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("name")} className='namebutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("name")} className='namebutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                         <th className='text-left'><div className='flex flex-row'><p>Floorprice</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("floorprice")} className='floorpricebutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("floorprice")} className='floorpricebutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
-                        <th className='text-left'><div className='flex flex-row'><p>Cheapest on:</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("cheapestmarket")} className='cheapestmarketbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("cheapestmarket")} className='cheapestmarketbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
+                        <th className='text-left'><div className='flex flex-row'><p>Floor on:</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("cheapestmarket")} className='cheapestmarketbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("cheapestmarket")} className='cheapestmarketbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                         <th className='text-left'><div className='flex flex-row'><p>7d % ($)</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("floorpricesevenday")} className='floorpricesevendaybutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("floorpricesevenday")} className='floorpricesevendaybutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                         <th className='text-left'><div className='flex flex-row'><p>Amount</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("circulating")} className='circulatingbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("circulating")} className='circulatingbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
                         <th className='text-left'><div className='flex flex-row'><p>Market cap</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("marketcap")} className='marketcapbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("marketcap")} className='marketcapbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
@@ -156,7 +156,7 @@ function Table() {
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><Link to={`/nft/${(slugify(index.name, '_'))}`}>{index.name}</Link></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat style={colorStyle} className='floorprice_element' decimalScale={2} value={index.floorprice} displayType={'text'} thousandSeparator={','} prefix={'$'} /></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.cheapestmarket}</td>
-                            <td style={{color: index.floorpricesevenday[0] === '-' ? "#F2294E" : "#4EC44E"}} className='percentagecolor border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.floorpricesevenday}</td>
+                            <td style={{color: index.floorpricesevenday === '+' ? "#F2294E" : "#4EC44E"}} className='percentagecolor border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.floorpricesevenday}</td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.circulating}</td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat style={Object.assign(colorStyle)} className='marketcap_element' decimalScale={2} value={index.marketcap} displayType={'text'} thousandSeparator={','} prefix={'$'} /></td>
                         </tr>
