@@ -146,7 +146,9 @@ const NftPage = () => {
 
                             <div className='pt-2 flex flex-col justify-center'>
                                 <div className='px-2 pb-6 text-sm flex mx-auto xl:ml-0 max-w-[400px] text-textprimary dark:text-darktextprimary transition-all'>
-                                    <h3 className='text-sm sm:text-base 2xl:text-lg'><span className='font-bold'>Description: </span>{currentnft.description}
+                                    <h3 className='text-sm sm:text-base'>
+                                        <span className='font-bold'>Description: </span>
+                                        {currentnft.description}
                                     </h3>
                                 </div>
                                 <div className='flex flex-row justify-center xl:justify-start'>
@@ -164,7 +166,7 @@ const NftPage = () => {
                                     </div>
                                     <div className='p-2 max-w-[30%]'>
                                         <div className='text-sm sm:text-base 2xl:text-lg'>
-                                            <h1 className='text-textprimary dark:text-darktextprimary transition-all'>
+                                            <h1 style={colorStyle} className='text-textprimary dark:text-darktextprimary transition-all'>
                                                 {currentnft.cheapestpriceoriginal} {currentnft.cheapestpricecurrency}
                                             </h1>
                                         </div>
@@ -179,7 +181,7 @@ const NftPage = () => {
                             </div>
 
                             <div className='pt-6 flex flex-col justify-center'>
-                                <h1 className='px-2 pt-2 xl:mx-0 flex mx-auto text-2xl xl:text-3xl font-bold text-textprimary dark:text-darktextprimary transition-all'>Price changes</h1>
+                                <h1 className='px-2 pt-2 xl:mx-0 flex mx-auto text-2xl xl:text-3xl font-bold text-textprimary dark:text-darktextprimary transition-all'>Price changes ($)</h1>
                                 <div className='flex flex-row justify-center xl:justify-start'>
                                     <div className='flex flex-col p-2'>
                                         <div className='text-sm sm:text-md xl:text-lg text-textprimary dark:text-darktextprimary transition-all'>
