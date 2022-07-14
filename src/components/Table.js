@@ -7,7 +7,7 @@ import slugify from 'slugify';
 import useColorChange from 'use-color-change';
 
 function Table() {
-    let amountoflistedNFTs = 21
+    let amountoflistedNFTs = 22
 
     const [nftlist, setNftList] = useState([])
 
@@ -156,7 +156,7 @@ function Table() {
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><Link to={`/nft/${(slugify(index.name, '_'))}`}>{index.name}</Link></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat style={colorStyle} className='floorprice_element' decimalScale={2} value={index.floorprice} displayType={'text'} thousandSeparator={','} prefix={'$'} /></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.cheapestmarket}</td>
-                            <td style={{color: index.floorpricesevenday === '+' ? "#F2294E" : "#4EC44E"}} className='percentagecolor border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.floorpricesevenday}</td>
+                            <td style={{color: index.percentage7daycolor}} className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.floorpricesevenday}</td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.circulating}</td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat style={Object.assign(colorStyle)} className='marketcap_element' decimalScale={2} value={index.marketcap} displayType={'text'} thousandSeparator={','} prefix={'$'} /></td>
                         </tr>
