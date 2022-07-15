@@ -10,18 +10,18 @@ from NftCollections.Iinu import updateIinuPrices
 from NftCollections.SmudgeCatworld import updateSmudgeCatworldPrices
 
 # ----------------------------------------------------------------- #
+while(True):
+    start = time.time()
 
-start = time.time()
+    updateCarbonSwapS1Prices()
+    updateCarbonlandTrustPrices()
+    updateSmudgeMeowOfBastetPrices()
+    updateCarbonautsPrices()
+    updateEnergymonPrices()
+    updateCryptoSootsPrices()
+    updateNFTreesPrices()
+    updateIinuPrices()
+    updateSmudgeCatworldPrices()
 
-updateCarbonSwapS1Prices()
-updateCarbonlandTrustPrices()
-updateSmudgeMeowOfBastetPrices()
-updateCarbonautsPrices()
-updateEnergymonPrices()
-updateCryptoSootsPrices()
-updateNFTreesPrices()
-updateIinuPrices()
-updateSmudgeCatworldPrices()
-
-end = time.time()
-print("The time of execution of above program is :", end-start)
+    end = time.time()
+    print("The time of execution of above program is :", end-start)
