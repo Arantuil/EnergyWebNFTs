@@ -7,19 +7,21 @@ from NftCollections.Energymon import updateEnergymonPrices
 from NftCollections.Cryptosoots import updateCryptoSootsPrices
 from NftCollections.NFTrees import updateNFTreesPrices
 from NftCollections.Iinu import updateIinuPrices
+from NftCollections.SmudgeCatworld import updateSmudgeCatworldPrices
 
 # --------------------------------------------- #
 
 start = time.time()
 
-#updateCarbonSwapS1Prices()
-#updateCarbonlandTrustPrices()
-#updateSmudgeMeowOfBastetPrices()
-#updateCarbonautsPrices()
-#updateEnergymonPrices()
-#updateCryptoSootsPrices()
-#updateNFTreesPrices()
+updateCarbonSwapS1Prices()
+updateCarbonlandTrustPrices()
+updateSmudgeMeowOfBastetPrices()
+updateCarbonautsPrices()
+updateEnergymonPrices()
+updateCryptoSootsPrices()
+updateNFTreesPrices()
 updateIinuPrices()
+updateSmudgeCatworldPrices()
 
 end = time.time()
 print("The time of execution of above program is :", end-start)
