@@ -1,8 +1,8 @@
 ![gewggh](https://user-images.githubusercontent.com/67122764/177218297-703745a2-5090-4904-968c-89b252508ccc.png)
 # Energy Web NFTs
 
-![previewsmall](https://user-images.githubusercontent.com/67122764/177663272-2482ac2b-6f73-439c-8afb-27687617289d.png)
-> Preview image of the home page of the website (data is not dynamic)
+![gewgwyyyy](https://user-images.githubusercontent.com/67122764/179288256-e32a463e-7c38-4827-9fc7-4f33a30a0a33.png)
+> Preview image of the home page of the website (data is now dynamic)
 
 ## 🛠️How to use
 In the project directory, you can run:
