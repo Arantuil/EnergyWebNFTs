@@ -1,3 +1,5 @@
+import DonationBar from './DonationBar'
+
 const FooterHome = () => {
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -90,6 +92,7 @@ const FooterHome = () => {
                 <p className='text-sm text-textprimary dark:text-darktextprimary transition-all'>
                     All the donations will be used to pay for the cost of the website hosting.
                 </p>
+                <DonationBar />
             </div>
         </footer>
     );
