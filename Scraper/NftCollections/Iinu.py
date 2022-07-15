@@ -47,16 +47,16 @@ ewtprice60day = float(parsedjson60day["data"]["pair"]["token1Price"])
 susuprice60day = ewtprice60day*(float(parsedjson60day["data"]["token"]["derivedETH"]))
 
 nftnameList = [
-"NFTrees"
+"īinu"
 ]
 
 allNftList = [
-"0x2acbee922b3a2f4bcb1e2587144122411b857325"
+"0xbf0e4613f25bba08811632613f4161fa415cb253"
 ] 
 
-allNftAmounts = ["0"] 
+allNftAmounts = ["300"] 
 
-def updateNFTreesPrices():
+def updateIinuPrices():
     for i in range(len(allNftList)):
         #query = '''{sellOrders: orders(where: {active: true, sellAsset_starts_with: '''+'"'+allNftList[i]+'"}'+''', orderBy: createdAt, orderDirection: desc, skip: 0, first: 1000) {id sellAsset { id assetAddress} buyAsset {id assetId assetType assetAddress}active fills {id buyer{id}complete createdAt order {id}}strategy {askPerUnitNominator askPerUnitDenominator}}}'''
         #query7day = '''{sellOrders: orders(where: {active: true, sellAsset_starts_with: '''+'"'+allNftList[i]+'"}'+''', block: {number: '''+block7dayago+'''} , orderBy: createdAt, orderDirection: desc, skip: 0, first: 1000) {id sellAsset {id assetAddress}buyAsset {id assetId assetType assetAddress}active fills {id buyer {id}complete createdAt order {id}}strategy {askPerUnitNominator askPerUnitDenominator}}}'''
@@ -100,24 +100,23 @@ def updateNFTreesPrices():
         response = requests.get(url)
         return response.text
 
-    url = "https://raregems.io/energyweb/nftrees"
+    url = "https://raregems.io/energyweb/iinu"
     html = getHTMLdocument(url)
     soup = BeautifulSoup(html, 'html.parser')
 
     owners = soup.find_all('div', class_='value')
-    allNftAmounts = [str(owners[0].string)]
     owners = owners[1].string
     holders = int(owners)
 
     price = soup.find_all('button', class_='small')
-    price = price[1]
+    price = price[0]
     price = price.findChildren()
     price = price[0].string
     pricecurrency = price[-3:]
 
     floornftid = soup.find('ul', class_='items')
     floornftid = floornftid.findChildren()
-    floornftid = floornftid[4]
+    floornftid = floornftid[0]
     floornftid = floornftid.find(href=True)
     floornftid = floornftid['href']
     num1 = floornftid[-2]
@@ -280,11 +279,11 @@ def updateNFTreesPrices():
 #    
 #    percentage60day = (greenseapriceslistusd[0]/greenseapriceslistusd60day[0]*100)-100
     # -------------------------------------------------------------------------- #
-    image = f"/images/NFTrees.png"
-    imageanimated = f"/animatedimages/NFTrees.png"
+    image = f"/images/Iinu.webp"
+    imageanimated = f"/animatedimages/Iinu.webp"
     assettype = "ERC-721"
     if combinedpriceslistoriginal[3] == 'Raregems':
-        cheapestpricemarketlink = f"https://raregems.io/energyweb/nftrees/{combinedpriceslistoriginal[2]}"
+        cheapestpricemarketlink = f"https://raregems.io/energyweb/iinu/{combinedpriceslistoriginal[2]}"
     #if combinedpriceslistoriginal[3] == 'Greensea':
     #    cheapestpricemarketlink = f"https://greensea.carbonswap.finance/token/ERC721/0x79bd1e42ca16e7f66f900f01b474901e33839a58/{combinedpriceslistoriginal[2]}"
     else:
@@ -329,9 +328,9 @@ def updateNFTreesPrices():
 
     carbonswapNftData = {
         "rank": "unset",
-        "id": 23,
-        "name": "NFTrees",
-        "description": "Grow NFTrees backed by Real Trees 🌳. Have Fun and make Real World Impact.",
+        "id": 24,
+        "name": "īinu",
+        "description": "A collection of 300 Carbon-Credit generating dogs on the EnergyWeb Chain. Each NFT is backed by at least 1 Carbon Removal Bond from CarbonLandTrust project. Hold the NFT in your wallet to claim Carbon Credits when connecting to CarbonPaws.io",
         "image": image,
         "imageanimated": imageanimated,
         "cheapestpriceoriginal": combinedpriceslistoriginal[0],
@@ -353,27 +352,27 @@ def updateNFTreesPrices():
         "assettype": assettype
     }
 
-    db.child(f"{23}").update({"rank": carbonswapNftData["rank"]})
-    db.child(f"{23}").update({"id": carbonswapNftData["id"]})
-    db.child(f"{23}").update({"name": carbonswapNftData["name"]})
-    db.child(f"{23}").update({"description": carbonswapNftData["description"]})
-    db.child(f"{23}").update({"image": carbonswapNftData["image"]})
-    db.child(f"{23}").update({"imageanimated": carbonswapNftData["imageanimated"]})
-    db.child(f"{23}").update({"cheapestpriceoriginal": carbonswapNftData["cheapestpriceoriginal"]})
-    db.child(f"{23}").update({"cheapestpricecurrency": carbonswapNftData["cheapestpricecurrency"]})
-    db.child(f"{23}").update({"cheapestmarket": carbonswapNftData["cheapestpricemarket"]})
-    db.child(f"{23}").update({"cheapestmarketlink": carbonswapNftData["cheapestpricemarketlink"]})
-    db.child(f"{23}").update({"marketcap": carbonswapNftData["marketcap"]})
-    db.child(f"{23}").update({"floorpricesevenday": carbonswapNftData["floorpricesevenday"]})
-    db.child(f"{23}").update({"floorpricefourteenday": carbonswapNftData["floorpricefourteenday"]})
-    db.child(f"{23}").update({"floorpricethirtyday": carbonswapNftData["floorpricethirtyday"]})
-    db.child(f"{23}").update({"floorpricesixtyday": carbonswapNftData["floorpricesixtyday"]})
-    db.child(f"{23}").update({"percentage7daycolor": carbonswapNftData["percentage7daycolor"]})
-    db.child(f"{23}").update({"percentage14daycolor": carbonswapNftData["percentage14daycolor"]})
-    db.child(f"{23}").update({"percentage30daycolor": carbonswapNftData["percentage30daycolor"]})
-    db.child(f"{23}").update({"percentage60daycolor": carbonswapNftData["percentage60daycolor"]})
-    db.child(f"{23}").update({"circulating": carbonswapNftData["circulating"]})
-    db.child(f"{23}").update({"floorprice": carbonswapNftData["floorprice"]})
-    db.child(f"{23}").update({"owners": carbonswapNftData["owners"]})
-    db.child(f"{23}").update({"assettype": carbonswapNftData["assettype"]})
-    print(f"Updated NFT with ID: {23}")
+    db.child(f"{24}").update({"rank": carbonswapNftData["rank"]})
+    db.child(f"{24}").update({"id": carbonswapNftData["id"]})
+    db.child(f"{24}").update({"name": carbonswapNftData["name"]})
+    db.child(f"{24}").update({"description": carbonswapNftData["description"]})
+    db.child(f"{24}").update({"image": carbonswapNftData["image"]})
+    db.child(f"{24}").update({"imageanimated": carbonswapNftData["imageanimated"]})
+    db.child(f"{24}").update({"cheapestpriceoriginal": carbonswapNftData["cheapestpriceoriginal"]})
+    db.child(f"{24}").update({"cheapestpricecurrency": carbonswapNftData["cheapestpricecurrency"]})
+    db.child(f"{24}").update({"cheapestmarket": carbonswapNftData["cheapestpricemarket"]})
+    db.child(f"{24}").update({"cheapestmarketlink": carbonswapNftData["cheapestpricemarketlink"]})
+    db.child(f"{24}").update({"marketcap": carbonswapNftData["marketcap"]})
+    db.child(f"{24}").update({"floorpricesevenday": carbonswapNftData["floorpricesevenday"]})
+    db.child(f"{24}").update({"floorpricefourteenday": carbonswapNftData["floorpricefourteenday"]})
+    db.child(f"{24}").update({"floorpricethirtyday": carbonswapNftData["floorpricethirtyday"]})
+    db.child(f"{24}").update({"floorpricesixtyday": carbonswapNftData["floorpricesixtyday"]})
+    db.child(f"{24}").update({"percentage7daycolor": carbonswapNftData["percentage7daycolor"]})
+    db.child(f"{24}").update({"percentage14daycolor": carbonswapNftData["percentage14daycolor"]})
+    db.child(f"{24}").update({"percentage30daycolor": carbonswapNftData["percentage30daycolor"]})
+    db.child(f"{24}").update({"percentage60daycolor": carbonswapNftData["percentage60daycolor"]})
+    db.child(f"{24}").update({"circulating": carbonswapNftData["circulating"]})
+    db.child(f"{24}").update({"floorprice": carbonswapNftData["floorprice"]})
+    db.child(f"{24}").update({"owners": carbonswapNftData["owners"]})
+    db.child(f"{24}").update({"assettype": carbonswapNftData["assettype"]})
+    print(f"Updated NFT with ID: {24}")
