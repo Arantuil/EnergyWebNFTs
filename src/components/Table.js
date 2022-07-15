@@ -7,7 +7,7 @@ import slugify from 'slugify';
 import useColorChange from 'use-color-change';
 
 function Table() {
-    let amountoflistedNFTs = 25
+    let amountoflistedNFTs = 26
 
     const [nftlist, setNftList] = useState([])
 

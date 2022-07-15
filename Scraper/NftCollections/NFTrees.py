@@ -54,7 +54,7 @@ allNftList = [
 "0x2acbee922b3a2f4bcb1e2587144122411b857325"
 ] 
 
-allNftAmounts = ["0"] 
+allNftAmounts = ["867"] 
 
 def updateNFTreesPrices():
     for i in range(len(allNftList)):
@@ -105,7 +105,7 @@ def updateNFTreesPrices():
     soup = BeautifulSoup(html, 'html.parser')
 
     owners = soup.find_all('div', class_='value')
-    allNftAmounts = [str(owners[0].string)]
+    allNftAmounts = [(owners[0].string)]
     owners = owners[1].string
     holders = int(owners)
 

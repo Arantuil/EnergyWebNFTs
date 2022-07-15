@@ -347,7 +347,7 @@ def updateSmudgeMeowOfBastetPrices():
 
         carbonswapNftData = {
             "rank": "unset",
-            "id": i,
+            "id": i+11,
             "name": nftnameList[i],
             "description": descriptions[i],
             "image": image,
