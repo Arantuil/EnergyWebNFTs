@@ -9,15 +9,15 @@ from NftCollections.NFTrees import updateNFTreesPrices
 from NftCollections.Iinu import updateIinuPrices
 from NftCollections.SmudgeCatworld import updateSmudgeCatworldPrices
 
-# --------------------------------------------- #
+# ----------------------------------------------------------------- #
 
 start = time.time()
 
-#updateCarbonSwapS1Prices()
-#updateCarbonlandTrustPrices()
-#updateSmudgeMeowOfBastetPrices()
-#updateCarbonautsPrices()
-#updateEnergymonPrices()
+updateCarbonSwapS1Prices()
+updateCarbonlandTrustPrices()
+updateSmudgeMeowOfBastetPrices()
+updateCarbonautsPrices()
+updateEnergymonPrices()
 updateCryptoSootsPrices()
 updateNFTreesPrices()
 updateIinuPrices()

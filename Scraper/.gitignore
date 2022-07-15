@@ -3,3 +3,4 @@ NFTdata.json
 /__pycache__
 /NftCollections/__pycache__
 /src
+serviceAccountKey.json
