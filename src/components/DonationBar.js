@@ -3,7 +3,7 @@ import { useState } from 'react'
 const DonationBar = () => {
     const [balance, setBalance] = useState([])
 
-    let url = "https://explorer.energyweb.org/api?module=account&action=eth_get_balance&address=0xb72d8A0fE0eBa559f99F2CbC7fA3952cc68dda8D"
+    let url = "https://explorer.energyweb.org/api?module=account&action=eth_get_balance&address=0x26Daf0750B1AB7D1359412ed5656F4e9739D6c31"
     fetch(url).then(function(response) {
         return response.json();
     }).then(function(data) {
