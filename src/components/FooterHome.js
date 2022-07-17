@@ -39,17 +39,8 @@ const FooterHome = () => {
                 <h1 className='mt-4 font-bold text-xl text-textprimary dark:text-darktextprimary transition-all'>
                     🔢How does EnergyWebNFTs calculate the NFT prices?</h1>
                 <p className='text-textprimary dark:text-darktextprimary transition-all'>
-                    The price is gathered from the public subgraph of Greensea, provided
-                    by the Greensea/Carbonswap team.
-                </p>
-                <h1 className='mt-4 font-bold text-xl text-textprimary dark:text-darktextprimary transition-all'>
-                    📄What is 24h volume in the table above?</h1>
-                <p className='text-textprimary dark:text-darktextprimary transition-all'>
-                    The 24h trading volume refers to the amount a NFT has 
-                    been bought and sold on Greensea within the last 24 hours. 
-                    For instance, if the 24h volume for the Cryptosoots collection is $2000, 
-                    and let's say there have been traded 10 Cryptosoots in the last 24 hours,
-                    then the average price each Cryptosoot that day has Changed hands for is $200.
+                    EnergyWebNFTs combines data from Greensea and Raregems and displays the order with the lowest price. 
+                    The Greensea pricedata is gathered from the public subgraph, provided by the Greensea/Carbonswap team.
                 </p>
                 <h1 className='mt-4 font-bold text-xl text-textprimary dark:text-darktextprimary transition-all'>
                     🟢What is the blinking dot in the top right corner?</h1> 
