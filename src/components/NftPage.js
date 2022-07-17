@@ -75,7 +75,7 @@ const NftPage = () => {
                         <div className='xl:mr-auto xl:ml-4 2xl:ml-8'>
 
                             <div className='flex flex-row justify-center xl:justify-start'>
-                                <div className='flex flex-row'>
+                                <div className='flex flex-row pb-2'>
                                     <div className='p-2'>
                                         <div className='text-lg xl:text-xl'>
                                             <h1 className='font-bold text-textprimary dark:text-darktextprimary transition-all'>
@@ -144,8 +144,8 @@ const NftPage = () => {
                                 </div>
                             </div>
 
-                            <div className='pt-2 flex flex-col justify-center'>
-                                <div className='px-2 pb-6 text-sm flex mx-auto xl:ml-0 max-w-[400px] text-textprimary dark:text-darktextprimary transition-all'>
+                            <div className='border-b-2 pb-2 border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)] max-w-[400px] pt-2 flex mx-auto flex-col justify-center'>
+                                <div className='border-t-2 pt-2 border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)] px-2 text-sm flex mx-auto xl:ml-0 max-w-[400px] text-textprimary dark:text-darktextprimary transition-all'>
                                     <h3 className='text-sm sm:text-base'>
                                         <span className='font-bold'>Description: </span>
                                         {currentnft.description}
@@ -180,8 +180,8 @@ const NftPage = () => {
                                 </div>
                             </div>
 
-                            <div className='pt-6 flex flex-col justify-center'>
-                                <h1 className='px-2 pt-2 xl:mx-0 flex mx-auto text-base xl:text-lg 2xl:text-xl font-bold text-textprimary dark:text-darktextprimary transition-all'>Price changes ($)</h1>
+                            <div className='pt-2 md:pt-4 flex flex-col justify-center'>
+                                <h1 className='px-2 pt-2 xl:mx-0 flex mx-auto text-base xl:text-lg font-bold text-textprimary dark:text-darktextprimary transition-all'>Price changes ($)</h1>
                                 <div className='flex flex-row justify-center xl:justify-start'>
                                     <div className='flex flex-col p-2'>
                                         <div className='text-sm sm:text-md xl:text-lg text-textprimary dark:text-darktextprimary transition-all'>
@@ -206,7 +206,7 @@ const NftPage = () => {
                                     </div>
 
                                 </div>
-                                <div className='px-2 text-sm flex mx-auto xl:ml-0 max-w-[400px] text-textprimary dark:text-darktextprimary transition-all'>
+                                <div className='px-2 text-xs flex mx-auto xl:ml-0 max-w-[400px] text-textprimary dark:text-darktextprimary transition-all'>
                                     <h3>(Price changes are based only on Greensea data,
                                         because no historical price data is being stored by EnergyWebNFTs.com)<br />
                                         If any percentages are 0, then that means there are currently no sellorders, or N amount of days ago there were no sellorders.
