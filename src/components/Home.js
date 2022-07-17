@@ -265,9 +265,9 @@ function Home() {
                                     <Searchbar placeholder="Search..." data={allnftdata} />
                                 </div>
                                 <div className='mt-[6px] w-2/3 sm:w-1/2 flex justify-end'>
-                                    <button onClick={()=>changetodollar()} className='currencybutton currencybutton1 text-sm w-11 h-5 rounded-lg mx-2 bg-accent1 opacity-[0.8] dark:bg-darkaccent1 dark:opacity-[1] dark:brightness-[120%] text-textprimary dark:text-darktextprimary transition-all'>$</button>
-                                    <button onClick={()=>changetosusu()} className='currencybutton currencybutton2 text-sm w-11 h-5 rounded-lg mx-2 bg-accent2 opacity-[0.8] dark:bg-darkaccent2 dark:opacity-[1] dark:brightness-[120%] text-textprimary dark:text-darktextprimary transition-all'>SUSU</button>
-                                    <button onClick={()=>changetoewt()} className='currencybutton currencybutton3 text-sm w-11 h-5 rounded-lg mx-2 bg-accent3 opacity-[0.8] dark:bg-darkaccent3 dark:opacity-[1] dark:brightness-[120%] text-textprimary dark:text-darktextprimary transition-all'>EWT</button>
+                                    <button onClick={()=>changetodollar()} className='currencybutton currencybutton1 text-sm w-11 h-5 rounded-lg mx-1 md:mx-2 bg-accent1 opacity-[0.8] dark:bg-darkaccent1 dark:opacity-[1] dark:brightness-[120%] text-textprimary dark:text-darktextprimary transition-all'>$</button>
+                                    <button onClick={()=>changetosusu()} className='currencybutton currencybutton2 text-sm w-11 h-5 rounded-lg mx-1 md:mx-2 bg-accent2 opacity-[0.8] dark:bg-darkaccent2 dark:opacity-[1] dark:brightness-[120%] text-textprimary dark:text-darktextprimary transition-all'>SUSU</button>
+                                    <button onClick={()=>changetoewt()} className='currencybutton currencybutton3 text-sm w-11 h-5 rounded-lg mx-1 md:mx-2 bg-accent3 opacity-[0.8] dark:bg-darkaccent3 dark:opacity-[1] dark:brightness-[120%] text-textprimary dark:text-darktextprimary transition-all'>EWT</button>
                                 </div>
                             </div>
                             <Table />

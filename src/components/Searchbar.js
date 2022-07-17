@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import slugify from 'slugify';
+import { AiOutlineSearch } from 'react-icons/ai'
 
 function Searchbar({ placeholder, data }) {
     const [filtereddata, setFiltereddata] = useState([]);
@@ -27,6 +28,8 @@ function Searchbar({ placeholder, data }) {
 
     return (
         <div className='w-full'>
+            <div className='flex flex-row'>
+            <AiOutlineSearch className='flex pb-1 my-auto text-3xl text-textprimary dark:text-darktextprimary transition-all'/>
             <div className='w-full'>
                 <input autoComplete="off" id='searchinput' onChange={handleFilter} placeholder={placeholder} className='mb-1 p-[2px]
                 text-textprimary dark:text-darktextprimary transition-all border-solid border-2 rounded-md 
@@ -58,6 +61,7 @@ function Searchbar({ placeholder, data }) {
                 })}
             </div>
             )}
+            </div>
         </div>
     );
 }

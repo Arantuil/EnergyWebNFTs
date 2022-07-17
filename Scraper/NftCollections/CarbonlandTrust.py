@@ -51,7 +51,7 @@ ewtprice60day = float(parsedjson60day["data"]["pair"]["token1Price"])
 susuprice60day = ewtprice60day*(float(parsedjson60day["data"]["token"]["derivedETH"]))
 
 nftnameList = [
-"1 Ton CO2 Removal Bond 20YR"
+"1 Ton CO2 Removal Bond 20Y"
 ]
 
 allNftList = [
@@ -59,7 +59,7 @@ allNftList = [
 ] 
 
 descriptions = [
-    "Yields one Carbon Removal Credit (CRC) each year for 20 year term"
+"Yields one Carbon Removal Credit (CRC) each year for 20 year term"
 ]
 
 allNftAmounts = ["1200"] 

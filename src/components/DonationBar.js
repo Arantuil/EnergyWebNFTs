@@ -8,7 +8,7 @@ const DonationBar = () => {
         return response.json();
     }).then(function(data) {
         let number = parseInt(data["result"], 16);
-        let ewt = 20
+        let ewt = 15
         if (number > 0) {
             number = number/10000000000000000000
         }
