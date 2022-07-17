@@ -12,7 +12,6 @@ import sys
 import os
 import firebase_admin
 from firebase_admin import credentials
-from firebase_admin import db
 
 cred = credentials.Certificate('serviceAccountKey.json')
 
@@ -25,21 +24,22 @@ firebase_admin.initialize_app(cred, {
 def restart():
     os.execv(sys.executable,['python3'] + sys.argv)
 
-while (True):
-    try:
-        start = time.time()
+try:
+    start = time.time()
 
-        updateCarbonSwapS1Prices()
-        updateCarbonlandTrustPrices()
-        updateSmudgeMeowOfBastetPrices()
-        updateCarbonautsPrices()
-        updateEnergymonPrices()
-        updateCryptoSootsPrices()
-        updateNFTreesPrices()
-        updateIinuPrices()
-        updateSmudgeCatworldPrices()
+    updateCarbonSwapS1Prices()
+    #updateCarbonlandTrustPrices()
+    #updateSmudgeMeowOfBastetPrices()
+    #updateCarbonautsPrices()
+    #updateEnergymonPrices()
+    #updateCryptoSootsPrices()
+    #updateNFTreesPrices()
+    #updateIinuPrices()
+    #updateSmudgeCatworldPrices()
 
-        end = time.time()
-        print("The time of execution of the above program is:", end-start)
-    except:
-        restart()
+    end = time.time()
+    print("The time of execution of the above program is:", end-start)
+except:
+    restart()
+
+restart()

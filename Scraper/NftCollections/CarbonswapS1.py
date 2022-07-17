@@ -78,11 +78,11 @@ allNftAmounts = ["10","28","93","325","44","691","93","89","50","54"]
 
 def updateCarbonSwapS1Prices():
     for i in range(len(allNftList)):
-        query = '''{sellOrders: orders(where: {active: true, sellAsset_starts_with: '''+'"'+allNftList[i]+'"}'+''', orderBy: createdAt, orderDirection: desc, skip: 0, first: 1000) {id sellAsset { id assetAddress} buyAsset {id assetId assetType assetAddress}active fills {id buyer{id}complete createdAt order {id}}strategy {askPerUnitNominator askPerUnitDenominator}}}'''
-        query7day = '''{sellOrders: orders(where: {active: true, sellAsset_starts_with: '''+'"'+allNftList[i]+'"}'+''', block: {number: '''+block7dayago+'''} , orderBy: createdAt, orderDirection: desc, skip: 0, first: 1000) {id sellAsset {id assetAddress}buyAsset {id assetId assetType assetAddress}active fills {id buyer {id}complete createdAt order {id}}strategy {askPerUnitNominator askPerUnitDenominator}}}'''
-        query14day = '''{sellOrders: orders(where: {active: true, sellAsset_starts_with: '''+'"'+allNftList[i]+'"}'+''', block: {number: '''+block14dayago+'''} , orderBy: createdAt, orderDirection: desc, skip: 0, first: 1000) {id sellAsset{id assetAddress}buyAsset{id assetId assetType assetAddress}active fills{id buyer {id}complete createdAt order {id}}strategy {askPerUnitNominator askPerUnitDenominator}}}'''
-        query30day = '''{sellOrders: orders(where: {active: true, sellAsset_starts_with: '''+'"'+allNftList[i]+'"}'+''', block: {number: '''+block30dayago+'''} , orderBy: createdAt, orderDirection: desc, skip: 0, first: 1000) {id sellAsset {id assetAddress} buyAsset {id assetId assetType assetAddress}active fills {id buyer {id}complete createdAt order {id}}strategy {askPerUnitNominator askPerUnitDenominator}}}'''
-        query60day = '''{sellOrders: orders(where: {active: true, sellAsset_starts_with: '''+'"'+allNftList[i]+'"}'+''', block: {number: '''+block60dayago+'''} , orderBy: createdAt, orderDirection: desc, skip: 0, first: 1000) {id sellAsset {id assetAddress}buyAsset {id assetId assetType assetAddress } active fills {id buyer {id}complete createdAt order {id}}strategy {askPerUnitNominator askPerUnitDenominator}}}'''
+        query = '''{sellOrders: orders(where: {active: true, sellAsset_starts_with: '''+'"'+allNftList[i]+'"}'+''', orderBy: createdAt, orderDirection: desc, skip: 0, first: 1000) {id sellAsset { id assetAddress} strategy{expiresAt} buyAsset {id assetId assetType assetAddress}active fills {id buyer{id}complete createdAt order {id}}strategy {askPerUnitNominator askPerUnitDenominator}}}'''
+        query7day = '''{sellOrders: orders(where: {active: true, sellAsset_starts_with: '''+'"'+allNftList[i]+'"}'+''', block: {number: '''+block7dayago+'''} , orderBy: createdAt, orderDirection: desc, skip: 0, first: 1000) {id sellAsset {id assetAddress} strategy{expiresAt} buyAsset {id assetId assetType assetAddress}active fills {id buyer {id}complete createdAt order {id}}strategy {askPerUnitNominator askPerUnitDenominator}}}'''
+        query14day = '''{sellOrders: orders(where: {active: true, sellAsset_starts_with: '''+'"'+allNftList[i]+'"}'+''', block: {number: '''+block14dayago+'''} , orderBy: createdAt, orderDirection: desc, skip: 0, first: 1000) {id sellAsset{id assetAddress} strategy{expiresAt} buyAsset{id assetId assetType assetAddress}active fills{id buyer {id}complete createdAt order {id}}strategy {askPerUnitNominator askPerUnitDenominator}}}'''
+        query30day = '''{sellOrders: orders(where: {active: true, sellAsset_starts_with: '''+'"'+allNftList[i]+'"}'+''', block: {number: '''+block30dayago+'''} , orderBy: createdAt, orderDirection: desc, skip: 0, first: 1000) {id sellAsset {id assetAddress} strategy{expiresAt} buyAsset {id assetId assetType assetAddress}active fills {id buyer {id}complete createdAt order {id}}strategy {askPerUnitNominator askPerUnitDenominator}}}'''
+        query60day = '''{sellOrders: orders(where: {active: true, sellAsset_starts_with: '''+'"'+allNftList[i]+'"}'+''', block: {number: '''+block60dayago+'''} , orderBy: createdAt, orderDirection: desc, skip: 0, first: 1000) {id sellAsset {id assetAddress} strategy{expiresAt} buyAsset {id assetId assetType assetAddress } active fills {id buyer {id}complete createdAt order {id}}strategy {askPerUnitNominator askPerUnitDenominator}}}'''
 
         url = 'https://ewc-subgraph.carbonswap.exchange/subgraphs/name/carbonswap/marketplace'
 
@@ -93,14 +93,21 @@ def updateCarbonSwapS1Prices():
         greenseapriceslistoriginal = []
         for e in range(len(parsedjson["data"]["sellOrders"])):
             token = str(parsedjson["data"]["sellOrders"][e]["buyAsset"]["assetAddress"])
-            if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
-                if len(greenseapriceslistoriginal) == 0:
-                    greenseapriceslistoriginal = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
-                else:
-                    if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal[0]):
+            isexpired = int(parsedjson["data"]["sellOrders"][e]["strategy"]["expiresAt"])
+            print(isexpired)
+            print(currentblock)
+            if isexpired > 1658102002:
+                if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
+                    if len(greenseapriceslistoriginal) == 0:
                         greenseapriceslistoriginal = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
                     else:
-                        pass
+                        if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal[0]):
+                            greenseapriceslistoriginal = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
+                        else:
+                            pass
+            else:
+                continue
+        print(greenseapriceslistoriginal)
 
         if len(greenseapriceslistoriginal) == 0:
             greenseapriceslistoriginal = [0, 'SUSU', 'N/A', 'N/A']
@@ -202,7 +209,7 @@ def updateCarbonSwapS1Prices():
             greenseapriceslistoriginal7day = [0, 'SUSU', 'N/A', 'N/A']
             greenseapriceslistusd7day = [0, 'USD', 'N/A', 'N/A']
 
-        try: percentage7day = (greenseapriceslistusd[0]/greenseapriceslistusd7day[0]*100)-100
+        try: percentage7day = (combinedpriceslistusd[0]/greenseapriceslistusd7day[0]*100)-100
         except: percentage7day = 0.00
         # ----------------------------------- 14 day ---------------------------------- #
         url = 'https://ewc-subgraph.carbonswap.exchange/subgraphs/name/carbonswap/marketplace'
@@ -238,7 +245,7 @@ def updateCarbonSwapS1Prices():
             greenseapriceslistoriginal14day = [0, 'SUSU', 'N/A', 'N/A']
             greenseapriceslistusd14day = [0, 'USD', 'N/A', 'N/A']
 
-        try: percentage14day = (greenseapriceslistusd[0]/greenseapriceslistusd14day[0]*100)-100
+        try: percentage14day = (combinedpriceslistusd[0]/greenseapriceslistusd14day[0]*100)-100
         except: percentage14day = 0.00
         # ----------------------------------- 30 day ---------------------------------- #
         url = 'https://ewc-subgraph.carbonswap.exchange/subgraphs/name/carbonswap/marketplace'
@@ -274,7 +281,7 @@ def updateCarbonSwapS1Prices():
             greenseapriceslistoriginal30day = [0, 'SUSU', 'N/A', 'N/A']
             greenseapriceslistusd30day = [0, 'USD', 'N/A', 'N/A']
 
-        try: percentage30day = (greenseapriceslistusd[0]/greenseapriceslistusd30day[0]*100)-100
+        try: percentage30day = (combinedpriceslistusd[0]/greenseapriceslistusd30day[0]*100)-100
         except: percentage30day = 0.00
         # ----------------------------------- 60 day ---------------------------------- #
         url = 'https://ewc-subgraph.carbonswap.exchange/subgraphs/name/carbonswap/marketplace'
@@ -309,7 +316,7 @@ def updateCarbonSwapS1Prices():
             greenseapriceslistoriginal60day = [0, 'SUSU', 'N/A', 'N/A']
             greenseapriceslistusd60day = [0, 'USD', 'N/A', 'N/A']
 
-        try: percentage60day = (greenseapriceslistusd[0]/greenseapriceslistusd60day[0]*100)-100
+        try: percentage60day = (combinedpriceslistusd[0]/greenseapriceslistusd60day[0]*100)-100
         except: percentage60day = 0.00
         # -------------------------------------------------------------------------- #
         image = f"/images/CS1_{i+1}.png"

@@ -23,7 +23,7 @@ const DonationBar = () => {
                 </div>
             </div>
             <div>
-                <h1 className='mt-2 text-textprimary dark:text-darktextprimary transition-all'>If the bar is at 100% then that means the website hosting is free for me :)</h1>
+                <h1 className='text-sm mt-2 text-textprimary dark:text-darktextprimary transition-all'>If the bar is at 100% then that means the website hosting is free for me :)</h1>
             </div>
         </div>
     );

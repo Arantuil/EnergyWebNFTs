@@ -190,7 +190,7 @@ def updateCarbonlandTrustPrices():
             greenseapriceslistoriginal7day = [0, 'SUSU', 'N/A', 'N/A']
             greenseapriceslistusd7day = [0, 'USD', 'N/A', 'N/A']
 
-        try: percentage7day = (greenseapriceslistusd[0]/greenseapriceslistusd7day[0]*100)-100
+        try: percentage7day = (combinedpriceslistusd[0]/greenseapriceslistusd7day[0]*100)-100
         except: percentage7day = 0.00
         # ----------------------------------- 14 day ---------------------------------- #
         url = 'https://ewc-subgraph.carbonswap.exchange/subgraphs/name/carbonswap/marketplace'
@@ -226,7 +226,7 @@ def updateCarbonlandTrustPrices():
             greenseapriceslistoriginal14day = [0, 'SUSU', 'N/A', 'N/A']
             greenseapriceslistusd14day = [0, 'USD', 'N/A', 'N/A']
 
-        try: percentage14day = (greenseapriceslistusd[0]/greenseapriceslistusd14day[0]*100)-100
+        try: percentage14day = (combinedpriceslistusd[0]/greenseapriceslistusd14day[0]*100)-100
         except: percentage14day = 0.00
         # ----------------------------------- 30 day ---------------------------------- #
         url = 'https://ewc-subgraph.carbonswap.exchange/subgraphs/name/carbonswap/marketplace'
@@ -262,7 +262,7 @@ def updateCarbonlandTrustPrices():
             greenseapriceslistoriginal30day = [0, 'SUSU', 'N/A', 'N/A']
             greenseapriceslistusd30day = [0, 'USD', 'N/A', 'N/A']
 
-        try: percentage30day = (greenseapriceslistusd[0]/greenseapriceslistusd30day[0]*100)-100
+        try: percentage30day = (combinedpriceslistusd[0]/greenseapriceslistusd30day[0]*100)-100
         except: percentage30day = 0.00
         # ----------------------------------- 60 day ---------------------------------- #
         url = 'https://ewc-subgraph.carbonswap.exchange/subgraphs/name/carbonswap/marketplace'
@@ -297,7 +297,7 @@ def updateCarbonlandTrustPrices():
             greenseapriceslistoriginal60day = [0, 'SUSU', 'N/A', 'N/A']
             greenseapriceslistusd60day = [0, 'USD', 'N/A', 'N/A']
 
-        try: percentage60day = (greenseapriceslistusd[0]/greenseapriceslistusd60day[0]*100)-100
+        try: percentage60day = (combinedpriceslistusd[0]/greenseapriceslistusd60day[0]*100)-100
         except: percentage60day = 0.00
         # -------------------------------------------------------------------------- #
         image = f"/images/CLT.png"

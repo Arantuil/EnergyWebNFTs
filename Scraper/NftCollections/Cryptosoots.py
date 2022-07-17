@@ -76,16 +76,20 @@ def updateCryptoSootsPrices():
         greenseapriceslistoriginal = []
         for e in range(len(parsedjson["data"]["sellOrders"])):
             token = str(parsedjson["data"]["sellOrders"][e]["buyAsset"]["assetAddress"])
+            sootidcheck = str(parsedjson["data"]["sellOrders"][e]["sellAsset"]["id"])
             if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
-                if len(greenseapriceslistoriginal) == 0:
-                    sootid = (parsedjson["data"]["sellOrders"][e]["sellAsset"]["id"]).split("-",1)[1]
-                    greenseapriceslistoriginal = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", sootid, "Greensea"]
-                else:
-                    if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal[0]):
+                if sootidcheck != "0x79bd1e42ca16e7f66f900f01b474901e33839a58-871":
+                    if len(greenseapriceslistoriginal) == 0:
                         sootid = (parsedjson["data"]["sellOrders"][e]["sellAsset"]["id"]).split("-",1)[1]
                         greenseapriceslistoriginal = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", sootid, "Greensea"]
                     else:
-                        pass
+                        if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal[0]):
+                            sootid = (parsedjson["data"]["sellOrders"][e]["sellAsset"]["id"]).split("-",1)[1]
+                            greenseapriceslistoriginal = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", sootid, "Greensea"]
+                        else:
+                            pass
+                else:
+                    pass
 
     if len(greenseapriceslistoriginal) == 0:
         greenseapriceslistoriginal = [0, 'SUSU', 'N/A', 'N/A']
@@ -168,14 +172,18 @@ def updateCryptoSootsPrices():
         greenseapriceslistoriginal7day = []
         for e in range(len(parsedjson["data"]["sellOrders"])):
             token = str(parsedjson["data"]["sellOrders"][e]["buyAsset"]["assetAddress"])
+            sootidcheck = str(parsedjson["data"]["sellOrders"][e]["sellAsset"]["id"])
             if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
-                if len(greenseapriceslistoriginal7day) == 0:
-                    greenseapriceslistoriginal7day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i3}", "Greensea"]
-                else:
-                    if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal7day[0]):
+                if sootidcheck != "0x79bd1e42ca16e7f66f900f01b474901e33839a58-871":
+                    if len(greenseapriceslistoriginal7day) == 0:
                         greenseapriceslistoriginal7day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i3}", "Greensea"]
                     else:
-                        pass
+                        if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal7day[0]):
+                            greenseapriceslistoriginal7day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i3}", "Greensea"]
+                        else:
+                            pass
+                else:
+                    pass
 
     if len(greenseapriceslistoriginal7day) == 0:
         greenseapriceslistoriginal7day = [0, 'SUSU', 'N/A', 'N/A']
@@ -188,7 +196,7 @@ def updateCryptoSootsPrices():
     else:
         greenseapriceslistusd7day = [0, "USD", greenseapriceslistoriginal7day[2], greenseapriceslistoriginal7day[3]]
 
-    percentage7day = (greenseapriceslistusd[0]/greenseapriceslistusd7day[0]*100)-100
+    percentage7day = (combinedpriceslistusd[0]/greenseapriceslistusd7day[0]*100)-100
     # ----------------------------------- 14 day ---------------------------------- #
     for i4 in range(len(allNftList)):
         url = 'https://ewc-subgraph.carbonswap.exchange/subgraphs/name/carbonswap/marketplace'
@@ -199,14 +207,18 @@ def updateCryptoSootsPrices():
         greenseapriceslistoriginal14day = []
         for e in range(len(parsedjson["data"]["sellOrders"])):
             token = str(parsedjson["data"]["sellOrders"][e]["buyAsset"]["assetAddress"])
+            sootidcheck = str(parsedjson["data"]["sellOrders"][e]["sellAsset"]["id"])
             if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
-                if len(greenseapriceslistoriginal14day) == 0:
-                    greenseapriceslistoriginal14day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i4}", "Greensea"]
-                else:
-                    if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal14day[0]):
+                if sootidcheck != "0x79bd1e42ca16e7f66f900f01b474901e33839a58-871":
+                    if len(greenseapriceslistoriginal14day) == 0:
                         greenseapriceslistoriginal14day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i4}", "Greensea"]
                     else:
-                        pass
+                        if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal14day[0]):
+                            greenseapriceslistoriginal14day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i4}", "Greensea"]
+                        else:
+                            pass
+                else: 
+                    pass
 
     if len(greenseapriceslistoriginal14day) == 0:
         greenseapriceslistoriginal14day = [0, 'SUSU', 'N/A', 'N/A']
@@ -219,7 +231,7 @@ def updateCryptoSootsPrices():
     else:
         greenseapriceslistusd14day = [0, "USD", greenseapriceslistoriginal14day[2], greenseapriceslistoriginal14day[3]]
     
-    percentage14day = (greenseapriceslistusd[0]/greenseapriceslistusd14day[0]*100)-100
+    percentage14day = (combinedpriceslistusd[0]/greenseapriceslistusd14day[0]*100)-100
     # ----------------------------------- 30 day ---------------------------------- #
     for i5 in range(len(allNftList)):
         url = 'https://ewc-subgraph.carbonswap.exchange/subgraphs/name/carbonswap/marketplace'
@@ -230,14 +242,18 @@ def updateCryptoSootsPrices():
         greenseapriceslistoriginal30day = []
         for e in range(len(parsedjson["data"]["sellOrders"])):
             token = str(parsedjson["data"]["sellOrders"][e]["buyAsset"]["assetAddress"])
+            sootidcheck = str(parsedjson["data"]["sellOrders"][e]["sellAsset"]["id"])
             if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
-                if len(greenseapriceslistoriginal30day) == 0:
-                    greenseapriceslistoriginal30day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i5}", "Greensea"]
-                else:
-                    if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal30day[0]):
+                if sootidcheck != "0x79bd1e42ca16e7f66f900f01b474901e33839a58-871":
+                    if len(greenseapriceslistoriginal30day) == 0:
                         greenseapriceslistoriginal30day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i5}", "Greensea"]
                     else:
-                        pass
+                        if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal30day[0]):
+                            greenseapriceslistoriginal30day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i5}", "Greensea"]
+                        else:
+                            pass
+                else:
+                    pass
 
     if len(greenseapriceslistoriginal30day) == 0:
         greenseapriceslistoriginal30day = [0, 'SUSU', 'N/A', 'N/A']
@@ -250,7 +266,7 @@ def updateCryptoSootsPrices():
     else:
         greenseapriceslistusd30day = [0, "USD", greenseapriceslistoriginal30day[2], greenseapriceslistoriginal30day[3]]
     
-    percentage30day = (greenseapriceslistusd[0]/greenseapriceslistusd30day[0]*100)-100
+    percentage30day = (combinedpriceslistusd[0]/greenseapriceslistusd30day[0]*100)-100
     # ----------------------------------- 60 day ---------------------------------- #
     for i6 in range(len(allNftList)):
         url = 'https://ewc-subgraph.carbonswap.exchange/subgraphs/name/carbonswap/marketplace'
@@ -261,14 +277,18 @@ def updateCryptoSootsPrices():
         greenseapriceslistoriginal60day = []
         for e in range(len(parsedjson["data"]["sellOrders"])):
             token = str(parsedjson["data"]["sellOrders"][e]["buyAsset"]["assetAddress"])
+            sootidcheck = str(parsedjson["data"]["sellOrders"][e]["sellAsset"]["id"])
             if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
-                if len(greenseapriceslistoriginal60day) == 0:
-                    greenseapriceslistoriginal60day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i6}", "Greensea"]
-                else:
-                    if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal60day[0]):
+                if sootidcheck != "0x79bd1e42ca16e7f66f900f01b474901e33839a58-871":
+                    if len(greenseapriceslistoriginal60day) == 0:
                         greenseapriceslistoriginal60day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i6}", "Greensea"]
                     else:
-                        pass
+                        if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal60day[0]):
+                            greenseapriceslistoriginal60day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i6}", "Greensea"]
+                        else:
+                            pass
+                else:
+                    pass
 
     if len(greenseapriceslistoriginal60day) == 0:
         greenseapriceslistoriginal60day = [0, 'SUSU', 'N/A', 'N/A']
@@ -281,14 +301,14 @@ def updateCryptoSootsPrices():
     else:
         greenseapriceslistusd60day = [0, "USD", greenseapriceslistoriginal60day[2], greenseapriceslistoriginal60day[3]]
     
-    percentage60day = (greenseapriceslistusd[0]/greenseapriceslistusd60day[0]*100)-100
+    percentage60day = (combinedpriceslistusd[0]/greenseapriceslistusd60day[0]*100)-100
     # -------------------------------------------------------------------------- #
     image = f"/images/Cryptosoots.png"
     imageanimated = f"/animatedimages/Cryptosoots.png"
     assettype = "ERC-721"
-    if combinedpriceslistoriginal[3] == 'Raregems':
+    if combinedpriceslistoriginal[3] == 'Raregems' or combinedpriceslistoriginal[4] == 'Raregems':
         cheapestpricemarketlink = f"https://raregems.io/energyweb/cryptosoots/{combinedpriceslistoriginal[2]}"
-    if combinedpriceslistoriginal[3] == 'Greensea':
+    elif combinedpriceslistoriginal[3] == 'Greensea' or combinedpriceslistoriginal[4] == 'Greensea':
         cheapestpricemarketlink = f"https://greensea.carbonswap.finance/token/ERC721/0x79bd1e42ca16e7f66f900f01b474901e33839a58/{combinedpriceslistoriginal[2]}"
     else:
         cheapestpricemarketlink = ""

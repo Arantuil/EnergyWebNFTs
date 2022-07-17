@@ -197,7 +197,7 @@ def updateEnergymonPrices():
     else:
         greenseapriceslistusd7day = [0, "USD", greenseapriceslistoriginal7day[2], greenseapriceslistoriginal7day[3]]
 
-    percentage7day = (greenseapriceslistusd[0]/greenseapriceslistusd7day[0]*100)-100
+    percentage7day = (combinedpriceslistusd[0]/greenseapriceslistusd7day[0]*100)-100
     # ----------------------------------- 14 day ---------------------------------- #
     for i4 in range(len(allNftList)):
         url = 'https://ewc-subgraph.carbonswap.exchange/subgraphs/name/carbonswap/marketplace'
@@ -228,7 +228,7 @@ def updateEnergymonPrices():
     else:
         greenseapriceslistusd14day = [0, "USD", greenseapriceslistoriginal14day[2], greenseapriceslistoriginal14day[3]]
     
-    percentage14day = (greenseapriceslistusd[0]/greenseapriceslistusd14day[0]*100)-100
+    percentage14day = (combinedpriceslistusd[0]/greenseapriceslistusd14day[0]*100)-100
     # ----------------------------------- 30 day ---------------------------------- #
     for i5 in range(len(allNftList)):
         url = 'https://ewc-subgraph.carbonswap.exchange/subgraphs/name/carbonswap/marketplace'
@@ -259,7 +259,7 @@ def updateEnergymonPrices():
     else:
         greenseapriceslistusd30day = [0, "USD", greenseapriceslistoriginal30day[2], greenseapriceslistoriginal30day[3]]
     
-    percentage30day = (greenseapriceslistusd[0]/greenseapriceslistusd30day[0]*100)-100
+    percentage30day = (combinedpriceslistusd[0]/greenseapriceslistusd30day[0]*100)-100
     # ----------------------------------- 60 day ---------------------------------- #
     for i6 in range(len(allNftList)):
         url = 'https://ewc-subgraph.carbonswap.exchange/subgraphs/name/carbonswap/marketplace'
@@ -290,7 +290,7 @@ def updateEnergymonPrices():
     else:
         greenseapriceslistusd60day = [0, "USD", greenseapriceslistoriginal60day[2], greenseapriceslistoriginal60day[3]]
     
-    percentage60day = (greenseapriceslistusd[0]/greenseapriceslistusd60day[0]*100)-100
+    percentage60day = (combinedpriceslistusd[0]/greenseapriceslistusd60day[0]*100)-100
     # -------------------------------------------------------------------------- #
     image = f"/images/Energymon.png"
     imageanimated = f"/animatedimages/Energymon.png"
