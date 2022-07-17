@@ -40,7 +40,7 @@ function Searchbar({ placeholder, data }) {
                 type="text" />
             </div>
             {filtereddata.length !== 0 && (
-            <div id='searchresults' className='max-h-[266px]
+            <div id='searchresults' className='mt-[40px] max-h-[266px]
             shadow-[0_0px_10px_2px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_10px_2px_rgba(245,245,230,0.2)]
             rounded-md w-[88vw] sm:w-[70vw] md:w-[40vw] lg:w-[25vw] bg-bgsecondary dark:bg-darkbgsecondary z-[49] absolute flex flex-col overflow-hidden'>
                 {filtereddata.map((value,key) => {
