@@ -181,7 +181,7 @@ const NftPage = () => {
                             </div>
 
                             <div className='pt-6 flex flex-col justify-center'>
-                                <h1 className='px-2 pt-2 xl:mx-0 flex mx-auto text-2xl xl:text-3xl font-bold text-textprimary dark:text-darktextprimary transition-all'>Price changes ($)</h1>
+                                <h1 className='px-2 pt-2 xl:mx-0 flex mx-auto text-base xl:text-lg 2xl:text-xl font-bold text-textprimary dark:text-darktextprimary transition-all'>Price changes ($)</h1>
                                 <div className='flex flex-row justify-center xl:justify-start'>
                                     <div className='flex flex-col p-2'>
                                         <div className='text-sm sm:text-md xl:text-lg text-textprimary dark:text-darktextprimary transition-all'>
