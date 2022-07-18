@@ -165,7 +165,7 @@ const NftPage = () => {
                                                 Non-converted floorprice:
                                             </h1>
                                         </div>
-                                        <div className='text-base xl:text-lg 2xl:text-xl'>
+                                        <div className='text-sm sm:text-base 2xl:text-lg'>
                                             <h1 className='font-bold text-textprimary dark:text-darktextprimary transition-all'>
                                                 Floorprice exchange:
                                             </h1>
@@ -177,7 +177,7 @@ const NftPage = () => {
                                                 {currentnft.cheapestpriceoriginal} {currentnft.cheapestpricecurrency}
                                             </h1>
                                         </div>
-                                        <div className='text-base xl:text-lg 2xl:text-xl'>
+                                        <div className='text-sm sm:text-base 2xl:text-lg'>
                                             <a style={colorStyle} className='flex flex-row text-textprimary dark:text-darktextprimary transition-all'
                                                 href={currentnft.cheapestmarketlink}>
                                                 {currentnft.cheapestmarket}<AiOutlineLink />
