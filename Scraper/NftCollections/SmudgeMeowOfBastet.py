@@ -2,9 +2,11 @@ import requests
 import json
 from bs4 import BeautifulSoup
 import time
+import firebase_admin
+from firebase_admin import credentials
 from firebase_admin import db
 
-#cred = credentials.Certificate('serviceAccountKey.json')
+cred = credentials.Certificate('serviceAccountKey.json')
 
 #firebase_admin.initialize_app(cred, {
 #    'databaseURL': 'https://energywebnfts-default-rtdb.firebaseio.com'
@@ -87,20 +89,14 @@ def updateSmudgeMeowOfBastetPrices():
         greenseapriceslistoriginal = []
         for e in range(len(parsedjson["data"]["sellOrders"])):
             token = str(parsedjson["data"]["sellOrders"][e]["buyAsset"]["assetAddress"])
-            isexpired = int(parsedjson["data"]["sellOrders"][e]["strategy"]["expiresAt"])
-            if isexpired > 1658102002:
-                if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
-                    if len(greenseapriceslistoriginal) == 0:
+            if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
+                if len(greenseapriceslistoriginal) == 0:
+                    greenseapriceslistoriginal = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
+                else:
+                    if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal[0]):
                         greenseapriceslistoriginal = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
                     else:
-                        if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal[0]):
-                            greenseapriceslistoriginal = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
-                        else:
-                            pass
-                else:
-                    continue
-            else:
-                continue
+                        pass
 
         if len(greenseapriceslistoriginal) == 0:
             greenseapriceslistoriginal = [0, 'SUSU', 'N/A', 'N/A']
@@ -178,20 +174,14 @@ def updateSmudgeMeowOfBastetPrices():
         greenseapriceslistoriginal7day = []
         for e in range(len(parsedjson["data"]["sellOrders"])):
             token = str(parsedjson["data"]["sellOrders"][e]["buyAsset"]["assetAddress"])
-            isexpired = int(parsedjson["data"]["sellOrders"][e]["strategy"]["expiresAt"])
-            if isexpired > 1658102002:
-                if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
-                    if len(greenseapriceslistoriginal7day) == 0:
+            if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
+                if len(greenseapriceslistoriginal7day) == 0:
+                    greenseapriceslistoriginal7day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
+                else:
+                    if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal7day[0]):
                         greenseapriceslistoriginal7day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
                     else:
-                        if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal7day[0]):
-                            greenseapriceslistoriginal7day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
-                        else:
-                            pass
-                else:
-                    continue
-            else:
-                continue
+                        pass
 
         try:
             if len(greenseapriceslistoriginal7day) == 0:
@@ -220,20 +210,14 @@ def updateSmudgeMeowOfBastetPrices():
         greenseapriceslistoriginal14day = []
         for e in range(len(parsedjson["data"]["sellOrders"])):
             token = str(parsedjson["data"]["sellOrders"][e]["buyAsset"]["assetAddress"])
-            isexpired = int(parsedjson["data"]["sellOrders"][e]["strategy"]["expiresAt"])
-            if isexpired > 1658102002:
-                if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
-                    if len(greenseapriceslistoriginal14day) == 0:
+            if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
+                if len(greenseapriceslistoriginal14day) == 0:
+                    greenseapriceslistoriginal14day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
+                else:
+                    if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal14day[0]):
                         greenseapriceslistoriginal14day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
                     else:
-                        if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal14day[0]):
-                            greenseapriceslistoriginal14day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
-                        else:
-                            pass
-                else:
-                    continue
-            else:
-                continue
+                        pass
 
         try:
             if len(greenseapriceslistoriginal14day) == 0:
@@ -262,20 +246,14 @@ def updateSmudgeMeowOfBastetPrices():
         greenseapriceslistoriginal30day = []
         for e in range(len(parsedjson["data"]["sellOrders"])):
             token = str(parsedjson["data"]["sellOrders"][e]["buyAsset"]["assetAddress"])
-            isexpired = int(parsedjson["data"]["sellOrders"][e]["strategy"]["expiresAt"])
-            if isexpired > 1658102002:
-                if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
-                    if len(greenseapriceslistoriginal30day) == 0:
+            if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
+                if len(greenseapriceslistoriginal30day) == 0:
+                    greenseapriceslistoriginal30day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
+                else:
+                    if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal30day[0]):
                         greenseapriceslistoriginal30day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
                     else:
-                        if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal30day[0]):
-                            greenseapriceslistoriginal30day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
-                        else:
-                            pass
-                else:
-                    continue
-            else:
-                continue
+                        pass
 
         try:
             if len(greenseapriceslistoriginal30day) == 0:
@@ -304,21 +282,14 @@ def updateSmudgeMeowOfBastetPrices():
         greenseapriceslistoriginal60day = []
         for e in range(len(parsedjson["data"]["sellOrders"])):
             token = str(parsedjson["data"]["sellOrders"][e]["buyAsset"]["assetAddress"])
-            isexpired = int(parsedjson["data"]["sellOrders"][e]["strategy"]["expiresAt"])
-            if isexpired > 1658102002:
-                if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
-                    if len(greenseapriceslistoriginal60day) == 0:
+            if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
+                if len(greenseapriceslistoriginal60day) == 0:
+                    greenseapriceslistoriginal60day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
+                else:
+                    if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal60day[0]):
                         greenseapriceslistoriginal60day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
                     else:
-                        if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal60day[0]):
-                            greenseapriceslistoriginal60day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
-                        else:
-                            pass
-                else:
-                    continue
-            else:
-                continue
-
+                        pass
         try:
             if len(combinedpriceslistoriginal[3]) == 0:
                 greenseapriceslistoriginal60day = [0, 'SUSU', 'N/A', 'N/A']
