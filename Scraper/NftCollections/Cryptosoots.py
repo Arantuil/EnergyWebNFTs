@@ -351,6 +351,9 @@ def updateCryptoSootsPrices():
         "name": "CryptoSoots",
         "projectlink": "https://cryptosoots.green/",
         "description": "CryptoSoots are said to reflect the magic of each owner, unique as they are. What will your Soot say to the world?",
+        "islistedongs": "true",
+        "islistedonrg": "true",
+        "islistedoncj": "true",
         "image": image,
         "imageanimated": imageanimated,
         "cheapestpriceoriginal": combinedpriceslistoriginal[0],
@@ -377,6 +380,9 @@ def updateCryptoSootsPrices():
     db.reference(f"{22}").update({"name": carbonswapNftData["name"]})
     db.reference(f"{22}").update({"projectlink": carbonswapNftData["projectlink"]})
     db.reference(f"{22}").update({"description": carbonswapNftData["description"]})
+    db.reference(f"{22}").update({"islistedongs": carbonswapNftData["islistedongs"]})
+    db.reference(f"{22}").update({"islistedonrg": carbonswapNftData["islistedonrg"]})
+    db.reference(f"{22}").update({"islistedoncj": carbonswapNftData["islistedoncj"]})
     db.reference(f"{22}").update({"image": carbonswapNftData["image"]})
     db.reference(f"{22}").update({"imageanimated": carbonswapNftData["imageanimated"]})
     db.reference(f"{22}").update({"cheapestpriceoriginal": carbonswapNftData["cheapestpriceoriginal"]})

@@ -337,6 +337,9 @@ def updateNFTreesPrices():
         "name": "NFTrees",
         "projectlink": "https://nftrees.green/",
         "description": "Grow NFTrees backed by Real Trees 🌳. Have Fun and make Real World Impact.",
+        "islistedongs": "false",
+        "islistedonrg": "true",
+        "islistedoncj": "true",
         "image": image,
         "imageanimated": imageanimated,
         "cheapestpriceoriginal": combinedpriceslistoriginal[0],
@@ -363,6 +366,9 @@ def updateNFTreesPrices():
     db.reference(f"{23}").update({"name": carbonswapNftData["name"]})
     db.reference(f"{23}").update({"projectlink": carbonswapNftData["projectlink"]})
     db.reference(f"{23}").update({"description": carbonswapNftData["description"]})
+    db.reference(f"{23}").update({"islistedongs": carbonswapNftData["islistedongs"]})
+    db.reference(f"{23}").update({"islistedonrg": carbonswapNftData["islistedonrg"]})
+    db.reference(f"{23}").update({"islistedoncj": carbonswapNftData["islistedoncj"]})
     db.reference(f"{23}").update({"image": carbonswapNftData["image"]})
     db.reference(f"{23}").update({"imageanimated": carbonswapNftData["imageanimated"]})
     db.reference(f"{23}").update({"cheapestpriceoriginal": carbonswapNftData["cheapestpriceoriginal"]})

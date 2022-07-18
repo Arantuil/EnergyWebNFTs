@@ -354,6 +354,9 @@ def updateSmudgeMeowOfBastetPrices():
             "name": nftnameList[i],
             "projectlink": "https://smudgecoin.xyz/",
             "description": descriptions[i],
+            "islistedongs": "true",
+            "islistedonrg": "true",
+            "islistedoncj": "true",
             "image": image,
             "imageanimated": imageanimated,
             "cheapestpriceoriginal": combinedpriceslistoriginal[0],
@@ -380,6 +383,9 @@ def updateSmudgeMeowOfBastetPrices():
         db.reference(f"{i+11}").update({"name": carbonswapNftData["name"]})
         db.reference(f"{i+11}").update({"projectlink": carbonswapNftData["projectlink"]})
         db.reference(f"{i+11}").update({"description": carbonswapNftData["description"]})
+        db.reference(f"{i+11}").update({"islistedongs": carbonswapNftData["islistedongs"]})
+        db.reference(f"{i+11}").update({"islistedonrg": carbonswapNftData["islistedonrg"]})
+        db.reference(f"{i+11}").update({"islistedoncj": carbonswapNftData["islistedoncj"]})
         db.reference(f"{i+11}").update({"image": carbonswapNftData["image"]})
         db.reference(f"{i+11}").update({"imageanimated": carbonswapNftData["imageanimated"]})
         db.reference(f"{i+11}").update({"cheapestpriceoriginal": carbonswapNftData["cheapestpriceoriginal"]})

@@ -340,6 +340,9 @@ def updateEnergymonPrices():
         "name": "Energymon",
         "projectlink": "https://energymon.online/",
         "description": "The awakening, which one will you choose?",
+        "islistedongs": "true",
+        "islistedonrg": "true",
+        "islistedoncj": "true",
         "image": image,
         "imageanimated": imageanimated,
         "cheapestpriceoriginal": combinedpriceslistoriginal[0],
@@ -366,6 +369,9 @@ def updateEnergymonPrices():
     db.reference(f"{21}").update({"name": carbonswapNftData["name"]})
     db.reference(f"{21}").update({"projectlink": carbonswapNftData["projectlink"]})
     db.reference(f"{21}").update({"description": carbonswapNftData["description"]})
+    db.reference(f"{21}").update({"islistedongs": carbonswapNftData["islistedongs"]})
+    db.reference(f"{21}").update({"islistedonrg": carbonswapNftData["islistedonrg"]})
+    db.reference(f"{21}").update({"islistedoncj": carbonswapNftData["islistedoncj"]})
     db.reference(f"{21}").update({"image": carbonswapNftData["image"]})
     db.reference(f"{21}").update({"imageanimated": carbonswapNftData["imageanimated"]})
     db.reference(f"{21}").update({"cheapestpriceoriginal": carbonswapNftData["cheapestpriceoriginal"]})

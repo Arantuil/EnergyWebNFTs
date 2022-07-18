@@ -346,6 +346,9 @@ def updateCarbonlandTrustPrices():
             "name": nftnameList[i],
             "projectlink": "https://www.carbonlandtrust.com/",
             "description": descriptions[i],
+            "islistedongs": "true",
+            "islistedonrg": "true",
+            "islistedoncj": "false",
             "image": image,
             "imageanimated": imageanimated,
             "cheapestpriceoriginal": combinedpriceslistoriginal[0],
@@ -372,6 +375,9 @@ def updateCarbonlandTrustPrices():
         db.reference(f"{i+10}").update({"name": carbonswapNftData["name"]})
         db.reference(f"{i+10}").update({"projectlink": carbonswapNftData["projectlink"]})
         db.reference(f"{i+10}").update({"description": carbonswapNftData["description"]})
+        db.reference(f"{i+10}").update({"islistedongs": carbonswapNftData["islistedongs"]})
+        db.reference(f"{i+10}").update({"islistedonrg": carbonswapNftData["islistedonrg"]})
+        db.reference(f"{i+10}").update({"islistedoncj": carbonswapNftData["islistedoncj"]})
         db.reference(f"{i+10}").update({"image": carbonswapNftData["image"]})
         db.reference(f"{i+10}").update({"imageanimated": carbonswapNftData["imageanimated"]})
         db.reference(f"{i+10}").update({"cheapestpriceoriginal": carbonswapNftData["cheapestpriceoriginal"]})

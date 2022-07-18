@@ -336,6 +336,9 @@ def updateSmudgeCatworldPrices():
         "name": "Smudge Catworld",
         "projectlink": "https://smudgecoin.xyz/",
         "description": "N/A",
+        "islistedongs": "false",
+        "islistedonrg": "true",
+        "islistedoncj": "true",
         "image": image,
         "imageanimated": imageanimated,
         "cheapestpriceoriginal": combinedpriceslistoriginal[0],
@@ -362,6 +365,9 @@ def updateSmudgeCatworldPrices():
     db.reference(f"{25}").update({"name": carbonswapNftData["name"]})
     db.reference(f"{25}").update({"projectlink": carbonswapNftData["projectlink"]})
     db.reference(f"{25}").update({"description": carbonswapNftData["description"]})
+    db.reference(f"{25}").update({"islistedongs": carbonswapNftData["islistedongs"]})
+    db.reference(f"{25}").update({"islistedonrg": carbonswapNftData["islistedonrg"]})
+    db.reference(f"{25}").update({"islistedoncj": carbonswapNftData["islistedoncj"]})
     db.reference(f"{25}").update({"image": carbonswapNftData["image"]})
     db.reference(f"{25}").update({"imageanimated": carbonswapNftData["imageanimated"]})
     db.reference(f"{25}").update({"cheapestpriceoriginal": carbonswapNftData["cheapestpriceoriginal"]})

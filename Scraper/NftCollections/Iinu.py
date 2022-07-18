@@ -336,6 +336,9 @@ def updateIinuPrices():
         "name": "īinu",
         "projectlink": "https://carbonpaws.io/",
         "description": "A collection of 300 Carbon-Credit generating dogs on the EnergyWeb Chain. Each NFT is backed by at least 1 Carbon Removal Bond from CarbonLandTrust project. Hold the NFT in your wallet to claim Carbon Credits when connecting to CarbonPaws.io",
+        "islistedongs": "false",
+        "islistedonrg": "true",
+        "islistedoncj": "false",
         "image": image,
         "imageanimated": imageanimated,
         "cheapestpriceoriginal": combinedpriceslistoriginal[0],
@@ -362,6 +365,9 @@ def updateIinuPrices():
     db.reference(f"{24}").update({"name": carbonswapNftData["name"]})
     db.reference(f"{24}").update({"projectlink": carbonswapNftData["projectlink"]})
     db.reference(f"{24}").update({"description": carbonswapNftData["description"]})
+    db.reference(f"{24}").update({"islistedongs": carbonswapNftData["islistedongs"]})
+    db.reference(f"{24}").update({"islistedonrg": carbonswapNftData["islistedonrg"]})
+    db.reference(f"{24}").update({"islistedoncj": carbonswapNftData["islistedoncj"]})
     db.reference(f"{24}").update({"image": carbonswapNftData["image"]})
     db.reference(f"{24}").update({"imageanimated": carbonswapNftData["imageanimated"]})
     db.reference(f"{24}").update({"cheapestpriceoriginal": carbonswapNftData["cheapestpriceoriginal"]})

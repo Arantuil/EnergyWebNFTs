@@ -379,6 +379,9 @@ def updateCarbonSwapS1Prices():
             "name": nftnameList[i],
             "projectlink": "https://carbonswap.exchange/",
             "description": descriptions[i],
+            "islistedongs": "true",
+            "islistedonrg": "true",
+            "islistedoncj": "true",
             "image": image,
             "imageanimated": imageanimated,
             "cheapestpriceoriginal": combinedpriceslistoriginal[0],
@@ -405,6 +408,9 @@ def updateCarbonSwapS1Prices():
         db.reference(f"{i}").update({"name": carbonswapNftData["name"]})
         db.reference(f"{i}").update({"projectlink": carbonswapNftData["projectlink"]})
         db.reference(f"{i}").update({"description": carbonswapNftData["description"]})
+        db.reference(f"{i}").update({"islistedongs": carbonswapNftData["islistedongs"]})
+        db.reference(f"{i}").update({"islistedonrg": carbonswapNftData["islistedonrg"]})
+        db.reference(f"{i}").update({"islistedoncj": carbonswapNftData["islistedoncj"]})
         db.reference(f"{i}").update({"image": carbonswapNftData["image"]})
         db.reference(f"{i}").update({"imageanimated": carbonswapNftData["imageanimated"]})
         db.reference(f"{i}").update({"cheapestpriceoriginal": carbonswapNftData["cheapestpriceoriginal"]})
