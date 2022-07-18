@@ -1,7 +1,7 @@
 ![gewggh](https://user-images.githubusercontent.com/67122764/177218297-703745a2-5090-4904-968c-89b252508ccc.png)
 # Energy Web NFTs
 
-![gewgwyyyy](https://user-images.githubusercontent.com/67122764/179288256-e32a463e-7c38-4827-9fc7-4f33a30a0a33.png)
+![ewgewgewgewg](https://user-images.githubusercontent.com/67122764/179548776-90a97e5c-d747-4765-9b5b-355e08ef0322.png)
 > Preview image of the home page of the website (data is now dynamic)
 
 ## 🛠️How to use
