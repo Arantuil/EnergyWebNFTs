@@ -2,11 +2,9 @@ import requests
 import json
 from bs4 import BeautifulSoup
 import time
-import firebase_admin
-from firebase_admin import credentials
 from firebase_admin import db
 
-cred = credentials.Certificate('serviceAccountKey.json')
+#cred = credentials.Certificate('serviceAccountKey.json')
 
 #firebase_admin.initialize_app(cred, {
 #    'databaseURL': 'https://energywebnfts-default-rtdb.firebaseio.com'
@@ -76,9 +74,9 @@ def updateCryptoSootsPrices():
         greenseapriceslistoriginal = []
         for e in range(len(parsedjson["data"]["sellOrders"])):
             token = str(parsedjson["data"]["sellOrders"][e]["buyAsset"]["assetAddress"])
-            sootidcheck = str(parsedjson["data"]["sellOrders"][e]["sellAsset"]["id"])
-            if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
-                if sootidcheck != "0x79bd1e42ca16e7f66f900f01b474901e33839a58-871":
+            isexpired = int(parsedjson["data"]["sellOrders"][e]["strategy"]["expiresAt"])
+            if isexpired > 1658102002:
+                if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
                     if len(greenseapriceslistoriginal) == 0:
                         sootid = (parsedjson["data"]["sellOrders"][e]["sellAsset"]["id"]).split("-",1)[1]
                         greenseapriceslistoriginal = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", sootid, "Greensea"]
@@ -89,7 +87,9 @@ def updateCryptoSootsPrices():
                         else:
                             pass
                 else:
-                    pass
+                    continue
+            else:
+                continue
 
     if len(greenseapriceslistoriginal) == 0:
         greenseapriceslistoriginal = [0, 'SUSU', 'N/A', 'N/A']
@@ -172,9 +172,9 @@ def updateCryptoSootsPrices():
         greenseapriceslistoriginal7day = []
         for e in range(len(parsedjson["data"]["sellOrders"])):
             token = str(parsedjson["data"]["sellOrders"][e]["buyAsset"]["assetAddress"])
-            sootidcheck = str(parsedjson["data"]["sellOrders"][e]["sellAsset"]["id"])
-            if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
-                if sootidcheck != "0x79bd1e42ca16e7f66f900f01b474901e33839a58-871":
+            isexpired = int(parsedjson["data"]["sellOrders"][e]["strategy"]["expiresAt"])
+            if isexpired > 1658102002:
+                if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
                     if len(greenseapriceslistoriginal7day) == 0:
                         greenseapriceslistoriginal7day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i3}", "Greensea"]
                     else:
@@ -183,7 +183,9 @@ def updateCryptoSootsPrices():
                         else:
                             pass
                 else:
-                    pass
+                    continue
+            else:
+                continue
 
     if len(greenseapriceslistoriginal7day) == 0:
         greenseapriceslistoriginal7day = [0, 'SUSU', 'N/A', 'N/A']
@@ -207,9 +209,9 @@ def updateCryptoSootsPrices():
         greenseapriceslistoriginal14day = []
         for e in range(len(parsedjson["data"]["sellOrders"])):
             token = str(parsedjson["data"]["sellOrders"][e]["buyAsset"]["assetAddress"])
-            sootidcheck = str(parsedjson["data"]["sellOrders"][e]["sellAsset"]["id"])
-            if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
-                if sootidcheck != "0x79bd1e42ca16e7f66f900f01b474901e33839a58-871":
+            isexpired = int(parsedjson["data"]["sellOrders"][e]["strategy"]["expiresAt"])
+            if isexpired > 1658102002:
+                if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
                     if len(greenseapriceslistoriginal14day) == 0:
                         greenseapriceslistoriginal14day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i4}", "Greensea"]
                     else:
@@ -218,7 +220,9 @@ def updateCryptoSootsPrices():
                         else:
                             pass
                 else: 
-                    pass
+                    continue
+            else:
+                continue
 
     if len(greenseapriceslistoriginal14day) == 0:
         greenseapriceslistoriginal14day = [0, 'SUSU', 'N/A', 'N/A']
@@ -242,9 +246,9 @@ def updateCryptoSootsPrices():
         greenseapriceslistoriginal30day = []
         for e in range(len(parsedjson["data"]["sellOrders"])):
             token = str(parsedjson["data"]["sellOrders"][e]["buyAsset"]["assetAddress"])
-            sootidcheck = str(parsedjson["data"]["sellOrders"][e]["sellAsset"]["id"])
-            if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
-                if sootidcheck != "0x79bd1e42ca16e7f66f900f01b474901e33839a58-871":
+            isexpired = int(parsedjson["data"]["sellOrders"][e]["strategy"]["expiresAt"])
+            if isexpired > 1658102002:
+                if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
                     if len(greenseapriceslistoriginal30day) == 0:
                         greenseapriceslistoriginal30day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i5}", "Greensea"]
                     else:
@@ -253,7 +257,9 @@ def updateCryptoSootsPrices():
                         else:
                             pass
                 else:
-                    pass
+                    continue
+            else:
+                continue
 
     if len(greenseapriceslistoriginal30day) == 0:
         greenseapriceslistoriginal30day = [0, 'SUSU', 'N/A', 'N/A']
@@ -277,9 +283,9 @@ def updateCryptoSootsPrices():
         greenseapriceslistoriginal60day = []
         for e in range(len(parsedjson["data"]["sellOrders"])):
             token = str(parsedjson["data"]["sellOrders"][e]["buyAsset"]["assetAddress"])
-            sootidcheck = str(parsedjson["data"]["sellOrders"][e]["sellAsset"]["id"])
-            if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
-                if sootidcheck != "0x79bd1e42ca16e7f66f900f01b474901e33839a58-871":
+            isexpired = int(parsedjson["data"]["sellOrders"][e]["strategy"]["expiresAt"])
+            if isexpired > 1658102002:
+                if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
                     if len(greenseapriceslistoriginal60day) == 0:
                         greenseapriceslistoriginal60day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i6}", "Greensea"]
                     else:
@@ -288,7 +294,9 @@ def updateCryptoSootsPrices():
                         else:
                             pass
                 else:
-                    pass
+                    continue
+            else:
+                continue
 
     if len(greenseapriceslistoriginal60day) == 0:
         greenseapriceslistoriginal60day = [0, 'SUSU', 'N/A', 'N/A']
@@ -349,6 +357,7 @@ def updateCryptoSootsPrices():
         "rank": "unset",
         "id": 22,
         "name": "CryptoSoots",
+        "projectlink": "https://cryptosoots.green/",
         "description": "CryptoSoots are said to reflect the magic of each owner, unique as they are. What will your Soot say to the world?",
         "image": image,
         "imageanimated": imageanimated,
@@ -374,6 +383,7 @@ def updateCryptoSootsPrices():
     db.reference(f"{22}").update({"rank": carbonswapNftData["rank"]})
     db.reference(f"{22}").update({"id": carbonswapNftData["id"]})
     db.reference(f"{22}").update({"name": carbonswapNftData["name"]})
+    db.reference(f"{22}").update({"projectlink": carbonswapNftData["projectlink"]})
     db.reference(f"{22}").update({"description": carbonswapNftData["description"]})
     db.reference(f"{22}").update({"image": carbonswapNftData["image"]})
     db.reference(f"{22}").update({"imageanimated": carbonswapNftData["imageanimated"]})

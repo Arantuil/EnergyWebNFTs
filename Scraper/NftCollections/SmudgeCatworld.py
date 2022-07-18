@@ -2,11 +2,9 @@ import requests
 import json
 from bs4 import BeautifulSoup
 import time
-import firebase_admin
-from firebase_admin import credentials
 from firebase_admin import db
 
-cred = credentials.Certificate('serviceAccountKey.json')
+#cred = credentials.Certificate('serviceAccountKey.json')
 
 #firebase_admin.initialize_app(cred, {
 #    'databaseURL': 'https://energywebnfts-default-rtdb.firebaseio.com'
@@ -334,6 +332,7 @@ def updateSmudgeCatworldPrices():
         "rank": "unset",
         "id": 25,
         "name": "Smudge Catworld",
+        "projectlink": "https://smudgecoin.xyz/",
         "description": "N/A",
         "image": image,
         "imageanimated": imageanimated,
@@ -359,6 +358,7 @@ def updateSmudgeCatworldPrices():
     db.reference(f"{25}").update({"rank": carbonswapNftData["rank"]})
     db.reference(f"{25}").update({"id": carbonswapNftData["id"]})
     db.reference(f"{25}").update({"name": carbonswapNftData["name"]})
+    db.reference(f"{25}").update({"projectlink": carbonswapNftData["projectlink"]})
     db.reference(f"{25}").update({"description": carbonswapNftData["description"]})
     db.reference(f"{25}").update({"image": carbonswapNftData["image"]})
     db.reference(f"{25}").update({"imageanimated": carbonswapNftData["imageanimated"]})

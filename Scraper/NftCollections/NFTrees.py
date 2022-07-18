@@ -2,11 +2,9 @@ import requests
 import json
 from bs4 import BeautifulSoup
 import time
-import firebase_admin
-from firebase_admin import credentials
 from firebase_admin import db
 
-cred = credentials.Certificate('serviceAccountKey.json')
+#cred = credentials.Certificate('serviceAccountKey.json')
 
 #firebase_admin.initialize_app(cred, {
 #    'databaseURL': 'https://energywebnfts-default-rtdb.firebaseio.com'
@@ -335,6 +333,7 @@ def updateNFTreesPrices():
         "rank": "unset",
         "id": 23,
         "name": "NFTrees",
+        "projectlink": "https://nftrees.green/",
         "description": "Grow NFTrees backed by Real Trees 🌳. Have Fun and make Real World Impact.",
         "image": image,
         "imageanimated": imageanimated,
@@ -360,6 +359,7 @@ def updateNFTreesPrices():
     db.reference(f"{23}").update({"rank": carbonswapNftData["rank"]})
     db.reference(f"{23}").update({"id": carbonswapNftData["id"]})
     db.reference(f"{23}").update({"name": carbonswapNftData["name"]})
+    db.reference(f"{23}").update({"projectlink": carbonswapNftData["projectlink"]})
     db.reference(f"{23}").update({"description": carbonswapNftData["description"]})
     db.reference(f"{23}").update({"image": carbonswapNftData["image"]})
     db.reference(f"{23}").update({"imageanimated": carbonswapNftData["imageanimated"]})

@@ -2,11 +2,9 @@ import requests
 import json
 from bs4 import BeautifulSoup
 import time
-import firebase_admin
-from firebase_admin import credentials
 from firebase_admin import db
 
-cred = credentials.Certificate('serviceAccountKey.json')
+#cred = credentials.Certificate('serviceAccountKey.json')
 
 #firebase_admin.initialize_app(cred, {
 #    'databaseURL': 'https://energywebnfts-default-rtdb.firebaseio.com'
@@ -334,6 +332,7 @@ def updateIinuPrices():
         "rank": "unset",
         "id": 24,
         "name": "īinu",
+        "projectlink": "https://carbonpaws.io/",
         "description": "A collection of 300 Carbon-Credit generating dogs on the EnergyWeb Chain. Each NFT is backed by at least 1 Carbon Removal Bond from CarbonLandTrust project. Hold the NFT in your wallet to claim Carbon Credits when connecting to CarbonPaws.io",
         "image": image,
         "imageanimated": imageanimated,
@@ -359,6 +358,7 @@ def updateIinuPrices():
     db.reference(f"{24}").update({"rank": carbonswapNftData["rank"]})
     db.reference(f"{24}").update({"id": carbonswapNftData["id"]})
     db.reference(f"{24}").update({"name": carbonswapNftData["name"]})
+    db.reference(f"{24}").update({"projectlink": carbonswapNftData["projectlink"]})
     db.reference(f"{24}").update({"description": carbonswapNftData["description"]})
     db.reference(f"{24}").update({"image": carbonswapNftData["image"]})
     db.reference(f"{24}").update({"imageanimated": carbonswapNftData["imageanimated"]})
