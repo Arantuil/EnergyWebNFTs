@@ -28,7 +28,7 @@ def restart():
 try:
     start = time.time()
 
-    #updateCarbonSwapS1Prices()
+    updateCarbonSwapS1Prices()
     #updateCarbonlandTrustPrices()
     #updateSmudgeMeowOfBastetPrices()
     #updateCarbonautsPrices()
@@ -37,7 +37,7 @@ try:
     #updateNFTreesPrices()
     #updateIinuPrices()
     #updateSmudgeCatworldPrices()
-    updateBeatsBoyzPrices()
+    #updateBeatsBoyzPrices()
 
     end = time.time()
     print("The time of execution of the above program is:", end-start)

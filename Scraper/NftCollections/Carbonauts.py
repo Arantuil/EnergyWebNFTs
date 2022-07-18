@@ -346,7 +346,7 @@ def updateCarbonautsPrices():
             "rank": "unset",
             "id": i+18,
             "name": nftnameList[i],
-            "projectlink": "N/A",
+            "projectlink": "/",
             "description": descriptions[i],
             "islistedongs": "true",
             "islistedonrg": "true",
