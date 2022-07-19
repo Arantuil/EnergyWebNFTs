@@ -92,9 +92,9 @@ const NftPage = () => {
                 <div className='bg-bgsecondary dark:bg-darkbgsecondary w-[95%] md:w-3/4 lg:w-2/3 h-[calc(100%-2rem)] sm:h-[calc(100%-5rem)] mx-auto my-4 sm:my-10 rounded-3xl
                     shadow-[0_0px_10px_2px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_10px_2px_rgba(245,245,230,0.2)]'>
                     <div className='p-4 flex flex-col w-full h-full xl:flex-row'>
-                        <div className='rounded-xl h-2/4 lg:h-3/4 xl:w-[50vh] 2xl:w-[60vh] flex mx-auto xl:mr-0
+                        <div className='rounded-2xl h-2/4 lg:h-3/4 xl:w-[50vh] 2xl:w-[60vh] flex mx-auto xl:mr-0
                             shadow-[0_0px_10px_2px_rgba(15,23,35,0.8)] dark:shadow-[0_0px_10px_2px_rgba(245,245,230,0.2)]'>
-                            <img className='h-full w-full rounded-xl bg-black border-gradient'
+                            <img className='h-full w-full rounded-2xl bg-black border-gradient'
                                 src={currentnft.imageanimated} alt="current NFT" />
                         </div>
 
@@ -171,14 +171,14 @@ const NftPage = () => {
                             </div>
 
                             <div className='border-b-2 pb-2 border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)] max-w-[400px] pt-2 flex mx-auto xl:mx-0 flex-col justify-center'>
-                                <div className='w-[400px] border-t-2 pt-2 border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)] px-2 text-sm flex mx-auto xl:ml-0 max-w-[400px] text-textprimary dark:text-darktextprimary transition-all'>
+                                <div className='justify-center xl:justify-start border-t-2 pt-2 border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)] px-2 text-sm flex xl:ml-0 max-w-[400px] text-textprimary dark:text-darktextprimary transition-all'>
                                     <h3 className='flex flex-row text-sm sm:text-base'>
-                                        <span className='font-bold mr-2 mb-2'>Link: </span>
+                                        <span className='font-bold mr-2 mb-2'>Website: </span>
                                         <a href={currentnft.projectlink}>{currentnft.projectlink}</a>
                                         <AiOutlineLink />
                                     </h3>
                                 </div>
-                                <div className='px-2 text-sm flex mx-auto xl:ml-0 max-w-[400px] text-textprimary dark:text-darktextprimary transition-all'>
+                                <div className='justify-center xl:justify-start border-b-2 pb-2 border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)] px-2 text-sm flex xl:ml-0 max-w-[400px] text-textprimary dark:text-darktextprimary transition-all'>
                                     <h3 className='text-sm sm:text-base'>
                                         <span className='font-bold'>Description: </span>
                                         {currentnft.description}
@@ -213,14 +213,14 @@ const NftPage = () => {
                                 </div>
                             </div>
 
-                            <div className='pt-2 max-w-[400px] mx-auto flex flex-col justify-center border-b-2 pb-2 border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'>
+                            <div className='pt-2 max-w-[400px] mx-auto xl:mx-0 flex flex-col justify-center border-b-2 pb-2 border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'>
                             <h1 className='px-2 pt-2 xl:mx-0 flex mx-auto text-base xl:text-lg font-bold text-textprimary dark:text-darktextprimary transition-all'>Listed on exchanges:</h1>
                                 <div className='flex justify-around flex-row px-2'>
                                     <div className='w-1/4'>
                                         <a href="https://greensea.carbonswap.finance/">
                                             <img src={LogoGS} alt="Greensea icon" />
                                         </a>
-                                        <div className='flex justify-center mx-auto w-[35px] h-[35px]'>
+                                        <div className='flex justify-center mx-auto w-[30px] h-[30px]'>
                                             {islistedongs}
                                         </div>
                                     </div>
@@ -228,7 +228,7 @@ const NftPage = () => {
                                         <a href="https://raregems.io/">
                                             <img src={LogoRG} alt="Raregems icon" />
                                         </a>
-                                        <div className='flex justify-center mx-auto w-[35px] h-[35px]'>
+                                        <div className='flex justify-center mx-auto w-[30px] h-[30px]'>
                                             {islistedonrg}
                                         </div>
                                     </div>
@@ -236,7 +236,7 @@ const NftPage = () => {
                                         <a href="https://carbonjack.io/nft-broker/index.html">
                                             <img src={LogoCJ} alt="Carbonjack icon" />
                                         </a>
-                                        <div className='flex justify-center mx-auto w-[35px] h-[35px]'>
+                                        <div className='flex justify-center mx-auto w-[30px] h-[30px]'>
                                             {islistedoncj}
                                         </div>
                                     </div>
@@ -246,7 +246,7 @@ const NftPage = () => {
                             <div className='pt-2 md:pt-4 flex flex-col justify-center'>
                                 <h1 className='px-2 pt-2 xl:mx-0 flex mx-auto text-base xl:text-lg font-bold text-textprimary dark:text-darktextprimary transition-all'>Price changes ($)</h1>
                                 <div className='flex flex-row justify-center xl:justify-start'>
-                                    <div className='flex flex-col p-2'>
+                                    <div className='flex flex-col px-2'>
                                         <div className='text-sm sm:text-md xl:text-lg text-textprimary dark:text-darktextprimary transition-all'>
                                             <h1 className=''>Price change (7d)</h1>
                                             <h1 style={colorStyle} className={'nftpagepercentage7day'}>{currentnft.floorpricesevenday}</h1>
