@@ -256,7 +256,7 @@ const NftPage = () => {
                                             <h1 style={colorStyle} className='nftpagepercentage30day'>{currentnft.floorpricethirtyday}</h1>
                                         </div>
                                     </div>
-                                    <div className='flex flex-col p-2'>
+                                    <div className='flex flex-col px-2'>
                                         <div className='text-sm sm:text-md xl:text-lg text-textprimary dark:text-darktextprimary transition-all'>
                                             <h1 className=''>Price change (14d)</h1>
 

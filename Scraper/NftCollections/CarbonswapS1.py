@@ -5,6 +5,9 @@ import time
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
 
 cred = credentials.Certificate('serviceAccountKey.json')
 
@@ -77,6 +80,35 @@ descriptions = [
 allNftAmounts = ["10","28","93","325","44","691","93","89","50","54"] 
 
 def updateCarbonSwapS1Prices():
+    carbonjackran = False
+    try:
+        url = "https://carbonjack.io/nft-broker/index.html#"
+        driver = webdriver.Chrome()
+        driver.get(url)
+        time.sleep(5)
+        driver.find_element(By.ID, 'nav_buy').click()
+        driver.implicitly_wait(5)
+        select = Select(driver.find_element(By.ID, 'nft_buy_contract_dropdown'))
+        driver.implicitly_wait(1)
+        select.select_by_value('0xf88735fe03b6d3a8f3ca7eda166d2e71dd54452a')
+        orders = driver.find_elements(By.CLASS_NAME, 'nft-card')
+        carbonjackprices = []
+        for h in range(len(orders)-3):
+            price = driver.find_element(By.CSS_SELECTOR, f'#nft_buy_list > div:nth-child({h+1}) > div > ul:nth-child(5) > li').text
+            id =  driver.find_element(By.CSS_SELECTOR, f'#nft_buy_list > div:nth-child({h+1}) > div > ul:nth-child(4) > li > span:nth-child(1)').text
+            id = id[10:]
+            if price[-3:] == 'EWT':
+                price = price[7:]
+                price = price[:-3]
+                price = float(price)
+                carbonjackprices.append([price, 'EWT', id, 'Carbonjack'])
+            else:
+                carbonjackprices.append([0, 'EWT', id, 'Carbonjack'])
+        carbonjackran = True
+        driver.quit()
+    except:
+        pass
+
     for i in range(len(allNftList)):
         query = '''{sellOrders: orders(where: {active: true, sellAsset_starts_with: '''+'"'+allNftList[i]+'"}'+''', orderBy: createdAt, orderDirection: desc, skip: 0, first: 1000) {id sellAsset { id assetAddress} strategy{expiresAt} buyAsset {id assetId assetType assetAddress}active fills {id buyer{id}complete createdAt order {id}}strategy {askPerUnitNominator askPerUnitDenominator}}}'''
         query7day = '''{sellOrders: orders(where: {active: true, sellAsset_starts_with: '''+'"'+allNftList[i]+'"}'+''', block: {number: '''+block7dayago+'''} , orderBy: createdAt, orderDirection: desc, skip: 0, first: 1000) {id sellAsset {id assetAddress} strategy{expiresAt} buyAsset {id assetId assetType assetAddress}active fills {id buyer {id}complete createdAt order {id}}strategy {askPerUnitNominator askPerUnitDenominator}}}'''
@@ -97,10 +129,10 @@ def updateCarbonSwapS1Prices():
             if isexpired > 1658102002:
                 if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
                     if len(greenseapriceslistoriginal) == 0:
-                        greenseapriceslistoriginal = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
+                        greenseapriceslistoriginal = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i+1}", "Greensea"]
                     else:
                         if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal[0]):
-                            greenseapriceslistoriginal = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
+                            greenseapriceslistoriginal = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i+1}", "Greensea"]
                         else:
                             pass
             else:
@@ -149,55 +181,56 @@ def updateCarbonSwapS1Prices():
             raregemspriceslistoriginal = [float(price[:-3]), 'EWT', f'{i+1}', 'Raregems']
             raregemspriceslistusd = [float(price[:-3])*ewtprice, 'USD', f'{i+1}', 'Raregems']
         else:
-            raregemspriceslistoriginal = [0, 'EWT', 'N/A', 'N/A']
-            raregemspriceslistusd = [0, 'USD', 'N/A', 'N/A']
+            raregemspriceslistoriginal = [0, 'EWT', i+1, 'Raregems']
+            raregemspriceslistusd = [0, 'USD', i+1, 'Raregems']
 
-            # ------------------------------- Beatifulsoup Carbonjack ---------------------------------- #
+    # ------------------------------- Carbonjack ---------------------------------- #
+        carbonjackcheapest = []
+        for cj in carbonjackprices:
+            if len(carbonjackcheapest) == 0:
+                if cj[2] == i+1:
+                    carbonjackcheapest = cj
 
-        url = "https://carbonjack.io/nft-broker/index.html#"
-        html = getHTMLdocument(url)
-        soup = BeautifulSoup(html, 'html.parser')
-        print(soup)
-
-        #try:
-        #    url = "https://raregems.io/energyweb/carbonswap/"+f"{i+1}"
-        #    html = getHTMLdocument(url)
-        #    soup = BeautifulSoup(html, 'html.parser')
-        #    price = soup.find_all('button', class_='big')
-        #    price = price[0]
-        #    price = price.findChildren()
-        #    price = price[0].string
-        #    pricecurrency = price[-3:]
-        #except:
-        #    price = 0
-        #    pricecurrency = 'N/A'
-
-        #if pricecurrency == "EWT":
-        #    raregemspriceslistoriginal = [float(price[:-3]), 'EWT', f'{i+1}', 'Raregems']
-        #    raregemspriceslistusd = [float(price[:-3])*ewtprice, 'USD', f'{i+1}', 'Raregems']
-        #else:
-        #    raregemspriceslistoriginal = [0, 'EWT', 'N/A', 'N/A']
-        #    raregemspriceslistusd = [0, 'USD', 'N/A', 'N/A']
-
+        if len(carbonjackcheapest) == 0:
+            carbonjackpriceslistoriginal = [0, 'EWT', 'N/A', 'N/A']
+            carbonjackpriceslistusd = [0, 'USD', 'N/A', 'N/A']
+        else:
+            carbonjackpriceslistoriginal = cj
+            carbonjackpriceslistusd = [cj[0]*ewtprice, 'EWT', cj[2], cj[3]]
     # ---------------------------------------------------------- #
-        if greenseapriceslistoriginal[0] == 0:
-            combinedpriceslistoriginal = raregemspriceslistoriginal
-        elif raregemspriceslistoriginal[0] == 0:
-            combinedpriceslistoriginal = greenseapriceslistoriginal
-        elif greenseapriceslistusd[0] < raregemspriceslistusd[0]:
-            combinedpriceslistoriginal = greenseapriceslistoriginal
-        elif raregemspriceslistusd[0] < greenseapriceslistusd[0]:
-            combinedpriceslistoriginal = raregemspriceslistoriginal
-        # ---------------------------------------------------------- #
-        if greenseapriceslistusd[0] == 0:
-            combinedpriceslistusd = raregemspriceslistusd
-        elif raregemspriceslistusd[0] == 0:
-            combinedpriceslistusd = greenseapriceslistusd
-        elif greenseapriceslistusd[0] < raregemspriceslistusd[0]:
-            combinedpriceslistusd = greenseapriceslistusd
-        elif raregemspriceslistusd[0] < greenseapriceslistusd[0]:
-            combinedpriceslistusd = raregemspriceslistusd
-    # --------------------------------------------- #
+        combinedlistoriginal = []
+        combinedlistoriginal.append(greenseapriceslistoriginal)
+        combinedlistoriginal.append(raregemspriceslistoriginal)
+        if carbonjackran == True:
+            combinedlistoriginal.append(carbonjackpriceslistoriginal)
+
+        combinedlistusd = []
+        combinedlistusd.append(greenseapriceslistusd)
+        combinedlistusd.append(raregemspriceslistusd)
+        if carbonjackran == True:
+            combinedlistusd.append(carbonjackpriceslistusd)
+
+        combinedpriceslistoriginal = []
+        loop = 0
+        for n in combinedlistusd:
+            if n[0] != 0:
+                if len(combinedpriceslistoriginal) == 0:
+                    combinedpriceslistoriginal = combinedlistoriginal[loop]
+                else:
+                    if n[0] < combinedlistusd[loop][0]:
+                        combinedpriceslistoriginal = combinedlistoriginal[loop]
+                loop += 1
+            else:
+                loop += 1
+
+        combinedpriceslistusd = []
+        for m in combinedlistusd:
+            if m[0] != 0:
+                if len(combinedpriceslistusd) == 0:
+                    combinedpriceslistusd = m
+                else:
+                    if m[0] < combinedpriceslistusd[0]:
+                        combinedpriceslistusd = m
 
     # ----------------------------------- 7 day ----------------------------------- #
         url = 'https://ewc-subgraph.carbonswap.exchange/subgraphs/name/carbonswap/marketplace'
@@ -213,10 +246,10 @@ def updateCarbonSwapS1Prices():
             if isexpired > 1658102002:
                 if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
                     if len(greenseapriceslistoriginal7day) == 0:
-                        greenseapriceslistoriginal7day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
+                        greenseapriceslistoriginal7day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i+1}", "Greensea"]
                     else:
                         if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal7day[0]):
-                            greenseapriceslistoriginal7day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
+                            greenseapriceslistoriginal7day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i+1}", "Greensea"]
                         else:
                             pass
             else:
@@ -253,10 +286,10 @@ def updateCarbonSwapS1Prices():
             if isexpired > 1658102002:
                 if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
                     if len(greenseapriceslistoriginal14day) == 0:
-                        greenseapriceslistoriginal14day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
+                        greenseapriceslistoriginal14day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i+1}", "Greensea"]
                     else:
                         if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal14day[0]):
-                            greenseapriceslistoriginal14day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
+                            greenseapriceslistoriginal14day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i+1}", "Greensea"]
                         else:
                             pass
             else:
@@ -293,10 +326,10 @@ def updateCarbonSwapS1Prices():
             if isexpired > 1658102002:
                 if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
                     if len(greenseapriceslistoriginal30day) == 0:
-                        greenseapriceslistoriginal30day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
+                        greenseapriceslistoriginal30day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i+1}", "Greensea"]
                     else:
                         if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal30day[0]):
-                            greenseapriceslistoriginal30day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
+                            greenseapriceslistoriginal30day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i+1}", "Greensea"]
                         else:
                             pass
             else:
@@ -333,10 +366,10 @@ def updateCarbonSwapS1Prices():
             if isexpired > 1658102002:
                 if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
                     if len(greenseapriceslistoriginal60day) == 0:
-                        greenseapriceslistoriginal60day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
+                        greenseapriceslistoriginal60day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i+1}", "Greensea"]
                     else:
                         if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal60day[0]):
-                            greenseapriceslistoriginal60day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i}", "Greensea"]
+                            greenseapriceslistoriginal60day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i+1}", "Greensea"]
                         else:
                             pass
             else:
@@ -367,6 +400,8 @@ def updateCarbonSwapS1Prices():
             cheapestpricemarketlink = f"https://raregems.io/energyweb/carbonswap/{i+1}"
         elif combinedpriceslistoriginal[3] == 'Greensea':
             cheapestpricemarketlink = f"https://greensea.carbonswap.finance/token/ERC1155/0xf88735fe03b6d3a8f3ca7eda166d2e71dd54452a/{i+1}"
+        elif combinedpriceslistoriginal[3] == 'Carbonjack':
+            cheapestpricemarketlink = "https://carbonjack.io/nft-broker/index.html"
         else:
             cheapestpricemarketlink = ""
 
@@ -430,33 +465,31 @@ def updateCarbonSwapS1Prices():
             "assettype": assettype
         }
 
-        print(carbonswapNftData)
-
-        #db.reference(f"{i}").update({"rank": carbonswapNftData["rank"]})
-        #db.reference(f"{i}").update({"id": carbonswapNftData["id"]})
-        #db.reference(f"{i}").update({"name": carbonswapNftData["name"]})
-        #db.reference(f"{i}").update({"projectlink": carbonswapNftData["projectlink"]})
-        #db.reference(f"{i}").update({"description": carbonswapNftData["description"]})
-        #db.reference(f"{i}").update({"islistedongs": carbonswapNftData["islistedongs"]})
-        #db.reference(f"{i}").update({"islistedonrg": carbonswapNftData["islistedonrg"]})
-        #db.reference(f"{i}").update({"islistedoncj": carbonswapNftData["islistedoncj"]})
-        #db.reference(f"{i}").update({"image": carbonswapNftData["image"]})
-        #db.reference(f"{i}").update({"imageanimated": carbonswapNftData["imageanimated"]})
-        #db.reference(f"{i}").update({"cheapestpriceoriginal": carbonswapNftData["cheapestpriceoriginal"]})
-        #db.reference(f"{i}").update({"cheapestpricecurrency": carbonswapNftData["cheapestpricecurrency"]})
-        #db.reference(f"{i}").update({"cheapestmarket": carbonswapNftData["cheapestpricemarket"]})
-        #db.reference(f"{i}").update({"cheapestmarketlink": carbonswapNftData["cheapestpricemarketlink"]})
-        #db.reference(f"{i}").update({"marketcap": carbonswapNftData["marketcap"]})
-        #db.reference(f"{i}").update({"floorpricesevenday": carbonswapNftData["floorpricesevenday"]})
-        #db.reference(f"{i}").update({"floorpricefourteenday": carbonswapNftData["floorpricefourteenday"]})
-        #db.reference(f"{i}").update({"floorpricethirtyday": carbonswapNftData["floorpricethirtyday"]})
-        #db.reference(f"{i}").update({"floorpricesixtyday": carbonswapNftData["floorpricesixtyday"]})
-        #db.reference(f"{i}").update({"percentage7daycolor": carbonswapNftData["percentage7daycolor"]})
-        #db.reference(f"{i}").update({"percentage14daycolor": carbonswapNftData["percentage14daycolor"]})
-        #db.reference(f"{i}").update({"percentage30daycolor": carbonswapNftData["percentage30daycolor"]})
-        #db.reference(f"{i}").update({"percentage60daycolor": carbonswapNftData["percentage60daycolor"]})
-        #db.reference(f"{i}").update({"circulating": carbonswapNftData["circulating"]})
-        #db.reference(f"{i}").update({"floorprice": carbonswapNftData["floorprice"]})
-        #db.reference(f"{i}").update({"owners": carbonswapNftData["owners"]})
-        #db.reference(f"{i}").update({"assettype": carbonswapNftData["assettype"]})
+        db.reference(f"{i}").update({"rank": carbonswapNftData["rank"]})
+        db.reference(f"{i}").update({"id": carbonswapNftData["id"]})
+        db.reference(f"{i}").update({"name": carbonswapNftData["name"]})
+        db.reference(f"{i}").update({"projectlink": carbonswapNftData["projectlink"]})
+        db.reference(f"{i}").update({"description": carbonswapNftData["description"]})
+        db.reference(f"{i}").update({"islistedongs": carbonswapNftData["islistedongs"]})
+        db.reference(f"{i}").update({"islistedonrg": carbonswapNftData["islistedonrg"]})
+        db.reference(f"{i}").update({"islistedoncj": carbonswapNftData["islistedoncj"]})
+        db.reference(f"{i}").update({"image": carbonswapNftData["image"]})
+        db.reference(f"{i}").update({"imageanimated": carbonswapNftData["imageanimated"]})
+        db.reference(f"{i}").update({"cheapestpriceoriginal": carbonswapNftData["cheapestpriceoriginal"]})
+        db.reference(f"{i}").update({"cheapestpricecurrency": carbonswapNftData["cheapestpricecurrency"]})
+        db.reference(f"{i}").update({"cheapestmarket": carbonswapNftData["cheapestpricemarket"]})
+        db.reference(f"{i}").update({"cheapestmarketlink": carbonswapNftData["cheapestpricemarketlink"]})
+        db.reference(f"{i}").update({"marketcap": carbonswapNftData["marketcap"]})
+        db.reference(f"{i}").update({"floorpricesevenday": carbonswapNftData["floorpricesevenday"]})
+        db.reference(f"{i}").update({"floorpricefourteenday": carbonswapNftData["floorpricefourteenday"]})
+        db.reference(f"{i}").update({"floorpricethirtyday": carbonswapNftData["floorpricethirtyday"]})
+        db.reference(f"{i}").update({"floorpricesixtyday": carbonswapNftData["floorpricesixtyday"]})
+        db.reference(f"{i}").update({"percentage7daycolor": carbonswapNftData["percentage7daycolor"]})
+        db.reference(f"{i}").update({"percentage14daycolor": carbonswapNftData["percentage14daycolor"]})
+        db.reference(f"{i}").update({"percentage30daycolor": carbonswapNftData["percentage30daycolor"]})
+        db.reference(f"{i}").update({"percentage60daycolor": carbonswapNftData["percentage60daycolor"]})
+        db.reference(f"{i}").update({"circulating": carbonswapNftData["circulating"]})
+        db.reference(f"{i}").update({"floorprice": carbonswapNftData["floorprice"]})
+        db.reference(f"{i}").update({"owners": carbonswapNftData["owners"]})
+        db.reference(f"{i}").update({"assettype": carbonswapNftData["assettype"]})
         print(f"Updated NFT with ID: {i}")

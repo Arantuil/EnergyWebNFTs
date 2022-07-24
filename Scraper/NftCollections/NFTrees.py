@@ -5,6 +5,9 @@ import time
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
 
 cred = credentials.Certificate('serviceAccountKey.json')
 
@@ -61,6 +64,35 @@ allNftList = [
 allNftAmounts = ["867"] 
 
 def updateNFTreesPrices():
+    carbonjackran = False
+    try:
+        url = "https://carbonjack.io/nft-broker/index.html#"
+        driver = webdriver.Chrome()
+        driver.get(url)
+        time.sleep(5)
+        driver.find_element(By.ID, 'nav_buy').click()
+        driver.implicitly_wait(5)
+        select = Select(driver.find_element(By.ID, 'nft_buy_contract_dropdown'))
+        driver.implicitly_wait(1)
+        select.select_by_value('0x2acbee922b3a2f4bcb1e2587144122411b857325')
+        orders = driver.find_elements(By.CLASS_NAME, 'nft-card')
+        carbonjackprices = []
+        for h in range(len(orders)-3):
+            price = driver.find_element(By.CSS_SELECTOR, f'#nft_buy_list > div:nth-child({h+1}) > div > ul:nth-child(5) > li').text
+            id =  driver.find_element(By.CSS_SELECTOR, f'#nft_buy_list > div:nth-child({h+1}) > div > ul:nth-child(4) > li > span:nth-child(1)').text
+            id = id[10:]
+            if price[-3:] == 'EWT':
+                price = price[7:]
+                price = price[:-3]
+                price = float(price)
+                carbonjackprices.append([price, 'EWT', id, 'Carbonjack'])
+            else:
+                carbonjackprices.append([0, 'EWT', id, 'Carbonjack'])
+        carbonjackran = True
+        driver.quit()
+    except:
+        pass
+
     for i in range(len(allNftList)):
         #query = '''{sellOrders: orders(where: {active: true, sellAsset_starts_with: '''+'"'+allNftList[i]+'"}'+''', orderBy: createdAt, orderDirection: desc, skip: 0, first: 1000) {id sellAsset { id assetAddress} buyAsset {id assetId assetType assetAddress}active fills {id buyer{id}complete createdAt order {id}}strategy {askPerUnitNominator askPerUnitDenominator}}}'''
         #query7day = '''{sellOrders: orders(where: {active: true, sellAsset_starts_with: '''+'"'+allNftList[i]+'"}'+''', block: {number: '''+block7dayago+'''} , orderBy: createdAt, orderDirection: desc, skip: 0, first: 1000) {id sellAsset {id assetAddress}buyAsset {id assetId assetType assetAddress}active fills {id buyer {id}complete createdAt order {id}}strategy {askPerUnitNominator askPerUnitDenominator}}}'''
@@ -141,24 +173,52 @@ def updateNFTreesPrices():
         raregemspriceslistoriginal = [0, 'EWT', 'N/A', 'N/A']
         raregemspriceslistusd = [0, 'USD', 'N/A', 'N/A']
     # ---------------------------------------------------------- #
-    if greenseapriceslistoriginal[0] == 0:
-        combinedpriceslistoriginal = raregemspriceslistoriginal
-    elif raregemspriceslistoriginal[0] == 0:
-        combinedpriceslistoriginal = greenseapriceslistoriginal
-    elif greenseapriceslistusd[0] < raregemspriceslistusd[0]:
-        combinedpriceslistoriginal = greenseapriceslistoriginal
-    elif raregemspriceslistusd[0] < greenseapriceslistusd[0]:
-        combinedpriceslistoriginal = raregemspriceslistoriginal
+    carbonjackcheapest = []
+    for cj in carbonjackprices:
+        if len(carbonjackcheapest) == 0:
+            if cj[2] == i+1:
+                carbonjackcheapest = cj
+
+    if len(carbonjackcheapest) == 0:
+        carbonjackpriceslistoriginal = [0, 'EWT', 'N/A', 'N/A']
+        carbonjackpriceslistusd = [0, 'USD', 'N/A', 'N/A']
+    else:
+        carbonjackpriceslistoriginal = cj
+        carbonjackpriceslistusd = [cj[0]*ewtprice, 'EWT', cj[2], cj[3]]
     # ---------------------------------------------------------- #
-    if greenseapriceslistusd[0] == 0:
-        combinedpriceslistusd = raregemspriceslistusd
-    elif raregemspriceslistusd[0] == 0:
-        combinedpriceslistusd = greenseapriceslistusd
-    elif greenseapriceslistusd[0] < raregemspriceslistusd[0]:
-        combinedpriceslistusd = greenseapriceslistusd
-    elif raregemspriceslistusd[0] < greenseapriceslistusd[0]:
-        combinedpriceslistusd = raregemspriceslistusd
-    # --------------------------------------------- #
+    combinedlistoriginal = []
+    combinedlistoriginal.append(greenseapriceslistoriginal)
+    combinedlistoriginal.append(raregemspriceslistoriginal)
+    if carbonjackran == True:
+        combinedlistoriginal.append(carbonjackpriceslistoriginal)
+
+    combinedlistusd = []
+    combinedlistusd.append(greenseapriceslistusd)
+    combinedlistusd.append(raregemspriceslistusd)
+    if carbonjackran == True:
+        combinedlistusd.append(carbonjackpriceslistusd)
+
+    combinedpriceslistoriginal = []
+    loop = 0
+    for n in combinedlistusd:
+        if n[0] != 0:
+            if len(combinedpriceslistoriginal) == 0:
+                combinedpriceslistoriginal = combinedlistoriginal[loop]
+            else:
+                if n[0] < combinedlistusd[loop][0]:
+                    combinedpriceslistoriginal = combinedlistoriginal[loop]
+            loop += 1
+        else:
+            loop += 1
+
+    combinedpriceslistusd = []
+    for m in combinedlistusd:
+        if m[0] != 0:
+            if len(combinedpriceslistusd) == 0:
+                combinedpriceslistusd = m
+            else:
+                if m[0] < combinedpriceslistusd[0]:
+                    combinedpriceslistusd = m
 #    # ----------------------------------- 7 day ----------------------------------- #
 #    for i3 in range(len(allNftList)):
 #        url = 'https://ewc-subgraph.carbonswap.exchange/subgraphs/name/carbonswap/marketplace'
@@ -289,8 +349,10 @@ def updateNFTreesPrices():
     assettype = "ERC-721"
     if combinedpriceslistoriginal[3] == 'Raregems':
         cheapestpricemarketlink = f"https://raregems.io/energyweb/nftrees/{combinedpriceslistoriginal[2]}"
-    #if combinedpriceslistoriginal[3] == 'Greensea':
+    #elif combinedpriceslistoriginal[3] == 'Greensea':
     #    cheapestpricemarketlink = f"https://greensea.carbonswap.finance/token/ERC721/0x79bd1e42ca16e7f66f900f01b474901e33839a58/{combinedpriceslistoriginal[2]}"
+    elif combinedpriceslistoriginal[3] == 'Carbonjack':
+        cheapestpricemarketlink = "https://carbonjack.io/nft-broker/index.html"
     else:
         cheapestpricemarketlink = ""
 
