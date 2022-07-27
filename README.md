@@ -18,7 +18,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 - [x] Dynamic table data based on json data gathered from firebase
 - [x] Find a fix for the workaround converting between the different currencies
 - [x] Something to run the python script that updates the data to firebase 
-- [ ] Add the 3rd NFT exchange 
+- [ ] Add the 3rd NFT exchange (All orders are on-chain)
 > Option 1: Unable to do it via parsing html -> need gui to add metamask and add metamask account -> need better google vm to use gui and browser
 
 > Option 2: Unable to do it via connecting to a node -> unable to run it myself 24/7, and no 3rd party services like Infura available on EWC
