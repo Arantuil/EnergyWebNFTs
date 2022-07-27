@@ -21,5 +21,7 @@ EnergyWebNFTs combines data from Greensea and Raregems and displays the order wi
 
 > Option 2: Unable to do it via connecting to a node -> unable to run it myself 24/7, and no 3rd party services like Infura available on EWC
 
+> Option 3: Using a public api to get the data from the exchange -> no api available, since all data is on-chain
+
 ### ✨Later on:
 - [ ] Login system + user able to create and save their portfolio of all the NFTs they own and see the total of the floorprices combined, and percentage in price changes, maybe also in graph format
