@@ -5,9 +5,6 @@ import time
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import Select
 
 cred = credentials.Certificate('serviceAccountKey.json')
 
@@ -76,35 +73,6 @@ descriptions = [
 allNftAmounts = ["14","33","52","84","136","220","356"] 
 
 def updateSmudgeMeowOfBastetPrices():
-    carbonjackran = False
-    try:
-        url = "https://carbonjack.io/nft-broker/index.html#"
-        driver = webdriver.Chrome()
-        driver.get(url)
-        time.sleep(5)
-        driver.find_element(By.ID, 'nav_buy').click()
-        driver.implicitly_wait(5)
-        select = Select(driver.find_element(By.ID, 'nft_buy_contract_dropdown'))
-        driver.implicitly_wait(1)
-        select.select_by_value('0x4aa7e34d417afde3195bffae96d221fea0369241')
-        orders = driver.find_elements(By.CLASS_NAME, 'nft-card')
-        carbonjackprices = []
-        for h in range(len(orders)-3):
-            price = driver.find_element(By.CSS_SELECTOR, f'#nft_buy_list > div:nth-child({h+1}) > div > ul:nth-child(5) > li').text
-            id =  driver.find_element(By.CSS_SELECTOR, f'#nft_buy_list > div:nth-child({h+1}) > div > ul:nth-child(4) > li > span:nth-child(1)').text
-            id = id[10:]
-            if price[-3:] == 'EWT':
-                price = price[7:]
-                price = price[:-3]
-                price = float(price)
-                carbonjackprices.append([price, 'EWT', id, 'Carbonjack'])
-            else:
-                carbonjackprices.append([0, 'EWT', id, 'Carbonjack'])
-        carbonjackran = True
-        driver.quit()
-    except:
-        pass
-
     for i in range(len(allNftList)):
         query = '''{sellOrders: orders(where: {active: true, sellAsset_starts_with: '''+'"'+allNftList[i]+'"}'+''', orderBy: createdAt, orderDirection: desc, skip: 0, first: 1000) {id sellAsset { id assetAddress} buyAsset {id assetId assetType assetAddress}active fills {id buyer{id}complete createdAt order {id}}strategy {askPerUnitNominator askPerUnitDenominator}}}'''
         query7day = '''{sellOrders: orders(where: {active: true, sellAsset_starts_with: '''+'"'+allNftList[i]+'"}'+''', block: {number: '''+block7dayago+'''} , orderBy: createdAt, orderDirection: desc, skip: 0, first: 1000) {id sellAsset {id assetAddress}buyAsset {id assetId assetType assetAddress}active fills {id buyer {id}complete createdAt order {id}}strategy {askPerUnitNominator askPerUnitDenominator}}}'''
@@ -177,52 +145,24 @@ def updateSmudgeMeowOfBastetPrices():
             raregemspriceslistusd = [0, 'USD', 'N/A', 'N/A']
 
     # ---------------------------------------------------------- #
-        carbonjackcheapest = []
-        for cj in carbonjackprices:
-            if len(carbonjackcheapest) == 0:
-                if cj[2] == i+1:
-                    carbonjackcheapest = cj
-
-        if len(carbonjackcheapest) == 0:
-            carbonjackpriceslistoriginal = [0, 'EWT', 'N/A', 'N/A']
-            carbonjackpriceslistusd = [0, 'USD', 'N/A', 'N/A']
-        else:
-            carbonjackpriceslistoriginal = cj
-            carbonjackpriceslistusd = [cj[0]*ewtprice, 'EWT', cj[2], cj[3]]
+        if greenseapriceslistoriginal[0] == 0:
+            combinedpriceslistoriginal = raregemspriceslistoriginal
+        elif raregemspriceslistoriginal[0] == 0:
+            combinedpriceslistoriginal = greenseapriceslistoriginal
+        elif greenseapriceslistusd[0] < raregemspriceslistusd[0]:
+            combinedpriceslistoriginal = greenseapriceslistoriginal
+        elif raregemspriceslistusd[0] < greenseapriceslistusd[0]:
+            combinedpriceslistoriginal = raregemspriceslistoriginal
         # ---------------------------------------------------------- #
-        combinedlistoriginal = []
-        combinedlistoriginal.append(greenseapriceslistoriginal)
-        combinedlistoriginal.append(raregemspriceslistoriginal)
-        if carbonjackran == True:
-            combinedlistoriginal.append(carbonjackpriceslistoriginal)
-
-        combinedlistusd = []
-        combinedlistusd.append(greenseapriceslistusd)
-        combinedlistusd.append(raregemspriceslistusd)
-        if carbonjackran == True:
-            combinedlistusd.append(carbonjackpriceslistusd)
-
-        combinedpriceslistoriginal = []
-        loop = 0
-        for n in combinedlistusd:
-            if n[0] != 0:
-                if len(combinedpriceslistoriginal) == 0:
-                    combinedpriceslistoriginal = combinedlistoriginal[loop]
-                else:
-                    if n[0] < combinedlistusd[loop][0]:
-                        combinedpriceslistoriginal = combinedlistoriginal[loop]
-                loop += 1
-            else:
-                loop += 1
-
-        combinedpriceslistusd = []
-        for m in combinedlistusd:
-            if m[0] != 0:
-                if len(combinedpriceslistusd) == 0:
-                    combinedpriceslistusd = m
-                else:
-                    if m[0] < combinedpriceslistusd[0]:
-                        combinedpriceslistusd = m
+        if greenseapriceslistusd[0] == 0:
+            combinedpriceslistusd = raregemspriceslistusd
+        elif raregemspriceslistusd[0] == 0:
+            combinedpriceslistusd = greenseapriceslistusd
+        elif greenseapriceslistusd[0] < raregemspriceslistusd[0]:
+            combinedpriceslistusd = greenseapriceslistusd
+        elif raregemspriceslistusd[0] < greenseapriceslistusd[0]:
+            combinedpriceslistusd = raregemspriceslistusd
+    # --------------------------------------------- #
 
     # ----------------------------------- 7 day ----------------------------------- #
         url = 'https://ewc-subgraph.carbonswap.exchange/subgraphs/name/carbonswap/marketplace'
@@ -375,8 +315,6 @@ def updateSmudgeMeowOfBastetPrices():
             cheapestpricemarketlink = f"https://raregems.io/energyweb/smudge-meow-of-bastet/{i+1}"
         elif combinedpriceslistoriginal[3] == 'Greensea':
             cheapestpricemarketlink = f"https://greensea.carbonswap.finance/collection/ERC1155/0x4aa7e34D417afDe3195bfFAe96D221fea0369241/{i+1}"
-        elif combinedpriceslistoriginal[3] == 'Carbonjack':
-            cheapestpricemarketlink = "https://carbonjack.io/nft-broker/index.html"
         else:
             cheapestpricemarketlink = ""
 
@@ -396,7 +334,6 @@ def updateSmudgeMeowOfBastetPrices():
         percentage14day = format(percentage14day, ".2f")
         percentage30day = format(percentage30day, ".2f")
         percentage60day = format(percentage60day, ".2f")
-
         if float(percentage7day) >= 0: percentage7day = '+'+str(percentage7day)+'%'
         else: percentage7day = str(percentage7day)+'%'
         if float(percentage14day) >= 0: percentage14day = '+'+str(percentage14day)+'%'
