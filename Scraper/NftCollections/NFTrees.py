@@ -114,7 +114,7 @@ def updateNFTreesPrices():
     holders = int(owners)
 
     price = soup.find_all('button', class_='small')
-    price = price[1]
+    price = price[0]
     price = price.findChildren()
     price = price[0].string
     pricecurrency = price[-3:]
@@ -122,17 +122,13 @@ def updateNFTreesPrices():
     floornftid = soup.find('ul', class_='items')
     floornftid = floornftid.findChildren()
     floornftid = floornftid[4]
-    floornftid = floornftid.find(href=True)
-    floornftid = floornftid['href']
-    num1 = floornftid[-2]
-    num2 = floornftid[-3]
-    num3 = floornftid[-4]
-    if num1 == '/':
-        floornftid = str(floornftid[-1])
-    elif num2 == '/':
-        floornftid = str(floornftid[-2])+str(floornftid[-1])
-    elif num3 == '/':
-        floornftid = str(floornftid[-3])+str(floornftid[-2])+str(floornftid[-1])
+    floornftid = floornftid.find('div', class_='name').string
+    num = ""
+    for l in floornftid:
+        if l.isdigit():
+            num = num + l
+    floornftid = num
+    print(floornftid)
 
     if pricecurrency == "EWT":
         raregemspriceslistoriginal = [float(price[:-3]), 'EWT', f'{floornftid}', 'Raregems']
