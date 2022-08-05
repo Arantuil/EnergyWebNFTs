@@ -191,11 +191,13 @@ const NftPage = () => {
                                                 Floorprice exchange:
                                             </h1>
                                         </div>
-                                        <div className='text-sm sm:text-base 2xl:text-lg'>
-                                            <h1 className='font-bold text-textprimary dark:text-darktextprimary transition-all'>
-                                                NFT ID:
-                                            </h1>
-                                        </div>
+                                        {((currentnft.name === 'CryptoSoots') || (currentnft.name ===  'īinu') || (currentnft.name ===  'NFTrees') || (currentnft.name ===  'Beats Boyz') || (currentnft.name ===  'Smudge Catworld') || (currentnft.name ===  'Energymon')) &&
+                                            <div className='text-sm sm:text-base 2xl:text-lg'>
+                                                <h1 className='font-bold text-textprimary dark:text-darktextprimary transition-all'>
+                                                    NFT ID:
+                                                </h1>
+                                            </div>
+                                        }  
                                     </div>
                                     <div className='p-2 max-w-[40%]'>
                                         <div className='text-sm sm:text-base 2xl:text-lg'>
@@ -209,12 +211,14 @@ const NftPage = () => {
                                                 {currentnft.cheapestmarket}<AiOutlineLink />
                                             </a>
                                         </div>
-                                        <div className='text-sm sm:text-base 2xl:text-lg'>
-                                            <a style={colorStyle} className='underline flex flex-row text-textprimary dark:text-darktextprimary transition-all'
-                                                href={currentnft.cheapestmarketlink}>
-                                                {currentnft.cheapestmarketlink.split('/').pop()}<AiOutlineLink />
-                                            </a>
-                                        </div>
+                                        {((currentnft.name === 'CryptoSoots') || (currentnft.name === 'īinu') || (currentnft.name === 'NFTrees') || (currentnft.name ===  'Beats Boyz') || (currentnft.name ===  'Smudge Catworld') || (currentnft.name ===  'Energymon')) &&
+                                            <div className='text-sm sm:text-base 2xl:text-lg'>
+                                                <a style={colorStyle} className='underline flex flex-row text-textprimary dark:text-darktextprimary transition-all'
+                                                    href={currentnft.cheapestmarketlink}>
+                                                    {currentnft.cheapestmarketlink.split('/').pop()}<AiOutlineLink />
+                                                </a>
+                                            </div>
+                                        }
                                     </div>
                                 </div>
                             </div>
