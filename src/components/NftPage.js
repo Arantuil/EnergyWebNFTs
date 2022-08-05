@@ -64,27 +64,23 @@ const NftPage = () => {
     });
 
     let islistedongs = ''
-    if (currentnft.islistedongs === 'true') {
-        islistedongs = <svg version="1.1" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="20" fill="#4ec44e"/><path d="m22.273 33.783c-0.26014 0-0.51337-0.08748-0.7194-0.25208l-8.6328-6.9063c-0.4961-0.39711-0.57667-1.1211-0.17956-1.6172 0.39941-0.4961 1.1223-0.57667 1.6184-0.17956l7.674 6.1397 11.383-16.26c0.36373-0.52257 1.082-0.64689 1.6034-0.28316 0.52142 0.36488 0.64689 1.082 0.28316 1.6034l-12.086 17.266c-0.18186 0.26129-0.46387 0.43394-0.77926 0.47998-0.05524 0.0058-0.1105 0.0092-0.1646 0.0092z" fill="#3b5172" stroke-width="1.151"/></svg>
-    }
-    else if (currentnft.islistedongs === 'false') {
-        islistedongs = <svg version="1.1" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><g><circle cx="24" cy="24" r="20" fill="#d1323c"/></g><g fill="#3b5172" stroke-width=".62964"><path d="m31.569 14.205 2.2265 2.2266-17.364 17.363-2.2265-2.2266z"/><path d="m33.794 31.57-2.2264 2.2258-17.362-17.366 2.2264-2.2258z"/></g></svg>
-    }
+    if (currentnft.islistedongs === 'true') { islistedongs = <svg version="1.1" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="20" fill="#4ec44e"/><path d="m22.273 33.783c-0.26014 0-0.51337-0.08748-0.7194-0.25208l-8.6328-6.9063c-0.4961-0.39711-0.57667-1.1211-0.17956-1.6172 0.39941-0.4961 1.1223-0.57667 1.6184-0.17956l7.674 6.1397 11.383-16.26c0.36373-0.52257 1.082-0.64689 1.6034-0.28316 0.52142 0.36488 0.64689 1.082 0.28316 1.6034l-12.086 17.266c-0.18186 0.26129-0.46387 0.43394-0.77926 0.47998-0.05524 0.0058-0.1105 0.0092-0.1646 0.0092z" fill="#3b5172" strokeWidth="1.151"/></svg> }
+    else if (currentnft.islistedongs === 'false') { islistedongs = <svg version="1.1" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><g><circle cx="24" cy="24" r="20" fill="#d1323c"/></g><g fill="#3b5172" stroke-width=".62964"><path d="m31.569 14.205 2.2265 2.2266-17.364 17.363-2.2265-2.2266z"/><path d="m33.794 31.57-2.2264 2.2258-17.362-17.366 2.2264-2.2258z"/></g></svg> }
+    
     let islistedonrg = ''
-    if (currentnft.islistedonrg === 'true') {
-        islistedonrg = <svg version="1.1" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="20" fill="#4ec44e"/><path d="m22.273 33.783c-0.26014 0-0.51337-0.08748-0.7194-0.25208l-8.6328-6.9063c-0.4961-0.39711-0.57667-1.1211-0.17956-1.6172 0.39941-0.4961 1.1223-0.57667 1.6184-0.17956l7.674 6.1397 11.383-16.26c0.36373-0.52257 1.082-0.64689 1.6034-0.28316 0.52142 0.36488 0.64689 1.082 0.28316 1.6034l-12.086 17.266c-0.18186 0.26129-0.46387 0.43394-0.77926 0.47998-0.05524 0.0058-0.1105 0.0092-0.1646 0.0092z" fill="#3b5172" stroke-width="1.151"/></svg>
-    }
-    else if (currentnft.islistedonrg === 'false') {
-        islistedonrg = <svg version="1.1" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><g><circle cx="24" cy="24" r="20" fill="#d1323c"/></g><g fill="#3b5172" stroke-width=".62964"><path d="m31.569 14.205 2.2265 2.2266-17.364 17.363-2.2265-2.2266z"/><path d="m33.794 31.57-2.2264 2.2258-17.362-17.366 2.2264-2.2258z"/></g></svg>
-    }
+    if (currentnft.islistedonrg === 'true') { islistedonrg = <svg version="1.1" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="20" fill="#4ec44e"/><path d="m22.273 33.783c-0.26014 0-0.51337-0.08748-0.7194-0.25208l-8.6328-6.9063c-0.4961-0.39711-0.57667-1.1211-0.17956-1.6172 0.39941-0.4961 1.1223-0.57667 1.6184-0.17956l7.674 6.1397 11.383-16.26c0.36373-0.52257 1.082-0.64689 1.6034-0.28316 0.52142 0.36488 0.64689 1.082 0.28316 1.6034l-12.086 17.266c-0.18186 0.26129-0.46387 0.43394-0.77926 0.47998-0.05524 0.0058-0.1105 0.0092-0.1646 0.0092z" fill="#3b5172" strokeWidth="1.151"/></svg> }
+    else if (currentnft.islistedonrg === 'false') { islistedonrg = <svg version="1.1" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><g><circle cx="24" cy="24" r="20" fill="#d1323c"/></g><g fill="#3b5172" stroke-width=".62964"><path d="m31.569 14.205 2.2265 2.2266-17.364 17.363-2.2265-2.2266z"/><path d="m33.794 31.57-2.2264 2.2258-17.362-17.366 2.2264-2.2258z"/></g></svg> }
+    
     let islistedoncj = ''
-    if (currentnft.islistedoncj === 'true') {
-        islistedoncj = <svg version="1.1" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="20" fill="#4ec44e"/><path d="m22.273 33.783c-0.26014 0-0.51337-0.08748-0.7194-0.25208l-8.6328-6.9063c-0.4961-0.39711-0.57667-1.1211-0.17956-1.6172 0.39941-0.4961 1.1223-0.57667 1.6184-0.17956l7.674 6.1397 11.383-16.26c0.36373-0.52257 1.082-0.64689 1.6034-0.28316 0.52142 0.36488 0.64689 1.082 0.28316 1.6034l-12.086 17.266c-0.18186 0.26129-0.46387 0.43394-0.77926 0.47998-0.05524 0.0058-0.1105 0.0092-0.1646 0.0092z" fill="#3b5172" stroke-width="1.151"/></svg>
-    }
-    else if (currentnft.islistedoncj === 'false') {
-        islistedoncj = <svg version="1.1" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><g><circle cx="24" cy="24" r="20" fill="#d1323c"/></g><g fill="#3b5172" stroke-width=".62964"><path d="m31.569 14.205 2.2265 2.2266-17.364 17.363-2.2265-2.2266z"/><path d="m33.794 31.57-2.2264 2.2258-17.362-17.366 2.2264-2.2258z"/></g></svg>
-    }
+    if (currentnft.islistedoncj === 'true') { islistedoncj = <svg version="1.1" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="20" fill="#4ec44e"/><path d="m22.273 33.783c-0.26014 0-0.51337-0.08748-0.7194-0.25208l-8.6328-6.9063c-0.4961-0.39711-0.57667-1.1211-0.17956-1.6172 0.39941-0.4961 1.1223-0.57667 1.6184-0.17956l7.674 6.1397 11.383-16.26c0.36373-0.52257 1.082-0.64689 1.6034-0.28316 0.52142 0.36488 0.64689 1.082 0.28316 1.6034l-12.086 17.266c-0.18186 0.26129-0.46387 0.43394-0.77926 0.47998-0.05524 0.0058-0.1105 0.0092-0.1646 0.0092z" fill="#3b5172" strokeWidth="1.151"/></svg> }
+    else if (currentnft.islistedoncj === 'false') { islistedoncj = <svg version="1.1" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><g><circle cx="24" cy="24" r="20" fill="#d1323c"/></g><g fill="#3b5172" stroke-width=".62964"><path d="m31.569 14.205 2.2265 2.2266-17.364 17.363-2.2265-2.2266z"/><path d="m33.794 31.57-2.2264 2.2258-17.362-17.366 2.2264-2.2258z"/></g></svg> }
 
+
+    //if (!currentnft) {
+    //    const lastSegment = (currentnft.cheapestmarketlink).split('/').pop();
+    //    console.log(lastSegment)
+    //}
+    //lastSegment = currentnft.cheapestmarketlink.split("/").pop();
 
     return (
         <div className="w-full min-h-[calc(100vh-64px)] flex justify-center align-start flex-col flex-nowrap bg-bgprimary dark:bg-darkbgprimary transition-all">
@@ -174,8 +170,7 @@ const NftPage = () => {
                                 <div className='justify-center xl:justify-start border-t-2 pt-2 border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)] px-2 text-sm flex xl:ml-0 max-w-[400px] text-textprimary dark:text-darktextprimary transition-all'>
                                     <h3 className='flex flex-row text-sm sm:text-base'>
                                         <span className='font-bold mr-2 mb-2'>Website: </span>
-                                        <a href={currentnft.projectlink}>{currentnft.projectlink}</a>
-                                        <AiOutlineLink />
+                                        <a className='underline flex flex-row' href={currentnft.projectlink}>{currentnft.projectlink}<AiOutlineLink /></a>
                                     </h3>
                                 </div>
                                 <div className='justify-center xl:justify-start border-b-2 pb-2 border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)] px-2 text-sm flex xl:ml-0 max-w-[400px] text-textprimary dark:text-darktextprimary transition-all'>
@@ -196,17 +191,28 @@ const NftPage = () => {
                                                 Floorprice exchange:
                                             </h1>
                                         </div>
+                                        <div className='text-sm sm:text-base 2xl:text-lg'>
+                                            <h1 className='font-bold text-textprimary dark:text-darktextprimary transition-all'>
+                                                NFT ID:
+                                            </h1>
+                                        </div>
                                     </div>
-                                    <div className='p-2 max-w-[30%]'>
+                                    <div className='p-2 max-w-[40%]'>
                                         <div className='text-sm sm:text-base 2xl:text-lg'>
                                             <h1 style={colorStyle} className='text-textprimary dark:text-darktextprimary transition-all'>
                                                 {currentnft.cheapestpriceoriginal} {currentnft.cheapestpricecurrency}
                                             </h1>
                                         </div>
                                         <div className='text-sm sm:text-base 2xl:text-lg'>
-                                            <a style={colorStyle} className='flex flex-row text-textprimary dark:text-darktextprimary transition-all'
+                                            <a style={colorStyle} className='underline flex flex-row text-textprimary dark:text-darktextprimary transition-all'
                                                 href={currentnft.cheapestmarketlink}>
                                                 {currentnft.cheapestmarket}<AiOutlineLink />
+                                            </a>
+                                        </div>
+                                        <div className='text-sm sm:text-base 2xl:text-lg'>
+                                            <a style={colorStyle} className='underline flex flex-row text-textprimary dark:text-darktextprimary transition-all'
+                                                href={currentnft.cheapestmarketlink}>
+                                                {currentnft.cheapestmarketlink.split('/').pop()}<AiOutlineLink />
                                             </a>
                                         </div>
                                     </div>

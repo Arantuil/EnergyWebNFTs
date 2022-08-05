@@ -254,7 +254,7 @@ function Home() {
                                     All the price data you need of all the NFTs on the Energy Web Chain these can include art, 
                                     trading cards, profile characters, representations of IRL items, game items, 
                                     RECs, land tiles, and more.</h1>
-                                <h1 className='text-sm'>
+                                <h1 className='text-lg'>
                                     View the NFT price data in one of your preferred currencies: EWT (EnergyWeb token), SUSU or USD.</h1>
                                 <p className='text-lg my-2'>The combined market cap of all NFTs on the Energy Web chain is: <NumberFormat style={colorStyle} className='marketcaptotal font-bold' id='totalmarketcapp' value={marketcaptotal.toFixed(0)} displayType={'text'} thousandSeparator={','} prefix={'$'} /></p>
                                 <h2 className='text-sm'>(If any prices are 0 then that means there are no active sell orders on Greensea or on Raregems for that particular NFT)</h2>
