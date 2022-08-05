@@ -250,13 +250,15 @@ function Home() {
                         <div>
                             <div className='text-textprimary dark:text-darktextprimary transition-all p-4'>
                                 <h1 className='font-bold text-3xl'>EnergyWebNFTs</h1>
-                                <h2 className='text-lg'>
-                                        All the price data you need of all the NFTs on the Energy Web Chain these can include art, 
-                                        trading cards, profile characters, representations of IRL items, game items, 
-                                        RECs, land tiles, and more.</h2>
+                                <h1 className='text-lg'>
+                                    All the price data you need of all the NFTs on the Energy Web Chain these can include art, 
+                                    trading cards, profile characters, representations of IRL items, game items, 
+                                    RECs, land tiles, and more.</h1>
+                                <h1 className='text-sm'>
+                                    View the NFT price data in one of your preferred currencies: EWT (EnergyWeb token), SUSU or USD.</h1>
                                 <p className='text-lg my-2'>The combined market cap of all NFTs on the Energy Web chain is: <NumberFormat style={colorStyle} className='marketcaptotal font-bold' id='totalmarketcapp' value={marketcaptotal.toFixed(0)} displayType={'text'} thousandSeparator={','} prefix={'$'} /></p>
-                                <h3 className='text-sm'>(If any prices are 0 then that means there are no active sell orders on Greensea or on Raregems for that particular NFT)</h3>
-                                <h3 className='text-sm'>(The 7day % price changes only take Greensea orders into account, thus should be viewed as a very rough estimate)</h3>
+                                <h2 className='text-sm'>(If any prices are 0 then that means there are no active sell orders on Greensea or on Raregems for that particular NFT)</h2>
+                                <h2 className='text-sm'>(The 7day % price changes only take Greensea orders into account, thus should be viewed as a very rough estimate)</h2>
                             </div>
                         </div>
                         <div className="flex flex-col overflow-x-auto bg-bgprimary dark:bg-darkbgprimary rounded-3xl p-4">

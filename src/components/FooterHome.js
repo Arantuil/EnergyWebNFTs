@@ -25,10 +25,10 @@ const FooterHome = () => {
         shadow-[0_0px_7px_2px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_7px_2px_rgba(245,245,230,0.2)]'>
             <div className='w-[95%] sm:w-2/3 flex mx-auto flex-col px-4 py-8'>
                 <h1 className='font-bold text-xl text-textprimary dark:text-darktextprimary transition-all'>
-                    ✨What is NFT market cap?
+                    ✨What is the NFT market cap?
                 </h1>
                 <p className='text-textprimary dark:text-darktextprimary transition-all'>
-                    NFT market cap is the total value of all the NFTs on the 
+                    The NFT market cap is the total value of all the NFTs on the 
                     Energy Web chain that have been minted or are in circulation. 
                     Market capitalization is used to determine the ranking of 
                     the NFTs. The higher the market cap of a particular 
