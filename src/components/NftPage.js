@@ -166,7 +166,7 @@ const NftPage = () => {
                                 </div>
                             </div>
 
-                            <div className='border-b-2 pb-2 border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)] max-w-[400px] pt-2 flex mx-auto xl:mx-0 flex-col justify-center'>
+                            <div className='border-b-2 border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)] max-w-[400px] flex mx-auto xl:mx-0 flex-col justify-center'>
                                 <div className='justify-center xl:justify-start border-t-2 pt-2 border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)] px-2 text-sm flex xl:ml-0 max-w-[400px] text-textprimary dark:text-darktextprimary transition-all'>
                                     <h3 className='flex flex-row text-sm sm:text-base'>
                                         <span className='font-bold mr-2 mb-2'>Website: </span>

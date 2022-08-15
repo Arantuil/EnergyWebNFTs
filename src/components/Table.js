@@ -134,8 +134,12 @@ function Table() {
         }
     }
 
+    function shorten(text, count){
+        return text.slice(0, count) + (text.length > count ? "..." : "");
+    }
+
     return (
-            <table className="table-auto w-[250vw] sm:w-[170vw] md:w-[130vw] lg:w-full text-textprimary dark:text-darktextprimary transition-all">
+            <table className="table-auto w-[265vw] np1:w-[220vw] np2:w-[195vw] np3:w-[170vw] sm:w-[160vw!important] md:w-[140vw!important] np4:w-[135vw!important] np5:w-[120vw!important] np6:w-[100vw!important] np7:w-[100%!important] text-textprimary dark:text-darktextprimary transition-all">
                 <thead>
                     <tr>
                         <th className='text-left'><div className='flex flex-row'><p>Rank</p><div className='flex flex-col ml-1 mt-1 text-[10px]'><button onClick={() => sorting("rank")} className='rankbutton1 button brightness-[50%] relative bottom-1 h-[6px] w-[12px]'>▲</button><button onClick={() => sorting("rank")} className='rankbutton2 button brightness-[50%] h-[6px] w-[12px]'>▼</button></div></div></th>
@@ -153,7 +157,7 @@ function Table() {
                         <tr key={index.id}>
                             <td style={colorStyle} className='w-[70px] border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.rank}</td>
                             <td className='w-[50px] border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><img className='w-[35px] h-[35px] aspect-auto' src={index.image} alt="NFT icon" /></td>
-                            <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><Link to={`/nft/${(slugify(index.name, '_'))}`}>{index.name}</Link></td>
+                            <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><Link to={`/nft/${(slugify(index.name, '_'))}`}>{shorten(index.name, 17)}</Link></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat style={colorStyle} className='floorprice_element' decimalScale={2} value={index.floorprice} displayType={'text'} thousandSeparator={','} prefix={'$'} /></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.cheapestmarket}</td>
                             <td style={{color: index.percentage7daycolor}} className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.floorpricesevenday}</td>
