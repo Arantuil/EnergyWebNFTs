@@ -241,51 +241,6 @@ function Home() {
         currencystate = 'ewt'
     }
 
-    async function getSupplyInfo() {
-        fetch('https://supply.energyweb.org/',
-        {
-            method: "GET",
-            mode: 'no-cors',
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        })
-        .then(response => response.json())
-        .then(json => console.log(json));
-    }
-    getSupplyInfo()
-
-    //async function getSupplyInfo() {
-    //    fetch('https://supply.energyweb.org',
-    //    {
-    //        method: "GET",
-    //        mode: 'no-cors',
-    //        headers: {
-    //            'Content-Type': 'application/json',
-    //        }
-    //    })
-    //        .then(
-    //            function (response) {
-    //                if (response.status !== 200) {
-    //                    console.log('Looks like there was a problem. Status Code: ' +
-    //                        response.status);
-    //                    return;
-    //                }
-//
-    //                // Examine the text in the response
-    //                response.json().then(function (data) {
-    //                    console.log(data);
-    //                });
-    //            }
-    //        )
-    //        .catch(function (err) {
-    //            console.log('Fetch Error :-S', err);
-    //        });
-    //}
-    //getSupplyInfo()
-
-    const [totalsupply, setTotalSupply] = useState(0)
-
     return (
         <div className="w-full min-h-[calc(100vh-64px)] flex justify-center align-start flex-col flex-nowrap bg-bgprimary dark:bg-darkbgprimary transition-all">
             <div className="w-full h-full bg-backgroundimagepage bg-no-repeat bg-cover">
@@ -302,7 +257,6 @@ function Home() {
                                 <h1 className='text-lg'>
                                     View the NFT price data in one of your preferred currencies: EWT (EnergyWeb token), SUSU or USD.</h1>
                                 <p className='text-lg mt-2'>The combined market cap of all NFTs on the Energy Web chain is: <NumberFormat style={colorStyle} className='marketcaptotal font-bold' id='totalmarketcapp' value={marketcaptotal.toFixed(0)} displayType={'text'} thousandSeparator={','} prefix={'$'} /></p>
-                                <p className='text-lg mb-2'>The total marketcap of EWT (Energy Web token): {totalsupply}</p>
                                 <h2 className='text-sm'>(If any prices are 0 then that means there are no active sell orders on Greensea or on Raregems for that particular NFT)</h2>
                                 <h2 className='text-sm'>(The 7day % price changes only take Greensea orders into account, thus should be viewed as a very rough estimate)</h2>
                             </div>
