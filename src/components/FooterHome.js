@@ -1,4 +1,5 @@
 import DonationBar from './DonationBar'
+import brave from '../images/brave.png'
 
 const FooterHome = () => {
     function sleep(ms) {
@@ -84,6 +85,10 @@ const FooterHome = () => {
                     All the donations will be used to pay for the cost of the website hosting.
                 </p>
                 <DonationBar />
+                <p className='text-textprimary dark:text-darktextprimary transition-all'>
+                    EnergyWebNFTs.com is also verified on brave rewards, BAT tips are enabled.
+                </p>
+                <img className='h-20 w-[102px]' src={brave} alt="" />
             </div>
         </footer>
     );
