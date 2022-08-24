@@ -85,6 +85,7 @@ const FooterHome = () => {
                     All the donations will be used to pay for the cost of the website hosting.
                 </p>
                 <DonationBar />
+                <p className='text-sm mt-2 text-textprimary dark:text-darktextprimary transition-all'>If the bar is at 100% then that means the website hosting is free for me :)</p>
                 <p className='text-textprimary dark:text-darktextprimary transition-all'>
                     EnergyWebNFTs.com is also verified on brave rewards, BAT tips are enabled.
                 </p>

@@ -17,13 +17,10 @@ const DonationBar = () => {
 
 
     return ( 
-        <div className='mt-2 mb-6 pb-4 h-[35px] w-full lg:w-2/3'>
+        <div className='mt-2 mb-1 pt-1 h-[35px] w-full lg:w-2/3'>
             <div className='h-full border-2 border-textprimary dark:border-darktextprimary rounded-lg'>
                 <div className='h-full rounded-md max-w-[100%]' style={{width: `${balance*100}%`, backgroundColor: "#4EC44E"}}>
                 </div>
-            </div>
-            <div>
-                <h1 className='text-sm mt-2 text-textprimary dark:text-darktextprimary transition-all'>If the bar is at 100% then that means the website hosting is free for me :)</h1>
             </div>
         </div>
     );
