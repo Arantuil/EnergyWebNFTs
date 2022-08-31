@@ -7,8 +7,7 @@ import NumberFormat from 'react-number-format';
 import useColorChange from 'use-color-change';
 import { AiOutlineLink } from "react-icons/ai";
 import LogoGS from '../images/LogoGS.png';
-import LogoRG from '../images/LogoRG.png';
-import LogoCJ from '../images/LogoCJ.png';
+import LogoRG2 from '../images/LogoRG2.png';
 
 const NftPage = () => {
     const params = useParams()
@@ -226,7 +225,7 @@ const NftPage = () => {
                             <div className='pt-2 max-w-[400px] mx-auto xl:mx-0 flex flex-col justify-center border-b-2 pb-2 border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'>
                             <h1 className='px-2 pt-2 xl:mx-0 flex mx-auto text-base xl:text-lg font-bold text-textprimary dark:text-darktextprimary transition-all'>Listed on exchanges:</h1>
                                 <div className='flex justify-around flex-row px-2'>
-                                    <div className='w-1/4'>
+                                    <div className='w-1/3'>
                                         <a href="https://greensea.carbonswap.finance/">
                                             <img src={LogoGS} alt="Greensea icon" />
                                         </a>
@@ -234,20 +233,12 @@ const NftPage = () => {
                                             {islistedongs}
                                         </div>
                                     </div>
-                                    <div className='w-1/4'>
-                                        <a href="https://raregems.io/">
-                                            <img src={LogoRG} alt="Raregems icon" />
+                                    <div className='w-1/3'>
+                                        <a className='w-full' href="https://raregems.io/">
+                                            <img className='' src={LogoRG2} alt="Raregems icon" />
                                         </a>
                                         <div className='flex justify-center mx-auto w-[30px] h-[30px]'>
                                             {islistedonrg}
-                                        </div>
-                                    </div>
-                                    <div className='w-1/4'>
-                                        <a href="https://carbonjack.io/nft-broker/index.html">
-                                            <img src={LogoCJ} alt="Carbonjack icon" />
-                                        </a>
-                                        <div className='flex justify-center mx-auto w-[30px] h-[30px]'>
-                                            {islistedoncj}
                                         </div>
                                     </div>
                                 </div>
