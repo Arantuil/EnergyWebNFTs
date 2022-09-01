@@ -69,27 +69,6 @@ const FooterHome = () => {
                 <p className='text-textprimary dark:text-darktextprimary transition-all'>
                     You can contact me by sending a DM on Telegram: @arantuil or on Twitter: @arantuil
                 </p>
-                <h1 className='mt-4 font-bold text-xl text-textprimary dark:text-darktextprimary transition-all'>
-                    👍I like this website, how can I thank you?</h1>
-                <p className='text-textprimary dark:text-darktextprimary transition-all'>
-                    If you found this website useful and want to thank me by sending EWT or SUSU or maybe even an NFT😮, you can do
-                    so by sending it to this address: 
-                </p>
-                <div className='flex flex-row'>
-                    <p id='addressCopy' className='break-all w-auto text-transparent bg-clip-text bg-gradient-to-r from-accent1 via-accent2 to-accent3 font-bold text-md sm:text-lg md:text-xl transition-all'>
-                        0x26Daf0750B1AB7D1359412ed5656F4e9739D6c31
-                    </p>
-                    <button className='ml-3' id='addressCopyButton' onClick={()=>copyToClickBoard()}>📋</button>
-                </div>
-                <p className='text-sm text-textprimary dark:text-darktextprimary transition-all'>
-                    All the donations will be used to pay for the cost of the website hosting.
-                </p>
-                <DonationBar />
-                <p className='text-sm mt-2 text-textprimary dark:text-darktextprimary transition-all'>If the bar is at 100% then that means the website hosting is free for me :)</p>
-                <p className='text-textprimary dark:text-darktextprimary transition-all'>
-                    EnergyWebNFTs.com is also verified on brave rewards, BAT tips are enabled.
-                </p>
-                <img className='h-20 w-[102px]' src={brave} alt="" />
             </div>
         </footer>
     );
