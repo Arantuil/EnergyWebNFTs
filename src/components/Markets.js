@@ -20,7 +20,7 @@ function Markets() {
                             shadow-[0_0px_10px_2px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_10px_2px_rgba(245,245,230,0.2)]">
                                 <div className='w-full h-[50%]'>
                                     <a href="https://greensea.carbonswap.finance/">
-                                        <img className='w-full h-auto flex mx-auto bg-lineargs' src={LogoGS} alt="Logo exchange 1" />
+                                        <img className='w-full h-auto flex mx-auto bg-[rgba(124,190,116,0.85)]' src={LogoGS} alt="Logo exchange 1" />
                                     </a>
                                 </div>
                                 <div className='w-full h-[50%] flex flex-row'>
@@ -45,7 +45,7 @@ function Markets() {
                             shadow-[0_0px_10px_2px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_10px_2px_rgba(245,245,230,0.2)]">
                                 <div className='w-full h-[50%]'>
                                     <a href="https://raregems.io/">
-                                        <img className='w-full h-auto flex mx-auto bg-linearrg' src={LogoRG} alt="Logo exchange 2" />
+                                        <img className='w-full h-auto flex mx-auto bg-[rgba(189,138,223,0.85)]' src={LogoRG} alt="Logo exchange 2" />
                                     </a>
                                 </div>
                                 <div className='w-full h-[50%] flex flex-row'>
