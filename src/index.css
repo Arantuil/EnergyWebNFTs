@@ -182,3 +182,15 @@
       box-shadow: 0 0 0.5em 0.15em rgba(255, 66, 66, 0.9);
   }
 }
+
+#gradienttimer { 
+    background: linear-gradient(90deg, rgb(90, 229, 103), rgb(68, 190, 212), rgb(166, 101, 250));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: max-content;
+}
+/*
+        accent1: 'rgb(90, 229, 103)',
+        accent2: 'rgb(68, 190, 212)',
+        accent3: 'rgb(166, 101, 250)',
+*/
