@@ -9,8 +9,8 @@ function CountdownTimer() {
             timeLeft = {
                 days: Math.floor(difference / (1000 * 60 * 60 * 24)),
                 hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-                minutes: Math.floor((difference / 1000 / 60) % 60),
-                seconds: Math.floor((difference / 1000) % 60),
+                min: Math.floor((difference / 1000 / 60) % 60),
+                s: Math.floor((difference / 1000) % 60),
             };
         }
 
@@ -39,7 +39,7 @@ function CountdownTimer() {
         );
     });
     return (
-        <div className='font-bold text-base md:text-lg'>
+        <div className='font-bold text-base md:text-lg overflow-hidden'>
             <h2 id='gradienttimer'>{timerComponents.length ? timerComponents : <span>Tubby Turtles has launched!🎉</span>}</h2>
         </div>
     );

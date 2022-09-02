@@ -8,6 +8,7 @@ import useColorChange from 'use-color-change';
 import Searchbar from './Searchbar';
 import ttlogoeggs from '../images/ttlogo-eggs.png';
 import CountdownTimer from './CountdownTimer'; 
+import { MdOutlineDateRange } from 'react-icons/md'
 
 function Home() {
     const axios = require("axios")
@@ -249,17 +250,17 @@ function Home() {
                 <div className='bg-bgsecondary dark:bg-darkbgsecondary w-[95%] md:w-[90%] lg:w-4/5 xl:w-3/4 2xl:w-2/3 h-auto mx-auto my-4 sm:my-10 rounded-3xl
                     shadow-[0_0px_10px_2px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_10px_2px_rgba(245,245,230,0.2)]'>
                     <div className="w-full h-full py-2 flex flex-col mx-auto">
-                        <div className='text-textprimary dark:text-darktextprimary transition-all p-4'>
+                        <div className='text-textprimary dark:text-darktextprimary transition-all px-4 py-2'>
                             <h1 className='text-lg md:text-xl font-bold'>Upcoming NFT collections on Energy Web:</h1>
                         </div>
-                        <div className='p-4 flex flex-row w-full rounded-xl mx-auto bg-bgprimary dark:bg-darkbgprimary'>
+                        <div className='px-4 py-2 flex flex-row w-full rounded-xl mx-auto bg-bgprimary dark:bg-darkbgprimary'>
                             <div className='w-[20%] md:w-[18%] lg:w-[15%] xl:w-[12%]'>
                                 <img className='w-full aspect-square rounded-2xl'src={ttlogoeggs} alt="" />
                             </div>
                             <div className='pl-3 w-[80%] md:w-[82%] lg:w-[85%] xl:w-[88%] text-textprimary dark:text-darktextprimary transition-all'>
                                 <h1 className='text-lg sm:text-xl md:text-2xl font-bold'>Tubby Turtles</h1>
                                 <h2 className='text-sm md:text-base'>Tubby Turtles is a stake-able NFT project. The staking rewards are based on the rarities of the turtle's traits.</h2>
-                                <h2 className='text-sm md:text-base'>Launch/Minting date: 19:00 UTC Saturday September 17th</h2>
+                                <h2 className='text-sm md:text-base'><MdOutlineDateRange className='inline-block -translate-y-[2px]' />Launch/Minting date: 19:00 UTC Saturday September 17th</h2>
                                 <CountdownTimer />
                                 <h2 className='text-sm md:text-base'>Website: <a className='underline hover:brightness-200 dark:hover:brightness-125' href='https://tubbyturtles.com'>https://tubbyturtles.com</a></h2>
                                 <h2 className='text-xs md:text-sm'>NFT type: ERC-721</h2>
