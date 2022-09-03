@@ -9,6 +9,7 @@ import Searchbar from './Searchbar';
 import ttlogoeggs from '../images/ttlogo-eggs.png';
 import CountdownTimer from './CountdownTimer'; 
 import { MdOutlineDateRange } from 'react-icons/md'
+import teamseas from '../images/teamseaslogosmall.png'
 
 function Home() {
     const axios = require("axios")
@@ -259,7 +260,7 @@ function Home() {
                             </div>
                             <div className='pl-3 w-[80%] md:w-[82%] lg:w-[85%] xl:w-[88%] text-textprimary dark:text-darktextprimary transition-all'>
                                 <h1 className='text-lg sm:text-xl md:text-2xl font-bold'>Tubby Turtles</h1>
-                                <h2 className='text-sm md:text-base'>Tubby Turtles is a stake-able NFT project. The staking rewards are based on the rarities of the turtle's traits.</h2>
+                                <h2 className='text-sm md:text-base'>Tubby Turtles is a stake-able NFT project. The staking rewards are based on the rarities of the turtle's traits. 10% of the minting cost will be donated to #Teamseas.<img className='inline w-6 h-6 -translate-y-[2px]' src={teamseas}></img></h2>
                                 <h2 className='text-sm md:text-base'><MdOutlineDateRange className='inline-block -translate-y-[2px]' />Launch/Minting date: 19:00 UTC Saturday September 17th</h2>
                                 <CountdownTimer />
                                 <h2 className='text-sm md:text-base'>Website: <a className='underline hover:brightness-200 dark:hover:brightness-125' href='https://tubbyturtles.com'>https://tubbyturtles.com</a></h2>
