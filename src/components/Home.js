@@ -264,6 +264,7 @@ function Home() {
                                 <h2 className='text-sm md:text-base'><MdOutlineDateRange className='inline-block -translate-y-[2px]' />Launch/Minting date: 19:00 UTC Saturday September 17th</h2>
                                 <CountdownTimer />
                                 <h2 className='text-sm md:text-base'>Website: <a className='underline hover:brightness-200 dark:hover:brightness-125' href='https://tubbyturtles.com'>https://tubbyturtles.com</a></h2>
+                                <h2 className='text-sm md:text-base'>Telegram: <a className='underline hover:brightness-200 dark:hover:brightness-125' href='https://t.me/tubbyturtles'>https://t.me/tubbyturtles</a></h2>
                                 <h2 className='text-xs md:text-sm'>NFT type: ERC-721</h2>
                             </div>
                         </div>
