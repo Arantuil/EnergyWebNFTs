@@ -45,7 +45,9 @@ function Header() {
                     </Link>
                     <a className='hidden xl:flex mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://place.energywebnfts.com/'>EW/place
                     </a>
+                    {/*
                     <div className='hidden xl:flex bg-red-500 rounded-md px-[2px] relative -translate-x-[30px] -translate-y-[18px] z-10'>New!</div>
+                    */}
                 </div>
                 <div className='w-[70%] sm:w-[48%] h-full mr-2 xs:mr-1 md:mr-10 flex flex-row-reverse items-center'>
                     <Toggle/>
