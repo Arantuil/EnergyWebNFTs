@@ -27,7 +27,7 @@ function Footer() {
             bg-gradient-to-r from-[#9AEFA2] via-[#8DD7E4] to-[#C8A1FB] 
             dark:bg-gradient-to-r dark:from-[#368B3E] dark:via-[#297380] dark:to-[#643D97]
             transition-all flex flex-row'>
-                <div className='w-[25%] md:w-[40%] h-full ml-2 xs:ml-1 md:ml-10 flex items-center'>
+                <div className='w-[25%] md:w-[40%] h-full ml-4 sm:ml-6 md:ml-10 flex items-center'>
                     <div className='h-full flex flex-row w-auto'>
                         <Link className='flex flex-row' to='/'>
                             <img className='h-12 my-auto filter brightness-[90%] dark:brightness-[110%]' src={ewcnftslogo} alt="EnergyWebNFTs Logo" />
@@ -43,7 +43,7 @@ function Footer() {
                         </a>
                     </div>
                 </div>
-                <div className='w-[75%] md:w-[60%] h-full mr-2 xs:mr-1 md:mr-10 flex flex-row-reverse items-center'>
+                <div className='w-[75%] md:w-[60%] h-full mr-4 sm:mr-6 md:mr-10 flex flex-row-reverse items-center'>
                     <Toggle/>
                     <div className='flex flex-row mr-4'>
                         <div className='text-lg font-bold text-textprimary dark:text-darktextprimary transition-all mr-1'>

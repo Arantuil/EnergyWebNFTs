@@ -4,6 +4,7 @@ import Markets from './components/Markets';
 import PageNotFound from './components/PageNotFound';
 import NftPage from './components/NftPage';
 import Footer from './components/Footer';
+import Portfolio from './components/Portfolio';
 import React from "react";
 import {
     BrowserRouter as Router,
@@ -29,6 +30,7 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/markets" element={<Markets />} />
+                <Route path='/portfolio' element={<Portfolio />} />
                 <Route path='/nft/:id' element={<NftPage />} />
                 <Route path='*' element={<PageNotFound />} />
             </Routes>
