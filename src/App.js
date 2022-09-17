@@ -32,6 +32,7 @@ export default function App() {
                 <Route path="/markets" element={<Markets />} />
                 <Route path='/portfolio' element={<Portfolio />} />
                 <Route path='/nft/:id' element={<NftPage />} />
+                    <Route path='/portfolio' element={<Portfolio />} />
                 <Route path='*' element={<PageNotFound />} />
             </Routes>
                 <Footer/>
