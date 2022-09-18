@@ -48,11 +48,14 @@ function Header() {
                     <Link to='/markets' className='mx-1 sm:mx-2 md:mx-3 lg:mx-4 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
                         Markets
                     </Link>
-                    <a className='mx-1 sm:mx-2 md:mx-3 lg:mx-4 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://place.energywebnfts.com/'>EW/place
-                    </a>
+                    {/*
                     <Link to='/portfolio' className='mx-1 sm:mx-2 md:mx-3 lg:mx-4 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
                         Portfolio
                     </Link>
+                    */}
+                    <a className='flex flex-row mx-1 sm:mx-2 md:mx-3 lg:mx-4 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://place.energywebnfts.com/'>EW/place
+                    <AiOutlineLink />
+                    </a>
                 </ul>
                 <div className='h-full ml-auto mr-0 flex flex-row-reverse items-center'>
                     <Toggle/>
