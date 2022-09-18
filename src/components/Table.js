@@ -156,7 +156,7 @@ function Table() {
                     {nftlist.map((index) => (
                         <tr key={index.id}>
                             <td style={colorStyle} className='w-[70px] border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.rank}</td>
-                            <td className='w-[50px] border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><img className='w-[35px] h-[35px] aspect-auto' src={index.image} alt="NFT icon" /></td>
+                            <td className='w-[50px] border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><img className='nfticonimg rounded-xl w-[35px] h-[35px] aspect-auto' src={index.image} alt="NFT icon" /></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><Link to={`/nft/${(slugify(index.name, '_'))}`}>{shorten(index.name, 17)}</Link></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat style={colorStyle} className='floorprice_element' decimalScale={2} value={index.floorprice} displayType={'text'} thousandSeparator={','} prefix={'$'} /></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.cheapestmarket}</td>

@@ -107,7 +107,7 @@ def updateTubbyTurtlesPrices():
         combinedpriceslistusd = raregemspriceslistusd
     # --------------------------------------------- #
     # -------------------------------------------------------------------------- #
-    image = f"/images/TubbyTurtles.png"
+    image = f"/images/TubbyTurtles.webp"
     imageanimated = f"/animatedimages/TubbyTurtles.png"
     assettype = "ERC-721"
     if combinedpriceslistoriginal[3] == 'Raregems' or combinedpriceslistoriginal[4] == 'Raregems':
@@ -119,6 +119,11 @@ def updateTubbyTurtlesPrices():
     for x in allNftAmounts:
         circulating += int(x)
     marketcap = circulating*combinedpriceslistusd[0]
+
+    percentage7day = 0
+    percentage14day = 0
+    percentage30day = 0
+    percentage60day = 0
 
     if percentage7day > 0: percentage7daycolor = '#4EC44E'
     elif percentage7day < 0: percentage7daycolor = '#D1323C'

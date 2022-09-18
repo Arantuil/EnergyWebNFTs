@@ -9,6 +9,7 @@ from NftCollections.NFTrees import updateNFTreesPrices
 from NftCollections.Iinu import updateIinuPrices
 from NftCollections.SmudgeCatworld import updateSmudgeCatworldPrices
 from NftCollections.BeatsBoyz import updateBeatsBoyzPrices
+from NftCollections.TubbyTurtles import updateTubbyTurtlesPrices
 import sys
 import os
 import firebase_admin
@@ -28,16 +29,17 @@ def restart():
 try:
     start = time.time()
 
-    updateCarbonSwapS1Prices()
-    updateCarbonlandTrustPrices()
-    updateSmudgeMeowOfBastetPrices()
-    updateCarbonautsPrices()
-    updateEnergymonPrices()
-    updateCryptoSootsPrices()
-    updateNFTreesPrices()
-    updateIinuPrices()
-    updateSmudgeCatworldPrices()
+    #updateCarbonSwapS1Prices()
+    #updateCarbonlandTrustPrices()
+    #updateSmudgeMeowOfBastetPrices()
+    #updateCarbonautsPrices()
+    #updateEnergymonPrices()
+    #updateCryptoSootsPrices()
+    #updateNFTreesPrices()
+    #updateIinuPrices()
+    #updateSmudgeCatworldPrices()
     updateBeatsBoyzPrices()
+    updateTubbyTurtlesPrices()
 
     end = time.time()
     print("The time of execution of the above program is:", end-start)
