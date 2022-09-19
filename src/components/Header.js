@@ -108,9 +108,11 @@ function Header() {
                                 <a onClick={() => setIsNavOpen(false)} className='hover:invert translate-x-[12px] flex flex-row mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://place.energywebnfts.com/'>EW/place
                                     <AiOutlineLink />
                                 </a>
+                                {/*
                                 <Link onClick={() => setIsNavOpen(false)} to='/portfolio' className='hover:invert hover:brightness-110 mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
                                     Portfolio
                                 </Link>
+                                */}
                             </ul>
                         </div>
                     </section>
