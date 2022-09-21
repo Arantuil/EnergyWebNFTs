@@ -40,7 +40,7 @@ function CountdownTimer() {
     });
     return (
         <div className='font-bold text-base md:text-lg overflow-hidden'>
-            <h2 id='gradienttimer'>{timerComponents.length ? timerComponents : <span>Tubby Turtles has launched!🎉</span>}</h2>
+            <h2><span id='gradienttimer'>{timerComponents.length ? timerComponents : <span>Tubby Turtles has launched!</span>}</span>🎉</h2>
         </div>
     );
 }

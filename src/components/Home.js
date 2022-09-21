@@ -252,7 +252,7 @@ function Home() {
                     shadow-[0_0px_10px_2px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_10px_2px_rgba(245,245,230,0.2)]'>
                     <div className="w-full h-full py-2 flex flex-col mx-auto">
                         <div className='text-textprimary dark:text-darktextprimary transition-all px-4 py-2'>
-                            <h1 className='text-lg md:text-xl font-bold'>Upcoming NFT collections on Energy Web:</h1>
+                            <h1 className='text-base sm:text-xl font-bold'>Upcoming NFT collections on Energy Web:</h1>
                         </div>
                         {/*
                         <div className='px-4 py-2 flex flex-row w-full rounded-xl mx-auto bg-bgprimary dark:bg-darkbgprimary'>
@@ -264,16 +264,16 @@ function Home() {
                         */}
                         <div className='px-4 py-2 flex flex-row w-full rounded-xl mx-auto bg-bgprimary dark:bg-darkbgprimary'>
                             <div className='w-[20%] md:w-[18%] lg:w-[15%] xl:w-[12%]'>
-                                <img className='w-full aspect-square rounded-2xl'src={ttlogoeggs} alt="" />
+                                <img className='max-w-[175px] max-h-[175px] w-full aspect-square rounded-2xl'src={ttlogoeggs} alt="" />
                             </div>
                             <div className='pl-3 w-[80%] md:w-[82%] lg:w-[85%] xl:w-[88%] text-textprimary dark:text-darktextprimary transition-all'>
-                                <h1 className='text-lg sm:text-xl md:text-2xl font-bold'>Tubby Turtles</h1>
-                                <h2 className='text-sm md:text-base'>Tubby Turtles is a NFT project where every minted turtle is unique. 10% of the minting cost will be donated to #Teamseas.<img className='inline w-5 h-5 -translate-y-[2px]' src={teamseas}></img> Planned features: Staking, the staking rewards will be based on the rarities of the turtle's traits.</h2>
-                                <h2 className='text-sm md:text-base'><MdOutlineDateRange className='inline-block -translate-y-[2px]' />Launch/Minting date: 19:00 UTC Saturday September 17th</h2>
+                                <h1 className='text-base sm:text-xl md:text-2xl font-bold'>Tubby Turtles</h1>
+                                <h2 className='text-xs sm:text-base'>Tubby Turtles is a NFT project where every minted turtle is unique. 10% of the minting cost will be donated to #Teamseas.<img className='inline w-[14px] h-[14px] sm:w-5 sm:h-5 -translate-y-[2px]' src={teamseas}></img> Planned features: Staking, the staking rewards will be based on the rarities of the turtle's traits.</h2>
+                                <h2 className='text-xs sm:text-base'><MdOutlineDateRange className='inline-block -translate-y-[2px]' />Launch/Minting date: 19:00 UTC Saturday September 17th</h2>
                                 <CountdownTimer />
-                                <h2 className='text-sm md:text-base'>Website: <a className='underline hover:brightness-200 dark:hover:brightness-125' href='https://tubbyturtles.com'>https://tubbyturtles.com</a></h2>
-                                <h2 className='text-sm md:text-base'>Telegram: <a className='underline hover:brightness-200 dark:hover:brightness-125' href='https://t.me/tubbyturtles'>https://t.me/tubbyturtles</a></h2>
-                                <h2 className='text-xs md:text-sm'>NFT type: ERC-721</h2>
+                                <h2 className='text-xs sm:text-base'>Website: <a className='underline hover:brightness-200 dark:hover:brightness-125' href='https://tubbyturtles.com'>https://tubbyturtles.com</a></h2>
+                                <h2 className='text-xs sm:text-base'>Telegram: <a className='underline hover:brightness-200 dark:hover:brightness-125' href='https://t.me/tubbyturtles'>https://t.me/tubbyturtles</a></h2>
+                                <h2 className='text-xs text-[0.6rem] sm:text-sm'>NFT type: ERC-721</h2>
                             </div>
                         </div>
                         
@@ -284,16 +284,16 @@ function Home() {
                     <div className="w-full h-full pt-4 flex flex-col mx-auto">
                         <div>
                             <div className='text-textprimary dark:text-darktextprimary transition-all p-4'>
-                                <h1 className='font-bold text-3xl'>EnergyWebNFTs</h1>
-                                <h1 className='text-lg'>
+                                <h1 className='font-bold text-2xl sm:text-3xl'>EnergyWebNFTs</h1>
+                                <h1 className='text-base sm:text-lg'>
                                     All the price data you need of all the NFTs on the Energy Web Chain these can include art,
                                     trading cards, profile characters, representations of IRL items, game items,
                                     RECs, land tiles, and more.</h1>
-                                <h1 className='text-lg'>
+                                <h1 className='text-base sm:text-lg'>
                                     View the NFT price data in one of your preferred currencies: EWT (EnergyWeb token), SUSU or USD.</h1>
-                                <p className='text-lg mt-2'>The combined market cap of all NFTs on the Energy Web chain is: <NumberFormat style={colorStyle} className='marketcaptotal font-bold' id='totalmarketcapp' value={marketcaptotal.toFixed(0)} displayType={'text'} thousandSeparator={','} prefix={'$'} /></p>
-                                <h2 className='text-sm'>(If any prices are 0 then that means there are no active sell orders on Greensea or on Raregems for that particular NFT)</h2>
-                                <h2 className='text-sm'>(The 7day % price changes only take Greensea orders into account, thus should be viewed as a very rough estimate)</h2>
+                                <p className='text-base sm:text-lg'>The combined market cap of all NFTs on the Energy Web chain is: <NumberFormat style={colorStyle} className='marketcaptotal font-bold' id='totalmarketcapp' value={marketcaptotal.toFixed(0)} displayType={'text'} thousandSeparator={','} prefix={'$'} /></p>
+                                <p className='text-[0.65rem] sm:text-xs md:text-sm'>(If any prices are 0 then that means there are no active sell orders on Greensea or on Raregems for that particular NFT)</p>
+                                <p className='text-[0.65rem] sm:text-xs md:text-sm'>(The 7day % price changes only take Greensea orders into account, thus should be viewed as a very rough estimate)</p>
                             </div>
                         </div>
                         <div className="flex flex-col overflow-x-auto bg-bgprimary dark:bg-darkbgprimary rounded-3xl p-4">
