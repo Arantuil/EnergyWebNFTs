@@ -69,6 +69,13 @@ const FooterHome = () => {
                 <p className='text-sm sm:text-base text-textprimary dark:text-darktextprimary transition-all'>
                     You can contact me by sending a DM on Telegram: @arantuil or on Twitter: @arantuil
                 </p>
+                <h1 className='mt-4 font-bold text-lg sm:text-xl text-textprimary dark:text-darktextprimary transition-all'>
+                    🔴Disclaimer</h1> 
+                <p className='text-sm sm:text-base text-textprimary dark:text-darktextprimary transition-all'>
+                    Although the data is objectively presented, a small disclaimer: The creator of EnergyWebNFTs.com is also the creator of the Tubby Turtles NFT collection.
+                    <br/>
+                    EnergyWebNFTs.com is not affiliated with the Energy Web foundation.
+                </p>
             </div>
         </footer>
     );

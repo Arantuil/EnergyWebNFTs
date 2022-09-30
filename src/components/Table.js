@@ -156,7 +156,7 @@ function Table() {
                     {nftlist.map((index) => (
                         <tr className='text-[0.85rem] sm:text-base' key={index.id}>
                             <td style={colorStyle} className='w-[60px] sm:w-[70px] border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.rank}</td>
-                            <td className='w-[45px] sm:w-[50px] border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><img className='nfticonimg rounded-lg w-[35px] h-[35px] aspect-auto' src={index.image} alt="NFT icon" /></td>
+                            <td className='w-[45px] sm:w-[50px] border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><img className='nfticonimg rounded-lg md:rounded-xl w-[31px] h-[31px] sm:w-[35px] sm:h-[35px] aspect-auto' src={index.image} alt="NFT icon" /></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><Link to={`/nft/${(slugify(index.name, '_'))}`}>{shorten(index.name, 17)}</Link></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'><NumberFormat style={colorStyle} className='floorprice_element' decimalScale={2} value={index.floorprice} displayType={'text'} thousandSeparator={','} prefix={'$'} /></td>
                             <td className='border-collapse border-t dark:border-[rgba(245,245,230,0.25)]'>{index.cheapestmarket}</td>
