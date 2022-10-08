@@ -76,11 +76,12 @@ const Portfolio = () => {
                         <div className="px-2 sm:px-3 md:px-4 py-20 text-textprimary dark:text-darktextprimary transition-all w-full h-full flex flex-col mx-auto">
                             <div className='flex flex-row mx-auto'>
                                 <img className='inline w-6 h-6 md:w-8 md:h-8 lg:w-9 lg:h-9 xl:w-10 xl:h-10 mr-1 mb-2' src={ewcnfts} />
-                                <h1 className='font-bold text-lg md:text-xl lg:text-2xl xl:text-3xl flex justify-center'>Energy Web NFT portfolio tracker</h1>
+                                <h1 className='font-bold text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl flex justify-center'>Energy Web NFT portfolio tracker</h1>
                             </div>
                             {accountaddress !== "" ? (
                             <div className='flex flex-col justify-center'>
-                                <p className='text-center'>{accountaddress}</p>
+                                <p className='text-center'>Welcome {accountaddress}!</p>
+                                <p className='text-center'>You can create your own portfolio by pressing the 'log in' button below.</p>
                                 <button className='hover:brightness-110 rounded-xl mt-[10px] pb-[7px] pt-[3px] bg-[rgba(74,222,128,0.6)] mx-auto w-[75px] text-base md:text-lg lg:text-xl' onClick={signMessage}>Log in</button>
                             </div>
                             ) : (
@@ -88,7 +89,7 @@ const Portfolio = () => {
                                 <p className='text-center'>{accountaddress}</p>
                                 <p className='font-bold mx-auto text-base md:text-lg lg:text-xl text-center'>Welcome to the EnergyWebNFTs.com NFT portfolio tracker!</p>
                                 <p className='mx-auto text-base md:text-lg lg:text-xl text-center'>First you need to create a NFT portfolio (that will be attached to your wallet address).</p>
-                                <p className='mx-auto text-base md:text-lg lg:text-xl text-center'>Then you can add any NFTs to the portfolio you want to track the combined value of, this could be either all the NFTs you own spread out in different wallet or you can track the combined value of particular NFTs you don't necessarily own.</p>
+                                <p className='mx-auto text-base md:text-lg lg:text-xl text-center'>Then you can add any NFTs to the portfolio you want to track the combined value of, this could be either all the NFTs you own spread out in different wallets for example, or you can track the combined value of a particular set of NFTs you don't necessarily own.</p>
                                 <p className='mt-4 font-bold mx-auto text-base md:text-lg lg:text-xl text-center'>To start, log in with Metamask</p>
                             </div>)
                             }
