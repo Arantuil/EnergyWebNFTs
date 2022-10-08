@@ -75,8 +75,8 @@ const Portfolio = () => {
                 shadow-[0_0px_10px_2px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_10px_2px_rgba(245,245,230,0.2)]'>
                         <div className="px-2 sm:px-3 md:px-4 py-20 text-textprimary dark:text-darktextprimary transition-all w-full h-full flex flex-col mx-auto">
                             <div className='flex flex-row mx-auto'>
-                                <img className='inline w-6 h-6 md:w-8 md:h-8 lg:w-9 lg:h-9 mr-1 mb-2' src={ewcnfts} />
-                                <h1 className='font-bold text-lg md:text-xl lg:text-2xl flex justify-center'>Energy Web NFT portfolio tracker</h1>
+                                <img className='inline w-6 h-6 md:w-8 md:h-8 lg:w-9 lg:h-9 xl:w-10 xl:h-10 mr-1 mb-2' src={ewcnfts} />
+                                <h1 className='font-bold text-lg md:text-xl lg:text-2xl xl:text-3xl flex justify-center'>Energy Web NFT portfolio tracker</h1>
                             </div>
                             {accountaddress !== "" ? (
                             <div className='flex flex-col justify-center'>

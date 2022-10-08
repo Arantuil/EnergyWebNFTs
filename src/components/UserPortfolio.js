@@ -191,8 +191,8 @@ const UserPortfolio = () => {
                     shadow-[0_0px_10px_2px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_10px_2px_rgba(245,245,230,0.2)]'>
                     <div className="py-10 text-textprimary dark:text-darktextprimary transition-all w-full h-full flex flex-col mx-auto">
                         <div className='flex flex-row mx-auto'>
-                            <img className='inline w-6 h-6 md:w-8 md:h-8 lg:w-9 lg:h-9 mr-1 mb-2' src={ewcnfts} />
-                            <h1 className='font-bold text-lg md:text-xl lg:text-2xl flex justify-center'>Energy Web NFT portfolio tracker</h1>
+                            <img className='inline w-6 h-6 md:w-8 md:h-8 lg:w-9 lg:h-9 xl:w-10 xl:h-10 mr-1 mb-2' src={ewcnfts} />
+                            <h1 className='font-bold text-lg md:text-xl lg:text-2xl xl:text-3xl flex justify-center'>Energy Web NFT portfolio tracker</h1>
                         </div>
                         <div className='p-2 sm:p-3 md:p-4'>
                             {loggedin === true ? (
@@ -208,7 +208,7 @@ const UserPortfolio = () => {
                                         <></>
                                         ) : (
                                         <div className='-translate-y-2 flex flex-wrap w-full'>
-                                            {(NFTData.map(nft => (<div style={{ backgroundColor: userdata["nfts"][nft.id]["amount"] > 0 ? 'rgba(161,186,226,0.7)': ''}} className='flex items-center my-[3px] rounded-3xl w-[46%] mx-[2%] md:w-[29%] md:mx-[2%] xl:w-[21%] xl:mx-[2%] 3xl:w-[16%] 3xl:mx-[2%] h-[40px] bg-[rgba(161,186,226,0.25)]'><button onClick={() => editNftAmount(nft.id, -1)} className='hover:brightness-110 rounded-lg pb-[6px] px-[10px] flex items-center h-[28px] text-red-600 bg-red-200 text-2xl ml-4 md:ml-6 lg:ml-8 mr-auto'>-</button><img className='rounded-xl w-8 h-8 mr-[2px] md:mr-[4px]' src={nft.image} /><div style={{ color: userdata["nfts"][nft.id]["amount"] > 0 ? '#00D819': ''}} className='text-lg md:text-xl nftamounts ml-[2px] md:ml-[4px]'>{userdata["nfts"][nft.id]["amount"]}</div><button onClick={() => editNftAmount(nft.id, 1)} className='hover:brightness-110 rounded-lg pb-[6px] flex items-center h-[28px] px-[7px] text-green-600 bg-green-200 text-2xl mr-4 md:mr-6 lg:mr-8 ml-auto'>+</button></div>)))}
+                                            {(NFTData.map(nft => (<div style={{ backgroundColor: userdata["nfts"][nft.id]["amount"] > 0 ? 'rgba(161,186,226,0.7)': ''}} className='flex items-center my-[3px] rounded-3xl w-[46%] mx-[2%] md:w-[29%] md:mx-[2%] xl:w-[21%] xl:mx-[2%] 3xl:w-[16%] 3xl:mx-[2%] h-[40px] bg-[rgba(161,186,226,0.2)]'><button onClick={() => editNftAmount(nft.id, -1)} className='hover:brightness-110 rounded-lg pb-[6px] px-[10px] flex items-center h-[28px] text-red-600 bg-red-200 text-2xl ml-4 md:ml-6 lg:ml-8 mr-auto'>-</button><img className='rounded-xl w-8 h-8 mr-[2px] md:mr-[4px]' src={nft.image} /><div style={{ color: userdata["nfts"][nft.id]["amount"] > 0 ? '#00D819': ''}} className='text-lg md:text-xl nftamounts ml-[2px] md:ml-[4px]'>{userdata["nfts"][nft.id]["amount"]}</div><button onClick={() => editNftAmount(nft.id, 1)} className='hover:brightness-110 rounded-lg pb-[6px] flex items-center h-[28px] px-[7px] text-green-600 bg-green-200 text-2xl mr-4 md:mr-6 lg:mr-8 ml-auto'>+</button></div>)))}
                                         </div>
                                     )}
                                     </div>
@@ -227,9 +227,9 @@ const UserPortfolio = () => {
                                         ) : (<></>)
                                     }
                                     {NFTData !== undefined && userdata !== undefined ? (
-                                        <div className='mt-1 flex flex-wrap w-full'>
+                                        <div className='mt-2 flex flex-wrap w-full justify-center'>
                                             {(NFTData.map(nft => (
-                                                <div style={{ backgroundColor: userdata["nfts"][nft.id]["amount"] > 0 ? 'rgba(161,186,226,0.7)': ''}} className='flex justify-center items-center my-[3px] rounded-3xl w-[21%] mx-[2%] sm:w-[16%] sm:mx-[2%] md:w-[13.5%] md:mx-[1.5%] lg:w-[11%] lg:mx-[1.5%] xl:w-[9.5%] xl:mx-[1.5%] 2xl:w-[8%] 2xl:mx-[1.5%] h-[40px] bg-[rgba(161,186,226,0.25)]'>
+                                                <div style={{ backgroundColor: userdata["nfts"][nft.id]["amount"] > 0 ? 'rgba(161,186,226,0.7)': ''}} className='flex justify-center items-center my-[3px] xl:my-[4px] 2xl:my-[5px] rounded-3xl w-[21%] mx-[2%] sm:w-[16%] sm:mx-[2%] md:w-[13.5%] md:mx-[1.5%] lg:w-[11%] lg:mx-[1.5%] xl:w-[9.5%] xl:mx-[1.5%] 2xl:w-[100px] 2xl:mx-[10px] h-[40px] bg-[rgba(161,186,226,0.2)]'>
                                                     <img className='rounded-xl w-8 h-8 mr-[2px] md:mr-[4px]' src={nft.image} />
                                                     <div style={{ color: userdata["nfts"][nft.id]["amount"] > 0 ? '#00D819': ''}} className='text-lg md:text-xl nftamounts ml-[2px] md:ml-[4px]'>{userdata["nfts"][nft.id]["amount"]}
                                                     </div>
@@ -255,9 +255,9 @@ const UserPortfolio = () => {
                                         </div>
                                     ) : (<></>)}
                                     {NFTData !== undefined && userdata !== undefined ? (
-                                        <div className='mt-1 flex flex-wrap w-full'>
+                                        <div className='mt-2 flex flex-wrap w-full justify-center'>
                                             {(NFTData.map(nft => (
-                                                <div style={{ backgroundColor: userdata["nfts"][nft.id]["amount"] > 0 ? 'rgba(161,186,226,0.7)': ''}} className='flex justify-center items-center my-[3px] rounded-3xl w-[21%] mx-[2%] sm:w-[16%] sm:mx-[2%] md:w-[13.5%] md:mx-[1.5%] lg:w-[11%] lg:mx-[1.5%] xl:w-[9.5%] xl:mx-[1.5%] 2xl:w-[8%] 2xl:mx-[1.5%] h-[40px] bg-[rgba(161,186,226,0.25)]'>
+                                                <div style={{ backgroundColor: userdata["nfts"][nft.id]["amount"] > 0 ? 'rgba(161,186,226,0.7)': ''}} className='flex justify-center items-center my-[3px] xl:my-[4px] 2xl:my-[5px] rounded-3xl w-[21%] mx-[2%] sm:w-[16%] sm:mx-[2%] md:w-[13.5%] md:mx-[1.5%] lg:w-[11%] lg:mx-[1.5%] xl:w-[9.5%] xl:mx-[1.5%] 2xl:w-[100px] 2xl:mx-[10px] h-[40px] bg-[rgba(161,186,226,0.2)]'>
                                                     <img className='rounded-xl w-8 h-8 mr-[2px] md:mr-[4px]' src={nft.image} />
                                                     <div style={{ color: userdata["nfts"][nft.id]["amount"] > 0 ? '#00D819': ''}} className='text-lg md:text-xl nftamounts ml-[2px] md:ml-[4px]'>{userdata["nfts"][nft.id]["amount"]}
                                                     </div>
