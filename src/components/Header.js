@@ -48,11 +48,10 @@ function Header() {
                     <Link to='/markets' className='mx-1 sm:mx-2 md:mx-3 lg:mx-4 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
                         Markets
                     </Link>
-                    {/*
                     <Link to='/portfolio' className='mx-1 sm:mx-2 md:mx-3 lg:mx-4 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
                         Portfolio
                     </Link>
-                    */}
+                    <p className='absolute top-[2px] translate-x-[220px] rotate-[16deg] rounded-xl px-[5px] bg-[rgba(255,0,0,0.65)] font-bold text-textprimary dark:text-darktextprimary transition-all'>Beta</p>
                     <a className='flex flex-row mx-1 sm:mx-2 md:mx-3 lg:mx-4 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://place.energywebnfts.com/'>EW/place
                     <AiOutlineLink />
                     </a>
@@ -99,20 +98,18 @@ function Header() {
                                 </svg>
                             </div>
                             <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-[300px]">
-                                <Link onClick={() => setIsNavOpen(false)} to='/' className='hover:invert hover:brightness-110 mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
+                                <Link onClick={() => setIsNavOpen(false)} to='/' className='p-4 hover:invert hover:brightness-110 mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
                                     Home
                                 </Link>
-                                <Link onClick={() => setIsNavOpen(false)} to='/markets' className='hover:invert hover:brightness-110 mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
+                                <Link onClick={() => setIsNavOpen(false)} to='/markets' className='p-4 hover:invert hover:brightness-110 mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
                                     Markets
                                 </Link>
-                                <a onClick={() => setIsNavOpen(false)} className='hover:invert translate-x-[12px] flex flex-row mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://place.energywebnfts.com/'>EW/place
-                                    <AiOutlineLink />
-                                </a>
-                                {/*
-                                <Link onClick={() => setIsNavOpen(false)} to='/portfolio' className='hover:invert hover:brightness-110 mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
+                                <Link onClick={() => setIsNavOpen(false)} to='/portfolio' className='p-4 hover:invert hover:brightness-110 mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
                                     Portfolio
                                 </Link>
-                                */}
+                                <a onClick={() => setIsNavOpen(false)} className='p-4 hover:invert translate-x-[12px] flex flex-row mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://place.energywebnfts.com/'>EW/place
+                                    <AiOutlineLink />
+                                </a>
                             </ul>
                         </div>
                     </section>

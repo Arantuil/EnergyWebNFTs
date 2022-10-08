@@ -25,12 +25,12 @@ function Markets() {
                                 </div>
                                 <div className='w-full h-[50%] flex flex-row'>
                                     <div className='w-full h-full my-4'>
-                                        <p className='text-center flex flex-col text-textprimary dark:text-darktextprimary transition-all'>
+                                        <div className='text-center flex flex-col text-textprimary dark:text-darktextprimary transition-all'>
                                             <h2 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-lg'>Name:</span> <span className='text-lg'>Greensea</span></h2>
                                             <h2 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-lg'>Non-custodial:</span> <span className='text-red-600 text-lg'>No</span></h2>
                                             <h2 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-lg'>Fee:</span> <span className='text-lg'>1%</span></h2>
                                             <h2 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-base'>Tracked on EWCNFTs:</span> <span className='text-green-600 text-base'>Yes</span></h2>
-                                        </p>
+                                        </div>
                                         <div className='w-[100%] h-[30px] justify-center flex flex-row'>
                                             <a className='mx-1 mt-[2px] h-full' href="https://greensea.carbonswap.finance/" target="_blank" rel="noreferrer">
                                                 <svg className='h-full w-[23px] aspect-square my-auto mx-auto brightness-[0.1] dark:brightness-[1.5]' xmlns="http://www.w3.org/2000/svg" width="141.732" height="141.732" version="1.1" viewBox="0 0 141.732 141.732" xmlSpace="preserve">
@@ -50,12 +50,12 @@ function Markets() {
                                 </div>
                                 <div className='w-full h-[50%] flex flex-row'>
                                     <div className='w-full h-full my-4'>
-                                        <p className='text-center flex flex-col text-textprimary dark:text-darktextprimary transition-all'>
+                                        <div className='text-center flex flex-col text-textprimary dark:text-darktextprimary transition-all'>
                                             <h2 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-lg'>Name:</span> <span className='text-lg'>Raregems</span></h2>
                                             <h2 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-lg'>Non-custodial:</span> <span className='text-green-600 text-lg'>Yes</span></h2>
                                             <h2 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-lg'>Fee:</span> <span className='text-lg'>1%</span></h2>
                                             <h2 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-base'>Tracked on EWCNFTs:</span> <span className='text-green-600 text-base'>Yes</span></h2>
-                                        </p>
+                                        </div>
                                         <div className='w-[100%] h-[30px] justify-center flex flex-row'>
                                             <a className='mx-1 mt-[2px] h-full' href="https://raregems.io/" target="_blank" rel="noreferrer">
                                                 <svg className='h-full w-[23px] aspect-square my-auto mx-auto brightness-[0.1] dark:brightness-[1.5]' xmlns="http://www.w3.org/2000/svg" width="141.732" height="141.732" version="1.1" viewBox="0 0 141.732 141.732" xmlSpace="preserve">
