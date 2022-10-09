@@ -6,10 +6,11 @@ import { onValue, ref } from 'firebase/database';
 import { useEffect, useState } from 'react';
 import useColorChange from 'use-color-change';
 import Searchbar from './Searchbar';
-import ttlogoeggs from '../images/ttlogo-eggs.png';
 import CountdownTimer from './CountdownTimer'; 
 import { MdOutlineDateRange } from 'react-icons/md'
-import teamseas from '../images/teamseaslogosmall.png'
+
+//import teamseas from '../images/teamseaslogosmall.png'
+//import ttlogoeggs from '../images/ttlogo-eggs.png';
 
 function Home() {
     const axios = require("axios")

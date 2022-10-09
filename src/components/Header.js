@@ -107,6 +107,7 @@ function Header() {
                                 <Link onClick={() => setIsNavOpen(false)} to='/portfolio' className='p-4 hover:invert hover:brightness-110 mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
                                     Portfolio
                                 </Link>
+                                <p className='absolute translate-x-[58px] translate-y-[157px] rotate-[16deg] rounded-xl px-[5px] bg-[rgba(255,0,0,0.65)] font-bold text-textprimary dark:text-darktextprimary transition-all'>Beta</p>
                                 <a onClick={() => setIsNavOpen(false)} className='p-4 hover:invert translate-x-[12px] flex flex-row mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://place.energywebnfts.com/'>EW/place
                                     <AiOutlineLink />
                                 </a>

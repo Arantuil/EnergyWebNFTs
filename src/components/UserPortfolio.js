@@ -208,7 +208,7 @@ const UserPortfolio = () => {
                                         <></>
                                         ) : (
                                         <div className='-translate-y-2 flex flex-wrap w-full'>
-                                            {(NFTData.map(nft => (<div style={{ backgroundColor: userdata["nfts"][nft.id]["amount"] > 0 ? 'rgba(161,186,226,0.7)': ''}} className='flex items-center my-[3px] rounded-3xl w-[46%] mx-[2%] md:w-[29%] md:mx-[2%] xl:w-[21%] xl:mx-[2%] 3xl:w-[16%] 3xl:mx-[2%] h-[40px] bg-[rgba(161,186,226,0.2)]'><button onClick={() => editNftAmount(nft.id, -1)} className='hover:brightness-110 rounded-lg pb-[6px] px-[5px] sm:px-[10px] flex items-center h-[20px] sm:h-[28px] text-red-600 bg-red-200 text-2xl ml-4 md:ml-6 lg:ml-8 mr-auto'>-</button><img className='rounded-xl w-8 h-8 mr-[2px] md:mr-[4px]' src={nft.image} /><div style={{ color: userdata["nfts"][nft.id]["amount"] > 0 ? '#00D819': ''}} className='text-lg md:text-xl nftamounts ml-[2px] md:ml-[4px]'>{userdata["nfts"][nft.id]["amount"]}</div><button onClick={() => editNftAmount(nft.id, 1)} className='hover:brightness-110 rounded-lg pb-[6px] px-[2px] sm:px-[6px] flex items-center h-[20px] sm:h-[28px] text-green-600 bg-green-200 text-2xl mr-4 md:mr-6 lg:mr-8 ml-auto'>+</button></div>)))}
+                                            {(NFTData.map(nft => (<div style={{ backgroundColor: userdata["nfts"][nft.id]["amount"] > 0 ? 'rgba(161,186,226,0.7)': ''}} className='flex items-center my-[3px] rounded-3xl w-[46%] mx-[2%] md:w-[29%] md:mx-[2%] xl:w-[21%] xl:mx-[2%] 3xl:w-[16%] 3xl:mx-[2%] h-[40px] bg-[rgba(161,186,226,0.2)]'><button onClick={() => editNftAmount(nft.id, -1)} className='hover:brightness-110 rounded-lg pb-[4px] sm:pb-[6px] px-[5px] sm:px-[10px] flex items-center h-[20px] sm:h-[28px] text-red-600 bg-red-200 text-2xl ml-4 md:ml-6 lg:ml-8 mr-auto'>-</button><img className='rounded-xl w-8 h-8 mr-[2px] md:mr-[4px]' src={nft.image} /><div style={{ color: userdata["nfts"][nft.id]["amount"] > 0 ? '#00E216': ''}} className='text-lg md:text-xl nftamounts ml-[2px] md:ml-[4px]'>{userdata["nfts"][nft.id]["amount"]}</div><button onClick={() => editNftAmount(nft.id, 1)} className='hover:brightness-110 rounded-lg pb-[4px] sm:pb-[6px] px-[2px] sm:px-[6px] flex items-center h-[20px] sm:h-[28px] text-green-600 bg-green-200 text-2xl mr-4 md:mr-6 lg:mr-8 ml-auto'>+</button></div>)))}
                                         </div>
                                     )}
                                     </div>
@@ -217,11 +217,11 @@ const UserPortfolio = () => {
                                             <div className='text-center'>
                                                 <p className='font-bold sm:text-lg md:text-xl lg:text-2xl'>The total worth of your NFT portfolio:</p>
                                                 <div className='justify-center flex flex-row sm:text-base md:text-lg lg:text-xl'>
-                                                    <p className='mr-2'>${totalPortfolioValue}</p>
+                                                    <p className='mr-[6px] sm:mr-2'>${totalPortfolioValue}</p>
                                                     <p>|</p>
-                                                    <p className='mx-2'>{totalPortfolioValueEWT} EWT</p>
+                                                    <p className='mx-[6px] sm:mx-2'>{totalPortfolioValueEWT} EWT</p>
                                                     <p>|</p>
-                                                    <p className='ml-2'>{totalPortfolioValueSUSU} SUSU</p>
+                                                    <p className='ml-[6px] sm:ml-2'>{totalPortfolioValueSUSU} SUSU</p>
                                                 </div>
                                             </div>
                                         ) : (<></>)
@@ -231,7 +231,7 @@ const UserPortfolio = () => {
                                             {(NFTData.map(nft => (
                                                 <div style={{ backgroundColor: userdata["nfts"][nft.id]["amount"] > 0 ? 'rgba(161,186,226,0.7)': ''}} className='flex justify-center items-center my-[3px] xl:my-[4px] 2xl:my-[5px] rounded-3xl w-[27%] mx-[2.5%] sm:w-[16%] sm:mx-[2%] md:w-[13.5%] md:mx-[1.5%] lg:w-[11%] lg:mx-[1.5%] xl:w-[9.5%] xl:mx-[1.5%] 2xl:w-[100px] 2xl:mx-[10px] h-[40px] bg-[rgba(161,186,226,0.2)]'>
                                                     <img className='rounded-xl w-8 h-8 mr-[2px] md:mr-[4px]' src={nft.image} />
-                                                    <div style={{ color: userdata["nfts"][nft.id]["amount"] > 0 ? '#00D819': ''}} className='text-lg md:text-xl nftamounts ml-[2px] md:ml-[4px]'>{userdata["nfts"][nft.id]["amount"]}
+                                                    <div style={{ color: userdata["nfts"][nft.id]["amount"] > 0 ? '#00E216': ''}} className='text-lg md:text-xl nftamounts ml-[2px] md:ml-[4px]'>{userdata["nfts"][nft.id]["amount"]}
                                                     </div>
                                                 </div>
                                             )))}
@@ -246,11 +246,11 @@ const UserPortfolio = () => {
                                         <div className='text-center'>
                                             <p className='font-bold sm:text-lg md:text-xl lg:text-2xl'>The total NFT portfolio worth:</p>
                                             <div className='justify-center flex flex-row sm:text-base md:text-lg lg:text-xl'>
-                                                <p className='mr-2'>${totalPortfolioValue}</p>
+                                                <p className='mr-[6px] sm:mr-2'>${totalPortfolioValue}</p>
                                                 <p>|</p>
-                                                <p className='mx-2'>{totalPortfolioValueEWT} EWT</p>
+                                                <p className='mx-[6px] sm:mx-2'>{totalPortfolioValueEWT} EWT</p>
                                                 <p>|</p>
-                                                <p className='ml-2'>{totalPortfolioValueSUSU} SUSU</p>
+                                                <p className='ml-[6px] sm:ml-2'>{totalPortfolioValueSUSU} SUSU</p>
                                             </div>
                                         </div>
                                     ) : (<></>)}
@@ -259,7 +259,7 @@ const UserPortfolio = () => {
                                             {(NFTData.map(nft => (
                                                 <div style={{ backgroundColor: userdata["nfts"][nft.id]["amount"] > 0 ? 'rgba(161,186,226,0.7)': ''}} className='flex justify-center items-center my-[3px] xl:my-[4px] 2xl:my-[5px] rounded-3xl w-[27%] mx-[2.5%] sm:w-[16%] sm:mx-[2%] md:w-[13.5%] md:mx-[1.5%] lg:w-[11%] lg:mx-[1.5%] xl:w-[9.5%] xl:mx-[1.5%] 2xl:w-[100px] 2xl:mx-[10px] h-[40px] bg-[rgba(161,186,226,0.2)]'>
                                                     <img className='rounded-xl w-8 h-8 mr-[2px] md:mr-[4px]' src={nft.image} />
-                                                    <div style={{ color: userdata["nfts"][nft.id]["amount"] > 0 ? '#00D819': ''}} className='text-lg md:text-xl nftamounts ml-[2px] md:ml-[4px]'>{userdata["nfts"][nft.id]["amount"]}
+                                                    <div style={{ color: userdata["nfts"][nft.id]["amount"] > 0 ? '#00E216': ''}} className='text-lg md:text-xl nftamounts ml-[2px] md:ml-[4px]'>{userdata["nfts"][nft.id]["amount"]}
                                                     </div>
                                                 </div>
                                             )))}
