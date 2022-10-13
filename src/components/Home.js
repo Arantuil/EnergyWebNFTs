@@ -6,11 +6,10 @@ import { onValue, ref } from 'firebase/database';
 import { useEffect, useState } from 'react';
 import useColorChange from 'use-color-change';
 import Searchbar from './Searchbar';
-import CountdownTimer from './CountdownTimer'; 
-import { MdOutlineDateRange } from 'react-icons/md'
 
-//import teamseas from '../images/teamseaslogosmall.png'
-//import ttlogoeggs from '../images/ttlogo-eggs.png';
+//import CountdownTimer from './CountdownTimer'; 
+//import { MdOutlineDateRange } from 'react-icons/md'
+
 
 function Home() {
     const axios = require("axios")
@@ -112,11 +111,6 @@ function Home() {
                 allvolumes24[i].textContent = allvolumes24[i].textContent.slice(0, -5)
                 allvolumes24[i].textContent = '$' + ((Number(allvolumes24[i].textContent.substring(-3).replace(/,/g, '')) / (1 / susuprice)).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
             }
-            //var allvolumes3 = document.getElementsByClassName('volumetwentyfourhour_element')
-            //for (let i = 0; i < allnftdata.length; i++) {
-            //    allvolumes3[i].textContent = allvolumes3[i].textContent.slice(0, -5)
-            //    allvolumes3[i].textContent = '$'+((Number(allvolumes3[i].textContent.substring(-3).replace(/,/g, ''))/(1/susuprice)).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            //}
             var marketcap = document.getElementsByClassName('marketcaptotal')
             marketcap[0].textContent = marketcap[0].textContent.slice(0, -5)
             marketcap[0].textContent = '$' + ((Number(marketcap[0].textContent.substring(-3).replace(/,/g, '')) / (1 / susuprice)).toFixed(0)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
@@ -132,11 +126,6 @@ function Home() {
                 allvolumes5[i].textContent = allvolumes5[i].textContent.slice(0, -4)
                 allvolumes5[i].textContent = '$' + ((Number(allvolumes5[i].textContent.substring(-3).replace(/,/g, '')) * ewtprice).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
             }
-            //var allvolumes6 = document.getElementsByClassName('volumetwentyfourhour_element')
-            //for (let i = 0; i < allnftdata.length; i++) {
-            //    allvolumes6[i].textContent = allvolumes6[i].textContent.slice(0, -4)
-            //    allvolumes6[i].textContent = '$'+((Number(allvolumes6[i].textContent.substring(-3).replace(/,/g, ''))*ewtprice).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            //}
             var marketcap2 = document.getElementsByClassName('marketcaptotal')
             marketcap2[0].textContent = marketcap2[0].textContent.slice(0, -4)
             marketcap2[0].textContent = '$' + ((Number(marketcap2[0].textContent.substring(-3).replace(/,/g, '')) * ewtprice).toFixed(0)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
@@ -163,11 +152,6 @@ function Home() {
                 allvolumes8[i].textContent = allvolumes8[i].textContent.substring(1)
                 allvolumes8[i].textContent = ((Number(allvolumes8[i].textContent.substring(-3).replace(/,/g, '')) * (1 / susuprice)).toFixed(0)).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' SUSU'
             }
-            //var allvolumes9 = document.getElementsByClassName('volumetwentyfourhour_element')
-            //for (let i = 0; i < allnftdata.length; i++) {
-            //    allvolumes9[i].textContent = allvolumes9[i].textContent.substring(1)
-            //    allvolumes9[i].textContent = ((Number(allvolumes9[i].textContent.substring(-3).replace(/,/g, ''))*(1/susuprice)).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' SUSU'
-            //}
             var marketcap3 = document.getElementsByClassName('marketcaptotal')
             marketcap3[0].textContent = marketcap3[0].textContent.substring(1)
             marketcap3[0].textContent = ((Number(marketcap3[0].textContent.substring(-3).replace(/,/g, '')) * (1 / susuprice)).toFixed(0)).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' SUSU'
@@ -183,11 +167,6 @@ function Home() {
                 allvolumes11[i].textContent = allvolumes11[i].textContent.slice(0, -4)
                 allvolumes11[i].textContent = ((Number(allvolumes11[i].textContent.substring(-3).replace(/,/g, '')) * (ewtprice / susuprice)).toFixed(0)).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' SUSU'
             }
-            //var allvolumes12 = document.getElementsByClassName('volumetwentyfourhour_element')
-            //for (let i = 0; i < allnftdata.length; i++) {
-            //    allvolumes12[i].textContent = allvolumes12[i].textContent.slice(0, -4)
-            //    allvolumes12[i].textContent = ((Number(allvolumes12[i].textContent.substring(-3).replace(/,/g, ''))*(ewtprice/susuprice)).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' SUSU'
-            //}
             var marketcap4 = document.getElementsByClassName('marketcaptotal')
             marketcap4[0].textContent = marketcap4[0].textContent.slice(0, -4)
             marketcap4[0].textContent = ((Number(marketcap4[0].textContent.substring(-3).replace(/,/g, '')) * (ewtprice / susuprice)).toFixed(0)).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' SUSU'
@@ -214,11 +193,6 @@ function Home() {
                 allvolumes20[i].textContent = allvolumes20[i].textContent.substring(1)
                 allvolumes20[i].textContent = ((Number(allvolumes20[i].textContent.substring(-3).replace(/,/g, '')) / ewtprice).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' EWT'
             }
-            //var allvolumes15 = document.getElementsByClassName('volumetwentyfourhour_element')
-            //for (let i = 0; i < allnftdata.length; i++) {
-            //    allvolumes15[i].textContent = allvolumes15[i].textContent.substring(1)
-            //    allvolumes15[i].textContent = ((Number(allvolumes15[i].textContent.substring(-3).replace(/,/g, ''))/ewtprice).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' EWT'
-            //}
             var marketcap5 = document.getElementsByClassName('marketcaptotal')
             marketcap5[0].textContent = marketcap5[0].textContent.substring(1)
             marketcap5[0].textContent = ((Number(marketcap5[0].textContent.substring(-3).replace(/,/g, '')) / ewtprice).toFixed(0)).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' EWT'
@@ -234,11 +208,6 @@ function Home() {
                 allvolumes18[i].textContent = allvolumes18[i].textContent.slice(0, -5)
                 allvolumes18[i].textContent = ((Number(allvolumes18[i].textContent.substring(-3).replace(/,/g, '')) / (ewtprice / susuprice)).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' EWT'
             }
-            //var allvolumes19 = document.getElementsByClassName('volumetwentyfourhour_element')
-            //for (let i = 0; i < allnftdata.length; i++) {
-            //    allvolumes19[i].textContent = allvolumes19[i].textContent.slice(0, -5)
-            //    allvolumes19[i].textContent = ((Number(allvolumes19[i].textContent.substring(-3).replace(/,/g, ''))/(ewtprice/susuprice)).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' EWT'
-            //}
             var marketcap6 = document.getElementsByClassName('marketcaptotal')
             marketcap6[0].textContent = marketcap6[0].textContent.slice(0, -5)
             marketcap6[0].textContent = ((Number(marketcap6[0].textContent.substring(-3).replace(/,/g, '')) / (ewtprice / susuprice)).toFixed(0)).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' EWT'

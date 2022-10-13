@@ -1,26 +1,4 @@
-//import DonationBar from './DonationBar'
-//import brave from '../images/brave.png'
-
 const FooterHome = () => {
-    //function sleep(ms) {
-    //    return new Promise(resolve => setTimeout(resolve, ms));
-    //}
-
-    //async function copyToClickBoard(){
-    //    var content = document.getElementById('addressCopy').innerHTML;
-    //
-    //    navigator.clipboard.writeText(content)
-    //        .then(() => {
-    //        console.log("Text copied to clipboard...")
-    //    })
-    //        .catch(err => {
-    //        console.log('Something went wrong', err);
-    //    })
-    //    document.getElementById('addressCopyButton').innerText = '✅'
-    //    await sleep(1000);
-    //    document.getElementById('addressCopyButton').innerText = '📋'
-    //}
-
     return (
         <footer className='w-full h-auto bg-bgprimary dark:bg-darkbgprimary transition-all
         shadow-[0_0px_7px_2px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_7px_2px_rgba(245,245,230,0.2)]'>

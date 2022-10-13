@@ -15,7 +15,6 @@ const DonationBar = () => {
         setBalance(number.toFixed(5)/ewt);
     })
 
-
     return ( 
         <div className='mt-2 mb-1 pt-1 h-[35px] w-full lg:w-2/3'>
             <div className='h-full border-2 border-textprimary dark:border-darktextprimary rounded-lg'>

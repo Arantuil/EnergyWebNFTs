@@ -78,7 +78,6 @@ function Header() {
                             <span className="block h-[4px] w-9 rounded-md bg-darkbgprimary dark:bg-bgprimary"></span>
                             <span className="block h-[4px] w-9 rounded-md bg-darkbgprimary dark:bg-bgprimary"></span>
                         </div>
-
                         <div className={isNavOpen ? "showMenuNav shadow-[0_0px_24px_10px_rgba(15,23,35,0.30)] rounded-bl-3xl rounded-br-3xl dark:shadow-[0_0px_24px_10px_rgba(245,245,230,0.2)] bg-gradient-to-br from-[rgb(166,238,173)] via-[rgb(153,215,226)] to-[rgb(211,179,253)] dark:bg-gradient-to-br dark:from-[#39753f] dark:via-[#316872] dark:to-[#64478a] transition-all" : "hideMenuNav"}>
                             <div
                                 className="CROSS-ICON absolute top-0 right-0 px-8 py-8"
@@ -118,49 +117,6 @@ function Header() {
             </div>
         </header>
     )
-
-    {/*      
-        <header className='shadow-[0_0px_10px_3px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_10px_3px_rgba(245,245,230,0.2)] z-5 relative w-full h-[64px] bg-bgprimary dark:bg-darkbgprimary transition-all'>
-            <div className='w-full h-full
-            bg-gradient-to-r from-[#9AEFA2] via-[#8DD7E4] to-[#C8A1FB] 
-            dark:bg-gradient-to-r dark:from-[#368B3E] dark:via-[#297380] dark:to-[#643D97]
-            transition-all flex flex-row'>
-                <div className='w-[30%] sm:w-[52%] h-full ml-2 xs:ml-1 md:ml-10 flex items-center'>
-                    <Link to='/' className='flex flex-row'>
-                        <img className='2xs:w-[28px!important] 2xs:h-[28px!important] h-12 filter brightness-[90%] dark:brightness-[110%]' src={ewcnftslogo} alt="EnergyWebNFTs Logo" />
-                        <h1 className='hidden md:block my-auto font-bold text-2xl ml-1 mr-2 text-textprimary dark:text-darktextprimary transition-all'>
-                            EnergyWebNFTs
-                        </h1>
-                    </Link>
-                    <Link to='/markets' className='mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
-                        Markets
-                    </Link>
-                    <a className='hidden xl:flex mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://place.energywebnfts.com/'>EW/place
-                    </a>
-                    <Link to='/portfolio' className='mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
-                        Portfolio
-                    </Link>
-                    
-                    //<div className='hidden xl:flex bg-red-500 rounded-md px-[2px] relative -translate-x-[30px] -translate-y-[18px] z-10'>New!</div>
-                    
-                </div>
-                <div className='w-[70%] sm:w-[48%] h-full mr-2 xs:mr-1 md:mr-10 flex flex-row-reverse items-center'>
-                    <Toggle/>
-                    <div className="m-1 md:m-2 flex flex-row">
-                        <img className="my-auto md:mt-[2px] flex w-6 h-6 mr-[6px] filter brightness-[90%] dark:brightness-[100%]" src={ewtlogo} alt="Energy Web Logo" />
-                        <p className="flex my-auto text-lg font-bold text-textprimary dark:text-darktextprimary transition-all">${ewtprice}</p>
-                        <div id='blinkingicon' className='ml-1 w-4 h-4 xs:w-3 xs:h-3 rounded-full'></div>
-                    </div>
-                    <div className="m-1 md:m-2 flex flex-row">
-                        <img className="my-auto md:mt-[2px] flex w-6 h-6 mr-[6px] filter brightness-[90%] dark:brightness-[100%]" src={susulogo} alt="Susu Logo" />
-                        <p className="flex my-auto text-lg font-bold text-textprimary dark:text-darktextprimary transition-all">${susuprice}</p>
-                    </div>
-                </div>
-            </div>
-        </header>
-                */}
 }
 
 export default Header;
-
-// <div className='animate-pulse w-3 h-3 bg-green-500 rounded-full'></div>

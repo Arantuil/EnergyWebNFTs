@@ -3,24 +3,14 @@ import { useQuery, gql } from "@apollo/client";
 import ewcnftslogo from '../images/logo.png';
 import { Link } from 'react-router-dom';
 
-const blocknumber = gql`
-{
-    _meta {
-        block {
-            number
-        }
-    }
-}
-`
+const blocknumber = gql`{_meta{block{number}}}`
 
 function Footer() {
     const { data, loading, error } = useQuery(blocknumber);
-
     if (loading) return;
     if (error) return <pre>{error.message}</pre>
-
     var currentblocknumber = data["_meta"]["block"]["number"]
-
+    
     return (
         <footer id='footer' className='shadow-[0_0px_7px_2px_rgba(0,0,0,0.30)] dark:shadow-[0_0px_7px_2px_rgba(245,245,230,0.2)] z-5 relative w-full h-[64px] bg-bgprimary dark:bg-darkbgprimary transition-all'>
             <div className='w-full h-full
