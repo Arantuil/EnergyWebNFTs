@@ -1,22 +1,35 @@
-import { useEffect, useState, useRef, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchData } from '../redux/data/dataActions';
 import Header from '../components/Header';
 import store from '../redux/store';
-import EWTlogo from '../assets/images/EWTlogo.png'
+import EWTlogo from '../assets/images/EWTlogo.png';
+import { connect } from '../redux/blockchain/blockchainActions';
 
 const Home = () => {
     const dispatch = useDispatch();
     const blockchain = useSelector((state) => state.blockchain);
     const data = useSelector((state) => state.data);
-
-    const hexToDecimal = hex => parseInt(hex, 16);
-
+    //const hexToDecimal = hex => parseInt(hex, 16);
     const getData = () => {
         if (blockchain.account !== "" && blockchain.smartContract !== null) {
             dispatch(fetchData(blockchain.account));
         }
     };
+
+    window.addEventListener('load', function () {
+        startApp();
+    })
+    async function startApp() {
+        window.ethereum.sendAsync({
+            method: "eth_accounts",
+            params: [],
+            jsonrpc: "2.0",
+            id: new Date().getTime()
+        }, function (error, result) {
+            if (result["result"] !== "") dispatch(connect());
+        });
+    }
 
     const [stakingInfo1, setStakinginfo1] = useState('')
     const [stakingInfo2, setStakinginfo2] = useState('')
@@ -35,23 +48,9 @@ const Home = () => {
     useEffect(() => {
         getData();
         getStakingInfo()
-    }, [blockchain.account]);
+    }, [blockchain.account, data]);
 
-    function toPlainString(num) { return ('' + +num).replace(/(-?)(\d*)\.?(\d*)e([+-]\d+)/, function (a, b, c, d, e) { return e < 0 ? b + '0.' + Array(1 - e - c.length).join(0) + c + d : b + c + d + Array(e - d.length + 1).join(0); }); };
-    //function convertToWei() {
-    //    if (data["ewtstakingbalance"] !== 0) {
-    //        let etherToWeiInput = document.getElementById('etherToWeiConverter');
-    //        let toConvert = etherToWeiInput.value;
-    //
-    //        toConvert = toPlainString(toConvert * 1000000000000000000);
-    //
-    //        let convertedToWeiInput = document.getElementById('convertedToWei');
-    //        convertedToWeiInput.value = toConvert;
-    //    }
-    //}
-    //setInterval(function () {
-    //    convertToWei();
-    //}, 500);
+    //function toPlainString(num) { return ('' + +num).replace(/(-?)(\d*)\.?(\d*)e([+-]\d+)/, function (a, b, c, d, e) { return e < 0 ? b + '0.' + Array(1 - e - c.length).join(0) + c + d : b + c + d + Array(e - d.length + 1).join(0); }); };
 
     // end unix time: 1671318000
 
@@ -62,12 +61,12 @@ const Home = () => {
     let remainingDays = (1671318000 - currentUnixTimestamp) / 60 / 60 / 24
     let remainingWeeks = (1671318000 - currentUnixTimestamp) / 60 / 60 / 24 / 7
 
-    console.log(remainingSeconds, remainingMinutes, remainingHours, remainingDays, remainingWeeks)
+    //console.log(remainingSeconds, remainingMinutes, remainingHours, remainingDays, remainingWeeks)
 
     return (
         <div className="w-full min-h-[100vh] flex justify-center align-start flex-col flex-nowrap bg-bgprimary dark:bg-darkbgprimary transition-all">
             <div className="w-full min-h-[100vh] bg-backgroundimagepage bg-no-repeat bg-cover">
-                <div className='h-[80vh] my-[10vh] bg-bgsecondary dark:bg-darkbgsecondary w-[95%] md:w-[90%] lg:w-4/5 xl:w-3/4 2xl:w-2/3 mx-auto rounded-3xl
+                <div className='h-[85vh] my-[7.5vh] lg:h-[80vh] lg:my-[10vh] xl:h-[75vh] xl:my-[12.5vh] bg-bgsecondary dark:bg-darkbgsecondary w-[95%] md:w-[90%] lg:w-4/5 xl:w-3/4 2xl:w-2/3 mx-auto rounded-3xl
                     shadow-[0_0px_10px_2px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_10px_2px_rgba(245,245,230,0.2)]'>
                     <div className="w-full h-full py-2 flex flex-col mx-auto">
                         <div className='text-textprimary dark:text-darktextprimary transition-all px-4 py-2'>
