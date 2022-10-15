@@ -1,13 +1,13 @@
 import { db, dbTwo } from '../firebase';
-import { getDatabase, onValue, ref, update, child, push, get } from 'firebase/database';
+import { onValue, ref, update, get } from 'firebase/database';
 import { useEffect, useState } from 'react'
-import Web3 from 'web3'
+//import Web3 from 'web3'
 import ewcnfts from '../images/logo.png'
 import { useNavigate } from "react-router-dom";
 
 const UserPortfolio = () => {
     const axios = require("axios");
-    let account = "";
+    //let account = "";
     const [dbdata, setDbData] = useState([]);
     const [accountaddress, setAccountaddress] = useState("");
     const [reload, setReload] = useState(0);
@@ -25,7 +25,7 @@ const UserPortfolio = () => {
         const { ethereum } = window;
         const metamaskIsInstalled = ethereum && ethereum.isMetaMask;
         if (metamaskIsInstalled) {
-            let web3 = new Web3(ethereum);
+            //let web3 = new Web3(ethereum);
             try {
                 const accounts = await ethereum.request({ method: "eth_requestAccounts", });
                 setAccountaddress(accounts[0])
@@ -73,7 +73,7 @@ const UserPortfolio = () => {
         //        testlist.push(index)
         //    }
         //}
-    }, []);
+    }, [accountaddress]);
 
     console.log(testlist)
 
