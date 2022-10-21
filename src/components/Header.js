@@ -40,21 +40,24 @@ function Header() {
             transition-all flex flex-row'>
                 <Link to='/' className='flex flex-row ml-4 sm:ml-6 md:ml-10'>
                     <img className='2xs:w-[28px!important] 2xs:h-[28px!important] h-12 my-auto filter brightness-[90%] dark:brightness-[110%]' src={ewcnftslogo} alt="EnergyWebNFTs Logo" />
-                    <h1 className='hidden md:block my-auto font-bold text-2xl ml-1 mr-2 text-textprimary dark:text-darktextprimary transition-all'>
+                    <h1 className='hidden md:block my-auto font-bold text-xl ml-1 mr-2 text-textprimary dark:text-darktextprimary transition-all'>
                         EnergyWebNFTs
                     </h1>
                 </Link>
                 <ul className="DESKTOP-MENU hidden lg:flex items-center">
-                    <Link to='/markets' className='mx-1 sm:mx-2 md:mx-3 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
+                    <Link to='/markets' className='mx-1 sm:mx-2 text-xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
                         Markets
                     </Link>
-                    <Link to='/portfolio' className='mx-1 sm:mx-2 md:mx-3 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
+                    <Link to='/portfolio' className='mx-1 sm:mx-2 text-xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
                         Portfolio
                     </Link>
-                    <a className='flex flex-row mx-1 sm:mx-2 md:mx-3 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://place.energywebnfts.com/'>EW/place
+                    <a className='flex flex-row mx-1 sm:mx-2 text-xl font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://place.energywebnfts.com/'>EW/place
                     <AiOutlineLink />
                     </a>
-                    <a className='hidden xl:flex flex-row mx-[0.25rem] sm:mx-1 md:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://ewtstake.energywebnfts.com/'>EWT Staking Info
+                    <a className='hidden xl:flex text-[1.15rem] 2xl:text-xl flex-row mx-[0.25rem] sm:mx-1 md:mx-2 font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://ewtstake.energywebnfts.com/'>EWT Staking Info
+                    <AiOutlineLink />
+                    </a>
+                    <a className='hidden xl:flex text-[1.15rem] 2xl:text-xl flex-row mx-[0.25rem] sm:mx-1 md:mx-2 font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://txtracker.energywebnfts.com/'>EWT Tx Tracker
                     <AiOutlineLink />
                     </a>
                 </ul>
@@ -112,6 +115,9 @@ function Header() {
                                     <AiOutlineLink />
                                 </a>
                                 <a className='translate-x-[12px] flex flex-row p-4 hover:invert hover:brightness-110 mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://ewtstake.energywebnfts.com/'>EWT Staking Info
+                                    <AiOutlineLink />
+                                </a>
+                                <a className='translate-x-[12px] flex flex-row p-4 hover:invert hover:brightness-110 mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://txtracker.energywebnfts.com/'>EWT Tx Tracker
                                     <AiOutlineLink />
                                 </a>
                             </ul>
