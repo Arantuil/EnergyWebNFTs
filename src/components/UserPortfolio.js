@@ -6,6 +6,10 @@ import ewcnfts from '../images/logo.png'
 import { useNavigate } from "react-router-dom";
 
 const UserPortfolio = () => {
+    window.onerror = function() {
+        window.location.reload();
+    }
+
     const axios = require("axios");
     //let account = "";
     const [dbdata, setDbData] = useState([]);

@@ -21,7 +21,6 @@ const PRICEEWTSUSU = gql`
 function Header() {
     const [isNavOpen, setIsNavOpen] = useState(false);
 
-
     const { data, loading, error } = useQuery(PRICEEWTSUSU);
 
     if (loading) return;
@@ -52,13 +51,13 @@ function Header() {
                         Portfolio
                     </Link>
                     <a className='flex flex-row mx-1 sm:mx-2 text-xl font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://place.energywebnfts.com/'>EW/place
-                    <AiOutlineLink />
+                        <AiOutlineLink />
                     </a>
                     <a className='hidden xl:flex text-[1.15rem] 2xl:text-xl flex-row mx-[0.25rem] sm:mx-1 md:mx-2 font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://ewtstake.energywebnfts.com/'>EWT Staking Info
-                    <AiOutlineLink />
+                        <AiOutlineLink />
                     </a>
                     <a className='hidden xl:flex text-[1.15rem] 2xl:text-xl flex-row mx-[0.25rem] sm:mx-1 md:mx-2 font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://txtracker.energywebnfts.com/'>EWT Tx Tracker
-                    <AiOutlineLink />
+                        <AiOutlineLink />
                     </a>
                 </ul>
                 <div className='h-full ml-auto mr-0 flex flex-row-reverse items-center'>
@@ -74,7 +73,7 @@ function Header() {
                     </div>
                 </div>
                 <nav className='mr-4 sm:mr-6 md:mr-10 flex items-center sm:ml-0'>
-                    <section className="MOBILE-MENU flex lg:hidden">
+                    <section className="MOBILE-MENU flex xl:hidden">
                         <div
                             className="HAMBURGER-ICON space-y-2 ml-3"
                             onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
