@@ -16,12 +16,6 @@ EnergyWebNFTs combines data from Greensea and Raregems and displays the order wi
 - [x] Dynamic table data based on json data gathered from firebase
 - [x] Find a fix for the workaround converting between the different currencies
 - [x] Something to run the python script that updates the data to firebase 
-- [ ] Add the 3rd NFT exchange (All orders are on-chain)
-> Option 1: Unable to do it via parsing html -> need gui to add metamask and add metamask account -> need better google vm to use gui and browser
-
-> Option 2: Unable to do it via connecting to a node -> unable to run it myself 24/7, and no 3rd party services like Infura available on EWC
-
-> Option 3: Using a public api to get the data from the exchange -> no api available, since all data is on-chain
 
 ### ✨Later on:
-- [ ] Login system + user able to create and save their portfolio of all the NFTs they own and see the total of the floorprices combined, and percentage in price changes, maybe also in graph format
+- [x] Login system + user able to create and save their portfolio of all the NFTs they own and see the total of the floorprices combined, and percentage in price changes, maybe also in graph format
