@@ -224,8 +224,6 @@ const UserPortfolio = () => {
                                                     <p className='mr-[6px] sm:mr-2'>${totalPortfolioValue}</p>
                                                     <p>|</p>
                                                     <p className='mx-[6px] sm:mx-2'>{totalPortfolioValueEWT} EWT</p>
-                                                    <p>|</p>
-                                                    <p className='ml-[6px] sm:ml-2'>{totalPortfolioValueSUSU} SUSU</p>
                                                 </div>
                                             </div>
                                         ) : (<></>)
@@ -253,8 +251,6 @@ const UserPortfolio = () => {
                                                 <p className='mr-[6px] sm:mr-2'>${totalPortfolioValue}</p>
                                                 <p>|</p>
                                                 <p className='mx-[6px] sm:mx-2'>{totalPortfolioValueEWT} EWT</p>
-                                                <p>|</p>
-                                                <p className='ml-[6px] sm:ml-2'>{totalPortfolioValueSUSU} SUSU</p>
                                             </div>
                                         </div>
                                     ) : (<></>)}

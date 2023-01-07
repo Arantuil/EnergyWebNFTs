@@ -1,18 +1,18 @@
 import { Link } from 'react-router-dom';
 import Toggle from './Toggle';
 import { useQuery, gql } from "@apollo/client";
-import susulogo from '../images/susu.png';
+import shllogo from '../images/shllogo.png';
 import ewtlogo from '../images/ewtlogo.png';
 import ewcnftslogo from '../images/logo.png';
 import { useState } from 'react';
 import { AiOutlineLink } from "react-icons/ai";
 
-const PRICEEWTSUSU = gql`
+const PRICEEWTSHL = gql`
 {
     pair(id: "0x5cec0ccc21d2eb89a0613f6ca4b19b07c75909b0") {
         token1Price
     }
-    token(id: "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc") {
+    token(id: "0xc6c6239614723298591f16bb2f779c9199b5ab1a") {
         derivedETH
     }
 }
@@ -21,7 +21,7 @@ const PRICEEWTSUSU = gql`
 function Header() {
     const [isNavOpen, setIsNavOpen] = useState(false);
 
-    const { data, loading, error } = useQuery(PRICEEWTSUSU);
+    const { data, loading, error } = useQuery(PRICEEWTSHL);
 
     if (loading) return;
     if (error) return <pre>{error.message}</pre>
@@ -29,8 +29,8 @@ function Header() {
     var ewtprice = data["pair"]["token1Price"]
     ewtprice = Number(ewtprice).toFixed(3)
 
-    var susuprice = data["token"]["derivedETH"]
-    susuprice = (Number(susuprice) * ewtprice).toFixed(6)
+    var shlprice = data["token"]["derivedETH"]
+    shlprice = (Number(shlprice) * ewtprice).toFixed(7)
     return (
         <header className='z-5 w-full h-[64px] bg-bgprimary dark:bg-darkbgprimary transition-all flex items-center justify-between' >
             <div className='shadow-[0_0px_10px_3px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_10px_3px_rgba(245,245,230,0.2)] w-full h-full
@@ -68,8 +68,8 @@ function Header() {
                         <div id='blinkingicon' className='ml-1 w-4 h-4 xs:w-3 xs:h-3 rounded-full'></div>
                     </div>
                     <div className="m-1 md:m-2 flex flex-row">
-                        <img className="my-auto md:mt-[2px] flex w-6 h-6 mr-[6px] filter brightness-[90%] dark:brightness-[100%]" src={susulogo} alt="Susu Logo" />
-                        <p className="flex my-auto text-lg font-bold text-textprimary dark:text-darktextprimary transition-all">${susuprice}</p>
+                        <img className="my-auto md:mt-[2px] flex w-6 h-6 mr-[6px] filter brightness-[90%] dark:brightness-[100%]" src={shllogo} alt="SeaShell token Logo" />
+                        <p className="flex my-auto text-lg font-bold text-textprimary dark:text-darktextprimary transition-all">${shlprice}</p>
                     </div>
                 </div>
                 <nav className='mr-4 sm:mr-6 md:mr-10 flex items-center sm:ml-0'>

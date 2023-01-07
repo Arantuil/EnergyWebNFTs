@@ -20,9 +20,9 @@ export const ThemeProvider = ({ initialTheme, children }) => {
 
     const checkTheme = (existing) => {
         const root = window.document.documentElement;
-        const isLight = existing === 'light';
+        const isDark = existing === 'dark';
 
-        root.classList.remove(isLight ? 'dark' : 'light');
+        root.classList.remove(isDark ? 'light' : 'dark');
         root.classList.add(existing);
 
         localStorage.setItem('current-theme', existing);
