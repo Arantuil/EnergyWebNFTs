@@ -128,7 +128,6 @@ def updateNFTreesPrices():
         if l.isdigit():
             num = num + l
     floornftid = num
-    print(floornftid)
 
     if pricecurrency == "EWT":
         raregemspriceslistoriginal = [float(price[:-3]), 'EWT', f'{floornftid}', 'Raregems']

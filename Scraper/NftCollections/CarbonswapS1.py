@@ -157,27 +157,26 @@ def updateCarbonSwapS1Prices():
         url = "https://carbonjack.io/nft-broker/index.html#"
         html = getHTMLdocument(url)
         soup = BeautifulSoup(html, 'html.parser')
-        print(soup)
 
-        #try:
-        #    url = "https://raregems.io/energyweb/carbonswap/"+f"{i+1}"
-        #    html = getHTMLdocument(url)
-        #    soup = BeautifulSoup(html, 'html.parser')
-        #    price = soup.find_all('button', class_='big')
-        #    price = price[0]
-        #    price = price.findChildren()
-        #    price = price[0].string
-        #    pricecurrency = price[-3:]
-        #except:
-        #    price = 0
-        #    pricecurrency = 'N/A'
-
-        #if pricecurrency == "EWT":
-        #    raregemspriceslistoriginal = [float(price[:-3]), 'EWT', f'{i+1}', 'Raregems']
-        #    raregemspriceslistusd = [float(price[:-3])*ewtprice, 'USD', f'{i+1}', 'Raregems']
-        #else:
-        #    raregemspriceslistoriginal = [0, 'EWT', 'N/A', 'N/A']
-        #    raregemspriceslistusd = [0, 'USD', 'N/A', 'N/A']
+        try:
+            url = "https://raregems.io/energyweb/carbonswap/"+f"{i+1}"
+            html = getHTMLdocument(url)
+            soup = BeautifulSoup(html, 'html.parser')
+            price = soup.find_all('button', class_='big')
+            price = price[0]
+            price = price.findChildren()
+            price = price[0].string
+            pricecurrency = price[-3:]
+        except:
+            price = 0
+            pricecurrency = 'N/A'
+        
+        if pricecurrency == "EWT":
+            raregemspriceslistoriginal = [float(price[:-3]), 'EWT', f'{i+1}', 'Raregems']
+            raregemspriceslistusd = [float(price[:-3])*ewtprice, 'USD', f'{i+1}', 'Raregems']
+        else:
+            raregemspriceslistoriginal = [0, 'EWT', 'N/A', 'N/A']
+            raregemspriceslistusd = [0, 'USD', 'N/A', 'N/A']
 
     # ---------------------------------------------------------- #
         if greenseapriceslistoriginal[0] == 0:
@@ -430,33 +429,31 @@ def updateCarbonSwapS1Prices():
             "assettype": assettype
         }
 
-        print(carbonswapNftData)
-
-        #db.reference(f"{i}").update({"rank": carbonswapNftData["rank"]})
-        #db.reference(f"{i}").update({"id": carbonswapNftData["id"]})
-        #db.reference(f"{i}").update({"name": carbonswapNftData["name"]})
-        #db.reference(f"{i}").update({"projectlink": carbonswapNftData["projectlink"]})
-        #db.reference(f"{i}").update({"description": carbonswapNftData["description"]})
-        #db.reference(f"{i}").update({"islistedongs": carbonswapNftData["islistedongs"]})
-        #db.reference(f"{i}").update({"islistedonrg": carbonswapNftData["islistedonrg"]})
-        #db.reference(f"{i}").update({"islistedoncj": carbonswapNftData["islistedoncj"]})
-        #db.reference(f"{i}").update({"image": carbonswapNftData["image"]})
-        #db.reference(f"{i}").update({"imageanimated": carbonswapNftData["imageanimated"]})
-        #db.reference(f"{i}").update({"cheapestpriceoriginal": carbonswapNftData["cheapestpriceoriginal"]})
-        #db.reference(f"{i}").update({"cheapestpricecurrency": carbonswapNftData["cheapestpricecurrency"]})
-        #db.reference(f"{i}").update({"cheapestmarket": carbonswapNftData["cheapestpricemarket"]})
-        #db.reference(f"{i}").update({"cheapestmarketlink": carbonswapNftData["cheapestpricemarketlink"]})
-        #db.reference(f"{i}").update({"marketcap": carbonswapNftData["marketcap"]})
-        #db.reference(f"{i}").update({"floorpricesevenday": carbonswapNftData["floorpricesevenday"]})
-        #db.reference(f"{i}").update({"floorpricefourteenday": carbonswapNftData["floorpricefourteenday"]})
-        #db.reference(f"{i}").update({"floorpricethirtyday": carbonswapNftData["floorpricethirtyday"]})
-        #db.reference(f"{i}").update({"floorpricesixtyday": carbonswapNftData["floorpricesixtyday"]})
-        #db.reference(f"{i}").update({"percentage7daycolor": carbonswapNftData["percentage7daycolor"]})
-        #db.reference(f"{i}").update({"percentage14daycolor": carbonswapNftData["percentage14daycolor"]})
-        #db.reference(f"{i}").update({"percentage30daycolor": carbonswapNftData["percentage30daycolor"]})
-        #db.reference(f"{i}").update({"percentage60daycolor": carbonswapNftData["percentage60daycolor"]})
-        #db.reference(f"{i}").update({"circulating": carbonswapNftData["circulating"]})
-        #db.reference(f"{i}").update({"floorprice": carbonswapNftData["floorprice"]})
-        #db.reference(f"{i}").update({"owners": carbonswapNftData["owners"]})
-        #db.reference(f"{i}").update({"assettype": carbonswapNftData["assettype"]})
+        db.reference(f"{i}").update({"rank": carbonswapNftData["rank"]})
+        db.reference(f"{i}").update({"id": carbonswapNftData["id"]})
+        db.reference(f"{i}").update({"name": carbonswapNftData["name"]})
+        db.reference(f"{i}").update({"projectlink": carbonswapNftData["projectlink"]})
+        db.reference(f"{i}").update({"description": carbonswapNftData["description"]})
+        db.reference(f"{i}").update({"islistedongs": carbonswapNftData["islistedongs"]})
+        db.reference(f"{i}").update({"islistedonrg": carbonswapNftData["islistedonrg"]})
+        db.reference(f"{i}").update({"islistedoncj": carbonswapNftData["islistedoncj"]})
+        db.reference(f"{i}").update({"image": carbonswapNftData["image"]})
+        db.reference(f"{i}").update({"imageanimated": carbonswapNftData["imageanimated"]})
+        db.reference(f"{i}").update({"cheapestpriceoriginal": carbonswapNftData["cheapestpriceoriginal"]})
+        db.reference(f"{i}").update({"cheapestpricecurrency": carbonswapNftData["cheapestpricecurrency"]})
+        db.reference(f"{i}").update({"cheapestmarket": carbonswapNftData["cheapestpricemarket"]})
+        db.reference(f"{i}").update({"cheapestmarketlink": carbonswapNftData["cheapestpricemarketlink"]})
+        db.reference(f"{i}").update({"marketcap": carbonswapNftData["marketcap"]})
+        db.reference(f"{i}").update({"floorpricesevenday": carbonswapNftData["floorpricesevenday"]})
+        db.reference(f"{i}").update({"floorpricefourteenday": carbonswapNftData["floorpricefourteenday"]})
+        db.reference(f"{i}").update({"floorpricethirtyday": carbonswapNftData["floorpricethirtyday"]})
+        db.reference(f"{i}").update({"floorpricesixtyday": carbonswapNftData["floorpricesixtyday"]})
+        db.reference(f"{i}").update({"percentage7daycolor": carbonswapNftData["percentage7daycolor"]})
+        db.reference(f"{i}").update({"percentage14daycolor": carbonswapNftData["percentage14daycolor"]})
+        db.reference(f"{i}").update({"percentage30daycolor": carbonswapNftData["percentage30daycolor"]})
+        db.reference(f"{i}").update({"percentage60daycolor": carbonswapNftData["percentage60daycolor"]})
+        db.reference(f"{i}").update({"circulating": carbonswapNftData["circulating"]})
+        db.reference(f"{i}").update({"floorprice": carbonswapNftData["floorprice"]})
+        db.reference(f"{i}").update({"owners": carbonswapNftData["owners"]})
+        db.reference(f"{i}").update({"assettype": carbonswapNftData["assettype"]})
         print(f"Updated NFT with ID: {i}")

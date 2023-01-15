@@ -110,7 +110,7 @@ function Header() {
                                 <Link onClick={() => setIsNavOpen(false)} to='/portfolio' className='p-4 hover:invert hover:brightness-110 mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
                                     Portfolio
                                 </Link>
-                                <a onClick={() => setIsNavOpen(false)} className='p-4 hover:invert translate-x-[12px] flex flex-row mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://place.energywebnfts.com/'>EW/place
+                                <a onClick={() => setIsNavOpen(false)} className='p-4 hover:invert translate-x-[12px] flex flex-row mx-1 sm:mx-2 text-lg font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://place.energywebnfts.com/'>EW/place (PC recommended)
                                     <AiOutlineLink />
                                 </a>
                                 <a className='translate-x-[12px] flex flex-row p-4 hover:invert hover:brightness-110 mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://ewtstake.energywebnfts.com/'>EWT Staking Info
