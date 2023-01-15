@@ -15,41 +15,51 @@ import os
 import firebase_admin
 from firebase_admin import credentials
 
+cred = credentials.Certificate('serviceAccountKey.json')
+
+firebase_admin.initialize_app(cred, {
+    'databaseURL': 'https://energywebnfts-default-rtdb.firebaseio.com'
+})
+
 # ----------------------------------------------------------------- #
 
-while True:
-    cred = credentials.Certificate('serviceAccountKey.json')
+def restart():
+    os.execv(sys.executable,['python3'] + sys.argv)
 
-    firebase_admin.initialize_app(cred, {
-        'databaseURL': 'https://energywebnfts-default-rtdb.firebaseio.com'
-    })
+ranTimes = 0
+try:
+    while True:
+        ranTimes += 1
+        try:
+            start = time.time()
+            try: updateCarbonSwapS1Prices()
+            except: print('Error at NFT ID: 1')
+            try: updateCarbonlandTrustPrices()
+            except: print('Error at NFT ID: 2')
+            try: updateSmudgeMeowOfBastetPrices()
+            except: print('Error at NFT ID: 3')
+            try: updateCarbonautsPrices()
+            except: print('Error at NFT ID: 4')
+            try: updateEnergymonPrices()
+            except: print('Error at NFT ID: 5')
+            try: updateCryptoSootsPrices()
+            except: print('Error at NFT ID: 6')
+            try: updateNFTreesPrices()
+            except: print('Error at NFT ID: 7')
+            try: updateIinuPrices()
+            except: print('Error at NFT ID: 8')
+            try: updateSmudgeCatworldPrices()
+            except: print('Error at NFT ID: 9')
+            try: updateBeatsBoyzPrices()
+            except: print('Error at NFT ID: 10')
+            try: updateTubbyTurtlesPrices()
+            except: print('Error at NFT ID: 11')
 
-    try:
-        start = time.time()
-        try: updateCarbonSwapS1Prices()
-        except: print('Error at NFT ID: 1')
-        try: updateCarbonlandTrustPrices()
-        except: print('Error at NFT ID: 2')
-        try: updateSmudgeMeowOfBastetPrices()
-        except: print('Error at NFT ID: 3')
-        try: updateCarbonautsPrices()
-        except: print('Error at NFT ID: 4')
-        try: updateEnergymonPrices()
-        except: print('Error at NFT ID: 5')
-        try: updateCryptoSootsPrices()
-        except: print('Error at NFT ID: 6')
-        try: updateNFTreesPrices()
-        except: print('Error at NFT ID: 7')
-        try: updateIinuPrices()
-        except: print('Error at NFT ID: 8')
-        try: updateSmudgeCatworldPrices()
-        except: print('Error at NFT ID: 9')
-        try: updateBeatsBoyzPrices()
-        except: print('Error at NFT ID: 10')
-        try: updateTubbyTurtlesPrices()
-        except: print('Error at NFT ID: 11')
-
-        end = time.time()
-        print("The time of execution of the above program is:", end-start)
-    except:
-        time.sleep(15)
+            end = time.time()
+            print("The time of execution of the above program is:", end-start)
+            if ranTimes % 5 == 0:
+                restart()
+        except:
+            time.sleep(15)
+except KeyboardInterrupt:
+    print('interrupted!')
