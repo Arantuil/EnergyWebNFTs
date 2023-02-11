@@ -4,6 +4,7 @@ import { useQuery, gql } from "@apollo/client";
 import shllogo from '../images/shllogo.png';
 import ewtlogo from '../images/ewtlogo.png';
 import ewcnftslogo from '../images/logo.png';
+import auctionlogo from '../images/auctionlogo.png';
 import { useState } from 'react';
 import { AiOutlineLink } from "react-icons/ai";
 
@@ -39,24 +40,29 @@ function Header() {
             transition-all flex flex-row'>
                 <Link to='/' className='flex flex-row ml-4 sm:ml-6 md:ml-10'>
                     <img className='2xs:w-[28px!important] 2xs:h-[28px!important] h-12 my-auto filter brightness-[90%] dark:brightness-[110%]' src={ewcnftslogo} alt="EnergyWebNFTs Logo" />
-                    <h1 className='hidden md:block my-auto font-bold text-xl ml-1 mr-2 text-textprimary dark:text-darktextprimary transition-all'>
+                    <h1 className='hover:invert hidden md:block my-auto font-bold text-xl ml-1 mr-2 text-textprimary dark:text-darktextprimary transition-all'>
                         EnergyWebNFTs
                     </h1>
                 </Link>
                 <ul className="DESKTOP-MENU hidden lg:flex items-center">
-                    <Link to='/markets' className='mx-1 sm:mx-2 text-xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
+                    <Link to='/markets' className='hover:invert mx-1 sm:mx-2 text-xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
                         Markets
                     </Link>
-                    <Link to='/portfolio' className='mx-1 sm:mx-2 text-xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
+                    <Link to='/portfolio' className='hover:invert mx-1 sm:mx-2 text-xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
                         Portfolio
                     </Link>
-                    <a className='flex flex-row mx-1 sm:mx-2 text-xl font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://place.energywebnfts.com/'>EW/place
+                    <a className='hover:invert hidden 2xl:flex flex-row mx-1 sm:mx-2 text-xl font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://place.energywebnfts.com/'>EW/place
                         <AiOutlineLink />
                     </a>
-                    <a className='hidden xl:flex text-[1.15rem] 2xl:text-xl flex-row mx-[0.25rem] sm:mx-1 md:mx-2 font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://ewtstake.energywebnfts.com/'>EWT Staking Info
+                    <a className='hover:invert hidden 2xl:flex text-[1.15rem] 2xl:text-xl flex-row mx-[0.25rem] sm:mx-1 md:mx-2 font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://ewtstake.energywebnfts.com/'>EWT Staking Info
                         <AiOutlineLink />
                     </a>
-                    <a className='hidden xl:flex text-[1.15rem] 2xl:text-xl flex-row mx-[0.25rem] sm:mx-1 md:mx-2 font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://txtracker.energywebnfts.com/'>EWT Tx Tracker
+                    <a className='hover:invert hidden xl:flex text-[1.15rem] 2xl:text-xl flex-row mx-[0.25rem] sm:mx-1 md:mx-2 font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://txtracker.energywebnfts.com/'>EWT Tx Tracker
+                        <AiOutlineLink />
+                    </a>
+                    <img className='translate-x-[4px] ml-[2px] flex h-8 my-auto filter brightness-[90%] dark:brightness-[110%]' src={auctionlogo} alt="AuctionHouse Logo" />
+                    <a className='hover:invert flex text-[1.15rem] 2xl:text-xl flex-row mx-[0.25rem] sm:mx-1 md:mx-2 font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://auction.energywebnfts.com/'>
+                        AuctionHouse
                         <AiOutlineLink />
                     </a>
                 </ul>
@@ -78,9 +84,9 @@ function Header() {
                             className="HAMBURGER-ICON space-y-2 ml-3"
                             onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
                         >
-                            <span className="block h-[4px] w-9 rounded-md bg-darkbgprimary dark:bg-bgprimary"></span>
-                            <span className="block h-[4px] w-9 rounded-md bg-darkbgprimary dark:bg-bgprimary"></span>
-                            <span className="block h-[4px] w-9 rounded-md bg-darkbgprimary dark:bg-bgprimary"></span>
+                            <span className="block h-[3px] w-7 translate-y-[3px] rounded-md dark:bg-darkbgprimary bg-bgprimary"></span>
+                            <span className="block h-[3px] w-7 rounded-md dark:bg-darkbgprimary bg-bgprimary"></span>
+                            <span className="block h-[3px] w-7 -translate-y-[3px] rounded-md dark:bg-darkbgprimary bg-bgprimary"></span>
                         </div>
                         <div className={isNavOpen ? "showMenuNav shadow-[0_0px_24px_10px_rgba(15,23,35,0.30)] rounded-bl-3xl rounded-br-3xl dark:shadow-[0_0px_24px_10px_rgba(245,245,230,0.2)] bg-gradient-to-br from-[rgb(166,238,173)] via-[rgb(153,215,226)] to-[rgb(211,179,253)] dark:bg-gradient-to-br dark:from-[#39753f] dark:via-[#316872] dark:to-[#64478a] transition-all" : "hideMenuNav"}>
                             <div
@@ -110,13 +116,18 @@ function Header() {
                                 <Link onClick={() => setIsNavOpen(false)} to='/portfolio' className='p-4 hover:invert hover:brightness-110 mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all'>
                                     Portfolio
                                 </Link>
-                                <a onClick={() => setIsNavOpen(false)} className='p-4 hover:invert translate-x-[12px] flex flex-row mx-1 sm:mx-2 text-lg font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://place.energywebnfts.com/'>EW/place (PC recommended)
+                                <a onClick={() => setIsNavOpen(false)} className='p-4 hover:invert translate-x-[12px] flex flex-row mx-1 sm:mx-2 text-xl s:text-lg 2xs:text-base font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://place.energywebnfts.com/'>EW/place (PC recommended)
                                     <AiOutlineLink />
                                 </a>
                                 <a className='translate-x-[12px] flex flex-row p-4 hover:invert hover:brightness-110 mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://ewtstake.energywebnfts.com/'>EWT Staking Info
                                     <AiOutlineLink />
                                 </a>
                                 <a className='translate-x-[12px] flex flex-row p-4 hover:invert hover:brightness-110 mx-1 sm:mx-2 text-2xl font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://txtracker.energywebnfts.com/'>EWT Tx Tracker
+                                    <AiOutlineLink />
+                                </a>
+                                <a className='translate-x-[12px] flex flex-row p-4 hover:invert hover:brightness-110 mx-1 sm:mx-2 text-xl s:text-lg 2xs:text-base font-bold text-textprimary dark:text-darktextprimary transition-all' href='https://auction.energywebnfts.com/'>
+                                <img className='-translate-x-[4px] flex h-8 my-auto filter brightness-[90%] dark:brightness-[110%]' src={auctionlogo} alt="AuctionHouse Logo" />
+                                    EWCNFTAuctionHouse
                                     <AiOutlineLink />
                                 </a>
                             </ul>

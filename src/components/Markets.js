@@ -88,10 +88,10 @@ function Markets() {
                                 <div className='w-full h-[50%] flex flex-row'>
                                     <div className='w-full h-full my-4'>
                                         <div className='text-center flex flex-col text-textprimary dark:text-darktextprimary transition-all'>
-                                            <h2 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-lg'>Name:</span> <span className='text-lg'></span></h2>
-                                            <h2 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-lg'>Non-custodial:</span> <span className='text-green-600 text-lg'></span></h2>
-                                            <h2 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-lg'>Fee:</span> <span className='text-lg'></span></h2>
-                                            <h2 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-base'>Tracked on EWCNFTs:</span> <span className='text-green-600 text-base'></span></h2>
+                                            <h2 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-lg'>Name:</span> <span className='text-lg'>EWCNFTAuctionHouse</span></h2>
+                                            <h2 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-lg'>Non-custodial:</span> <span className='text-red-600 text-lg'>No</span></h2>
+                                            <h2 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-lg'>Fee:</span> <span className='text-lg'>0.75% - 1%</span></h2>
+                                            <h2 className='w-[85%] flex mx-auto justify-center border-b-2 border-solid border-[rgba(50,50,50,0.20)] dark:border-[rgba(220,220,220,0.20)]'><span className='mr-2 font-bold text-base'>Tracked on EWCNFTs:</span> <span className='text-red-600 text-base'>No</span></h2>
                                         </div>
                                         <div className='w-[100%] h-[30px] justify-center flex flex-row'>
                                             <a className='mx-1 mt-[2px] h-full' href="" target="_blank" rel="noreferrer">
