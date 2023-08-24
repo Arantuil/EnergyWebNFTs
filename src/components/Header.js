@@ -34,7 +34,7 @@ function Header() {
     shlprice = (Number(shlprice) * ewtprice).toFixed(7)
     return (
         <header className='z-5 w-full h-[64px] bg-bgprimary dark:bg-darkbgprimary transition-all flex items-center justify-between' >
-            <div className='shadow-[0_0px_10px_3px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_10px_3px_rgba(245,245,230,0.2)] w-full h-full
+            <div className='shadow-[0_0px_10px_3px_rgba(15,23,35,0.30)] dark:shadow-[0_0px_7px_2px_rgba(245,245,230,0.2)] w-full h-full
             bg-gradient-to-r from-[#9AEFA2] via-[#8DD7E4] to-[#C8A1FB] 
             dark:bg-gradient-to-r dark:from-[#368B3E] dark:via-[#297380] dark:to-[#643D97]
             transition-all flex flex-row'>
@@ -88,10 +88,10 @@ function Header() {
                             <span className="block h-[3px] w-7 rounded-md dark:bg-darkbgprimary bg-bgprimary"></span>
                             <span className="block h-[3px] w-7 -translate-y-[3px] rounded-md dark:bg-darkbgprimary bg-bgprimary"></span>
                         </div>
-                        <div className={isNavOpen ? "showMenuNav shadow-[0_0px_24px_10px_rgba(15,23,35,0.30)] rounded-bl-3xl rounded-br-3xl dark:shadow-[0_0px_24px_10px_rgba(245,245,230,0.2)] bg-gradient-to-br from-[rgb(166,238,173)] via-[rgb(153,215,226)] to-[rgb(211,179,253)] dark:bg-gradient-to-br dark:from-[#39753f] dark:via-[#316872] dark:to-[#64478a] transition-all" : "hideMenuNav"}>
+                        <div className={isNavOpen ? "showMenuNav shadow-[0_0px_24px_10px_rgba(15,23,35,0.30)] rounded-bl-3xl rounded-br-3xl dark:shadow-[0_0px_10px_6px_rgba(245,245,230,0.2)] bg-gradient-to-br from-[rgb(166,238,173)] via-[rgb(153,215,226)] to-[rgb(211,179,253)] dark:bg-gradient-to-br dark:from-[#39753f] dark:via-[#316872] dark:to-[#64478a] transition-all" : "hideMenuNav"}>
                             <div
                                 className="CROSS-ICON absolute top-0 right-0 px-8 py-8"
-                                onClick={() => setIsNavOpen(false)} // change isNavOpen state to false to close the menu
+                                onClick={() => setIsNavOpen(false)}
                             >
                                 <svg
                                     className="h-8 w-8 text-textprimary dark:text-darktextprimary"
