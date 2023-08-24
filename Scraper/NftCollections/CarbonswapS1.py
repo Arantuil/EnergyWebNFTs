@@ -456,4 +456,3 @@ def updateCarbonSwapS1Prices():
         db.reference(f"{i}").update({"floorprice": carbonswapNftData["floorprice"]})
         db.reference(f"{i}").update({"owners": carbonswapNftData["owners"]})
         db.reference(f"{i}").update({"assettype": carbonswapNftData["assettype"]})
-        print(f"Updated NFT with ID: {i}")

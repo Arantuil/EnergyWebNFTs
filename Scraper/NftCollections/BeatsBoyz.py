@@ -60,32 +60,9 @@ allNftList = [
 
 allNftAmounts = ["20000"] 
 
-def updateBeatsBoyzPrices():
-    for i in range(len(allNftList)):
-        #query = '''{sellOrders: orders(where: {active: true, sellAsset_starts_with: '''+'"'+allNftList[i]+'"}'+''', orderBy: createdAt, orderDirection: desc, skip: 0, first: 1000) {id sellAsset { id assetAddress} buyAsset {id assetId assetType assetAddress}active fills {id buyer{id}complete createdAt order {id}}strategy {askPerUnitNominator askPerUnitDenominator}}}'''
-        #query7day = '''{sellOrders: orders(where: {active: true, sellAsset_starts_with: '''+'"'+allNftList[i]+'"}'+''', block: {number: '''+block7dayago+'''} , orderBy: createdAt, orderDirection: desc, skip: 0, first: 1000) {id sellAsset {id assetAddress}buyAsset {id assetId assetType assetAddress}active fills {id buyer {id}complete createdAt order {id}}strategy {askPerUnitNominator askPerUnitDenominator}}}'''
-        #query14day = '''{sellOrders: orders(where: {active: true, sellAsset_starts_with: '''+'"'+allNftList[i]+'"}'+''', block: {number: '''+block14dayago+'''} , orderBy: createdAt, orderDirection: desc, skip: 0, first: 1000) {id sellAsset{id assetAddress}buyAsset{id assetId assetType assetAddress}active fills{id buyer {id}complete createdAt order {id}}strategy {askPerUnitNominator askPerUnitDenominator}}}'''
-        #query30day = '''{sellOrders: orders(where: {active: true, sellAsset_starts_with: '''+'"'+allNftList[i]+'"}'+''', block: {number: '''+block30dayago+'''} , orderBy: createdAt, orderDirection: desc, skip: 0, first: 1000) {id sellAsset {id assetAddress} buyAsset {id assetId assetType assetAddress}active fills {id buyer {id}complete createdAt order {id}}strategy {askPerUnitNominator askPerUnitDenominator}}}'''
-        #query60day = '''{sellOrders: orders(where: {active: true, sellAsset_starts_with: '''+'"'+allNftList[i]+'"}'+''', block: {number: '''+block60dayago+'''} , orderBy: createdAt, orderDirection: desc, skip: 0, first: 1000) {id sellAsset {id assetAddress}buyAsset {id assetId assetType assetAddress } active fills {id buyer {id}complete createdAt order {id}}strategy {askPerUnitNominator askPerUnitDenominator}}}'''
+def updateBeatsBoyzPrices():    
+    greenseapriceslistoriginal = []
 
-        #url = 'https://ewc-subgraph.carbonswap.exchange/subgraphs/name/carbonswap/marketplace'
-
-        #request = requests.post(url, json={'query': query})
-        #parsedjson = json.loads(request.text)
-
-        greenseapriceslistoriginal = []
-        #for e in range(len(parsedjson["data"]["sellOrders"])):
-        #    token = str(parsedjson["data"]["sellOrders"][e]["buyAsset"]["assetAddress"])
-        #    if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
-        #        if len(greenseapriceslistoriginal) == 0:
-        #            sootid = (parsedjson["data"]["sellOrders"][e]["sellAsset"]["id"]).split("-",1)[1]
-        #            greenseapriceslistoriginal = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", sootid, "Greensea"]
-        #        else:
-        #            if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal[0]):
-        #                sootid = (parsedjson["data"]["sellOrders"][e]["sellAsset"]["id"]).split("-",1)[1]
-        #                greenseapriceslistoriginal = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", sootid, "Greensea"]
-        #            else:
-        #                pass
 
     if len(greenseapriceslistoriginal) == 0:
         greenseapriceslistoriginal = [0, 'SUSU', 'N/A', 'N/A']
@@ -158,130 +135,7 @@ def updateBeatsBoyzPrices():
     elif raregemspriceslistusd[0] < greenseapriceslistusd[0]:
         combinedpriceslistusd = raregemspriceslistusd
     # --------------------------------------------- #
-#    # ----------------------------------- 7 day ----------------------------------- #
-#    for i3 in range(len(allNftList)):
-#        url = 'https://ewc-subgraph.carbonswap.exchange/subgraphs/name/carbonswap/marketplace'
-#
-#        request = requests.post(url, json={'query': query7day})
-#        parsedjson = json.loads(request.text)
-#
-#        greenseapriceslistoriginal7day = []
-#        for e in range(len(parsedjson["data"]["sellOrders"])):
-#            token = str(parsedjson["data"]["sellOrders"][e]["buyAsset"]["assetAddress"])
-#            if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
-#                if len(greenseapriceslistoriginal7day) == 0:
-#                    greenseapriceslistoriginal7day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i3}", "Greensea"]
-#                else:
-#                    if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal7day[0]):
-#                        greenseapriceslistoriginal7day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i3}", "Greensea"]
-#                    else:
-#                        pass
-#
-#    if len(greenseapriceslistoriginal7day) == 0:
-#        greenseapriceslistoriginal7day = [0, 'SUSU', 'N/A', 'N/A']
-#        greenseapriceslistusd7day = [0, 'USD', 'N/A', 'N/A']
-#    elif greenseapriceslistoriginal7day[1] != 'SUSU':
-#        greenseapriceslistoriginal7day = [0, 'SUSU', 'N/A', 'N/A']
-#        greenseapriceslistusd7day = [0, 'USD', 'N/A', 'N/A']
-#    elif greenseapriceslistoriginal7day[1] == 'SUSU':
-#        greenseapriceslistusd7day = [greenseapriceslistoriginal7day[0]*susuprice7day, "USD", greenseapriceslistoriginal7day[2], greenseapriceslistoriginal7day[3]]
-#    else:
-#        greenseapriceslistusd7day = [0, "USD", greenseapriceslistoriginal7day[2], greenseapriceslistoriginal7day[3]]
-#
-#    percentage7day = (greenseapriceslistusd[0]/greenseapriceslistusd7day[0]*100)-100
-#    # ----------------------------------- 14 day ---------------------------------- #
-#    for i4 in range(len(allNftList)):
-#        url = 'https://ewc-subgraph.carbonswap.exchange/subgraphs/name/carbonswap/marketplace'
-#
-#        request = requests.post(url, json={'query': query14day})
-#        parsedjson = json.loads(request.text)
-#
-#        greenseapriceslistoriginal14day = []
-#        for e in range(len(parsedjson["data"]["sellOrders"])):
-#            token = str(parsedjson["data"]["sellOrders"][e]["buyAsset"]["assetAddress"])
-#            if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
-#                if len(greenseapriceslistoriginal14day) == 0:
-#                    greenseapriceslistoriginal14day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i4}", "Greensea"]
-#                else:
-#                    if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal14day[0]):
-#                        greenseapriceslistoriginal14day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i4}", "Greensea"]
-#                    else:
-#                        pass
-#
-#    if len(greenseapriceslistoriginal14day) == 0:
-#        greenseapriceslistoriginal14day = [0, 'SUSU', 'N/A', 'N/A']
-#        greenseapriceslistusd14day = [0, 'USD', 'N/A', 'N/A']
-#    elif greenseapriceslistoriginal14day[1] != 'SUSU':
-#        greenseapriceslistoriginal14day = [0, 'SUSU', 'N/A', 'N/A']
-#        greenseapriceslistusd14day = [0, 'USD', 'N/A', 'N/A']
-#    elif greenseapriceslistoriginal14day[1] == 'SUSU':
-#        greenseapriceslistusd14day = [greenseapriceslistoriginal14day[0]*susuprice14day, "USD", greenseapriceslistoriginal14day[2], greenseapriceslistoriginal14day[3]]
-#    else:
-#        greenseapriceslistusd14day = [0, "USD", greenseapriceslistoriginal14day[2], greenseapriceslistoriginal14day[3]]
-#    
-#    percentage14day = (greenseapriceslistusd[0]/greenseapriceslistusd14day[0]*100)-100
-#    # ----------------------------------- 30 day ---------------------------------- #
-#    for i5 in range(len(allNftList)):
-#        url = 'https://ewc-subgraph.carbonswap.exchange/subgraphs/name/carbonswap/marketplace'
-#
-#        request = requests.post(url, json={'query': query30day})
-#        parsedjson = json.loads(request.text)
-#
-#        greenseapriceslistoriginal30day = []
-#        for e in range(len(parsedjson["data"]["sellOrders"])):
-#            token = str(parsedjson["data"]["sellOrders"][e]["buyAsset"]["assetAddress"])
-#            if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
-#                if len(greenseapriceslistoriginal30day) == 0:
-#                    greenseapriceslistoriginal30day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i5}", "Greensea"]
-#                else:
-#                    if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal30day[0]):
-#                        greenseapriceslistoriginal30day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i5}", "Greensea"]
-#                    else:
-#                        pass
-#
-#    if len(greenseapriceslistoriginal30day) == 0:
-#        greenseapriceslistoriginal30day = [0, 'SUSU', 'N/A', 'N/A']
-#        greenseapriceslistusd30day = [0, 'USD', 'N/A', 'N/A']
-#    elif greenseapriceslistoriginal30day[1] != 'SUSU':
-#        greenseapriceslistoriginal30day = [0, 'SUSU', 'N/A', 'N/A']
-#        greenseapriceslistusd30day = [0, 'USD', 'N/A', 'N/A']
-#    elif greenseapriceslistoriginal30day[1] == 'SUSU':
-#        greenseapriceslistusd30day = [greenseapriceslistoriginal30day[0]*susuprice30day, "USD", greenseapriceslistoriginal30day[2], greenseapriceslistoriginal30day[3]]
-#    else:
-#        greenseapriceslistusd30day = [0, "USD", greenseapriceslistoriginal30day[2], greenseapriceslistoriginal30day[3]]
-#    
-#    percentage30day = (greenseapriceslistusd[0]/greenseapriceslistusd30day[0]*100)-100
-#    # ----------------------------------- 60 day ---------------------------------- #
-#    for i6 in range(len(allNftList)):
-#        url = 'https://ewc-subgraph.carbonswap.exchange/subgraphs/name/carbonswap/marketplace'
-#
-#        request = requests.post(url, json={'query': query60day})
-#        parsedjson = json.loads(request.text)
-#
-#        greenseapriceslistoriginal60day = []
-#        for e in range(len(parsedjson["data"]["sellOrders"])):
-#            token = str(parsedjson["data"]["sellOrders"][e]["buyAsset"]["assetAddress"])
-#            if token == "0x9cd9caecdc816c3e7123a4f130a91a684d01f4dc":
-#                if len(greenseapriceslistoriginal60day) == 0:
-#                    greenseapriceslistoriginal60day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i6}", "Greensea"]
-#                else:
-#                    if round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000) < int(greenseapriceslistoriginal60day[0]):
-#                        greenseapriceslistoriginal60day = [round(int(parsedjson["data"]["sellOrders"][e]["strategy"]["askPerUnitNominator"])/1000000000000000000), "SUSU", f"{i6}", "Greensea"]
-#                    else:
-#                        pass
-#
-#    if len(greenseapriceslistoriginal60day) == 0:
-#        greenseapriceslistoriginal60day = [0, 'SUSU', 'N/A', 'N/A']
-#        greenseapriceslistusd60day = [0, 'USD', 'N/A', 'N/A']
-#    elif greenseapriceslistoriginal60day[1] != 'SUSU':
-#        greenseapriceslistoriginal60day = [0, 'SUSU', 'N/A', 'N/A']
-#        greenseapriceslistusd60day = [0, 'USD', 'N/A', 'N/A']
-#    elif greenseapriceslistoriginal60day[1] == 'SUSU':
-#        greenseapriceslistusd60day = [greenseapriceslistoriginal60day[0]*susuprice60day, "USD", greenseapriceslistoriginal60day[2], greenseapriceslistoriginal60day[3]]
-#    else:
-#        greenseapriceslistusd60day = [0, "USD", greenseapriceslistoriginal60day[2], greenseapriceslistoriginal60day[3]]
-#    
-#    percentage60day = (greenseapriceslistusd[0]/greenseapriceslistusd60day[0]*100)-100
+
     # -------------------------------------------------------------------------- #
     image = f"/images/beatsboyz.png"
     imageanimated = f"/animatedimages/beatsboyz.png"
@@ -387,4 +241,3 @@ def updateBeatsBoyzPrices():
     db.reference(f"{26}").update({"floorprice": carbonswapNftData["floorprice"]})
     db.reference(f"{26}").update({"owners": carbonswapNftData["owners"]})
     db.reference(f"{26}").update({"assettype": carbonswapNftData["assettype"]})
-    print(f"Updated NFT with ID: {26}")

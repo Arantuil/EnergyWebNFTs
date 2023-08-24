@@ -405,4 +405,3 @@ def updateSmudgeMeowOfBastetPrices():
         db.reference(f"{i+11}").update({"floorprice": carbonswapNftData["floorprice"]})
         db.reference(f"{i+11}").update({"owners": carbonswapNftData["owners"]})
         db.reference(f"{i+11}").update({"assettype": carbonswapNftData["assettype"]})
-        print(f"Updated NFT with ID: {i+11}")

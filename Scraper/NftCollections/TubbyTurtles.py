@@ -1,16 +1,10 @@
 import requests
 import json
 from bs4 import BeautifulSoup
-import time
-import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
 
 cred = credentials.Certificate('serviceAccountKey.json')
-
-#firebase_admin.initialize_app(cred, {
-#    'databaseURL': 'https://energywebnfts-default-rtdb.firebaseio.com'
-#})
 
 url = "https://ewc-subgraph-production.carbonswap.exchange/subgraphs/name/carbonswap/uniswapv2"
 
@@ -209,4 +203,3 @@ def updateTubbyTurtlesPrices():
     db.reference(f"{27}").update({"floorprice": carbonswapNftData["floorprice"]})
     db.reference(f"{27}").update({"owners": carbonswapNftData["owners"]})
     db.reference(f"{27}").update({"assettype": carbonswapNftData["assettype"]})
-    print(f"Updated NFT with ID: {27}")
